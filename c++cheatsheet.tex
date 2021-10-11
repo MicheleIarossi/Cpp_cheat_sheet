@@ -63,10 +63,12 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
-\renewcommand{\footrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
 \fancyhead{}
-\fancyfoot[L]{www.mathsophy.com}
-\fancyfoot[R]{GNU GPLv3.0}
+
+\fancyfoot[L]{\small www.mathsophy.com}
+\fancyfoot[C]{\small \thepage}
+\fancyfoot[R]{\small GNU GPL v3.0}
 
 
 % This is the body: text mixed with commands
@@ -78,7 +80,7 @@
 % Set title and author
 \title{\emph{C++ basics cheat sheet}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\today~-~Version 1.01~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.01~-~GNU GPL v3.0}
 
 %\layout
 
