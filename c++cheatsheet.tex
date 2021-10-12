@@ -60,12 +60,16 @@
 % 1cm separation between columns
 \setlength{\columnsep}{1cm}
 
+% No header, only footer
 \usepackage{fancyhdr}
+\fancypagestyle{plain}{
+    \fancyfoot[L]{\small www.mathsophy.com}
+    \fancyfoot[C]{\small \thepage}
+    \fancyfoot[R]{\small GNU GPL v3.0}}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 \fancyhead{}
-
 \fancyfoot[L]{\small www.mathsophy.com}
 \fancyfoot[C]{\small \thepage}
 \fancyfoot[R]{\small GNU GPL v3.0}
@@ -135,27 +139,6 @@ srand( time(0) );
 int n = rand();
 \end{lstlisting}
 %
-% Pointers
-%
-\section*{Pointers}
-\small
-\lstset {language=C++}
-\begin{lstlisting}
-#include <iostream>
-using namespace std;
-
-// simple pointer to (*<double>*)
-double *d = new double(5.123);
-
-// dynamic array of (*<10 double>*)s
-double *dd = new double[10];
-
-// delete the storage
-// on the freestore
-delete d;
-delete [] dd;
-\end{lstlisting}
-%
 % Arrays
 %
 \section*{Arrays}
@@ -174,6 +157,53 @@ for (int& x : arr)
 for (auto x : arr)
   cout << x;
 cout << endl;
+\end{lstlisting}
+%
+% Pointers
+%
+\section*{Pointers}
+\small
+Simple object:
+\lstset {language=C++}
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+
+// simple pointer to (*<double>*)
+double *d = new double(5.123);
+
+// delete the storage
+// on the freestore
+delete d;
+\end{lstlisting}
+Dynamic array:
+\lstset {language=C++}
+\begin{lstlisting}
+// dynamic array of (*<10 double>*)s
+double *dd = new double[10];
+
+// delete the storage
+// on the freestore
+delete [] dd;
+\end{lstlisting}
+Dynamic matrix:
+\lstset {language=C++}
+\begin{lstlisting}
+// dynamic matrix of (*<5 x 5 double>*)s
+// memory allocation
+double **m = new double*[5];
+for (int i=0; i<5; i++)
+    m[i] = new double[5];
+
+// memory initialization    
+for (int i=0; i<5; i++)
+    for (int j=0; j<5; j++)
+        m[i][j] = i*j;
+
+// memory deallocation
+for (int i=0; i<5; i++)
+    delete[] m[i];
+delete[] m;
 \end{lstlisting}
 %
 % C-Strings
