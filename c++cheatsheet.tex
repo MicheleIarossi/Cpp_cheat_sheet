@@ -84,7 +84,7 @@
 % Set title and author
 \title{\emph{C++ basics cheat sheet}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.01~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.02~-~GNU GPL v3.0}
 
 %\layout
 
@@ -93,6 +93,23 @@
 % Do not balance columns on the last page
 % 3 columns
 \begin{multicols*}{3}
+%
+% Type safety
+%
+\section*{Type safety}
+\small
+Universal and uniform initialization prevents narrowing
+conversions from happening:
+\lstset {language=C++}
+\begin{lstlisting}
+// safe conversions
+double x {54.21};
+int a {2342};
+
+// unsafe conversions
+int y {x};
+char b {a};
+\end{lstlisting}
 %
 % Type casting
 %
@@ -1089,6 +1106,9 @@ found = binary_search(v.begin(),
 
 // reverse
 reverse(v.begin(),v.end());
+%
+% Bibliography
+%
 \end{lstlisting}
 \small
 \begin{thebibliography}{99}
