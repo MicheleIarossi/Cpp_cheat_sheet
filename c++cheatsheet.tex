@@ -86,7 +86,6 @@
 \fancyfoot[C]{\small \thepage}
 \fancyfoot[R]{\small GNU GPL v3.0}
 
-
 % This is the body: text mixed with commands
 
 % Commands have the following general syntax:
@@ -105,6 +104,9 @@
 % Do not balance columns on the last page
 % 3 columns
 \begin{multicols*}{3}
+\raggedcolumns
+\small
+\noindent
 In the following code snippets, the standard I/O library and namespace are always used:
 \begin{lstlisting}
 #include <iostream>
@@ -136,7 +138,7 @@ char b {a};
 constexpr int max = 200;
 constexpr int c = max + 2;
 \end{lstlisting}
-\textbf{const} variables don't change at runtime:
+$\Rightarrow$ \textbf{const} variables don't change at runtime:
 \begin{lstlisting}
 // cannot be declared as 
 // (*<constexpr>*) because
@@ -182,6 +184,7 @@ srand( time(0) );
 // 0 and RAND_MAX
 int n = rand();
 \end{lstlisting}
+\columnbreak
 %
 % Arrays
 %
@@ -203,7 +206,7 @@ cout << endl;
 %
 \section*{Pointers}
 \small
-Simple object:
+$\Rightarrow$ Simple object:
 \begin{lstlisting}
 // simple pointer to (*<double>*)
 double *d = new double(5.123);
@@ -212,7 +215,7 @@ double *d = new double(5.123);
 // on the freestore
 delete d;
 \end{lstlisting}
-Dynamic array:
+$\Rightarrow$ Dynamic array:
 \begin{lstlisting}
 // dynamic array of (*<10 double>*)s
 double *dd = new double[10];
@@ -221,7 +224,7 @@ double *dd = new double[10];
 // on the freestore
 delete [] dd;
 \end{lstlisting}
-Dynamic matrix:
+$\Rightarrow$ Dynamic matrix:
 \begin{lstlisting}
 // dynamic matrix of (*<5 x 5 double>*)s
 // memory allocation
@@ -344,6 +347,7 @@ cin.getline(line,81);
 // char read by cin.get()
 cin.putback(nextChar);
 \end{lstlisting}
+\columnbreak
 %
 % Files
 %
@@ -439,6 +443,7 @@ double n = stod("12.345");
 // from numeric type to (*<string>*)
 string s = to_string(123.456);
 \end{lstlisting}
+\columnbreak 
 %
 % Vectors
 %
@@ -480,7 +485,7 @@ v.reserve(64);
 %
 \section*{Classes}
 \small
-Note: If you give no constructor, the compiler will generate a default constructor that does nothing.
+If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the C++ compiler will generate no other constructors.
 \begin{lstlisting}
 class Car
@@ -537,11 +542,11 @@ bool equal(const Car &car1,
 %
 \section*{Operator overloading}
 \small
-Note: the behaviour is different if overloaded as class members or 
+The behaviour is different if overloaded as class members or 
 friend functions.
 \\
 \\
-As class members:
+$\Rightarrow$ As class members:
 \begin{lstlisting}
 class Euro
 {
@@ -565,7 +570,7 @@ private:
     int cents;
 };
 \end{lstlisting}
-As friend members:
+$\Rightarrow$ As friend members:
 \begin{lstlisting}
 class Euro
 {
@@ -598,7 +603,7 @@ private:
 %
 \section*{Copy constructor / Assignment operator}
 \small
-Note: If not defined, C++ automatically adds the default copy
+If not defined, C++ automatically adds the default copy
 constructor and the default assignment operator.
 They might not be correct if dynamic variables are used,
 because class members are simply copied.
@@ -630,7 +635,7 @@ thirdList = firstList;
 %
 \section*{Inheritance}
 \small
-Note: Constructors, desctructor, private member functions, copy constructor
+Constructors, desctructor, private member functions, copy constructor
 and assignment operator are not inherited! Derived classes get the default ones
 if they are not explicitely provided but are present in the base class.
 \begin{lstlisting}
@@ -645,7 +650,7 @@ protected:
     string title;
 };
 \end{lstlisting}
-Redefinition of function members:
+$\Rightarrow$ Redefinition of function members:
 \begin{lstlisting}
 // a simple textbook class
 class Textbook : public Book
@@ -660,7 +665,7 @@ protected:
     string subject;
 };
 \end{lstlisting}
-\textbf{protecetd} members can be accessed
+$\Rightarrow$ \textbf{protecetd} members can be accessed
 by derived function members:
 \begin{lstlisting}
 // has access to (*<protected>*) 
@@ -678,7 +683,7 @@ void Textbook::print(ostream& os)
          << "'" << endl;
 }
 \end{lstlisting}
-Note: With redefinition, no polymorphism!
+$\Rightarrow$ With redefinition, no polymorphism!
 \begin{lstlisting}
 Book *abook = &aMathTextbook;
 // call (*<Book::print()>*)
@@ -758,7 +763,7 @@ abook->print(cout);
 %
 \section*{Exceptions}
 \small
-Note: The value thrown by
+The value thrown by
 \textbf{throw} can be of any type.
 \begin{lstlisting}
 // exception class
@@ -788,7 +793,7 @@ catch (...)
     exit(1);
 }
 \end{lstlisting}
-Functions throwing exceptions should list the exceptions thrown in
+$\Rightarrow$ Functions throwing exceptions should list the exceptions thrown in
 the exception specification list. These exceptions are not 
 caught by the function itself!
 \begin{lstlisting}
@@ -815,8 +820,8 @@ void myFunction( );
 %
 \section*{Templates}
 \small
-Function templates:\\ \\
-Note: C++ does not need 
+$\Rightarrow$ Function templates:\\ \\
+C++ does not need 
 the template declaration.
 The template function
 definition is included directly.
@@ -840,8 +845,8 @@ swap(a,b);
 // swaps two (*<char>*)s
 swap(c,d);
 \end{lstlisting}
-Class templates:\\ \\
-Note: Methods are defined as 
+$\Rightarrow$ Class templates:\\ \\
+Methods are defined as 
 template functions
 \begin{lstlisting}
 template<class T>
@@ -927,7 +932,7 @@ for (r = v.rbegin(); r != v.rend(); r++)
 %
 \section*{Containers}
 \small
-Sequential containers: \textbf{list}
+$\Rightarrow$ Sequential containers: \textbf{list}
 \begin{lstlisting}
 #include <list>
 
@@ -951,7 +956,7 @@ for (e = data.begin();
     e != data.end(); e++)
     cout << *e << endl;
 \end{lstlisting}
-Adapter containers: \textbf{stack}
+$\Rightarrow$ Adapter containers: \textbf{stack}
 \begin{lstlisting}
 #include <stack>
 
@@ -971,7 +976,7 @@ double d = numbers.top();
 // pop top element
 numbers.pop();
 \end{lstlisting}
-Associative containers: \textbf{set}
+$\Rightarrow$ Associative containers: \textbf{set}
 \begin{lstlisting}
 #include <set>
 
@@ -993,7 +998,7 @@ for (c = letters.begin();
     c != letters.end(); c++)
     cout << *c << endl;
 \end{lstlisting}
-Associative containers: \textbf{map}
+$\Rightarrow$ Associative containers: \textbf{map}
 \begin{lstlisting}
 #include <string>
 #include <map>
