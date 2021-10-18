@@ -26,12 +26,24 @@
 % the packages
 \documentclass[10pt]{article}
 
+% Using Courier font
+\renewcommand{\ttdefault}{pcr}
+
 % A3 paper size
 \usepackage[a3paper]{geometry}
 
+% Change the color of the text
+\usepackage{xcolor}
+
+% Multiple columns
 \usepackage{multicol}
+
+% C++ code listings embedded in the document
 \usepackage{listings}
 \lstset{
+    language = [11]C++,
+    basicstyle = \ttfamily,
+    keywordstyle=\bfseries,
     escapeinside={(*<}{>*)},          % if you want to add LaTeX within your code
 }
 
@@ -93,6 +105,11 @@
 % Do not balance columns on the last page
 % 3 columns
 \begin{multicols*}{3}
+In the following code snippets, the standard I/O library and namespace are always used:
+\begin{lstlisting}
+#include <iostream>
+using namespace std;
+\end{lstlisting}
 %
 % Type safety
 %
@@ -100,7 +117,6 @@
 \small
 Universal and uniform initialization prevents narrowing
 conversions from happening:
-\lstset {language=C++}
 \begin{lstlisting}
 // safe conversions
 double x {54.21};
@@ -115,13 +131,11 @@ char b {a};
 %
 \section*{constexpr}
 \small
-\lstset {language=C++}
 \textbf{constexpr} must be know at compile time:
 \begin{lstlisting}
 constexpr int max = 200;
 constexpr int c = max + 2;
 \end{lstlisting}
-\lstset {language=C++}
 \textbf{const} variables don't change at runtime:
 \begin{lstlisting}
 // cannot be declared as 
@@ -135,7 +149,6 @@ const int m = n + 1;
 %
 \section*{Type casting}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
 // (*<int 15>*) to (*<double 15.0>*)
 double num;
@@ -148,26 +161,20 @@ num = static_cast<double>(15);
 \small
 Function declaration with
 default trailing arguments
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // if (*<year>*) is omitted, 
 // then (*<year = 2000>*)
 void setBirthday(int day,
-int month, int year=2000);
+    int month, int year=2000);
 \end{lstlisting}
 %
 % Random numbers
 %
 \section*{Random numbers}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
 #include <cstdlib>
 #include <ctime>
-using namespace std;
 
 // seed the generator
 srand( time(0) );
@@ -180,11 +187,7 @@ int n = rand();
 %
 \section*{Arrays}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // range based for statement
 int arr[] = {2, 4, 6, 8};
 
@@ -201,11 +204,7 @@ cout << endl;
 \section*{Pointers}
 \small
 Simple object:
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // simple pointer to (*<double>*)
 double *d = new double(5.123);
 
@@ -214,7 +213,6 @@ double *d = new double(5.123);
 delete d;
 \end{lstlisting}
 Dynamic array:
-\lstset {language=C++}
 \begin{lstlisting}
 // dynamic array of (*<10 double>*)s
 double *dd = new double[10];
@@ -224,7 +222,6 @@ double *dd = new double[10];
 delete [] dd;
 \end{lstlisting}
 Dynamic matrix:
-\lstset {language=C++}
 \begin{lstlisting}
 // dynamic matrix of (*<5 x 5 double>*)s
 // memory allocation
@@ -247,7 +244,6 @@ delete[] m;
 %
 \section*{C-Strings}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
 #include <cstring>
 #include <cstdlib>
@@ -289,11 +285,8 @@ double n = atof("12.345");
 %
 \section*{Standard I/O}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
 #include <iomanip>
-using namespace std;
 
 // set flag
 cout.setf(ios::fixed);
@@ -332,11 +325,7 @@ cout << showpos;
 %
 \section*{Character I/O}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // read any character from (*<cin>*)
 // (doesn't skip spaces, 
 // newlines, etc.)
@@ -360,10 +349,8 @@ cin.putback(nextChar);
 %
 \section*{Files}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
 #include <fstream>
-using namespace std;
 
 // input file
 ifstream inStream;
@@ -400,10 +387,8 @@ outStream.close()
 %
 \section*{Strings}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
 #include <string>
-using namespace std;
 
 // initialization
 string s1 = "Hello";
@@ -459,11 +444,8 @@ string s = to_string(123.456);
 %
 \section*{Vectors}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
 #include <vector>
-using namespace std;
 
 // vector with base type (*<int>*)
 vector<int> v = {2, 4, 6, 8};
@@ -500,11 +482,7 @@ v.reserve(64);
 \small
 Note: If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the C++ compiler will generate no other constructors.
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 class Car
 {
 public:
@@ -564,11 +542,7 @@ friend functions.
 \\
 \\
 As class members:
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 class Euro
 {
     // constructor for  (*<euro>*)
@@ -592,7 +566,6 @@ private:
 };
 \end{lstlisting}
 As friend members:
-\lstset {language=C++}
 \begin{lstlisting}
 class Euro
 {
@@ -629,11 +602,7 @@ Note: If not defined, C++ automatically adds the default copy
 constructor and the default assignment operator.
 They might not be correct if dynamic variables are used,
 because class members are simply copied.
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 class IntList
 {
     // constructor with 
@@ -664,11 +633,7 @@ thirdList = firstList;
 Note: Constructors, desctructor, private member functions, copy constructor
 and assignment operator are not inherited! Derived classes get the default ones
 if they are not explicitely provided but are present in the base class.
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // a simple book class
 class Book
 {
@@ -681,7 +646,6 @@ protected:
 };
 \end{lstlisting}
 Redefinition of function members:
-\lstset {language=C++}
 \begin{lstlisting}
 // a simple textbook class
 class Textbook : public Book
@@ -698,7 +662,6 @@ protected:
 \end{lstlisting}
 \textbf{protecetd} members can be accessed
 by derived function members:
-\lstset {language=C++}
 \begin{lstlisting}
 // has access to (*<protected>*) 
 // members of he base class
@@ -716,7 +679,6 @@ void Textbook::print(ostream& os)
 }
 \end{lstlisting}
 Note: With redefinition, no polymorphism!
-\lstset {language=C++}
 \begin{lstlisting}
 Book *abook = &aMathTextbook;
 // call (*<Book::print()>*)
@@ -736,11 +698,7 @@ declared \textbf{virtual}. When derived
 objects are referenced by base class
 pointers, the destructor of the derived class
 is called if it is declared virtual.
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // a simple book class
 class Book
 {
@@ -802,11 +760,7 @@ abook->print(cout);
 \small
 Note: The value thrown by
 \textbf{throw} can be of any type.
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // exception class
 class MyException
 {
@@ -837,12 +791,7 @@ catch (...)
 Functions throwing exceptions should list the exceptions thrown in
 the exception specification list. These exceptions are not 
 caught by the function itself!
-
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // exceptions of type (*<DivideByZero>*) or 
 // (*<OtherException>*) are
 // to be caught outside the function.
@@ -871,11 +820,7 @@ Note: C++ does not need
 the template declaration.
 The template function
 definition is included directly.
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 // generic swap function
 template<class T>
 void swap(T& a, T& b)
@@ -898,12 +843,7 @@ swap(c,d);
 Class templates:\\ \\
 Note: Methods are defined as 
 template functions
-
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
-
 template<class T>
 class AList
 {
@@ -939,11 +879,8 @@ AList<double> list;
 \small
 An iterator is a generalization of a pointer. Different containers have
 different iterators.
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
 #include <vector>
-using namespace std;
 
 vector<int> v = {1,2,3,4,5};
 // mutable iterator
@@ -991,11 +928,8 @@ for (r = v.rbegin(); r != v.rend(); r++)
 \section*{Containers}
 \small
 Sequential containers: \textbf{list}
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
 #include <list>
-using namespace std;
 
 list<double> data = {1.32,-2.45,5.65};
 
@@ -1018,11 +952,8 @@ for (e = data.begin();
     cout << *e << endl;
 \end{lstlisting}
 Adapter containers: \textbf{stack}
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
 #include <stack>
-using namespace std;
 
 stack<double> numbers;
 
@@ -1041,11 +972,8 @@ double d = numbers.top();
 numbers.pop();
 \end{lstlisting}
 Associative containers: \textbf{set}
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
 #include <set>
-using namespace std;
 
 set<char> letters;
 
@@ -1066,13 +994,10 @@ for (c = letters.begin();
     cout << *c << endl;
 \end{lstlisting}
 Associative containers: \textbf{map}
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
 #include <string>
 #include <map>
 #include <utility>
-using namespace std;
 
 // initialization
 map<string,int> dict = 
@@ -1104,12 +1029,9 @@ for (auto n : dict)
 %
 \section*{Algorithms}
 \small
-\lstset {language=C++}
 \begin{lstlisting}
-#include <iostream>
 #include <vector>
 #include <algorithm>
-using namespace std;
 
 vector<int> v = {6,2,7,13,4,3,1};
 vector<int>::iterator p;
