@@ -84,7 +84,7 @@
 % Set title and author
 \title{\emph{C++ basics cheat sheet}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.02~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.03~-~GNU GPL v3.0}
 
 %\layout
 
@@ -109,6 +109,26 @@ int a {2342};
 // unsafe conversions
 int y {x};
 char b {a};
+\end{lstlisting}
+%
+% constexpr
+%
+\section*{constexpr}
+\small
+\lstset {language=C++}
+\textbf{constexpr} must be know at compile time:
+\begin{lstlisting}
+constexpr int max = 200;
+constexpr int c = max + 2;
+\end{lstlisting}
+\lstset {language=C++}
+\textbf{const} variables don't change at runtime:
+\begin{lstlisting}
+// cannot be declared as 
+// (*<constexpr>*) because
+// the value of (*<n>*)
+// is not known at compile time
+const int m = n + 1;
 \end{lstlisting}
 %
 % Type casting
@@ -452,10 +472,11 @@ vector<int> v = {2, 4, 6, 8};
 // all initialised to 0
 vector<int> v(10);
 
+// range-for-loop
 for (auto x : v)
   cout << v << endl;
 
-// access to ith element
+// access to the (*<i>*)th element
 cout << v[i];
 
 // add an element
@@ -1106,10 +1127,10 @@ found = binary_search(v.begin(),
 
 // reverse
 reverse(v.begin(),v.end());
+\end{lstlisting}
 %
 % Bibliography
 %
-\end{lstlisting}
 \small
 \begin{thebibliography}{99}
 \bibitem{savitch} Walter Savitch. \textsl{Problem Solving with C++}, 10th edition. Pearson Education, 2018
