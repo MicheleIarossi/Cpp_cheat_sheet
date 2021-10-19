@@ -133,15 +133,15 @@ char b {a};
 %
 \section*{constexpr}
 \small
-\textbf{constexpr} must be know at compile time:
+There are two options:\\ \\
+$\Rightarrow$ \textbf{constexpr} must be known at compile time:
 \begin{lstlisting}
 constexpr int max = 200;
 constexpr int c = max + 2;
 \end{lstlisting}
-$\Rightarrow$ \textbf{const} variables don't change at runtime:
+$\Rightarrow$ \textbf{const} variables don't change at runtime. They cannot be declared as
+\textbf{constexpr} because their value is not known at compile time:
 \begin{lstlisting}
-// cannot be declared as 
-// (*<constexpr>*) because
 // the value of (*<n>*)
 // is not known at compile time
 const int m = n + 1;
@@ -162,7 +162,7 @@ num = static_cast<double>(15);
 \section*{Functions}
 \small
 Function declaration with
-default trailing arguments
+default trailing arguments:
 \begin{lstlisting}
 // if (*<year>*) is omitted, 
 // then (*<year = 2000>*)
@@ -190,16 +190,15 @@ int n = rand();
 %
 \section*{Arrays}
 \small
+$\Rightarrow$ Range-based \textbf{for} statement:
 \begin{lstlisting}
-// range based for statement
+// changes the values 
+// and outputs 3579
 int arr[] = {2, 4, 6, 8};
-
 for (int& x : arr)
   x++;
-// outputs 3579
 for (auto x : arr)
   cout << x;
-cout << endl;
 \end{lstlisting}
 %
 % Pointers
@@ -449,6 +448,7 @@ string s = to_string(123.456);
 %
 \section*{Vectors}
 \small
+Throws an \textbf{out\_of\_range} exception if accessed out of bounds:
 \begin{lstlisting}
 #include <vector>
 
@@ -479,6 +479,17 @@ cout << v.capacity();
 // reserve more capacity
 // e.g. at least 64 (*<int>*)s
 v.reserve(64);
+
+// out of bounds access
+vector<int> v = {2, 4, 6, 8};
+
+try
+{
+    cout << v[7];
+} catch (out_of_range)
+{
+    // access error!
+}
 \end{lstlisting}
 %
 % Classes
@@ -783,9 +794,10 @@ try
 {
     throw MyException("error");
 }
-catch (MyException e)
+catch (MyException& e)
 {
-    cout << e;
+    // error stream
+    cerr << e;
 }
 // everything else
 catch (...)
