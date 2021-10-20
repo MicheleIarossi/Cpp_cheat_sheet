@@ -352,6 +352,8 @@ cin.putback(nextChar);
 %
 \section*{Files}
 \small
+Accessed by means of \textbf{ifstream} (input) or
+\textbf{ofstream} (output) objects:
 \begin{lstlisting}
 #include <fstream>
 
@@ -363,23 +365,60 @@ ofstream outStream;
 // open
 inStream.open("infile.dat");
 outStream.open("outfile.dat");
-
-// check for failure
-if ( inStream.fail() ||
-     outStream.fail() )
+\end{lstlisting}
+$\Rightarrow$ when checking for failure, the status flag needs to be cleared
+in order to continue working with the file:
+\begin{lstlisting}
+// check for failure input file
+if ( inStream.fail() )
 {
-  // file opening failed
+    // file opening failed
+    inStream.clear();
 }
 
+// check for failure output file
+if ( outStream.fail() )
+{
+     // file opening failed
+     outStream.clear();
+}
+\end{lstlisting}
+$\Rightarrow$ read and write:
+\begin{lstlisting}
 // read/write data
 inStream >> data1 >> data2;
 outStram << data1 << data2;
-
+\end{lstlisting}
+$\Rightarrow$ read a line:
+\begin{lstlisting}
+string line;
+getline(inStream, line);
+\end{lstlisting}
+$\Rightarrow$ ignore input (extract and discard):
+\begin{lstlisting}
+// ignore up to a newline
+// or 9999 characters
+inStream.ignore(9999,'\n');
+\end{lstlisting}
+$\Rightarrow$ move the file pointer:
+\begin{lstlisting}
+// skip 5 characters
+inStream.seekg(5);
+\end{lstlisting}
+$\Rightarrow$ Alternatives for checking for end of file:
+\begin{lstlisting}
 // checking for end of file
 while ( ! inStream.eof() )
 {
-  inStream >> next;
+    inStream >> next;
 }
+
+// alternative end of file checking
+while ( inStream >> next )
+{
+    // process next
+}
+
 
 // close file
 inStream.close();
@@ -442,13 +481,12 @@ double n = stod("12.345");
 // from numeric type to (*<string>*)
 string s = to_string(123.456);
 \end{lstlisting}
-\columnbreak 
 %
 % Vectors
 %
 \section*{Vectors}
 \small
-Throws an \textbf{out\_of\_range} exception if accessed out of bounds:
+Sequence of elements accessed via an index:
 \begin{lstlisting}
 #include <vector>
 
@@ -459,15 +497,15 @@ vector<int> v = {2, 4, 6, 8};
 // all initialised to 0
 vector<int> v(10);
 
-// range-for-loop
-for (auto x : v)
-  cout << v << endl;
-
 // access to the (*<i>*)th element
 cout << v[i];
 
 // add an element
 v.push_back(10);
+
+// range-for-loop
+for (auto x : v)
+  cout << v << endl;
 
 // size
 cout << v.size();
@@ -479,7 +517,9 @@ cout << v.capacity();
 // reserve more capacity
 // e.g. at least 64 (*<int>*)s
 v.reserve(64);
-
+\end{lstlisting}
+$\Rightarrow$ Throws an \textbf{out\_of\_range} exception if accessed out of bounds:
+\begin{lstlisting}
 // out of bounds access
 vector<int> v = {2, 4, 6, 8};
 
