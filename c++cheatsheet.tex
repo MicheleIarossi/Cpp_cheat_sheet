@@ -89,7 +89,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.10~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.11~-~GNU GPL v3.0}
 
 %\layout
 
@@ -384,19 +384,17 @@ $\Rightarrow$ move the file pointer:
 // skip 5 characters
 inStream.seekg(5);
 \end{lstlisting}
-$\Rightarrow$ Alternatives for checking for end of file:
+$\Rightarrow$ Checking for end of file:
 \begin{lstlisting}
-// checking for end of file
-while ( ! inStream.eof() )
-{
-    inStream >> next;
-}
-
-// alternative end of file checking
+// the failing read sets the EOF flag but avoids further processing
 while ( inStream >> next )
 {
     // process next
 }
+
+// check the EOF flag
+if ( inStream.eof() )
+    cout << "EOF reached!" << endl;
 
 // close file
 inStream.close();
