@@ -433,10 +433,14 @@ s1.size();
 s1.length();
 
 // substring from position 5 and length 4 characters
-s4.substr(5,4);
+string substring;
+substring = s4.substr(5,4);
 
 // find (returns string::npos if not found)
-s3.find("World");
+size_t pos;
+pos = s3.find("World");
+if (pos == string::npos)
+    cerr << "Error: String not found!\n";
 
 // find starting from position 5
 s3.find("l",5);
@@ -816,7 +820,9 @@ swap(c,d);
 \end{lstlisting}
 $\Rightarrow$ Class templates:\\ \\
 Methods are defined as 
-template functions
+template functions.
+Note the declaration
+of the templated friend operator.
 \begin{lstlisting}
 template<class T>
 class AList
@@ -829,6 +835,9 @@ class AList
     AList(AList<T>& b);
     // assignment operator
     AList<T>& operator=(const AList<T>& b);
+    // friend insertion operator
+    template <class TT>
+    friend ostream& operator<<(ostream& outs, const AList<TT>& rhs);
 private:
     T *p;
     int size;
