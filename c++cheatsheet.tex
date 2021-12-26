@@ -772,6 +772,20 @@ catch (...)
     exit(1);
 }
 \end{lstlisting}
+$\Rightarrow$ The standard library defines a hierarchy of exceptions.  For example \textbf{runtime\_error} can be 
+thrown when runtime errors occur:
+\begin{lstlisting}
+try
+{
+    throw runtime_error("unexpected result!");
+}
+catch (runtime_error& e)
+{
+    // error stream
+    cerr << "runtime error: " << e.what() << "\n";
+    return 1;
+}
+\end{lstlisting}
 $\Rightarrow$ Functions throwing exceptions should list the exceptions thrown in
 the exception specification list. These exceptions are not 
 caught by the function itself!
