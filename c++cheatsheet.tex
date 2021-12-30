@@ -90,7 +90,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.22~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.30~-~GNU GPL v3.0}
 
 %\layout
 
@@ -544,6 +544,34 @@ try
 {
     // access error!
 }
+\end{lstlisting}
+%
+% Enumerations
+%
+\section{Enumerations}
+\small
+$\Rightarrow$ \textbf{enum class} defines symbolic constants in the scope of the class:
+\begin{lstlisting}
+// enum definition
+enum class Weekdays
+{
+    mon=1, tue, wed, thu, fri
+};
+
+// usage
+Weekdays day = Weekdays::tue;
+\end{lstlisting}
+$\Rightarrow$ \textbf{int}s cannot be assigned to \textbf{enum class} and viceversa:
+\begin{lstlisting}
+// errors!
+Weekdays day = 3;
+int d = Weekdays::wed;
+\end{lstlisting}
+$\Rightarrow$ A conversion function should be written which uses unchecked conversions:
+\begin{lstlisting}
+// valid
+Weekdays day = Weekdays(2);
+int d = int(Weekdays::fri);
 \end{lstlisting}
 %
 % Classes
