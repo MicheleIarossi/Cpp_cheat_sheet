@@ -90,7 +90,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.21~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.22~-~GNU GPL v3.0}
 
 %\layout
 
@@ -491,8 +491,8 @@ s3.find("l",5);
 s3.c_str();
 
 // from (*<string>*) to (*<int>*), (*<long>*), (*<float>*)
-int n = stoi("456");
-long n = stol("1234567");
+int    n = stoi("456");
+long   n = stol("1234567");
 double n = stod("12.345");
 
 // from numeric type to (*<string>*)
@@ -550,7 +550,7 @@ try
 %
 \section{Classes}
 \small
-If you give no constructor, the compiler will generate a default constructor that does nothing.
+$\Rightarrow$ If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the C++ compiler will generate no other constructors.
 \begin{lstlisting}
 class Car
@@ -568,8 +568,10 @@ private:
     double engine_liter;
 };
 
-// constructor with initialisation list
-Car::Car(double size) : engine_liter(size)
+// constructor with member initialisation list
+// the member variable is immediately initialised before the
+// constructor body runs
+Car::Car(double size) : engine_liter{size}
 {
 }
 
@@ -590,6 +592,13 @@ bool equal(const Car &car1, const Car &car2)
 {
     return car1.engine_liter == car2.engine_liter;
 }
+\end{lstlisting}
+$\Rightarrow$ Constructor invocations:
+\begin{lstlisting}
+// all forms call the (*<Car(2000)>*) constructor
+Car bmw {2000};
+Car bmw = {2000};
+Car bmw = Car{2000};
 \end{lstlisting}
 %
 % Operator overloading
@@ -712,7 +721,9 @@ void Textbook::print(ostream& os)
 \end{lstlisting}
 $\Rightarrow$ With redefinition, no polymorphism!
 \begin{lstlisting}
+TextBook a_Math_Textbook("Calculus",1200,"Real variables");
 Book *a_book = &a_Math_Textbook;
+
 // call (*<Book::print()>*) not (*<Textbook::print()>*)!
 a_book->print(cout);
 \end{lstlisting}
@@ -776,7 +787,9 @@ Textbook::~Textbook()
     delete subject;
 }
 
+TextBook a_Math_Textbook("Calculus",1200,"Real variables");
 Book *a_book = &a_Math_Textbook;
+
 // call (*<Textbook::print()>*)!
 a_book->print(cout);
 \end{lstlisting}
