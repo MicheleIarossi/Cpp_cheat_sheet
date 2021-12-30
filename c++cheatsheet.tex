@@ -47,6 +47,7 @@
 \lstset{
     language = [11]C++,
     basicstyle = \ttfamily,
+    morekeywords = narrow\_cast,
     keywordstyle=\bfseries,
     escapeinside={(*<}{>*)},          % if you want to add LaTeX within your code
 }
@@ -89,7 +90,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.11~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.21~-~GNU GPL v3.0}
 
 %\layout
 
@@ -100,7 +101,7 @@
 \begin{frame}{}
 \setlength\columnsep{1cm}
 \begin{multicols}{2}
-  \tableofcontents
+\tableofcontents
 \end{multicols}
 \end{frame}
 
@@ -115,14 +116,14 @@ using namespace std;
 %
 \section{Type safety}
 \small
-Universal and uniform initialization prevents narrowing
+Universal and uniform initialisation prevents narrowing
 conversions from happening:
 \begin{lstlisting}
 // safe conversions
 double x {54.21};
 int a {2342};
 
-// unsafe conversions
+// unsafe conversions (compile error!)
 int y {x};
 char b {a};
 \end{lstlisting}
@@ -148,6 +149,7 @@ const int m = n + 1;
 %
 \section{Type casting}
 \small
+$\Rightarrow$ Use \textbf{static\_cast} for normal casting:
 \begin{lstlisting}
 // (*<int 15>*) to (*<double 15.0>*)
 double num;
@@ -158,11 +160,51 @@ num = static_cast<double>(15);
 %
 \section{Functions}
 \small
-Function declaration with
-default trailing arguments:
+$\Rightarrow$ With default trailing arguments only in the function declaration:
 \begin{lstlisting}
 // if (*<year>*) is omitted, then (*<year = 2000>*)
-void setBirthday(int day, int month, int year=2000);
+void set_birthday(int day, int month, int year=2000);
+\end{lstlisting}
+$\Rightarrow$ Omitting the name of an argument if not used anymore in the function definition:
+\begin{lstlisting}
+// argument (*<year>*) is not used anymore in the function definition
+// (doesn't break legacy code!)
+void set_birthday(int day, int month, int) { ...}
+\end{lstlisting}
+$\Rightarrow$ With read-only, read-write and copy-by-value parameters:
+\begin{lstlisting}
+// (*<day>*) input parameter passed by const reference (read-only)
+// (*<month>*) output parameter to be changed by the function (read-write)
+// (*<year>*) input parameer copied-by-value
+void set_birthday(const int& day, int& month, int year);
+\end{lstlisting}
+$\Rightarrow$ Use a function for initialising an object with a complicated initialiser (we might not
+know exactly when the object gets initialised):
+\begin{lstlisting}
+const Object& default_value()
+{
+  static const Object default(1,2,3);
+  return default;
+}
+\end{lstlisting}
+
+%
+% Namespaces
+%
+\section{Namespaces}
+\small
+$\Rightarrow$ \textbf{using} declarations for avoiding fully qualified names:
+\begin{lstlisting}
+// use (*<string>*) instead of (*<std::string>*)
+using std::string;
+
+// use (*<cin>*), (*<cout>*) instead of (*<std::cin>*), (*<std::cout>*)
+using std::cin;
+using std::cout;
+\end{lstlisting}
+$\Rightarrow$ \textbf{using namespace} directives for including the whole namespace:
+\begin{lstlisting}
+using namespace std;
 \end{lstlisting}
 %
 % Random numbers
@@ -265,8 +307,8 @@ strncmp(msg, srcStr, 10);
 strncat(msg, srcStr, 10);
 
 // from (*<C-string>*) to (*<int>*), (*<long>*), (*<float>*)
-int n = atoi("567");
-long n = atol("1234567");
+int    n = atoi("567");
+long   n = atol("1234567");
 double n = atof("12.345");
 \end{lstlisting}
 %
@@ -338,67 +380,67 @@ Accessed by means of \textbf{ifstream} (input) or
 #include <fstream>
 
 // input file
-ifstream inStream;
+ifstream in_stream;
 // output file
-ofstream outStream;
+ofstream out_stream;
 
 // open
-inStream.open("infile.dat");
-outStream.open("outfile.dat");
+in_stream("infile.dat");
+out_stream.open("outfile.dat");
 \end{lstlisting}
-$\Rightarrow$ when checking for failure, the status flag needs to be cleared
+$\Rightarrow$ When checking for failure, the status flag needs to be cleared
 in order to continue working with the file:
 \begin{lstlisting}
 // check for failure input file
-if ( inStream.fail() )
+if ( in_stream.fail() )
 {
     // file opening failed
-    inStream.clear();
+    in_stream.clear();
 }
 
 // check for failure output file
-if ( outStream.fail() )
+if ( out_stream.fail() )
 {
      // file opening failed
-     outStream.clear();
+     out_stream.clear();
 }
 \end{lstlisting}
-$\Rightarrow$ read and write:
+$\Rightarrow$ Read and write:
 \begin{lstlisting}
 // read/write data
-inStream >> data1 >> data2;
-outStram << data1 << data2;
+in_stream >> data1 >> data2;
+out_stream << data1 << data2;
 \end{lstlisting}
-$\Rightarrow$ read a line:
+$\Rightarrow$ Read a line:
 \begin{lstlisting}
 string line;
-getline(inStream, line);
+getline(in_stream, line);
 \end{lstlisting}
-$\Rightarrow$ ignore input (extract and discard):
+$\Rightarrow$ Ignore input (extract and discard):
 \begin{lstlisting}
 // ignore up to a newline or 9999 characters
-inStream.ignore(9999,'\n');
+in_stream.ignore(9999,'\n');
 \end{lstlisting}
-$\Rightarrow$ move the file pointer:
+$\Rightarrow$ Move the file pointer:
 \begin{lstlisting}
 // skip 5 characters
-inStream.seekg(5);
+in_stream.seekg(5);
 \end{lstlisting}
 $\Rightarrow$ Checking for end of file:
 \begin{lstlisting}
 // the failing read sets the EOF flag but avoids further processing
-while ( inStream >> next )
+while ( in_stream >> next )
 {
     // process next
 }
 
 // check the EOF flag
-if ( inStream.eof() )
+if ( in_stream.eof() )
     cout << "EOF reached!" << endl;
 
 // close file
-inStream.close();
-outStream.close()
+in_stream.close();
+out_stream.close()
 \end{lstlisting}
 %
 % Strings
@@ -517,36 +559,36 @@ public:
     // constructor
     Car(double size);
     // mutators
-    void setEngineSize(const double size);
+    void set_engine_size(const double& size);
     // accessors
-    double getEngineSize() const;
+    double get_engine_size() const;
     // friend function
     friend bool equal(const Car& car1, const Car& car2);
 private:	
-    double engineLiter;
+    double engine_liter;
 };
 
-// constructor with initialization list
-Car::Car(double size) : engineLiter(size)
+// constructor with initialisation list
+Car::Car(double size) : engine_liter(size)
 {
 }
 
 // parameter passed by reference for efficiency
-void Car::setEngineSize(const double size)
+void Car::set_engine_size(const double& size)
 {
-    engineLiter = size;
+    engine_liter = size;
 }
 
 // constant member function doesn't change the object
-double Car::getEngineSize() const
+double Car::get_engine_size() const
 {
-    return engineLiter;
+    return engine_liter;
 }
 
 // friend function with direct access to private members
 bool equal(const Car &car1, const Car &car2)
 {
-    return car1.engineLiter == car2.engineLiter;
+    return car1.engine_liter == car2.engine_liter;
 }
 \end{lstlisting}
 %
@@ -604,25 +646,25 @@ constructor and the default assignment operator.
 They might not be correct if dynamic variables are used,
 because class members are simply copied.
 \begin{lstlisting}
-class IntList
+class Int_list
 {
     // constructor with size of the list
-    IntList(int size);
+    Int_list(int size);
     // copy constructor
-    IntList(IntList& list);
+    Int_list(Int_list& list);
     // assignment operator
-    IntList& operator=(const IntList& list);
+    Int_list& operator=(const Int_list& list);
 private:
     int *p;
     int size;
 }
 
 // call the copy constructor
-// (*<secondList>*) is initialised from (*<firstList>*)
-IntList secondList(firstList); 
+// (*<second\_list>*) is initialised from (*<first\_list>*)
+Int_list second_list(first_list); 
 
 // call the assignment operator
-thirdList = firstList;
+third_list = first_list;
 \end{lstlisting}
 %
 % Inheritance
@@ -670,9 +712,9 @@ void Textbook::print(ostream& os)
 \end{lstlisting}
 $\Rightarrow$ With redefinition, no polymorphism!
 \begin{lstlisting}
-Book *abook = &aMathTextbook;
+Book *a_book = &a_Math_Textbook;
 // call (*<Book::print()>*) not (*<Textbook::print()>*)!
-abook->print(cout);
+a_book->print(cout);
 \end{lstlisting}
 %
 % Polymorphism
@@ -734,9 +776,9 @@ Textbook::~Textbook()
     delete subject;
 }
 
-Book *abook = &aMathTextbook;
+Book *a_book = &a_Math_Textbook;
 // call (*<Textbook::print()>*)!
-abook->print(cout);
+a_book->print(cout);
 \end{lstlisting}
 %
 % Exceptions
@@ -747,21 +789,21 @@ The value thrown by
 \textbf{throw} can be of any type.
 \begin{lstlisting}
 // exception class
-class MyException
+class My_exception
 {
 public:
-    MyException(string s);
-    virtual ~MyException();
-    friend ostream& operator<<(ostream& os, const MyException& e);
+    My_exception(string s);
+    virtual ~My_exception();
+    friend ostream& operator<<(ostream& os, const My_exception& e);
 protected:
     string msg;
 };
 
 try
 {
-    throw MyException("error");
+    throw My_exception("error");
 }
-catch (MyException& e)
+catch (My_exception& e)
 {
     // error stream
     cerr << e;
@@ -793,14 +835,14 @@ caught by the function itself!
 // exceptions of type (*<DivideByZero>*) or (*<OtherException>*) are
 // to be caught outside the function. All other exceptions end the program
 // if not caught inside the function.
-void myFunction( ) throw (DivideByZero, OtherException);
+void my_function( ) throw (DivideByZero, OtherException);
 
 // empty exception list, i.e. all exceptions end the program if thrown but
 // not caught inside the function.
-void myFunction( ) throw ( );
+void my_function( ) throw ( );
 
 // all exceptions of all types treated normally.
-void myFunction( );
+void my_function( );
 \end{lstlisting}
 %
 % Templates
@@ -824,13 +866,13 @@ void swap(T& a, T& b)
 }
 
 int a, b;
-char c,d;
+char c, d;
 
 // swaps two (*<int>*)s
-swap(a,b);
+swap(a, b);
 
 // swaps two (*<char>*)s
-swap(c,d);
+swap(c, d);
 \end{lstlisting}
 $\Rightarrow$ Class templates:\\ \\
 Methods are defined as 
@@ -839,19 +881,19 @@ Note the declaration
 of the templated friend operator.
 \begin{lstlisting}
 template<class T>
-class AList
+class A_list
 {
     // constructor with size of the list
-    AList(int size);
+    A_list(int size);
     // destructor
-    ~AList();
+    ~A_list();
     // copy constructor
-    AList(AList<T>& b);
+    A_list(A_list<T>& b);
     // assignment operator
-    AList<T>& operator=(const AList<T>& b);
+    A_list<T>& operator=(const A_list<T>& b);
     // friend insertion operator
     template <class TT>
-    friend ostream& operator<<(ostream& outs, const AList<TT>& rhs);
+    friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);
 private:
     T *p;
     int size;
@@ -859,13 +901,13 @@ private:
 
 // constructor definition
 template<class T>
-AList<T>::AList(int size)
+A_list<T>::A_list(int size)
 {
     p = new T[size];
 }
 
 // variable declaration
-AList<double> list;
+A_list<double> list;
 \end{lstlisting}
 %
 % Iterators
