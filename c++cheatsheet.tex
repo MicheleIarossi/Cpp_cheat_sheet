@@ -50,6 +50,9 @@
     morekeywords = narrow\_cast,
     keywordstyle=\bfseries,
     escapeinside={(*<}{>*)},          % if you want to add LaTeX within your code
+    backgroundcolor = \color{lightgray},
+    xleftmargin = 1.2cm,
+    framexleftmargin = 1em
 }
 
 % This encoding corresponds to the encoding used by TexShop for saving this file
@@ -90,7 +93,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.31~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.32~-~GNU GPL v3.0}
 
 %\layout
 
@@ -118,8 +121,9 @@ using namespace std;
 %
 \section{Type safety}
 \small
-$\Rightarrow$ Universal and uniform initialisation prevents narrowing
-conversions from happening:
+\begin{enumerate}
+\item[$\Rightarrow$] Universal and uniform initialisation prevents narrowing conversions from happening:
+\end{enumerate}
 \begin{lstlisting}
 // safe conversions
 double x {54.21};
@@ -134,14 +138,18 @@ char b {a};
 %
 \section{constexpr}
 \small
-There are two options:\\ \\
-$\Rightarrow$ \textbf{constexpr} must be known at compile time:
+There are two options:
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{constexpr} must be known at compile time:
+\end{enumerate}
 \begin{lstlisting}
 constexpr int max = 200;
 constexpr int c = max + 2;
 \end{lstlisting}
-$\Rightarrow$ \textbf{const} variables don't change at runtime. They cannot be declared as
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{const} variables don't change at runtime. They cannot be declared as
 \textbf{constexpr} because their value is not known at compile time:
+\end{enumerate}
 \begin{lstlisting}
 // the value of (*<n>*) is not known at compile time
 const int m = n + 1;
@@ -151,7 +159,9 @@ const int m = n + 1;
 %
 \section{Type casting}
 \small
-$\Rightarrow$ Use \textbf{static\_cast} for normal casting:
+\begin{enumerate}
+\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting:
+\end{enumerate}
 \begin{lstlisting}
 // (*<int 15>*) to (*<double 15.0>*)
 double num;
@@ -162,26 +172,34 @@ num = static_cast<double>(15);
 %
 \section{Functions}
 \small
-$\Rightarrow$ With default trailing arguments only in the function declaration:
+\begin{enumerate}
+\item[$\Rightarrow$] With default trailing arguments only in the function declaration:
+\end{enumerate}
 \begin{lstlisting}
 // if (*<year>*) is omitted, then (*<year = 2000>*)
 void set_birthday(int day, int month, int year=2000);
 \end{lstlisting}
-$\Rightarrow$ Omitting the name of an argument if not used anymore in the function definition:
+\begin{enumerate}
+\item[$\Rightarrow$] Omitting the name of an argument if not used anymore in the function definition:
+\end{enumerate}
 \begin{lstlisting}
 // argument (*<year>*) is not used anymore in the function definition
 // (doesn't break legacy code!)
 void set_birthday(int day, int month, int) { ...}
 \end{lstlisting}
-$\Rightarrow$ With read-only, read-write and copy-by-value parameters:
+\begin{enumerate}
+\item[$\Rightarrow$] With read-only, read-write and copy-by-value parameters:
+\end{enumerate}
 \begin{lstlisting}
 // (*<day>*) input parameter passed by const reference (read-only)
 // (*<month>*) output parameter to be changed by the function (read-write)
 // (*<year>*) input parameter copied-by-value
 void set_birthday(const int& day, int& month, int year);
 \end{lstlisting}
-$\Rightarrow$ Use a function for initialising an object with a complicated initialiser (we might not
+\begin{enumerate}
+\item[$\Rightarrow$] Use a function for initialising an object with a complicated initialiser (we might not
 know exactly when the object gets initialised):
+\end{enumerate}
 \begin{lstlisting}
 const Object& default_value()
 {
@@ -195,7 +213,9 @@ const Object& default_value()
 %
 \section{Namespaces}
 \small
-$\Rightarrow$ \textbf{using} declarations for avoiding fully qualified names:
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{using} declarations for avoiding fully qualified names:
+\end{enumerate}
 \begin{lstlisting}
 // use (*<string>*) instead of (*<std::string>*)
 using std::string;
@@ -204,7 +224,9 @@ using std::string;
 using std::cin;
 using std::cout;
 \end{lstlisting}
-$\Rightarrow$ \textbf{using namespace} directives for including the whole namespace:
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{using namespace} directives for including the whole namespace:
+\end{enumerate}
 \begin{lstlisting}
 using namespace std;
 \end{lstlisting}
@@ -229,7 +251,9 @@ int n = rand();
 %
 \section{Arrays}
 \small
-$\Rightarrow$ Range-based \textbf{for} statement:
+\begin{enumerate}
+\item[$\Rightarrow$] Range-based \textbf{for} statement:
+\end{enumerate}
 \begin{lstlisting}
 // changes the values and outputs 3579
 int arr[] = {2, 4, 6, 8};
@@ -245,7 +269,9 @@ for (auto x : arr)
 %
 \section{Pointers}
 \small
-$\Rightarrow$ Simple object:
+\begin{enumerate}
+\item[$\Rightarrow$] Simple object:
+\end{enumerate}
 \begin{lstlisting}
 // simple pointer to (*<double>*)
 double *d = new double(5.123);
@@ -253,7 +279,9 @@ double *d = new double(5.123);
 // delete the storage on the freestore
 delete d;
 \end{lstlisting}
-$\Rightarrow$ Dynamic array:
+\begin{enumerate}
+\item[$\Rightarrow$] Dynamic array:
+\end{enumerate}
 \begin{lstlisting}
 // dynamic array of (*<10 double>*)s
 double *dd = new double[10];
@@ -261,7 +289,9 @@ double *dd = new double[10];
 // delete the storage on the freestore
 delete [] dd;
 \end{lstlisting}
-$\Rightarrow$ Dynamic matrix:
+\begin{enumerate}
+\item[$\Rightarrow$] Dynamic matrix:
+\end{enumerate}
 \begin{lstlisting}
 // dynamic matrix of (*<5 x 5 double>*)s memory allocation
 double **m = new double*[5];
@@ -283,7 +313,9 @@ delete[] m;
 %
 \section{C-Strings}
 \small
-$\Rightarrow$ Legacy strings from C:
+\begin{enumerate}
+\item[$\Rightarrow$] Legacy strings from C:
+\end{enumerate}
 \begin{lstlisting}
 #include <cstring>
 #include <cstdlib>
@@ -319,7 +351,9 @@ double n = atof("12.345");
 %
 \section{Standard I/O}
 \small
-$\Rightarrow$ Format manipulators:
+\begin{enumerate}
+\item[$\Rightarrow$]  Format manipulators:
+\end{enumerate}
 \begin{lstlisting}
 #include <iomanip>
 
@@ -357,7 +391,9 @@ cout << showpos;
 %
 \section{Character I/O}
 \small
-$\Rightarrow$ Single characters read and write:
+\begin{enumerate}
+\item[$\Rightarrow$] Single characters read and write:
+\end{enumerate}
 \begin{lstlisting}
 // read any character from (*<cin>*) (doesn't skip spaces, newlines, etc.)
 char nextChar;
@@ -370,7 +406,8 @@ cout.put(nextChar)
 char line[80+1];
 cin.getline(line,81);
 
-// put back (*<nextChar>*) to (*<cin>*), (*<nextChar>*) will be the next char read by (*<cin.get()>*)
+// put back (*<nextChar>*) to (*<cin>*), (*<nextChar>*) will be the next 
+// char read by (*<cin.get()>*)
 cin.putback(nextChar);
 
 // put back the last char got from (*<cin.get()>*) to (*<cin>*)
@@ -382,8 +419,10 @@ cin.unget();
 %
 \section{Files}
 \small
-$\Rightarrow$ Accessed by means of \textbf{ifstream} (input) or
+\begin{enumerate}
+\item[$\Rightarrow$] Accessed by means of \textbf{ifstream} (input) or
 \textbf{ofstream} (output) objects:
+\end{enumerate}
 \begin{lstlisting}
 #include <fstream>
 
@@ -392,7 +431,9 @@ ifstream in_stream {"infile.dat"};
 // open output file
 ofstream out_stream {"outfile.dat"};
 \end{lstlisting}
-$\Rightarrow$ Files can also be opened explicitely (not recommended):
+\begin{enumerate}
+\item[$\Rightarrow$] Files can also be opened explicitily (not recommended):
+\end{enumerate}
 \begin{lstlisting}
 #include <fstream>
 
@@ -405,8 +446,10 @@ ofstream out_stream;
 in_stream.open("infile.dat");
 out_stream.open("outfile.dat");
 \end{lstlisting}
-$\Rightarrow$ When checking for failure, the status flag needs to be cleared
+\begin{enumerate}
+\item[$\Rightarrow$] When checking for failure, the status flag needs to be cleared
 in order to continue working with the file:
+\end{enumerate}
 \begin{lstlisting}
 // check for failure on input file
 if ( !in_stream )
@@ -426,28 +469,38 @@ if ( !in_stream )
     }
 }
 \end{lstlisting}
-$\Rightarrow$ Read and write:
+\begin{enumerate}
+\item[$\Rightarrow$] Read and write:
+\end{enumerate}
 \begin{lstlisting}
 // read/write data
 in_stream >> data1 >> data2;
 out_stream << data1 << data2;
 \end{lstlisting}
-$\Rightarrow$ Read a line:
+\begin{enumerate}
+\item[$\Rightarrow$] Read a line:
+\end{enumerate}
 \begin{lstlisting}
 string line;
 getline(in_stream, line);
 \end{lstlisting}
-$\Rightarrow$ Ignore input (extract and discard):
+\begin{enumerate}
+\item[$\Rightarrow$] Ignore input (extract and discard):
+\end{enumerate}
 \begin{lstlisting}
 // ignore up to a newline or 9999 characters
 in_stream.ignore(9999,'\n');
 \end{lstlisting}
-$\Rightarrow$ Move the file pointer:
+\begin{enumerate}
+\item[$\Rightarrow$] Move the file pointer:
+\end{enumerate}
 \begin{lstlisting}
 // skip 5 characters
 in_stream.seekg(5);
 \end{lstlisting}
-$\Rightarrow$ Checking for end of file:
+\begin{enumerate}
+\item[$\Rightarrow$] Checking for end of file:
+\end{enumerate}
 \begin{lstlisting}
 // the failing read sets the EOF flag but avoids further processing
 while ( in_stream >> next )
@@ -459,10 +512,12 @@ while ( in_stream >> next )
 if ( in_stream.eof() )
     cout << "EOF reached!" << endl;
 \end{lstlisting}
-$\Rightarrow$ When a file object gets out of scope, the file is closed automatically, but explicit
+\begin{enumerate}
+\item[$\Rightarrow$] When a file object gets out of scope, the file is closed automatically, but explicit
 close is also possible (not recommended):
+\end{enumerate}
 \begin{lstlisting}
-// explicitely close files
+// explicitily close files
 in_stream.close();
 out_stream.close()
 \end{lstlisting}
@@ -471,7 +526,9 @@ out_stream.close()
 %
 \section{Strings}
 \small
-$\Rightarrow$ Strings as supported by the C++ standard library:
+\begin{enumerate}
+\item[$\Rightarrow$] Strings as supported by the C++ standard library:
+\end{enumerate}
 \begin{lstlisting}
 #include <string>
 
@@ -528,7 +585,9 @@ string s = to_string(123.456);
 %
 \section{Vectors}
 \small
-$\Rightarrow$ Sequence of elements accessed via an index:
+\begin{enumerate}
+\item[$\Rightarrow$] Sequence of elements accessed via an index:
+\end{enumerate}
 \begin{lstlisting}
 #include <vector>
 
@@ -557,7 +616,9 @@ cout << v.capacity();
 // reserve more capacity e.g. at least 64 (*<int>*)s
 v.reserve(64);
 \end{lstlisting}
-$\Rightarrow$ Throws an \textbf{out\_of\_range} exception if accessed out of bounds:
+\begin{enumerate}
+\item[$\Rightarrow$] Throws an \textbf{out\_of\_range} exception if accessed out of bounds:
+\end{enumerate}
 \begin{lstlisting}
 // out of bounds access
 vector<int> v = {2, 4, 6, 8};
@@ -575,7 +636,9 @@ try
 %
 \section{Enumerations}
 \small
-$\Rightarrow$ \textbf{enum class} defines symbolic constants in the scope of the class:
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{enum class} defines symbolic constants in the scope of the class:
+\end{enumerate}
 \begin{lstlisting}
 // enum definition
 enum class Weekdays
@@ -586,13 +649,17 @@ enum class Weekdays
 // usage
 Weekdays day = Weekdays::tue;
 \end{lstlisting}
-$\Rightarrow$ \textbf{int}s cannot be assigned to \textbf{enum class} and viceversa:
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{int}s cannot be assigned to \textbf{enum class} and viceversa:
+\end{enumerate}
 \begin{lstlisting}
 // errors!
 Weekdays day = 3;
 int d = Weekdays::wed;
 \end{lstlisting}
-$\Rightarrow$ A conversion function should be written which uses unchecked conversions:
+\begin{enumerate}
+\item[$\Rightarrow$] A conversion function should be written which uses unchecked conversions:
+\end{enumerate}
 \begin{lstlisting}
 // valid
 Weekdays day = Weekdays(2);
@@ -603,8 +670,10 @@ int d = int(Weekdays::fri);
 %
 \section{Classes}
 \small
-$\Rightarrow$ If you give no constructor, the compiler will generate a default constructor that does nothing.
+\begin{enumerate}
+\item[$\Rightarrow$] If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the C++ compiler will generate no other constructors.
+\end{enumerate}
 \begin{lstlisting}
 class Car
 {
@@ -646,7 +715,9 @@ bool equal(const Car &car1, const Car &car2)
     return car1.engine_liter == car2.engine_liter;
 }
 \end{lstlisting}
-$\Rightarrow$ Constructor invocations:
+\begin{enumerate}
+\item[$\Rightarrow$] Constructor invocations:
+\end{enumerate}
 \begin{lstlisting}
 // all forms call the (*<Car(2000)>*) constructor
 Car bmw {2000};
@@ -660,9 +731,9 @@ Car bmw = Car{2000};
 \small
 The behaviour is different if overloaded as class members or 
 friend functions.
-\\
-\\
-$\Rightarrow$ As class members:
+\begin{enumerate}
+\item[$\Rightarrow$] As class members:
+\end{enumerate}
 \begin{lstlisting}
 class Euro
 {
@@ -670,8 +741,10 @@ class Euro
     Euro(int euro);
     // constructor for  (*<euro>*) and (*<cents>*)
     Euro(int euro, int cents);
-    // works for (*<Euro(5) + 2>*), equivalent to (*<Euro(5).operator+( Euro(2) )>*),
-    // doesn't work for (*<2 + Euro(5)>*), (*<2>*) is not a calling object of type (*<Euro>*) !
+    // works for (*<Euro(5) + 2>*), equivalent to 
+    // (*<Euro(5).operator+( Euro(2) )>*),
+    // doesn't work for (*<2 + Euro(5)>*), (*<2>*) is not a calling object
+    //  of type (*<Euro>*) !
     Euro operator+(const Euro& amount); 
     friend Euro operator+(const Euro& amount1, const Euro& amount2);
 private:
@@ -679,7 +752,9 @@ private:
     int cents;
 };
 \end{lstlisting}
-$\Rightarrow$ As friend members:
+\begin{enumerate}
+\item[$\Rightarrow$] As friend members:
+\end{enumerate}
 \begin{lstlisting}
 class Euro
 {
@@ -703,10 +778,12 @@ private:
 %
 \section{Copy constructor}
 \small
-$\Rightarrow$ If not defined, C++ automatically adds the default copy
+\begin{enumerate}
+\item[$\Rightarrow$] If not defined, C++ automatically adds the default copy
 constructor and the default assignment operator.
 They might not be correct if dynamic variables are used,
-because class members are simply copied.
+because class members are simply copied:
+\end{enumerate}
 \begin{lstlisting}
 class Int_list
 {
@@ -733,9 +810,11 @@ third_list = first_list;
 %
 \section{Inheritance}
 \small
-$\Rightarrow$ Constructors, desctructor, private member functions, copy constructor
+\begin{enumerate}
+\item[$\Rightarrow$] Constructors, destructor, private member functions, copy constructor
 and assignment operator are not inherited! Derived classes get the default ones
-if they are not explicitely provided but are present in the base class.
+if they are not explicitily provided but are present in the base class.
+\end{enumerate}
 \begin{lstlisting}
 // a simple book class
 class Book
@@ -748,7 +827,9 @@ protected:
     string title;
 };
 \end{lstlisting}
-$\Rightarrow$ Redefinition of function members:
+\begin{enumerate}
+\item[$\Rightarrow$] Redefinition of function members:
+\end{enumerate}
 \begin{lstlisting}
 // a simple textbook class
 class Textbook : public Book
@@ -761,8 +842,10 @@ protected:
     string subject;
 };
 \end{lstlisting}
-$\Rightarrow$ \textbf{protecetd} members can be accessed
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{protecetd} members can be accessed
 by derived function members:
+\end{enumerate}
 \begin{lstlisting}
 // has access to (*<protected>*) members of he base class
 void Textbook::print(ostream& os)
@@ -772,7 +855,9 @@ void Textbook::print(ostream& os)
     os << "The subject is \"" << subject << "\"" << endl;
 }
 \end{lstlisting}
-$\Rightarrow$ With redefinition, no polymorphism!
+\begin{enumerate}
+\item[$\Rightarrow$] With redefinition, no polymorphism!
+\end{enumerate}
 \begin{lstlisting}
 TextBook a_Math_Textbook("Calculus",1200,"Real variables");
 Book *a_book = &a_Math_Textbook;
@@ -785,14 +870,15 @@ a_book->print(cout);
 %
 \section{Polymorphism}
 \small
-$\Rightarrow$ \textbf{virtual} allows for late binding, i.e.
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{virtual} allows for late binding, i.e.
 polymorphism. Function members are
-overridden in the derived class.\\
-Note: Destructors should also be
-declared \textbf{virtual}. When derived
+overridden in the derived class. Note: Destructors should also be
+ declared \textbf{virtual}. When derived
 objects are referenced by base class
 pointers, the destructor of the derived class
 is called if it is declared virtual.
+\end{enumerate}
 \begin{lstlisting}
 // a simple book class
 class Book
@@ -851,8 +937,10 @@ a_book->print(cout);
 %
 \section{Exceptions}
 \small
-$\Rightarrow$ The value thrown by
+\begin{enumerate}
+\item[$\Rightarrow$] The value thrown by
 \textbf{throw} can be of any type.
+\end{enumerate}
 \begin{lstlisting}
 // exception class
 class My_exception
@@ -880,8 +968,10 @@ catch (...)
     exit(1);
 }
 \end{lstlisting}
-$\Rightarrow$ The standard library defines a hierarchy of exceptions.  For example \textbf{runtime\_error} can be 
+\begin{enumerate}
+\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions.  For example \textbf{runtime\_error} can be 
 thrown when runtime errors occur:
+\end{enumerate}
 \begin{lstlisting}
 try
 {
@@ -894,17 +984,19 @@ catch (runtime_error& e)
     return 1;
 }
 \end{lstlisting}
-$\Rightarrow$ Functions throwing exceptions should list the exceptions thrown in
+\begin{enumerate}
+\item[$\Rightarrow$] Functions throwing exceptions should list the exceptions thrown in
 the exception specification list. These exceptions are not 
 caught by the function itself!
+\end{enumerate}
 \begin{lstlisting}
 // exceptions of type (*<DivideByZero>*) or (*<OtherException>*) are
-// to be caught outside the function. All other exceptions end the program
-// if not caught inside the function.
+// to be caught outside the function. All other exceptions 
+// end the program if not caught inside the function.
 void my_function( ) throw (DivideByZero, OtherException);
 
-// empty exception list, i.e. all exceptions end the program if thrown but
-// not caught inside the function.
+// empty exception list, i.e. all exceptions end the
+// program if thrown but not caught inside the function.
 void my_function( ) throw ( );
 
 // all exceptions of all types treated normally.
@@ -915,11 +1007,11 @@ void my_function( );
 %
 \section{Templates}
 \small
-$\Rightarrow$ Function templates:\\ \\
-C++ does not need 
-the template declaration.
-The template function
-definition is included directly.
+Function templates:
+\begin{enumerate}
+\item[$\Rightarrow$] C++ does not need the template declaration.
+The template function definition is included directly.
+\end{enumerate}
 \begin{lstlisting}
 // generic swap function
 template<class T>
@@ -940,11 +1032,11 @@ swap(a, b);
 // swaps two (*<char>*)s
 swap(c, d);
 \end{lstlisting}
-$\Rightarrow$ Class templates:\\ \\
-Methods are defined as 
-template functions.
-Note the declaration
-of the templated friend operator.
+Class templates:
+\begin{enumerate}
+\item[$\Rightarrow$] Methods are defined as template functions.
+Note the declaration of the templated friend operator.
+\end{enumerate}
 \begin{lstlisting}
 template<class T>
 class A_list
@@ -980,8 +1072,10 @@ A_list<double> list;
 %
 \section{Iterators}
 \small
-$\Rightarrow$ An iterator is a generalization of a pointer. Different containers have
+\begin{enumerate}
+\item[$\Rightarrow$] An iterator is a generalization of a pointer. Different containers have
 different iterators.
+\end{enumerate}
 \begin{lstlisting}
 #include <vector>
 
@@ -1028,7 +1122,9 @@ for (r = v.rbegin(); r != v.rend(); r++)
 %
 \section{Containers}
 \small
-$\Rightarrow$ Sequential containers: \textbf{list}
+\begin{enumerate}
+\item[$\Rightarrow$] Sequential containers: \textbf{list}
+\end{enumerate}
 \begin{lstlisting}
 #include <list>
 
@@ -1050,7 +1146,9 @@ data.erase(e);
 for (e = data.begin(); e != data.end(); e++)
     cout << *e << endl;
 \end{lstlisting}
-$\Rightarrow$ Adapter containers: \textbf{stack}
+\begin{enumerate}
+\item[$\Rightarrow$] Adapter containers: \textbf{stack}
+\end{enumerate}
 \begin{lstlisting}
 #include <stack>
 
@@ -1070,7 +1168,9 @@ double d = numbers.top();
 // pop top element
 numbers.pop();
 \end{lstlisting}
-$\Rightarrow$ Associative containers: \textbf{set}
+\begin{enumerate}
+\item[$\Rightarrow$] Associative containers: \textbf{set}
+\end{enumerate}
 \begin{lstlisting}
 #include <set>
 
@@ -1091,7 +1191,9 @@ set<char>::const_iterator c;
 for (c = letters.begin(); c != letters.end(); c++)
     cout << *c << endl;
 \end{lstlisting}
-$\Rightarrow$ Associative containers: \textbf{map}
+\begin{enumerate}
+\item[$\Rightarrow$] Associative containers: \textbf{map}
+\end{enumerate}
 \begin{lstlisting}
 #include <string>
 #include <map>
@@ -1124,7 +1226,9 @@ for (auto n : dict)
 %
 \section{Algorithms}
 \small
-$\Rightarrow$ Provided by the C++ standard library:
+\begin{enumerate}
+\item[$\Rightarrow$] Provided by the C++ standard library:
+\end{enumerate}
 \begin{lstlisting}
 #include <vector>
 #include <algorithm>
