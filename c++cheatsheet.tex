@@ -90,7 +90,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.30~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.31~-~GNU GPL v3.0}
 
 %\layout
 
@@ -111,12 +111,14 @@ In the following code snippets, the standard I/O library and namespace are alway
 #include <iostream>
 using namespace std;
 \end{lstlisting}
+
+\newpage
 %
 % Type safety
 %
 \section{Type safety}
 \small
-Universal and uniform initialisation prevents narrowing
+$\Rightarrow$ Universal and uniform initialisation prevents narrowing
 conversions from happening:
 \begin{lstlisting}
 // safe conversions
@@ -175,7 +177,7 @@ $\Rightarrow$ With read-only, read-write and copy-by-value parameters:
 \begin{lstlisting}
 // (*<day>*) input parameter passed by const reference (read-only)
 // (*<month>*) output parameter to be changed by the function (read-write)
-// (*<year>*) input parameer copied-by-value
+// (*<year>*) input parameter copied-by-value
 void set_birthday(const int& day, int& month, int year);
 \end{lstlisting}
 $\Rightarrow$ Use a function for initialising an object with a complicated initialiser (we might not
@@ -281,6 +283,7 @@ delete[] m;
 %
 \section{C-Strings}
 \small
+$\Rightarrow$ Legacy strings from C:
 \begin{lstlisting}
 #include <cstring>
 #include <cstdlib>
@@ -316,6 +319,7 @@ double n = atof("12.345");
 %
 \section{Standard I/O}
 \small
+$\Rightarrow$ Format manipulators:
 \begin{lstlisting}
 #include <iomanip>
 
@@ -353,6 +357,7 @@ cout << showpos;
 %
 \section{Character I/O}
 \small
+$\Rightarrow$ Single characters read and write:
 \begin{lstlisting}
 // read any character from (*<cin>*) (doesn't skip spaces, newlines, etc.)
 char nextChar;
@@ -365,8 +370,11 @@ cout.put(nextChar)
 char line[80+1];
 cin.getline(line,81);
 
-// put back a char to (*<cin>*) nextChar will be the next char read by cin.get()
+// put back (*<nextChar>*) to (*<cin>*), (*<nextChar>*) will be the next char read by (*<cin.get()>*)
 cin.putback(nextChar);
+
+// put back the last char got from (*<cin.get()>*) to (*<cin>*)
+cin.unget();
 \end{lstlisting}
 %\columnbreak
 %
@@ -374,35 +382,48 @@ cin.putback(nextChar);
 %
 \section{Files}
 \small
-Accessed by means of \textbf{ifstream} (input) or
+$\Rightarrow$ Accessed by means of \textbf{ifstream} (input) or
 \textbf{ofstream} (output) objects:
 \begin{lstlisting}
 #include <fstream>
 
-// input file
+// open input file 
+ifstream in_stream {"infile.dat"};
+// open output file
+ofstream out_stream {"outfile.dat"};
+\end{lstlisting}
+$\Rightarrow$ Files can also be opened explicitely (not recommended):
+\begin{lstlisting}
+#include <fstream>
+
+// input file 
 ifstream in_stream;
 // output file
 ofstream out_stream;
 
-// open
-in_stream("infile.dat");
+// open files
+in_stream.open("infile.dat");
 out_stream.open("outfile.dat");
 \end{lstlisting}
 $\Rightarrow$ When checking for failure, the status flag needs to be cleared
 in order to continue working with the file:
 \begin{lstlisting}
-// check for failure input file
-if ( in_stream.fail() )
+// check for failure on input file
+if ( !in_stream )
 {
-    // file opening failed
-    in_stream.clear();
-}
-
-// check for failure output file
-if ( out_stream.fail() )
-{
-     // file opening failed
-     out_stream.clear();
+    if ( in_stream.bad() ) error("stream corrupted!");
+    
+    if ( in_stream.eof() )
+    { 
+        // no more data available
+    }
+    
+    if ( in_stream.fail() )
+    {
+        // some format data error (recovery possible)
+        // set back the state to good again
+        in_stream.clear();
+    }
 }
 \end{lstlisting}
 $\Rightarrow$ Read and write:
@@ -437,8 +458,11 @@ while ( in_stream >> next )
 // check the EOF flag
 if ( in_stream.eof() )
     cout << "EOF reached!" << endl;
-
-// close file
+\end{lstlisting}
+$\Rightarrow$ When a file object gets out of scope, the file is closed automatically, but explicit
+close is also possible (not recommended):
+\begin{lstlisting}
+// explicitely close files
 in_stream.close();
 out_stream.close()
 \end{lstlisting}
@@ -447,6 +471,7 @@ out_stream.close()
 %
 \section{Strings}
 \small
+$\Rightarrow$ Strings as supported by the C++ standard library:
 \begin{lstlisting}
 #include <string>
 
@@ -503,7 +528,7 @@ string s = to_string(123.456);
 %
 \section{Vectors}
 \small
-Sequence of elements accessed via an index:
+$\Rightarrow$ Sequence of elements accessed via an index:
 \begin{lstlisting}
 #include <vector>
 
@@ -678,7 +703,7 @@ private:
 %
 \section{Copy constructor}
 \small
-If not defined, C++ automatically adds the default copy
+$\Rightarrow$ If not defined, C++ automatically adds the default copy
 constructor and the default assignment operator.
 They might not be correct if dynamic variables are used,
 because class members are simply copied.
@@ -708,7 +733,7 @@ third_list = first_list;
 %
 \section{Inheritance}
 \small
-Constructors, desctructor, private member functions, copy constructor
+$\Rightarrow$ Constructors, desctructor, private member functions, copy constructor
 and assignment operator are not inherited! Derived classes get the default ones
 if they are not explicitely provided but are present in the base class.
 \begin{lstlisting}
@@ -760,7 +785,7 @@ a_book->print(cout);
 %
 \section{Polymorphism}
 \small
-\textbf{virtual} allows for late binding, i.e.
+$\Rightarrow$ \textbf{virtual} allows for late binding, i.e.
 polymorphism. Function members are
 overridden in the derived class.\\
 Note: Destructors should also be
@@ -826,7 +851,7 @@ a_book->print(cout);
 %
 \section{Exceptions}
 \small
-The value thrown by
+$\Rightarrow$ The value thrown by
 \textbf{throw} can be of any type.
 \begin{lstlisting}
 // exception class
@@ -955,7 +980,7 @@ A_list<double> list;
 %
 \section{Iterators}
 \small
-An iterator is a generalization of a pointer. Different containers have
+$\Rightarrow$ An iterator is a generalization of a pointer. Different containers have
 different iterators.
 \begin{lstlisting}
 #include <vector>
@@ -1099,6 +1124,7 @@ for (auto n : dict)
 %
 \section{Algorithms}
 \small
+$\Rightarrow$ Provided by the C++ standard library:
 \begin{lstlisting}
 #include <vector>
 #include <algorithm>
