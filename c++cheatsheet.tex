@@ -93,7 +93,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.32~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.33~-~GNU GPL v3.0}
 
 %\layout
 
@@ -463,10 +463,58 @@ if ( !in_stream )
     
     if ( in_stream.fail() )
     {
-        // some format data error (recovery possible)
-        // set back the state to good again
+        // some format data error, e.g. expected
+        // an integer but a string was read
+        // recovery is still possible
+        
+        // set back the state to good 
+        // before attempting to read again
         in_stream.clear();
+        
+        // read again
+        string wrong_input;
+        in_stream >> wrong_input;
     }
+}
+\end{lstlisting}
+
+\begin{enumerate}
+\item[$\Rightarrow$] If the input pattern is unexpected, it is possible to set the state of the stream to failed:
+\end{enumerate}
+\begin{lstlisting}
+try
+{
+    // check for unexpected input
+    char ch;
+    if ( in_stream >> ch && ch != expected_char )
+    {
+        // put back last character read
+        in_stream.unget();
+        
+        // set failed bit
+        in_stream.clear(ios_base::failbit);
+    
+        // throw an exception or deal with failed stream
+        throw runtime_error("Unexpected input");
+    }
+}
+catch (runtime_error e)
+{
+    cerr << "Error! " << e.what() << "\n";
+            
+    // check for failure
+    if (in_stream.fail())
+    {
+        // clear failed bit
+        in_stream.clear();
+                
+        // read wrong input
+        string wrong_input;
+        in_stream >> wrong_input;
+                    
+        cerr << "Got '" << wrong_input[0] << "'\n";
+    }
+    else return 1; // eof or bad
 }
 \end{lstlisting}
 \begin{enumerate}
