@@ -34,6 +34,7 @@
 
 % Change the color of the text
 \usepackage{xcolor}
+\definecolor{codegray}{gray}{0.78}
 
 % multiple columns in the toc
 \usepackage{multicol}
@@ -47,10 +48,9 @@
 \lstset{
     language = [11]C++,
     basicstyle = \ttfamily,
-    morekeywords = narrow\_cast,
     keywordstyle=\bfseries,
     escapeinside={(*<}{>*)},          % if you want to add LaTeX within your code
-    backgroundcolor = \color{lightgray},
+    backgroundcolor = \color{codegray},
     xleftmargin = 1.2cm,
     framexleftmargin = 1em
 }
@@ -84,6 +84,8 @@
 
 \setcounter{secnumdepth}{0} % sections are level 1
 
+\usepackage[british]{babel}
+
 % This is the body: text mixed with commands
 
 % Commands have the following general syntax:
@@ -93,7 +95,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.33~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.34~-~GNU GPL v3.0}
 
 %\layout
 
@@ -352,7 +354,25 @@ double n = atof("12.345");
 \section{Standard I/O}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$]  Format manipulators:
+\item[$\Rightarrow$] Input stream \textbf{cin}, output stream \textbf{cout}, error stream \textbf{cerr}:
+\end{enumerate}
+\begin{lstlisting}
+int number;
+char ch;
+
+// read a number followed by a character
+// from standard input (keyboard)
+// (ignores whitespaces, newlines, etc.)
+cin >> number >> ch;
+
+// write on standard output (display)
+cout << number << " " <<  ch << endl;
+
+// write error message on standard error (display)
+cerr << "Wrong input!\n";
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Format manipulators:
 \end{enumerate}
 \begin{lstlisting}
 #include <iomanip>
@@ -386,11 +406,6 @@ cout << showpoint;
 cout.setf(ios::showpos);
 cout << showpos;
 \end{lstlisting}
-%
-% Character I/O
-%
-\section{Character I/O}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] Single characters read and write:
 \end{enumerate}
@@ -413,7 +428,46 @@ cin.putback(nextChar);
 // put back the last char got from (*<cin.get()>*) to (*<cin>*)
 cin.unget();
 \end{lstlisting}
-%\columnbreak
+\begin{enumerate}
+\item[$\Rightarrow$] If the input pattern is unexpected, it is possible to set the state of \textbf{cin} to failed:
+\end{enumerate}
+\begin{lstlisting}
+try
+{
+    // check for unexpected input
+    char ch;
+    if ( cin >> ch && ch != expected_char )
+    {
+        // put back last character read
+        cin.unget();
+        
+        // set failed bit
+        cin.clear(ios_base::failbit);
+    
+        // throw an exception or deal with failed stream
+        throw runtime_error("Unexpected input");
+    }
+}
+catch (runtime_error e)
+{
+    cerr << "Error! " << e.what() << "\n";
+            
+    // check for failure
+    if (cin.fail())
+    {
+        // clear failed bit
+        cin.clear();
+                
+        // read wrong input
+        string wrong_input;
+        cin >> wrong_input;
+                    
+        cerr << "Got '" << wrong_input[0] << "'\n";
+    }
+     // End of file (eof) or corrupted state (bad)
+    else return 1;
+}
+\end{lstlisting}
 %
 % Files
 %
@@ -477,9 +531,9 @@ if ( !in_stream )
     }
 }
 \end{lstlisting}
-
 \begin{enumerate}
-\item[$\Rightarrow$] If the input pattern is unexpected, it is possible to set the state of the stream to failed:
+\item[$\Rightarrow$] As for the standard input, if the input pattern is unexpected, it is possible to set the state of the file to failed
+and try to recover somewhere else, e.g. by throwing an exception:
 \end{enumerate}
 \begin{lstlisting}
 try
