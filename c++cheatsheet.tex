@@ -95,7 +95,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.35~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.36~-~GNU GPL v3.0}
 
 %\layout
 
@@ -349,9 +349,9 @@ long   n = atol("1234567");
 double n = atof("12.345");
 \end{lstlisting}
 %
-% Standard I/O
+% Input-output streams
 %
-\section{Standard I/O}
+\section{Input-output streams}
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] Input stream \textbf{cin}, output stream \textbf{cout}, error stream \textbf{cerr}:
@@ -484,6 +484,7 @@ catch (runtime_error e)
     else return 1;
 }
 \end{lstlisting}
+
 %
 % Files
 %
@@ -700,6 +701,45 @@ double n = stod("12.345");
 // from numeric type to (*<string>*)
 string s = to_string(123.456);
 \end{lstlisting}
+%
+% String streams
+%
+\section{String streams}
+\small
+A string is used as a source for an input stream or as a target for an output stream. \\
+\begin{enumerate}
+\item[$\Rightarrow$] Input string stream \textbf{istringstream}:
+\end{enumerate}
+\begin{lstlisting}
+#include <sstream>
+
+// input string stream
+istringstream data_stream{"1.234 -5643.32"};
+
+// read numbers from data stream
+double val;
+while ( is >> val )
+    cout << val << endl;
+
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Output string stream \textbf{ostringstream}:
+\end{enumerate}
+\begin{lstlisting}
+#include <sstream>
+
+// output string stream
+ostringstream data_stream;
+
+// the same manipulators of input-output streams
+// can be used
+data_stream << fixed << setprecision(2) << showpos;
+data_stream << 6.432 << " " << -313.2134 << "\n";
+
+// the (*<str()>*) method returns the string in the stream
+cout << data_stream.str();
+\end{lstlisting}
+
 %
 % Vectors
 %
