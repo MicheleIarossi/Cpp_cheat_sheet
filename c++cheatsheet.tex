@@ -93,9 +93,9 @@
 \begin{document}
 
 % Set title and author
-\title{\emph{C++ basics}}
+\title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.36~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.40~-~GNU GPL v3.0}
 
 %\layout
 
@@ -278,7 +278,7 @@ for (auto x : arr)
 // simple pointer to (*<double>*)
 double *d = new double(5.123);
 
-// delete the storage on the freestore
+// delete the storage on the free store
 delete d;
 \end{lstlisting}
 \begin{enumerate}
@@ -288,7 +288,7 @@ delete d;
 // dynamic array of (*<10 double>*)s
 double *dd = new double[10];
 
-// delete the storage on the freestore
+// delete the storage on the free store
 delete [] dd;
 \end{lstlisting}
 \begin{enumerate}
@@ -300,7 +300,7 @@ double **m = new double*[5];
 for (int i=0; i<5; i++)
     m[i] = new double[5];
 
-// memory initialization    
+// memory initialisation    
 for (int i=0; i<5; i++)
     for (int j=0; j<5; j++)
         m[i][j] = i*j;
@@ -503,7 +503,16 @@ ifstream in_stream {"infile.dat"};
 ofstream out_stream {"outfile.dat"};
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Files can be also opened explicitly (not recommended):
+\item[$\Rightarrow$] Accessed both in input and output mode by means of \textbf{fstream} objects (not recommended):
+\end{enumerate}
+\begin{lstlisting}
+#include <fstream>
+
+// open file in both input and output mode
+fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Opened explicitly (not recommended):
 \end{enumerate}
 \begin{lstlisting}
 #include <fstream>
@@ -810,7 +819,7 @@ enum class Weekdays
 Weekdays day = Weekdays::tue;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{int}s cannot be assigned to \textbf{enum class} and viceversa:
+\item[$\Rightarrow$] \textbf{int}s cannot be assigned to \textbf{enum class} and vice versa:
 \end{enumerate}
 \begin{lstlisting}
 // errors!
@@ -973,7 +982,7 @@ third_list = first_list;
 \begin{enumerate}
 \item[$\Rightarrow$] Constructors, destructor, private member functions, copy constructor
 and assignment operator are not inherited! Derived classes get the default ones
-if they are not explicitily provided but are present in the base class.
+if they are not explicitly provided but are present in the base class.
 \end{enumerate}
 \begin{lstlisting}
 // a simple book class
@@ -1003,7 +1012,7 @@ protected:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{protecetd} members can be accessed
+\item[$\Rightarrow$] \textbf{protected} members can be accessed
 by derived function members:
 \end{enumerate}
 \begin{lstlisting}
@@ -1068,7 +1077,7 @@ Book::~Book()
 class Textbook : public Book
 {
 public:
-    Textbook(string t,int p, string s);
+    Textbook(string t, int p, string s);
     virtual ~Textbook();
     // overriding of (*<print()>*)  from the base class
     virtual void print(ostream& os);
@@ -1233,7 +1242,7 @@ A_list<double> list;
 \section{Iterators}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] An iterator is a generalization of a pointer. Different containers have
+\item[$\Rightarrow$] An iterator is a generalisation of a pointer. Different containers have
 different iterators.
 \end{enumerate}
 \begin{lstlisting}
@@ -1359,7 +1368,7 @@ for (c = letters.begin(); c != letters.end(); c++)
 #include <map>
 #include <utility>
 
-// initialization
+// initialisation
 map<string,int> dict = { {"one",1}, {"two",2} };
 pair<string,int> three("three",3);
 
