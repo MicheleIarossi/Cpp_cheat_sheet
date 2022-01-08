@@ -95,7 +95,7 @@
 % Set title and author
 \title{\emph{C++ basics}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.34~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.35~-~GNU GPL v3.0}
 
 %\layout
 
@@ -372,39 +372,55 @@ cout << number << " " <<  ch << endl;
 cerr << "Wrong input!\n";
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Format manipulators:
+\item[$\Rightarrow$] Integer format manipulators: once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
 \end{enumerate}
 \begin{lstlisting}
 #include <iomanip>
 
-// set flag
-cout.setf(ios::fixed);
-// unset flag
-cout.unsetf(ios::fixed);
+// set decimal, octal, or hexadecimal notation,
+// and show the base, i.e. (*<0>*) for octal and (*<0x>*) for hexadecimal
+cout << showbase;
+cout << dec << 1974 << endl;
+cout << oct << 1974 << endl;
+cout << hex << 1974 << endl;
+cout << noshowbase;
 
-// set (*<ios::fixed>*) or (*<ios::scientific>*) notation
-cout.setf(ios::fixed);
-cout << fixed;
+// values can be read from input in decimal, octal
+// or hexadecimal format previous unsetting
+// of all the flags
+cin.unsetf(ios::dec);
+cin.unsetf(ios::oct);
+cin.unsetf(ios::hex);
+
+//  now (*<val>*) can be inserted in any format
+cin >> val;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Floating point format manipulators:  once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
+\end{enumerate}
+\begin{lstlisting}
+#include <iomanip>
+
+// set default, fixed, or scientific notation
+cout << defaultfloat << 1023.984;
+cout << fixed << 1023.984;
+cout << scientific << 1023.984;
 
 // set precision
-cout.precision(4);
-cout << setprecision(4);
+cout << setprecision(2) << 1023.984;
 
 // set character text width
-cout.width(10);
 cout << setw(10);
 
-// set (*<ios::left>*) or (*<ios::right>*) alignment
-cout.setf(ios::left);
-cout << left;
+// set left or right alignment
+cout << left  << 1023.984;
+cout << right << 1023.984;
 
 // always show decimal point and zeros
-cout.setf(ios::showpoint);
-cout << showpoint;
+cout << showpoint << 0.532;
 
 // always show plus sign
-cout.setf(ios::showpos);
-cout << showpos;
+cout << showpos << 3.64;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Single characters read and write:
@@ -486,7 +502,7 @@ ifstream in_stream {"infile.dat"};
 ofstream out_stream {"outfile.dat"};
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Files can also be opened explicitily (not recommended):
+\item[$\Rightarrow$] Files can be also opened explicitly (not recommended):
 \end{enumerate}
 \begin{lstlisting}
 #include <fstream>
@@ -597,8 +613,10 @@ in_stream.ignore(9999,'\n');
 \item[$\Rightarrow$] Move the file pointer:
 \end{enumerate}
 \begin{lstlisting}
-// skip 5 characters
+// skip 5 characters when reading (seek get)
 in_stream.seekg(5);
+// skip 8 characters when writing (seek put)
+out_stream.seekp(8);
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Checking for end of file:
