@@ -1,0 +1,20 @@
+\indexentry{\#include <iostream>!Standard input-output library}{1}
+\indexentry{\#include <iostream>}{1}
+\indexentry{\textbf{std} namespace}{1}
+\indexentry{Conversions!safe}{2}
+\indexentry{Conversions!unsafe}{2}
+\indexentry{Constants!\textbf{constexpr}}{2}
+\indexentry{Constants!\textbf{const}}{2}
+\indexentry{Casts!\textbf{static\_cast}}{2}
+\indexentry{Functions!arguments!default}{2}
+\indexentry{Functions!arguments!omitted}{2}
+\indexentry{Functions!arguments!read-only}{3}
+\indexentry{Functions!arguments!read-write}{3}
+\indexentry{Functions!arguments!copy-by-value}{3}
+\indexentry{Functions!arguments!copy-by-reference}{3}
+\indexentry{Functions!object initialisation}{3}
+\indexentry{Namespaces!\textbf{using} declarations}{3}
+\indexentry{\textbf{cin}}{3}
+\indexentry{\textbf{cout}}{3}
+\indexentry{Namespaces!\textbf{using namespace} directives}{3}
+\indexentry{\#include <iostream>!Input-output streams}{5}

@@ -1,0 +1,26 @@
+\babel@toc {british}{}\relax 
+\contentsline {section}{Type safety}{2}{}%
+\contentsline {section}{Constants}{2}{}%
+\contentsline {section}{Type casting}{2}{}%
+\contentsline {section}{Functions}{2}{}%
+\contentsline {section}{Namespaces}{3}{}%
+\contentsline {section}{Random numbers}{3}{}%
+\contentsline {section}{Arrays}{4}{}%
+\contentsline {section}{Pointers}{4}{}%
+\contentsline {section}{C-Strings}{5}{}%
+\contentsline {section}{Input-output streams}{5}{}%
+\contentsline {section}{Files}{8}{}%
+\contentsline {section}{Strings}{10}{}%
+\contentsline {section}{String streams}{11}{}%
+\contentsline {section}{Vectors}{12}{}%
+\contentsline {section}{Enumerations}{13}{}%
+\contentsline {section}{Classes}{13}{}%
+\contentsline {section}{Operator overloading}{14}{}%
+\contentsline {section}{Copy constructor}{15}{}%
+\contentsline {section}{Inheritance}{16}{}%
+\contentsline {section}{Polymorphism}{17}{}%
+\contentsline {section}{Exceptions}{18}{}%
+\contentsline {section}{Templates}{19}{}%
+\contentsline {section}{Iterators}{20}{}%
+\contentsline {section}{Containers}{21}{}%
+\contentsline {section}{Algorithms}{22}{}%

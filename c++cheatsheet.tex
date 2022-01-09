@@ -49,7 +49,7 @@
     language = [11]C++,
     basicstyle = \ttfamily,
     keywordstyle=\bfseries,
-    escapeinside={(*<}{>*)},          % if you want to add LaTeX within your code
+    escapeinside={(*}{*)},          % if you want to add LaTeX within your code
     backgroundcolor = \color{codegray},
     xleftmargin = 1.2cm,
     framexleftmargin = 1em
@@ -58,6 +58,8 @@
 % This encoding corresponds to the encoding used by TexShop for saving this file
 % The option utf8 is a local option, valid only for the package inputenc
 \usepackage[utf8]{inputenc}
+
+\usepackage[T1]{fontenc}
 
 % Layout package shows the layout of the page
 % You can issue the command \layout for printing the applied layout of the pages
@@ -84,7 +86,13 @@
 
 \setcounter{secnumdepth}{0} % sections are level 1
 
+% for british hyphenation
 \usepackage[british]{babel}
+
+% for making the index
+\usepackage{makeidx}
+
+\makeindex
 
 % This is the body: text mixed with commands
 
@@ -112,9 +120,10 @@
 
 \noindent
 In the following code snippets, the standard I/O library and namespace are always used:
+\index{\#include <iostream>!Standard input-output library}
 \begin{lstlisting}
-#include <iostream>
-using namespace std;
+#include <iostream> (*\index{\#include <iostream>}*)
+using namespace std;(*\index{\textbf{std} namespace}*) 
 \end{lstlisting}
 
 \newpage
@@ -127,33 +136,33 @@ using namespace std;
 \item[$\Rightarrow$] Universal and uniform initialisation prevents narrowing conversions from happening:
 \end{enumerate}
 \begin{lstlisting}
-// safe conversions
+// safe conversions (*\index{Conversions!safe}*)
 double x {54.21};
 int a {2342};
 
-// unsafe conversions (compile error!)
+// unsafe conversions (compile error!) (*\index{Conversions!unsafe}*)
 int y {x};
 char b {a};
 \end{lstlisting}
 %
-% constexpr
+% constants
 %
-\section{constexpr}
+\section{Constants}
 \small
 There are two options:
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{constexpr} must be known at compile time:
+\item[$\Rightarrow$] \textbf{constexpr}\index{Constants!\textbf{constexpr}} must be known at compile time:
 \end{enumerate}
 \begin{lstlisting}
 constexpr int max = 200;
 constexpr int c = max + 2;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{const} variables don't change at runtime. They cannot be declared as
+\item[$\Rightarrow$] \textbf{const}\index{Constants!\textbf{const}} variables don't change at runtime. They cannot be declared as
 \textbf{constexpr} because their value is not known at compile time:
 \end{enumerate}
 \begin{lstlisting}
-// the value of (*<n>*) is not known at compile time
+// the value of (*n*) is not known at compile time
 const int m = n + 1;
 \end{lstlisting}
 %
@@ -162,10 +171,10 @@ const int m = n + 1;
 \section{Type casting}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting:
+\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}:
 \end{enumerate}
 \begin{lstlisting}
-// (*<int 15>*) to (*<double 15.0>*)
+// (*int 15*) to (*double 15.0*)
 double num;
 num = static_cast<double>(15);
 \end{lstlisting}
@@ -176,31 +185,38 @@ num = static_cast<double>(15);
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] With default trailing arguments only in the function declaration:
+\index{Functions!arguments!default}
 \end{enumerate}
 \begin{lstlisting}
-// if (*<year>*) is omitted, then (*<year = 2000>*)
+// if (*year*) is omitted, then (*year = 2000*)
 void set_birthday(int day, int month, int year=2000);
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Omitting the name of an argument if not used anymore in the function definition:
+\index{Functions!arguments!omitted}
 \end{enumerate}
 \begin{lstlisting}
-// argument (*<year>*) is not used anymore in the function definition
+// argument (*year*) is not used anymore in the function definition
 // (doesn't break legacy code!)
 void set_birthday(int day, int month, int) { ...}
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] With read-only, read-write and copy-by-value parameters:
+\index{Functions!arguments!read-only}
+\index{Functions!arguments!read-write}
+\index{Functions!arguments!copy-by-value}
+\index{Functions!arguments!copy-by-reference}
 \end{enumerate}
 \begin{lstlisting}
-// (*<day>*) input parameter passed by const reference (read-only)
-// (*<month>*) output parameter to be changed by the function (read-write)
-// (*<year>*) input parameter copied-by-value
+// (*day*) input parameter passed by const reference (read-only)
+// (*month*) output parameter to be changed by the function (read-write)
+// (*year*) input parameter copied-by-value
 void set_birthday(const int& day, int& month, int year);
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Use a function for initialising an object with a complicated initialiser (we might not
 know exactly when the object gets initialised):
+\index{Functions!object initialisation}
 \end{enumerate}
 \begin{lstlisting}
 const Object& default_value()
@@ -217,17 +233,19 @@ const Object& default_value()
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] \textbf{using} declarations for avoiding fully qualified names:
+\index{Namespaces!\textbf{using} declarations}
 \end{enumerate}
 \begin{lstlisting}
-// use (*<string>*) instead of (*<std::string>*)
+// use (*string*) instead of (*std::string*)
 using std::string;
 
-// use (*<cin>*), (*<cout>*) instead of (*<std::cin>*), (*<std::cout>*)
-using std::cin;
-using std::cout;
+// use (*cin*), (*cout*) instead of (*std::cin*), (*std::cout*)
+using std::cin;(*\index{\textbf{cin}}*)
+using std::cout;(*\index{\textbf{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \textbf{using namespace} directives for including the whole namespace:
+\index{Namespaces!\textbf{using namespace} directives}
 \end{enumerate}
 \begin{lstlisting}
 using namespace std;
@@ -275,7 +293,7 @@ for (auto x : arr)
 \item[$\Rightarrow$] Simple object:
 \end{enumerate}
 \begin{lstlisting}
-// simple pointer to (*<double>*)
+// simple pointer to (*double*)
 double *d = new double(5.123);
 
 // delete the storage on the free store
@@ -285,7 +303,7 @@ delete d;
 \item[$\Rightarrow$] Dynamic array:
 \end{enumerate}
 \begin{lstlisting}
-// dynamic array of (*<10 double>*)s
+// dynamic array of (*10 double*)s
 double *dd = new double[10];
 
 // delete the storage on the free store
@@ -295,7 +313,7 @@ delete [] dd;
 \item[$\Rightarrow$] Dynamic matrix:
 \end{enumerate}
 \begin{lstlisting}
-// dynamic matrix of (*<5 x 5 double>*)s memory allocation
+// dynamic matrix of (*5 x 5 double*)s memory allocation
 double **m = new double*[5];
 for (int i=0; i<5; i++)
     m[i] = new double[5];
@@ -322,12 +340,12 @@ delete[] m;
 #include <cstring>
 #include <cstdlib>
 
-// (*<C-string>*) for max 10 characters
+// (*C-string*) for max 10 characters
 // long string + null char '\0'
 const int SIZE = 10 + 1;
 char msg[SIZE] = "Hello!";
 
-// correct looping over (*<C-string>*)s
+// correct looping over (*C-string*)s
 int i = 0;
 while ( msg[i] != '\0' && i < SIZE)
 {
@@ -343,7 +361,7 @@ strncmp(msg, srcStr, 10);
 // safe string concatenation, at most 10 characters are concatenated
 strncat(msg, srcStr, 10);
 
-// from (*<C-string>*) to (*<int>*), (*<long>*), (*<float>*)
+// from (*C-string*) to (*int*), (*long*), (*float*)
 int    n = atoi("567");
 long   n = atol("1234567");
 double n = atof("12.345");
@@ -352,6 +370,7 @@ double n = atof("12.345");
 % Input-output streams
 %
 \section{Input-output streams}
+\index{\#include <iostream>!Input-output streams}
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] Input stream \textbf{cin}, output stream \textbf{cout}, error stream \textbf{cerr}:
@@ -378,7 +397,7 @@ cerr << "Wrong input!\n";
 #include <iomanip>
 
 // set decimal, octal, or hexadecimal notation,
-// and show the base, i.e. (*<0>*) for octal and (*<0x>*) for hexadecimal
+// and show the base, i.e. (*0*) for octal and (*0x*) for hexadecimal
 cout << showbase;
 cout << dec << 1974 << endl;
 cout << oct << 1974 << endl;
@@ -392,7 +411,7 @@ cin.unsetf(ios::dec);
 cin.unsetf(ios::oct);
 cin.unsetf(ios::hex);
 
-//  now (*<val>*) can be inserted in any format
+//  now (*val*) can be inserted in any format
 cin >> val;
 \end{lstlisting}
 \begin{enumerate}
@@ -426,22 +445,22 @@ cout << showpos << 3.64;
 \item[$\Rightarrow$] Single characters read and write:
 \end{enumerate}
 \begin{lstlisting}
-// read any character from (*<cin>*) (doesn't skip spaces, newlines, etc.)
+// read any character from (*cin*) (doesn't skip spaces, newlines, etc.)
 char nextChar;
 cin.get(nextChar);
 
-// write a character to (*<cout>*)
+// write a character to (*cout*)
 cout.put(nextChar)
 
 // read a whole line of 80 chars
 char line[80+1];
 cin.getline(line,81);
 
-// put back (*<nextChar>*) to (*<cin>*), (*<nextChar>*) will be the next 
-// char read by (*<cin.get()>*)
+// put back (*nextChar*) to (*cin*), (*nextChar*) will be the next 
+// char read by (*cin.get()*)
 cin.putback(nextChar);
 
-// put back the last char got from (*<cin.get()>*) to (*<cin>*)
+// put back the last char got from (*cin.get()*) to (*cin*)
 cin.unget();
 \end{lstlisting}
 \begin{enumerate}
@@ -594,7 +613,8 @@ catch (runtime_error e)
                     
         cerr << "Got '" << wrong_input[0] << "'\n";
     }
-    else return 1; // eof or bad
+    // end-of-file or bad state
+    else return 1;
 }
 \end{lstlisting}
 \begin{enumerate}
@@ -702,12 +722,12 @@ s3.find("l",5);
 // C-string
 s3.c_str();
 
-// from (*<string>*) to (*<int>*), (*<long>*), (*<float>*)
+// from (*string*) to (*int*), (*long*), (*float*)
 int    n = stoi("456");
 long   n = stol("1234567");
 double n = stod("12.345");
 
-// from numeric type to (*<string>*)
+// from numeric type to (*string*)
 string s = to_string(123.456);
 \end{lstlisting}
 %
@@ -745,7 +765,7 @@ ostringstream data_stream;
 data_stream << fixed << setprecision(2) << showpos;
 data_stream << 6.432 << " " << -313.2134 << "\n";
 
-// the (*<str()>*) method returns the string in the stream
+// the (*str()*) method returns the string in the stream
 cout << data_stream.str();
 \end{lstlisting}
 
@@ -760,13 +780,13 @@ cout << data_stream.str();
 \begin{lstlisting}
 #include <vector>
 
-// vector with base type (*<int>*)
+// vector with base type (*int*)
 vector<int> v = {2, 4, 6, 8};
 
 // vector with 10 elements all initialised to 0
 vector<int> v(10);
 
-// access to the (*<i>*)th element
+// access to the (*i*)th element
 cout << v[i];
 
 // add an element
@@ -782,7 +802,7 @@ cout << v.size();
 // capacity: number of elements currently allocated
 cout << v.capacity();
 
-// reserve more capacity e.g. at least 64 (*<int>*)s
+// reserve more capacity e.g. at least 64 (*int*)s
 v.reserve(64);
 \end{lstlisting}
 \begin{enumerate}
@@ -888,7 +908,7 @@ bool equal(const Car &car1, const Car &car2)
 \item[$\Rightarrow$] Constructor invocations:
 \end{enumerate}
 \begin{lstlisting}
-// all forms call the (*<Car(2000)>*) constructor
+// all forms call the (*Car(2000)*) constructor
 Car bmw {2000};
 Car bmw = {2000};
 Car bmw = Car{2000};
@@ -906,14 +926,14 @@ friend functions.
 \begin{lstlisting}
 class Euro
 {
-    // constructor for  (*<euro>*)
+    // constructor for  (*euro*)
     Euro(int euro);
-    // constructor for  (*<euro>*) and (*<cents>*)
+    // constructor for  (*euro*) and (*cents*)
     Euro(int euro, int cents);
-    // works for (*<Euro(5) + 2>*), equivalent to 
-    // (*<Euro(5).operator+( Euro(2) )>*),
-    // doesn't work for (*<2 + Euro(5)>*), (*<2>*) is not a calling object
-    //  of type (*<Euro>*) !
+    // works for (*Euro(5) + 2*), equivalent to 
+    // (*Euro(5).operator+( Euro(2) )*),
+    // doesn't work for (*2 + Euro(5)*), (*2*) is not a calling object
+    //  of type (*Euro*) !
     Euro operator+(const Euro& amount); 
     friend Euro operator+(const Euro& amount1, const Euro& amount2);
 private:
@@ -927,12 +947,12 @@ private:
 \begin{lstlisting}
 class Euro
 {
-    // constructor for  (*<euro>*)
+    // constructor for  (*euro*)
     Euro(int euro);
-    // constructor for (*<euro>*) and (*<cents>*)
+    // constructor for (*euro*) and (*cents*)
     Euro(int euro, int cents);
-    // works for every combination (*<int>*) arguments are converted by 
-    // the constructor to (*<Euro>*) objects
+    // works for every combination (*int*) arguments are converted by 
+    // the constructor to (*Euro*) objects
     friend Euro operator+(const Euro& amount1, const Euro& amount2);
     // insertion and extraction operators
     friend ostream& operator<<(ostream& outs, const Euro& amount);
@@ -968,7 +988,7 @@ private:
 }
 
 // call the copy constructor
-// (*<second\_list>*) is initialised from (*<first\_list>*)
+// (*second\_list*) is initialised from (*first\_list*)
 Int_list second_list(first_list); 
 
 // call the assignment operator
@@ -1005,7 +1025,7 @@ class Textbook : public Book
 {
 public:
     Textbook(string t, int p, string s);
-    // redefinition of (*<print()>*) from the base class
+    // redefinition of (*print()*) from the base class
     void print(ostream& os);
 protected:
     string subject;
@@ -1016,7 +1036,7 @@ protected:
 by derived function members:
 \end{enumerate}
 \begin{lstlisting}
-// has access to (*<protected>*) members of he base class
+// has access to (*protected*) members of he base class
 void Textbook::print(ostream& os)
 {
     os << "The title of this textbook is '" << title
@@ -1031,7 +1051,7 @@ void Textbook::print(ostream& os)
 TextBook a_Math_Textbook("Calculus",1200,"Real variables");
 Book *a_book = &a_Math_Textbook;
 
-// call (*<Book::print()>*) not (*<Textbook::print()>*)!
+// call (*Book::print()*) not (*Textbook::print()*)!
 a_book->print(cout);
 \end{lstlisting}
 %
@@ -1079,7 +1099,7 @@ class Textbook : public Book
 public:
     Textbook(string t, int p, string s);
     virtual ~Textbook();
-    // overriding of (*<print()>*)  from the base class
+    // overriding of (*print()*)  from the base class
     virtual void print(ostream& os);
 protected:
     string *subject;
@@ -1098,7 +1118,7 @@ Textbook::~Textbook()
 TextBook a_Math_Textbook("Calculus",1200,"Real variables");
 Book *a_book = &a_Math_Textbook;
 
-// call (*<Textbook::print()>*)!
+// call (*Textbook::print()*)!
 a_book->print(cout);
 \end{lstlisting}
 %
@@ -1159,7 +1179,7 @@ the exception specification list. These exceptions are not
 caught by the function itself!
 \end{enumerate}
 \begin{lstlisting}
-// exceptions of type (*<DivideByZero>*) or (*<OtherException>*) are
+// exceptions of type (*DivideByZero*) or (*OtherException*) are
 // to be caught outside the function. All other exceptions 
 // end the program if not caught inside the function.
 void my_function( ) throw (DivideByZero, OtherException);
@@ -1195,10 +1215,10 @@ void swap(T& a, T& b)
 int a, b;
 char c, d;
 
-// swaps two (*<int>*)s
+// swaps two (*int*)s
 swap(a, b);
 
-// swaps two (*<char>*)s
+// swaps two (*char*)s
 swap(c, d);
 \end{lstlisting}
 Class templates:
@@ -1255,15 +1275,15 @@ vector<int>::iterator e;
 // bidirectional access
 e = v.begin();
 ++e;
-// print (*<v[1]>*)
+// print (*v[1]*)
 cout << *e << endl;
 --e;
-// print (*<v[0]>*)
+// print (*v[0]*)
 cout << *e << endl;
 
 // random access
 e = v.begin();
-// print (*<v[3]>*)
+// print (*v[3]*)
 cout << e[3] << endl;
 
 // change an element
@@ -1277,7 +1297,7 @@ for (c = v.begin(); c != v.end(); c++)
     cout << *c << endl;
 
 // not allowed
-// (*<c[2] = 2;>*)
+// (*c[2] = 2;*)
 
 // reverse iterator
 vector<int>::reverse_iterator r;
@@ -1427,4 +1447,8 @@ reverse(v.begin(),v.end());
 \bibitem{stroustrup} Bjarne Stroustrup. \textsl{Programming: Principles and Practice Using C++}, 2nd edition. Addison Wesley, 2015
 \bibitem{lospinoso} Josh Lospinoso. \textsl{C++ Crash Course: A Fast-Paced Introduction}, 1st edition. No Starch Press, 2019
 \end{thebibliography}
+%
+% Index
+%
+\printindex
 \end{document}

@@ -1,0 +1,39 @@
+\begin{theindex}
+
+  \item \#include <iostream>, 1
+    \subitem Input-output streams, 5
+    \subitem Standard input-output library, 1
+  \item \textbf{cin}, 3
+  \item \textbf{cout}, 3
+  \item \textbf{std} namespace, 1
+
+  \indexspace
+
+  \item Casts
+    \subitem \textbf{static\_cast}, 2
+  \item Constants
+    \subitem \textbf{constexpr}, 2
+    \subitem \textbf{const}, 2
+  \item Conversions
+    \subitem safe, 2
+    \subitem unsafe, 2
+
+  \indexspace
+
+  \item Functions
+    \subitem arguments
+      \subsubitem copy-by-reference, 3
+      \subsubitem copy-by-value, 3
+      \subsubitem default, 2
+      \subsubitem omitted, 2
+      \subsubitem read-only, 3
+      \subsubitem read-write, 3
+    \subitem object initialisation, 3
+
+  \indexspace
+
+  \item Namespaces
+    \subitem \textbf{using namespace} directives, 3
+    \subitem \textbf{using} declarations, 3
+
+\end{theindex}
