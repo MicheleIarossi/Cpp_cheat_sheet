@@ -23,4 +23,35 @@
 \indexentry{\textbf{srand}}{3}
 \indexentry{Random numbers!integer random number}{3}
 \indexentry{\textbf{rand}}{3}
+\indexentry{Range-based \textbf{for} statement}{4}
+\indexentry{Arrays!declaration and initialisation}{4}
+\indexentry{Arrays!modifying elements of an array}{4}
+\indexentry{\textbf{auto}}{4}
+\indexentry{Arrays!printing elements of an array}{4}
+\indexentry{Pointers!simple pointer}{4}
+\indexentry{\textbf{new}}{4}
+\indexentry{Pointers!dereference operator \textbf{$\ast$}}{4}
+\indexentry{Pointers!free store}{4}
+\indexentry{\textbf{delete}}{4}
+\indexentry{Pointers!address of operator \textbf{\&}}{4}
+\indexentry{Dynamic array|see{Pointers}}{4}
+\indexentry{Pointers!dynamic array!allocation}{4}
+\indexentry{\textbf{new}}{4}
+\indexentry{Pointers!dynamic array!deallocation}{4}
+\indexentry{\textbf{delete}}{4}
+\indexentry{Dynamic bidimensional array|see{Pointers}}{4}
+\indexentry{Pointers!dynamic matrix!allocation}{4}
+\indexentry{\textbf{new}}{4}
+\indexentry{\textbf{new}}{4}
+\indexentry{Pointers!subscript operator\textbf{[]}}{4}
+\indexentry{Pointers!dynamic matrix!deallocation}{5}
+\indexentry{\textbf{delete}}{5}
+\indexentry{\textbf{delete}}{5}
 \indexentry{<iostream>!Input-output streams}{5}
+\indexentry{\textbf{new}}{17}
+\indexentry{\textbf{new}}{17}
+\indexentry{\textbf{delete}}{17}
+\indexentry{\textbf{delete}}{17}
+\indexentry{\textbf{new}}{18}
+\indexentry{\textbf{delete}}{18}
+\indexentry{\textbf{new}}{20}

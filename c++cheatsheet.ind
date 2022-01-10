@@ -5,11 +5,21 @@
   \item <iostream>, 1
     \subitem Input-output streams, 5
     \subitem Standard input-output library, 1
+  \item \textbf{auto}, 4
   \item \textbf{cin}, 3
   \item \textbf{cout}, 3
+  \item \textbf{delete}, 4, 5, 17, 18
+  \item \textbf{new}, 4, 17, 18, 20
   \item \textbf{rand}, 3
   \item \textbf{srand}, 3
   \item \textbf{std} namespace, 1
+
+  \indexspace
+
+  \item Arrays
+    \subitem declaration and initialisation, 4
+    \subitem modifying elements of an array, 4
+    \subitem printing elements of an array, 4
 
   \indexspace
 
@@ -21,6 +31,11 @@
   \item Conversions
     \subitem safe, 2
     \subitem unsafe, 2
+
+  \indexspace
+
+  \item Dynamic array, \see{Pointers}{4}
+  \item Dynamic bidimensional array, \see{Pointers}{4}
 
   \indexspace
 
@@ -42,8 +57,24 @@
 
   \indexspace
 
+  \item Pointers
+    \subitem address of operator \textbf{\&}, 4
+    \subitem dereference operator \textbf{$\ast$}, 4
+    \subitem dynamic array
+      \subsubitem allocation, 4
+      \subsubitem deallocation, 4
+    \subitem dynamic matrix
+      \subsubitem allocation, 4
+      \subsubitem deallocation, 5
+    \subitem free store, 4
+    \subitem simple pointer, 4
+    \subitem subscript operator\textbf{[]}, 4
+
+  \indexspace
+
   \item Random numbers
     \subitem integer random number, 3
     \subitem seed the generator, 3
+  \item Range-based \textbf{for} statement, 4
 
 \end{theindex}

@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.40~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.41~-~GNU GPL v3.0}
 
 %\layout
 
@@ -273,16 +273,17 @@ int n = rand();(*\index{\textbf{rand}}*)
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] Range-based \textbf{for} statement:
+\index{Range-based \textbf{for} statement}
 \end{enumerate}
 \begin{lstlisting}
 // changes the values and outputs 3579
-int arr[] = {2, 4, 6, 8};
+int arr[] = {2, 4, 6, 8};(*\index{Arrays!declaration and initialisation}*)
 
 for (int& x : arr)
-  x++;
+  x++;(*\index{Arrays!modifying elements of an array}*)
 
-for (auto x : arr)
-  cout << x;
+for (auto x : arr)(*\index{\textbf{auto}}*)
+  cout << x;(*\index{Arrays!printing elements of an array}*)
 \end{lstlisting}
 %
 % Pointers
@@ -293,40 +294,49 @@ for (auto x : arr)
 \item[$\Rightarrow$] Simple object:
 \end{enumerate}
 \begin{lstlisting}
-// simple pointer to (*double*)
-double *d = new double(5.123);
+// simple pointer to (*double*)(*\index{Pointers!simple pointer}*)
+double *d = new double{5.123};(*\index{\textbf{new}}*)
 
-// delete the storage on the free store
-delete d;
+// read
+double dd = *d;(*\index{Pointers!dereference operator \textbf{$\ast$}}*)
+
+// write
+*d = -11.234;
+
+// delete the storage on the free store(*\index{Pointers!free store}*)
+delete d;(*\index{\textbf{delete}}*)
+
+// reassign: now (*d*) points to (*dd*)
+d = &dd;(*\index{Pointers!address of operator \textbf{\&}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Dynamic array:
+\item[$\Rightarrow$] Dynamic array:\index{Dynamic array|see{Pointers}}
 \end{enumerate}
 \begin{lstlisting}
 // dynamic array of (*10 double*)s
-double *dd = new double[10];
+double *dd = new double[10] {0,1,2,3,4,5,6,7,8,9};(*\index{Pointers!dynamic array!allocation}*)(*\index{\textbf{new}}*)
 
 // delete the storage on the free store
-delete [] dd;
+delete [] dd;(*\index{Pointers!dynamic array!deallocation}*)(*\index{\textbf{delete}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Dynamic matrix:
+\item[$\Rightarrow$] Dynamic matrix:\index{Dynamic bidimensional array|see{Pointers}}
 \end{enumerate}
 \begin{lstlisting}
-// dynamic matrix of (*5 x 5 double*)s memory allocation
-double **m = new double*[5];
+// dynamic matrix of (*5 x 5 double*)s memory allocation(*\index{Pointers!dynamic matrix!allocation}*)
+double **m = new double*[5];(*\index{\textbf{new}}*)
 for (int i=0; i<5; i++)
-    m[i] = new double[5];
+    m[i] = new double[5];(*\index{\textbf{new}}*)
 
 // memory initialisation    
 for (int i=0; i<5; i++)
     for (int j=0; j<5; j++)
-        m[i][j] = i*j;
+        m[i][j] = i*j;(*\index{Pointers!subscript operator\textbf{[]}}*)
 
-// memory deallocation
+// memory deallocation(*\index{Pointers!dynamic matrix!deallocation}*)
 for (int i=0; i<5; i++)
-    delete[] m[i];
-delete[] m;
+    delete[] m[i];(*\index{\textbf{delete}}*)
+delete[] m;(*\index{\textbf{delete}}*)
 \end{lstlisting}
 %
 % C-Strings
@@ -1083,14 +1093,14 @@ protected:
 
 Book::Book(string t, int p)
 {
-    pages = new int(p);
-    title = new string(t);
+    pages = new int(p);(*\index{\textbf{new}}*)
+    title = new string(t);(*\index{\textbf{new}}*)
 }
 
 Book::~Book()
 {
-    delete pages;
-    delete title;
+    delete pages;(*\index{\textbf{delete}}*)
+    delete title;(*\index{\textbf{delete}}*)
 }
 
 // a simple textbook class
@@ -1107,12 +1117,12 @@ protected:
 
 Textbook::Textbook(string t, int p, string s) : Book(t, p)
 {
-    subject = new string(s);
+    subject = new string(s);(*\index{\textbf{new}}*)
 }
 
 Textbook::~Textbook()
 {
-    delete subject;
+    delete subject;(*\index{\textbf{delete}}*)
 }
 
 TextBook a_Math_Textbook("Calculus",1200,"Real variables");
@@ -1250,7 +1260,7 @@ private:
 template<class T>
 A_list<T>::A_list(int size)
 {
-    p = new T[size];
+    p = new T[size];(*\index{\textbf{new}}*)
 }
 
 // variable declaration
