@@ -34,7 +34,7 @@
 
 % Change the color of the text
 \usepackage{xcolor}
-\definecolor{codegray}{gray}{0.78}
+\definecolor{codegray}{gray}{0.80}
 
 % multiple columns in the toc
 \usepackage{multicol}
@@ -120,9 +120,9 @@
 
 \noindent
 In the following code snippets, the standard I/O library and namespace are always used:
-\index{\#include <iostream>!Standard input-output library}
+\index{<iostream>!Standard input-output library}
 \begin{lstlisting}
-#include <iostream> (*\index{\#include <iostream>}*)
+#include <iostream> (*\index{<iostream>}*)
 using namespace std;(*\index{\textbf{std} namespace}*) 
 \end{lstlisting}
 
@@ -256,14 +256,14 @@ using namespace std;
 \section{Random numbers}
 \small
 \begin{lstlisting}
-#include <cstdlib>
-#include <ctime>
+#include <cstdlib>(*\index{<cstdlib>}*)
+#include <ctime>(*\index{<ctime>}*)
 
-// seed the generator
-srand( time(0) );
+// seed the generator(*\index{Random numbers!seed the generator}*)
+srand( time(0) );(*\index{\textbf{srand}}*)
 
-// integer random number between 0 and RAND_MAX
-int n = rand();
+// integer random number between 0 and RAND_MAX(*\index{Random numbers!integer random number}*)
+int n = rand();(*\index{\textbf{rand}}*)
 \end{lstlisting}
 %\columnbreak
 %
@@ -370,7 +370,7 @@ double n = atof("12.345");
 % Input-output streams
 %
 \section{Input-output streams}
-\index{\#include <iostream>!Input-output streams}
+\index{<iostream>!Input-output streams}
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] Input stream \textbf{cin}, output stream \textbf{cout}, error stream \textbf{cerr}:

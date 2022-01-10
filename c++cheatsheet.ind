@@ -1,10 +1,14 @@
 \begin{theindex}
 
-  \item \#include <iostream>, 1
+  \item <cstdlib>, 3
+  \item <ctime>, 3
+  \item <iostream>, 1
     \subitem Input-output streams, 5
     \subitem Standard input-output library, 1
   \item \textbf{cin}, 3
   \item \textbf{cout}, 3
+  \item \textbf{rand}, 3
+  \item \textbf{srand}, 3
   \item \textbf{std} namespace, 1
 
   \indexspace
@@ -35,5 +39,11 @@
   \item Namespaces
     \subitem \textbf{using namespace} directives, 3
     \subitem \textbf{using} declarations, 3
+
+  \indexspace
+
+  \item Random numbers
+    \subitem integer random number, 3
+    \subitem seed the generator, 3
 
 \end{theindex}

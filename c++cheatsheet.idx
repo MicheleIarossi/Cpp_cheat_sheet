@@ -1,5 +1,5 @@
-\indexentry{\#include <iostream>!Standard input-output library}{1}
-\indexentry{\#include <iostream>}{1}
+\indexentry{<iostream>!Standard input-output library}{1}
+\indexentry{<iostream>}{1}
 \indexentry{\textbf{std} namespace}{1}
 \indexentry{Conversions!safe}{2}
 \indexentry{Conversions!unsafe}{2}
@@ -17,4 +17,10 @@
 \indexentry{\textbf{cin}}{3}
 \indexentry{\textbf{cout}}{3}
 \indexentry{Namespaces!\textbf{using namespace} directives}{3}
-\indexentry{\#include <iostream>!Input-output streams}{5}
+\indexentry{<cstdlib>}{3}
+\indexentry{<ctime>}{3}
+\indexentry{Random numbers!seed the generator}{3}
+\indexentry{\textbf{srand}}{3}
+\indexentry{Random numbers!integer random number}{3}
+\indexentry{\textbf{rand}}{3}
+\indexentry{<iostream>!Input-output streams}{5}
