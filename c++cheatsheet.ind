@@ -1,18 +1,33 @@
 \begin{theindex}
 
-  \item <cstdlib>, 3
-  \item <ctime>, 3
+  \item <cstdlib>, 4
+  \item <cstring>, 5
+  \item <ctime>, 4
   \item <iostream>, 1
-    \subitem Input-output streams, 5
     \subitem Standard input-output library, 1
+  \item \textbf{atof}, 5
+  \item \textbf{atoi}, 5
+  \item \textbf{atol}, 5
   \item \textbf{auto}, 4
-  \item \textbf{cin}, 3
-  \item \textbf{cout}, 3
+  \item \textbf{cerr}, 6
+  \item \textbf{cin}, 3, 6
+    \subitem clear, 7
+    \subitem get, 7
+    \subitem getline, 7
+    \subitem putback, 7
+    \subitem unget, 7
+    \subitem unset, 6
+  \item \textbf{cout}, 3, 6
+    \subitem put, 7
   \item \textbf{delete}, 4, 5, 17, 18
-  \item \textbf{new}, 4, 17, 18, 20
-  \item \textbf{rand}, 3
-  \item \textbf{srand}, 3
+  \item \textbf{new}, 4, 5, 17, 18, 20
+  \item \textbf{rand}, 4
+  \item \textbf{srand}, 4
   \item \textbf{std} namespace, 1
+  \item \textbf{strncat}, 5
+  \item \textbf{strncmp}, 5
+  \item \textbf{strncpy}, 5
+  \item \textbf{void $\ast$}, 2
 
   \indexspace
 
@@ -23,7 +38,18 @@
 
   \indexspace
 
+  \item C-Strings, 5
+    \subitem conversions
+      \subsubitem to double, 5
+      \subsubitem to integer, 5
+      \subsubitem to long integer, 5
+    \subitem correct looping, 5
+    \subitem definition, 5
+    \subitem safe compare, 5
+    \subitem safe concatenation, 5
+    \subitem safe looping, 5
   \item Casts
+    \subitem \textbf{reinterpret\_cast}, 2
     \subitem \textbf{static\_cast}, 2
   \item Constants
     \subitem \textbf{constexpr}, 2
@@ -35,7 +61,7 @@
   \indexspace
 
   \item Dynamic array, \see{Pointers}{4}
-  \item Dynamic bidimensional array, \see{Pointers}{4}
+  \item Dynamic bidimensional array, \see{Pointers}{5}
 
   \indexspace
 
@@ -43,11 +69,48 @@
     \subitem arguments
       \subsubitem copy-by-reference, 3
       \subsubitem copy-by-value, 3
-      \subsubitem default, 2
-      \subsubitem omitted, 2
+      \subsubitem default, 3
+      \subsubitem omitted, 3
       \subsubitem read-only, 3
       \subsubitem read-write, 3
     \subitem object initialisation, 3
+
+  \indexspace
+
+  \item Input-output streams, 6
+    \subitem error stream, \see{\textbf{cerr}}{6}
+    \subitem floating point format manipulators, 6
+      \subsubitem  text width, 7
+      \subsubitem always show decimal point, 7
+      \subsubitem always show plus sign, 7
+      \subsubitem default float notation, 6
+      \subsubitem fixed notation, 6
+      \subsubitem left aligned , 7
+      \subsubitem precision, 7
+      \subsubitem right aligned, 7
+      \subsubitem scientific notation, 6
+    \subitem handling of unexpected input, 7
+      \subsubitem clearing the failed state of the input streamt, 7
+      \subsubitem setting explicitly the failure bit, 7
+    \subitem input stream, \see{\textbf{cin}}{6}
+    \subitem integer format manipulators, 6
+      \subsubitem decimal, 6
+      \subsubitem don't show the base, 6
+      \subsubitem hexadecimal, 6
+      \subsubitem otctal, 6
+      \subsubitem reading a value from the keyboard in any notation, 6
+      \subsubitem show the base, 6
+    \subitem output stream, \see{\textbf{cout}}{6}
+    \subitem reading and writing characters, 7
+      \subsubitem putting a character back into the input stream, 7
+      \subsubitem putting the last character back into the input stream, 
+		7
+      \subsubitem read a whole line, 7
+      \subsubitem read any character, 7
+      \subsubitem write a single character, 7
+    \subitem reading from the keyboard, 6
+    \subitem writing error message to the screen, 6
+    \subitem writing to the screen, 6
 
   \indexspace
 
@@ -64,17 +127,17 @@
       \subsubitem allocation, 4
       \subsubitem deallocation, 4
     \subitem dynamic matrix
-      \subsubitem allocation, 4
+      \subsubitem allocation, 5
       \subsubitem deallocation, 5
     \subitem free store, 4
     \subitem simple pointer, 4
-    \subitem subscript operator\textbf{[]}, 4
+    \subitem subscript operator\textbf{[]}, 5
 
   \indexspace
 
   \item Random numbers
-    \subitem integer random number, 3
-    \subitem seed the generator, 3
+    \subitem integer random number, 4
+    \subitem seed the generator, 4
   \item Range-based \textbf{for} statement, 4
 
 \end{theindex}

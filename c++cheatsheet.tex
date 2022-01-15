@@ -1,5 +1,5 @@
 %
-%    Another C++ cheat sheet but written in LaTeX to be printed out on A3 paper
+%    C++ code snippets reference written in LaTeX to be printed out on A4 paper
 %    Copyright (C) 2021 Michele Iarossi - michele@mathsophy.com
 %
 %    This program is free software: you can redistribute it and/or modify
@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.41~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.42~-~GNU GPL v3.0}
 
 %\layout
 
@@ -171,12 +171,35 @@ const int m = n + 1;
 \section{Type casting}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}:
+\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}, i.e. types that can be converted into each other:
 \end{enumerate}
 \begin{lstlisting}
 // (*int 15*) to (*double 15.0*)
 double num;
 num = static_cast<double>(15);
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Use \textbf{static\_cast} for casting a void pointer to the desired pointer type:
+\end{enumerate}
+\begin{lstlisting}
+// (*void*) pointer can point to anything
+double num;
+void *p = &num;(*\index{\textbf{void $\ast$}}*) 
+
+// back to double type
+double *pd = static_cast<double*>(p);
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Use \textbf{reinterpret\_cast} for casting between unrelated pointer types\index{Casts!\textbf{reinterpret\_cast}}:
+\end{enumerate}
+\begin{lstlisting}
+// reinterprets a (*long*) value as a (*double*) one
+long n = 53;
+double *pd = reinterpret_cast<double *>(&n);
+
+// prints out (*2.61855e-322*)
+cout << *pd << endl;
+
 \end{lstlisting}
 %
 % Functions
@@ -342,48 +365,52 @@ delete[] m;(*\index{\textbf{delete}}*)
 % C-Strings
 %
 \section{C-Strings}
+\index{C-Strings}
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] Legacy strings from C:
 \end{enumerate}
 \begin{lstlisting}
-#include <cstring>
+#include <cstring>(*\index{<cstring>}*)
 #include <cstdlib>
 
-// (*C-string*) for max 10 characters
+// (*C-string*) for max 10 characters(*\index{C-Strings!definition}*)
 // long string + null char '\0'
 const int SIZE = 10 + 1;
 char msg[SIZE] = "Hello!";
 
-// correct looping over (*C-string*)s
+// correct looping over (*C-string*)s(*\index{C-Strings!correct looping}*)
 int i = 0;
 while ( msg[i] != '\0' && i < SIZE)
 {
    // process msg[i]
 }
 
-// safe string copy, at most 10 characters are copied
-strncpy(msg, srcStr, 10);
+// safe string copy, at most 10 characters are copied(*\index{C-Strings!safe looping}*)
+strncpy(msg, srcStr, 10);(*\index{\textbf{strncpy}}*)
 
-// safe string compare, at most 10 characters are compared
-strncmp(msg, srcStr, 10);
+// safe string compare, at most 10 characters are compared(*\index{C-Strings!safe compare}*)
+strncmp(msg, srcStr, 10);(*\index{\textbf{strncmp}}*)
 
-// safe string concatenation, at most 10 characters are concatenated
-strncat(msg, srcStr, 10);
+// safe string concatenation, at most 10 characters are concatenated(*\index{C-Strings!safe concatenation}*)
+strncat(msg, srcStr, 10);(*\index{\textbf{strncat}}*)
 
 // from (*C-string*) to (*int*), (*long*), (*float*)
-int    n = atoi("567");
-long   n = atol("1234567");
-double n = atof("12.345");
+int    n = atoi("567");(*\index{C-Strings!conversions!to integer}*)(*\index{\textbf{atoi}}*)
+long   n = atol("1234567");(*\index{C-Strings!conversions!to long integer}*)(*\index{\textbf{atol}}*)
+double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\textbf{atof}}*)
 \end{lstlisting}
 %
 % Input-output streams
 %
 \section{Input-output streams}
-\index{<iostream>!Input-output streams}
+\index{Input-output streams}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Input stream \textbf{cin}, output stream \textbf{cout}, error stream \textbf{cerr}:
+\item[$\Rightarrow$] Input stream \textbf{cin}\index{\textbf{cin}}, output stream \textbf{cout}\index{\textbf{cout}}, error stream \textbf{cerr}\index{\textbf{cerr}}:
+\index{Input-output streams!input stream|see{\textbf{cin}}}
+\index{Input-output streams!output stream|see{\textbf{cout}}}
+\index{Input-output streams!error stream|see{\textbf{cerr}}}
 \end{enumerate}
 \begin{lstlisting}
 int number;
@@ -392,32 +419,33 @@ char ch;
 // read a number followed by a character
 // from standard input (keyboard)
 // (ignores whitespaces, newlines, etc.)
-cin >> number >> ch;
+cin >> number >> ch;(*\index{Input-output streams!reading from the keyboard}*)
 
 // write on standard output (display)
-cout << number << " " <<  ch << endl;
+cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to the screen}*)
 
 // write error message on standard error (display)
-cerr << "Wrong input!\n";
+cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Integer format manipulators: once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
+\index{Input-output streams!integer format manipulators}
 \end{enumerate}
 \begin{lstlisting}
 #include <iomanip>
 
 // set decimal, octal, or hexadecimal notation,
 // and show the base, i.e. (*0*) for octal and (*0x*) for hexadecimal
-cout << showbase;
-cout << dec << 1974 << endl;
-cout << oct << 1974 << endl;
-cout << hex << 1974 << endl;
-cout << noshowbase;
+cout << showbase;(*\index{Input-output streams!integer format manipulators!show the base}*)
+cout << dec << 1974 << endl;(*\index{Input-output streams!integer format manipulators!decimal}*)
+cout << oct << 1974 << endl;(*\index{Input-output streams!integer format manipulators!otctal}*)
+cout << hex << 1974 << endl;(*\index{Input-output streams!integer format manipulators!hexadecimal}*)
+cout << noshowbase;(*\index{Input-output streams!integer format manipulators!don't show the base}*)
 
-// values can be read from input in decimal, octal
+// values can be read from input in decimal, octal(*\index{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}*)
 // or hexadecimal format previous unsetting
 // of all the flags
-cin.unsetf(ios::dec);
+cin.unsetf(ios::dec);(*\index{\textbf{cin}!unset}*)
 cin.unsetf(ios::oct);
 cin.unsetf(ios::hex);
 
@@ -426,55 +454,58 @@ cin >> val;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Floating point format manipulators:  once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
+\index{Input-output streams!floating point format manipulators}
 \end{enumerate}
 \begin{lstlisting}
 #include <iomanip>
 
 // set default, fixed, or scientific notation
-cout << defaultfloat << 1023.984;
-cout << fixed << 1023.984;
-cout << scientific << 1023.984;
+cout << defaultfloat << 1023.984;(*\index{Input-output streams!floating point format manipulators!default float notation}*)
+cout << fixed << 1023.984;(*\index{Input-output streams!floating point format manipulators!fixed notation}*)
+cout << scientific << 1023.984;(*\index{Input-output streams!floating point format manipulators!scientific notation}*)
 
 // set precision
-cout << setprecision(2) << 1023.984;
+cout << setprecision(2) << 1023.984;(*\index{Input-output streams!floating point format manipulators!precision}*)
 
 // set character text width
-cout << setw(10);
+cout << setw(10);(*\index{Input-output streams!floating point format manipulators! text width}*)
 
 // set left or right alignment
-cout << left  << 1023.984;
-cout << right << 1023.984;
+cout << left  << 1023.984;(*\index{Input-output streams!floating point format manipulators!left aligned }*)
+cout << right << 1023.984;(*\index{Input-output streams!floating point format manipulators!right aligned}*)
 
 // always show decimal point and zeros
-cout << showpoint << 0.532;
+cout << showpoint << 0.532;(*\index{Input-output streams!floating point format manipulators!always show decimal point}*)
 
 // always show plus sign
-cout << showpos << 3.64;
+cout << showpos << 3.64;(*\index{Input-output streams!floating point format manipulators!always show plus sign}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Single characters read and write:
+\index{Input-output streams!reading and writing characters}
 \end{enumerate}
 \begin{lstlisting}
-// read any character from (*cin*) (doesn't skip spaces, newlines, etc.)
+// read any character from (*cin*) (doesn't skip spaces, newlines, etc.)(*\index{Input-output streams!reading and writing characters!read any character}*)
 char nextChar;
-cin.get(nextChar);
+cin.get(nextChar);(*\index{\textbf{cin}!get}}*)
 
-// write a character to (*cout*)
-cout.put(nextChar)
+// write a character to (*cout*)(*\index{Input-output streams!reading and writing characters!write a single character}*)
+cout.put(nextChar)(*\index{\textbf{cout}!put}*)
 
-// read a whole line of 80 chars
+// read a whole line of 80 chars(*\index{Input-output streams!reading and writing characters!read a whole line}*)
 char line[80+1];
-cin.getline(line,81);
+cin.getline(line,81);(*\index{\textbf{cin}!getline}*)
 
-// put back (*nextChar*) to (*cin*), (*nextChar*) will be the next 
+// put back (*nextChar*) to (*cin*), (*nextChar*) will be the next(*\index{Input-output streams!reading and writing characters!putting a character back into the input stream}*)
 // char read by (*cin.get()*)
-cin.putback(nextChar);
+cin.putback(nextChar);(*\index{\textbf{cin}!putback}*)
 
-// put back the last char got from (*cin.get()*) to (*cin*)
-cin.unget();
+// put back the last char got from (*cin.get()*) to (*cin*)(*\index{Input-output streams!reading and writing characters!putting the last character back into the input stream}*)
+cin.unget();(*\index{\textbf{cin}!unget}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] If the input pattern is unexpected, it is possible to set the state of \textbf{cin} to failed:
+\index{Input-output streams!handling of unexpected input}
 \end{enumerate}
 \begin{lstlisting}
 try
@@ -486,8 +517,8 @@ try
         // put back last character read
         cin.unget();
         
-        // set failed bit
-        cin.clear(ios_base::failbit);
+        // set failed bit(*\index{Input-output streams!handling of unexpected input!setting explicitly the failure bit}*)
+        cin.clear(ios_base::failbit);(*\index{\textbf{cin}!clear}*)
     
         // throw an exception or deal with failed stream
         throw runtime_error("Unexpected input");
@@ -500,7 +531,7 @@ catch (runtime_error e)
     // check for failure
     if (cin.fail())
     {
-        // clear failed bit
+        // clear failed bit(*\index{Input-output streams!handling of unexpected input!clearing the failed state of the input streamt}*)
         cin.clear();
                 
         // read wrong input
@@ -513,7 +544,6 @@ catch (runtime_error e)
     else return 1;
 }
 \end{lstlisting}
-
 %
 % Files
 %

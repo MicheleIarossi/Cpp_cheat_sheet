@@ -6,8 +6,10 @@
 \indexentry{Constants!\textbf{constexpr}}{2}
 \indexentry{Constants!\textbf{const}}{2}
 \indexentry{Casts!\textbf{static\_cast}}{2}
-\indexentry{Functions!arguments!default}{2}
-\indexentry{Functions!arguments!omitted}{2}
+\indexentry{\textbf{void $\ast$}}{2}
+\indexentry{Casts!\textbf{reinterpret\_cast}}{2}
+\indexentry{Functions!arguments!default}{3}
+\indexentry{Functions!arguments!omitted}{3}
 \indexentry{Functions!arguments!read-only}{3}
 \indexentry{Functions!arguments!read-write}{3}
 \indexentry{Functions!arguments!copy-by-value}{3}
@@ -17,12 +19,12 @@
 \indexentry{\textbf{cin}}{3}
 \indexentry{\textbf{cout}}{3}
 \indexentry{Namespaces!\textbf{using namespace} directives}{3}
-\indexentry{<cstdlib>}{3}
-\indexentry{<ctime>}{3}
-\indexentry{Random numbers!seed the generator}{3}
-\indexentry{\textbf{srand}}{3}
-\indexentry{Random numbers!integer random number}{3}
-\indexentry{\textbf{rand}}{3}
+\indexentry{<cstdlib>}{4}
+\indexentry{<ctime>}{4}
+\indexentry{Random numbers!seed the generator}{4}
+\indexentry{\textbf{srand}}{4}
+\indexentry{Random numbers!integer random number}{4}
+\indexentry{\textbf{rand}}{4}
 \indexentry{Range-based \textbf{for} statement}{4}
 \indexentry{Arrays!declaration and initialisation}{4}
 \indexentry{Arrays!modifying elements of an array}{4}
@@ -39,15 +41,73 @@
 \indexentry{\textbf{new}}{4}
 \indexentry{Pointers!dynamic array!deallocation}{4}
 \indexentry{\textbf{delete}}{4}
-\indexentry{Dynamic bidimensional array|see{Pointers}}{4}
-\indexentry{Pointers!dynamic matrix!allocation}{4}
-\indexentry{\textbf{new}}{4}
-\indexentry{\textbf{new}}{4}
-\indexentry{Pointers!subscript operator\textbf{[]}}{4}
+\indexentry{Dynamic bidimensional array|see{Pointers}}{5}
+\indexentry{Pointers!dynamic matrix!allocation}{5}
+\indexentry{\textbf{new}}{5}
+\indexentry{\textbf{new}}{5}
+\indexentry{Pointers!subscript operator\textbf{[]}}{5}
 \indexentry{Pointers!dynamic matrix!deallocation}{5}
 \indexentry{\textbf{delete}}{5}
 \indexentry{\textbf{delete}}{5}
-\indexentry{<iostream>!Input-output streams}{5}
+\indexentry{C-Strings}{5}
+\indexentry{<cstring>}{5}
+\indexentry{C-Strings!definition}{5}
+\indexentry{C-Strings!correct looping}{5}
+\indexentry{C-Strings!safe looping}{5}
+\indexentry{\textbf{strncpy}}{5}
+\indexentry{C-Strings!safe compare}{5}
+\indexentry{\textbf{strncmp}}{5}
+\indexentry{C-Strings!safe concatenation}{5}
+\indexentry{\textbf{strncat}}{5}
+\indexentry{C-Strings!conversions!to integer}{5}
+\indexentry{\textbf{atoi}}{5}
+\indexentry{C-Strings!conversions!to long integer}{5}
+\indexentry{\textbf{atol}}{5}
+\indexentry{C-Strings!conversions!to double}{5}
+\indexentry{\textbf{atof}}{5}
+\indexentry{Input-output streams}{6}
+\indexentry{\textbf{cin}}{6}
+\indexentry{\textbf{cout}}{6}
+\indexentry{\textbf{cerr}}{6}
+\indexentry{Input-output streams!input stream|see{\textbf{cin}}}{6}
+\indexentry{Input-output streams!output stream|see{\textbf{cout}}}{6}
+\indexentry{Input-output streams!error stream|see{\textbf{cerr}}}{6}
+\indexentry{Input-output streams!reading from the keyboard}{6}
+\indexentry{Input-output streams!writing to the screen}{6}
+\indexentry{Input-output streams!writing error message to the screen}{6}
+\indexentry{Input-output streams!integer format manipulators}{6}
+\indexentry{Input-output streams!integer format manipulators!show the base}{6}
+\indexentry{Input-output streams!integer format manipulators!decimal}{6}
+\indexentry{Input-output streams!integer format manipulators!otctal}{6}
+\indexentry{Input-output streams!integer format manipulators!hexadecimal}{6}
+\indexentry{Input-output streams!integer format manipulators!don't show the base}{6}
+\indexentry{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}{6}
+\indexentry{\textbf{cin}!unset}{6}
+\indexentry{Input-output streams!floating point format manipulators}{6}
+\indexentry{Input-output streams!floating point format manipulators!default float notation}{6}
+\indexentry{Input-output streams!floating point format manipulators!fixed notation}{6}
+\indexentry{Input-output streams!floating point format manipulators!scientific notation}{6}
+\indexentry{Input-output streams!floating point format manipulators!precision}{7}
+\indexentry{Input-output streams!floating point format manipulators! text width}{7}
+\indexentry{Input-output streams!floating point format manipulators!left aligned }{7}
+\indexentry{Input-output streams!floating point format manipulators!right aligned}{7}
+\indexentry{Input-output streams!floating point format manipulators!always show decimal point}{7}
+\indexentry{Input-output streams!floating point format manipulators!always show plus sign}{7}
+\indexentry{Input-output streams!reading and writing characters}{7}
+\indexentry{Input-output streams!reading and writing characters!read any character}{7}
+\indexentry{\textbf{cin}!get}{7}
+\indexentry{Input-output streams!reading and writing characters!write a single character}{7}
+\indexentry{\textbf{cout}!put}{7}
+\indexentry{Input-output streams!reading and writing characters!read a whole line}{7}
+\indexentry{\textbf{cin}!getline}{7}
+\indexentry{Input-output streams!reading and writing characters!putting a character back into the input stream}{7}
+\indexentry{\textbf{cin}!putback}{7}
+\indexentry{Input-output streams!reading and writing characters!putting the last character back into the input stream}{7}
+\indexentry{\textbf{cin}!unget}{7}
+\indexentry{Input-output streams!handling of unexpected input}{7}
+\indexentry{Input-output streams!handling of unexpected input!setting explicitly the failure bit}{7}
+\indexentry{\textbf{cin}!clear}{7}
+\indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input streamt}{7}
 \indexentry{\textbf{new}}{17}
 \indexentry{\textbf{new}}{17}
 \indexentry{\textbf{delete}}{17}
