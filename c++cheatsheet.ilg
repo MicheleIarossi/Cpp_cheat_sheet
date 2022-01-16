@@ -1,6 +1,11 @@
 This is makeindex, version 2.15 [TeX Live 2021] (kpathsea + Thai support).
-Scanning input file c++cheatsheet.idx....done (117 entries accepted, 0 rejected).
-Sorting entries....done (858 comparisons).
-Generating output file c++cheatsheet.ind....done (143 lines written, 0 warnings).
+Scanning input file c++cheatsheet.idx....
+!! Input index error (file = c++cheatsheet.idx, line = 158):
+   -- Extra `!' at position 53 of first argument.
+!! Input index error (file = c++cheatsheet.idx, line = 159):
+   -- Extra `!' at position 53 of first argument.
+done (165 entries accepted, 2 rejected).
+Sorting entries....done (1348 comparisons).
+Generating output file c++cheatsheet.ind....done (199 lines written, 0 warnings).
 Output written in c++cheatsheet.ind.
 Transcript written in c++cheatsheet.ilg.

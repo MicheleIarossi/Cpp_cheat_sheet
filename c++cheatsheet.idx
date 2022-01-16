@@ -1,4 +1,4 @@
-\indexentry{<iostream>!Standard input-output library}{1}
+\indexentry{<iostream>}{1}
 \indexentry{<iostream>}{1}
 \indexentry{\textbf{std} namespace}{1}
 \indexentry{Conversions!safe}{2}
@@ -76,6 +76,7 @@
 \indexentry{Input-output streams!writing to the screen}{6}
 \indexentry{Input-output streams!writing error message to the screen}{6}
 \indexentry{Input-output streams!integer format manipulators}{6}
+\indexentry{<iomanip>}{6}
 \indexentry{Input-output streams!integer format manipulators!show the base}{6}
 \indexentry{Input-output streams!integer format manipulators!decimal}{6}
 \indexentry{Input-output streams!integer format manipulators!otctal}{6}
@@ -107,7 +108,56 @@
 \indexentry{Input-output streams!handling of unexpected input}{7}
 \indexentry{Input-output streams!handling of unexpected input!setting explicitly the failure bit}{7}
 \indexentry{\textbf{cin}!clear}{7}
-\indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input streamt}{7}
+\indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}{7}
+\indexentry{\textbf{ifstream}}{8}
+\indexentry{\textbf{ofstream}}{8}
+\indexentry{<fstream>}{8}
+\indexentry{Files!opening as input}{8}
+\indexentry{Files!opening as output}{8}
+\indexentry{Files!opening both as input and output}{8}
+\indexentry{Files!opening explicitly}{8}
+\indexentry{Files!checking for failure}{8}
+\indexentry{Files!checking for failure!corrupted stream}{8}
+\indexentry{Files!checking for failure!end of file}{8}
+\indexentry{Files!checking for failure!format data error}{9}
+\indexentry{Files!checking for failure!setting back to good state}{9}
+\indexentry{Files!checking for unexpected input}{9}
+\indexentry{Files!reading and writing}{10}
+\indexentry{Files!reading a line}{10}
+\indexentry{Files!ignoring input}{10}
+\indexentry{Files!moving the file pointer!reading with seek get}{10}
+\indexentry{Files!moving the file pointer!writing with seek put}{10}
+\indexentry{Files!loop for reading all the input}{10}
+\indexentry{Files!closing by going out of scope}{10}
+\indexentry{Files!closing explicitly}{10}
+\indexentry{<string>}{11}
+\indexentry{Strings!initialisation}{11}
+\indexentry{Strings!concatenation}{11}
+\indexentry{Strings!reading a line}{11}
+\indexentry{Strings!access to character!no illegal index checking}{11}
+\indexentry{Strings!access to character!with illegal index checking}{11}
+\indexentry{Strings!append}{11}
+\indexentry{Strings!size and length}{11}
+\indexentry{Strings!substring}{11}
+\indexentry{Strings!find}{11}
+\indexentry{Strings!C-string}{11}
+\indexentry{Strings!from string to!integer}{11}
+\indexentry{\textbf{stoi}}{11}
+\indexentry{Strings!from string to!long integer}{11}
+\indexentry{\textbf{stol}}{11}
+\indexentry{Strings!from string to!double}{11}
+\indexentry{\textbf{stod}}{11}
+\indexentry{Strings!from numeric type to string}{11}
+\indexentry{\textbf{to\_string}}{11}
+\indexentry{\textbf{istringstream}}{12}
+\indexentry{<sstream>}{12}
+\indexentry{String streams!input string stream}{12}
+\indexentry{String streams!read numbers from data stream}{12}
+\indexentry{\textbf{ostringstream}}{12}
+\indexentry{String streams!output string stream}{12}
+\indexentry{String streams!manipulators|see{Input-output streams!integer format manipulators}}{12}
+\indexentry{String streams!manipulators|see{Input-output streams!floating format manipulators}}{12}
+\indexentry{String streams!return the string in the stream}{12}
 \indexentry{\textbf{new}}{17}
 \indexentry{\textbf{new}}{17}
 \indexentry{\textbf{delete}}{17}

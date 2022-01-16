@@ -120,7 +120,7 @@
 
 \noindent
 In the following code snippets, the standard I/O library and namespace are always used:
-\index{<iostream>!Standard input-output library}
+\index{<iostream>}
 \begin{lstlisting}
 #include <iostream> (*\index{<iostream>}*)
 using namespace std;(*\index{\textbf{std} namespace}*) 
@@ -432,7 +432,7 @@ cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to 
 \index{Input-output streams!integer format manipulators}
 \end{enumerate}
 \begin{lstlisting}
-#include <iomanip>
+#include <iomanip>(*\index{<iomanip>}*)
 
 // set decimal, octal, or hexadecimal notation,
 // and show the base, i.e. (*0*) for octal and (*0x*) for hexadecimal
@@ -531,7 +531,7 @@ catch (runtime_error e)
     // check for failure
     if (cin.fail())
     {
-        // clear failed bit(*\index{Input-output streams!handling of unexpected input!clearing the failed state of the input streamt}*)
+        // clear failed bit(*\index{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}*)
         cin.clear();
                 
         // read wrong input
@@ -551,14 +551,14 @@ catch (runtime_error e)
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] Accessed by means of \textbf{ifstream} (input) or
-\textbf{ofstream} (output) objects:
+\textbf{ofstream} (output) objects:\index{\textbf{ifstream}}\index{\textbf{ofstream}}
 \end{enumerate}
 \begin{lstlisting}
-#include <fstream>
+#include <fstream>(*\index{<fstream>}*)
 
-// open input file 
+// open input file(*\index{Files!opening as input}*)
 ifstream in_stream {"infile.dat"};
-// open output file
+// open output file(*\index{Files!opening as output}*)
 ofstream out_stream {"outfile.dat"};
 \end{lstlisting}
 \begin{enumerate}
@@ -567,7 +567,7 @@ ofstream out_stream {"outfile.dat"};
 \begin{lstlisting}
 #include <fstream>
 
-// open file in both input and output mode
+// open file in both input and output mode(*\index{Files!opening both as input and output}*)
 fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};
 \end{lstlisting}
 \begin{enumerate}
@@ -581,26 +581,26 @@ ifstream in_stream;
 // output file
 ofstream out_stream;
 
-// open files
+// open files(*\index{Files!opening explicitly}*)
 in_stream.open("infile.dat");
 out_stream.open("outfile.dat");
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] When checking for failure, the status flag needs to be cleared
-in order to continue working with the file:
+in order to continue working with the file:\index{Files!checking for failure}
 \end{enumerate}
 \begin{lstlisting}
 // check for failure on input file
 if ( !in_stream )
 {
-    if ( in_stream.bad() ) error("stream corrupted!");
+    if ( in_stream.bad() ) error("stream corrupted!");(*\index{Files!checking for failure!corrupted stream}*)
     
-    if ( in_stream.eof() )
+    if ( in_stream.eof() )(*\index{Files!checking for failure!end of file}*)
     { 
         // no more data available
     }
     
-    if ( in_stream.fail() )
+    if ( in_stream.fail() )(*\index{Files!checking for failure!format data error}*)
     {
         // some format data error, e.g. expected
         // an integer but a string was read
@@ -608,7 +608,7 @@ if ( !in_stream )
         
         // set back the state to good 
         // before attempting to read again
-        in_stream.clear();
+        in_stream.clear();(*\index{Files!checking for failure!setting back to good state}*)
         
         // read again
         string wrong_input;
@@ -623,7 +623,7 @@ and try to recover somewhere else, e.g. by throwing an exception:
 \begin{lstlisting}
 try
 {
-    // check for unexpected input
+    // check for unexpected input(*\index{Files!checking for unexpected input}*)
     char ch;
     if ( in_stream >> ch && ch != expected_char )
     {
@@ -661,7 +661,7 @@ catch (runtime_error e)
 \item[$\Rightarrow$] Read and write:
 \end{enumerate}
 \begin{lstlisting}
-// read/write data
+// read/write data(*\index{Files!reading and writing}*)
 in_stream >> data1 >> data2;
 out_stream << data1 << data2;
 \end{lstlisting}
@@ -670,13 +670,13 @@ out_stream << data1 << data2;
 \end{enumerate}
 \begin{lstlisting}
 string line;
-getline(in_stream, line);
+getline(in_stream, line);(*\index{Files!reading a line}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Ignore input (extract and discard):
 \end{enumerate}
 \begin{lstlisting}
-// ignore up to a newline or 9999 characters
+// ignore up to a newline or 9999 characters(*\index{Files!ignoring input}*)
 in_stream.ignore(9999,'\n');
 \end{lstlisting}
 \begin{enumerate}
@@ -684,8 +684,8 @@ in_stream.ignore(9999,'\n');
 \end{enumerate}
 \begin{lstlisting}
 // skip 5 characters when reading (seek get)
-in_stream.seekg(5);
-// skip 8 characters when writing (seek put)
+in_stream.seekg(5);(*\index{Files!moving the file pointer!reading with seek get}*)
+// skip 8 characters when writing (seek put)(*\index{Files!moving the file pointer!writing with seek put}*)
 out_stream.seekp(8);
 \end{lstlisting}
 \begin{enumerate}
@@ -693,7 +693,7 @@ out_stream.seekp(8);
 \end{enumerate}
 \begin{lstlisting}
 // the failing read sets the EOF flag but avoids further processing
-while ( in_stream >> next )
+while ( in_stream >> next )(*\index{Files!loop for reading all the input}*)
 {
     // process next
 }
@@ -704,10 +704,10 @@ if ( in_stream.eof() )
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] When a file object gets out of scope, the file is closed automatically, but explicit
-close is also possible (not recommended):
+close is also possible (not recommended):\index{Files!closing by going out of scope}
 \end{enumerate}
 \begin{lstlisting}
-// explicitily close files
+// explicitily close files(*\index{Files!closing explicitly}*)
 in_stream.close();
 out_stream.close()
 \end{lstlisting}
@@ -720,37 +720,37 @@ out_stream.close()
 \item[$\Rightarrow$] Strings as supported by the C++ standard library:
 \end{enumerate}
 \begin{lstlisting}
-#include <string>
+#include <string>(*\index{<string>}*)
 
-// initialization
+// initialization(*\index{Strings!initialisation}*)
 string s1 = "Hello";
 string s2("World");
 
-// concatenation
+// concatenation(*\index{Strings!concatenation}*)
 string s3 = s1 + ", " + s2;
 
-// read a line
+// read a line(*\index{Strings!reading a line}*)
 string line;
 getline(cin,line);
 
-// access to the ith character (no illegal index checking)
+// access to the ith character (no illegal index checking)(*\index{Strings!access to character!no illegal index checking}*)
 s1[i];
 
-// access to the ith character (with illegal index checking)
+// access to the ith character (with illegal index checking)(*\index{Strings!access to character!with illegal index checking}*)
 s1.at(i);
 
-// append
+// append(*\index{Strings!append}*)
 s1.append(s2);
 
-// size and length
+// size and length(*\index{Strings!size and length}*)
 s1.size();
 s1.length();
 
 // substring from position 5 and length 4 characters
 string substring;
-substring = s4.substr(5,4);
+substring = s4.substr(5,4);(*\index{Strings!substring}*)
 
-// find (returns string::npos if not found)
+// find (returns string::npos if not found)(*\index{Strings!find}*)
 size_t pos;
 pos = s3.find("World");
 if (pos == string::npos)
@@ -759,16 +759,16 @@ if (pos == string::npos)
 // find starting from position 5
 s3.find("l",5);
 
-// C-string
+// C-string(*\index{Strings!C-string}*)
 s3.c_str();
 
 // from (*string*) to (*int*), (*long*), (*float*)
-int    n = stoi("456");
-long   n = stol("1234567");
-double n = stod("12.345");
+int    n = stoi("456");(*\index{Strings!from string to!integer}*)(*\index{\textbf{stoi}}*)
+long   n = stol("1234567");(*\index{Strings!from string to!long integer}*)(*\index{\textbf{stol}}*)
+double n = stod("12.345");(*\index{Strings!from string to!double}*)(*\index{\textbf{stod}}*)
 
-// from numeric type to (*string*)
-string s = to_string(123.456);
+// from numeric type to (*string*)(*\index{Strings!from numeric type to string}*)
+string s = to_string(123.456);(*\index{\textbf{to\_string}}*)
 \end{lstlisting}
 %
 % String streams
@@ -777,38 +777,36 @@ string s = to_string(123.456);
 \small
 A string is used as a source for an input stream or as a target for an output stream. \\
 \begin{enumerate}
-\item[$\Rightarrow$] Input string stream \textbf{istringstream}:
+\item[$\Rightarrow$] Input string stream:\textbf{istringstream}\index{\textbf{istringstream}}
 \end{enumerate}
 \begin{lstlisting}
-#include <sstream>
+#include <sstream>(*\index{<sstream>}*)
 
-// input string stream
+// input string stream(*\index{String streams!input string stream}*)
 istringstream data_stream{"1.234 -5643.32"};
 
-// read numbers from data stream
+// read numbers from data stream(*\index{String streams!read numbers from data stream}*)
 double val;
 while ( is >> val )
     cout << val << endl;
-
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Output string stream \textbf{ostringstream}:
+\item[$\Rightarrow$] Output string stream:\textbf{ostringstream}\index{\textbf{ostringstream}}
 \end{enumerate}
 \begin{lstlisting}
 #include <sstream>
 
-// output string stream
+// output string stream(*\index{String streams!output string stream}*)
 ostringstream data_stream;
 
 // the same manipulators of input-output streams
-// can be used
+// can be used(*\index{String streams!manipulators|see{Input-output streams!integer format manipulators}}*)(*\index{String streams!manipulators|see{Input-output streams!floating format manipulators}}*)
 data_stream << fixed << setprecision(2) << showpos;
 data_stream << 6.432 << " " << -313.2134 << "\n";
 
-// the (*str()*) method returns the string in the stream
+// the (*str()*) method returns the string in the stream(*\index{String streams!return the string in the stream}*)
 cout << data_stream.str();
 \end{lstlisting}
-
 %
 % Vectors
 %

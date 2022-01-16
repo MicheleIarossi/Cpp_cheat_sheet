@@ -3,8 +3,11 @@
   \item <cstdlib>, 4
   \item <cstring>, 5
   \item <ctime>, 4
+  \item <fstream>, 8
+  \item <iomanip>, 6
   \item <iostream>, 1
-    \subitem Standard input-output library, 1
+  \item <sstream>, 12
+  \item <string>, 11
   \item \textbf{atof}, 5
   \item \textbf{atoi}, 5
   \item \textbf{atol}, 5
@@ -20,13 +23,21 @@
   \item \textbf{cout}, 3, 6
     \subitem put, 7
   \item \textbf{delete}, 4, 5, 17, 18
+  \item \textbf{ifstream}, 8
+  \item \textbf{istringstream}, 12
   \item \textbf{new}, 4, 5, 17, 18, 20
+  \item \textbf{ofstream}, 8
+  \item \textbf{ostringstream}, 12
   \item \textbf{rand}, 4
   \item \textbf{srand}, 4
   \item \textbf{std} namespace, 1
+  \item \textbf{stod}, 11
+  \item \textbf{stoi}, 11
+  \item \textbf{stol}, 11
   \item \textbf{strncat}, 5
   \item \textbf{strncmp}, 5
   \item \textbf{strncpy}, 5
+  \item \textbf{to\_string}, 11
   \item \textbf{void $\ast$}, 2
 
   \indexspace
@@ -65,6 +76,26 @@
 
   \indexspace
 
+  \item Files
+    \subitem checking for failure, 8
+      \subsubitem corrupted stream, 8
+      \subsubitem end of file, 8
+      \subsubitem format data error, 9
+      \subsubitem setting back to good state, 9
+    \subitem checking for unexpected input, 9
+    \subitem closing by going out of scope, 10
+    \subitem closing explicitly, 10
+    \subitem ignoring input, 10
+    \subitem loop for reading all the input, 10
+    \subitem moving the file pointer
+      \subsubitem reading with seek get, 10
+      \subsubitem writing with seek put, 10
+    \subitem opening as input, 8
+    \subitem opening as output, 8
+    \subitem opening both as input and output, 8
+    \subitem opening explicitly, 8
+    \subitem reading a line, 10
+    \subitem reading and writing, 10
   \item Functions
     \subitem arguments
       \subsubitem copy-by-reference, 3
@@ -90,7 +121,7 @@
       \subsubitem right aligned, 7
       \subsubitem scientific notation, 6
     \subitem handling of unexpected input, 7
-      \subsubitem clearing the failed state of the input streamt, 7
+      \subsubitem clearing the failed state of the input stream, 7
       \subsubitem setting explicitly the failure bit, 7
     \subitem input stream, \see{\textbf{cin}}{6}
     \subitem integer format manipulators, 6
@@ -139,5 +170,30 @@
     \subitem integer random number, 4
     \subitem seed the generator, 4
   \item Range-based \textbf{for} statement, 4
+
+  \indexspace
+
+  \item String streams
+    \subitem input string stream, 12
+    \subitem output string stream, 12
+    \subitem read numbers from data stream, 12
+    \subitem return the string in the stream, 12
+  \item Strings
+    \subitem access to character
+      \subsubitem no illegal index checking, 11
+      \subsubitem with illegal index checking, 11
+    \subitem append, 11
+    \subitem C-string, 11
+    \subitem concatenation, 11
+    \subitem find, 11
+    \subitem from numeric type to string, 11
+    \subitem from string to
+      \subsubitem double, 11
+      \subsubitem integer, 11
+      \subsubitem long integer, 11
+    \subitem initialisation, 11
+    \subitem reading a line, 11
+    \subitem size and length, 11
+    \subitem substring, 11
 
 \end{theindex}
