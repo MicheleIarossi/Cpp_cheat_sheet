@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.42~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.43~-~GNU GPL v3.0}
 
 %\layout
 
@@ -248,7 +248,17 @@ const Object& default_value()
   return default;
 }
 \end{lstlisting}
-
+\begin{enumerate}
+\item[$\Rightarrow$] Rule of thumb for passing arguments to functions:
+\index{Functions!arguments!rule of thumb}
+\begin{itemize}
+\item Pass-by-value for small objects
+\item Pointer parameter type if \textbf{nullptr} means no object given\index{\textbf{nullptr}}
+\item Pass-by-const-reference for large objects that are not changed
+\item Pass-by-reference for large objects that are changed (output parameters)
+\item Return error conditions of the function as return values
+\end{itemize}
+\end{enumerate}
 %
 % Namespaces
 %
@@ -816,32 +826,35 @@ cout << data_stream.str();
 \item[$\Rightarrow$] Sequence of elements accessed via an index:
 \end{enumerate}
 \begin{lstlisting}
-#include <vector>
+#include <vector>(*\index{<vector>}*)
 
 // vector with base type (*int*)
-vector<int> v = {2, 4, 6, 8};
+vector<int> v = {2, 4, 6, 8};(*\index{Vector!initialised with initialiser list}*)
 
 // vector with 10 elements all initialised to 0
-vector<int> v(10);
+vector<int> v(10);(*\index{Vector!initialised with all elements to 0}*)
 
-// access to the (*i*)th element
-cout << v[i];
+// unchecked access to the (*i*)th element
+cout << v[i];(*\index{Vector!access to an element!unchecked}*)
+
+// checked access to the (*i*)th element
+cout << v.at(i);(*\index{Vector!access to an element!checked}*)
 
 // add an element
-v.push_back(10);
+v.push_back(10);(*\index{Vector!add an element}*)
 
-// range-for-loop
-for (auto x : v)
+// range-for-loop(*\index{Range-based \textbf{for} statement}*)
+for (auto x : v)(*\index{Vector!loop over elements}*)
   cout << v << endl;
 
 // size
-cout << v.size();
+cout << v.size();\index{Vector!size}
 
 // capacity: number of elements currently allocated
-cout << v.capacity();
+cout << v.capacity();\index{Vector!capacity}
 
 // reserve more capacity e.g. at least 64 (*int*)s
-v.reserve(64);
+v.reserve(64);\index{Vector!reserve more capacity}
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Throws an \textbf{out\_of\_range} exception if accessed out of bounds:
@@ -852,8 +865,8 @@ vector<int> v = {2, 4, 6, 8};
 
 try
 {
-    cout << v[7];
-} catch (out_of_range)
+    cout << v.at(7);
+} catch (out_of_range e)(*\index{Vector!out of range exception}*)
 {
     // access error!
 }
