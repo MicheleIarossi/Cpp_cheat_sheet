@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.43~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.44~-~GNU GPL v3.0}
 
 %\layout
 
@@ -123,7 +123,7 @@ In the following code snippets, the standard I/O library and namespace are alway
 \index{<iostream>}
 \begin{lstlisting}
 #include <iostream> (*\index{<iostream>}*)
-using namespace std;(*\index{\textbf{std} namespace}*) 
+using namespace std;(*\index{\textbf{std}}*) 
 \end{lstlisting}
 
 \newpage
@@ -877,23 +877,23 @@ try
 \section{Enumerations}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{enum class} defines symbolic constants in the scope of the class:
+\item[$\Rightarrow$] \textbf{enum class} defines symbolic constants in the scope of the class:\index{Enumerations!in \textbf{class} scope}
 \end{enumerate}
 \begin{lstlisting}
-// enum definition
-enum class Weekdays
+// enum definition(*\index{Enumerations!definition}*)
+enum class Weekdays(*\index{\textbf{enum class}}*)
 {
     mon=1, tue, wed, thu, fri
 };
 
-// usage
+// usage(*\index{Enumerations!usage}*)
 Weekdays day = Weekdays::tue;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \textbf{int}s cannot be assigned to \textbf{enum class} and vice versa:
 \end{enumerate}
 \begin{lstlisting}
-// errors!
+// errors!(*\index{Enumerations!prohibited conversions}*)
 Weekdays day = 3;
 int d = Weekdays::wed;
 \end{lstlisting}
@@ -901,7 +901,7 @@ int d = Weekdays::wed;
 \item[$\Rightarrow$] A conversion function should be written which uses unchecked conversions:
 \end{enumerate}
 \begin{lstlisting}
-// valid
+// valid(*\index{Enumerations!conversion function}*)
 Weekdays day = Weekdays(2);
 int d = int(Weekdays::fri);
 \end{lstlisting}
@@ -911,58 +911,140 @@ int d = int(Weekdays::fri);
 \section{Classes}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] If you give no constructor, the compiler will generate a default constructor that does nothing.
-If you give at least one constructor, then the C++ compiler will generate no other constructors.
+\item[$\Rightarrow$] Example class using dynamic arrays:\index{Classes!example of a vector class}
 \end{enumerate}
 \begin{lstlisting}
-class Car
+class MyVector
 {
 public:
-    // constructor
-    Car(double size);
-    // mutators
-    void set_engine_size(const double& size);
-    // accessors
-    double get_engine_size() const;
-    // friend function
-    friend bool equal(const Car& car1, const Car& car2);
-private:	
-    double engine_liter;
+    // explicit constructor (avoids type conversions)
+    explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\textbf{size\_t}}*)
+    // explicit constructor with initialiser list
+    explicit MyVector(initializer_list<double>);
+    // copy constructor (pass by
+    // reference, no copying!)
+    MyVector(const MyVector&);
+    // move constructor
+    MyVector(MyVector&&);
+    // copy assignment(*\index{\textbf{operator=}}*)
+    MyVector& operator=(const MyVector&);
+    // move assignment
+    MyVector& operator=(MyVector&&);
+    // virtual destructor(*\index{Classes!virtual destructor}*)
+    virtual ~MyVector() { if (!e) delete[] e; }
+    // subscript operators(*\index{Classes!subscript operator}*)
+    double& operator[](size_t i) { return e[i]; }(*\index{\textbf{operator[]}}*)
+    double& operator[](size_t i) const { return e[i]; };
+    // size (constant member function)(*\index{Classes!constant member function}*)
+    size_t size() const { return n; }
+private:
+    size_t n{0};
+    double *e{nullptr};(*\index{\textbf{nullptr}}*)
 };
-
-// constructor with member initialisation list
-// the member variable is immediately initialised before the
-// constructor body runs
-Car::Car(double size) : engine_liter{size}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Constructors definitions. By using the \textbf{explicit} qualifier, undesired type conversions are avoided. Note: If you give no constructor, the compiler will generate a default constructor that does nothing.
+If you give at least one constructor, then the compiler will generate no other constructors.\index{Classes!constructors}
+\end{enumerate}
+\begin{lstlisting}
+// constructor with member initialisation list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialisation list}*)
+MyVector::MyVector(size_t s) : n{s}, e{new double[n]}
 {
+     for (int i=0; i<n; i++) e[i] = 0;
 }
 
-// parameter passed by reference for efficiency
-void Car::set_engine_size(const double& size)
+// constructor with initialiser list parameter(*\index{Classes!constructors!initialiser list parameter}*)
+MyVector::MyVector(initializer_list<double> l)
 {
-    engine_liter = size;
-}
-
-// constant member function doesn't change the object
-double Car::get_engine_size() const
-{
-    return engine_liter;
-}
-
-// friend function with direct access to private members
-bool equal(const Car &car1, const Car &car2)
-{
-    return car1.engine_liter == car2.engine_liter;
+    n = l.size();
+    e = new double[n];
+    copy(l.begin(),l.end(),e);(*\index{\textbf{copy}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Constructor invocations:
+\item[$\Rightarrow$] Copy constructor. Note: Argument is passed by const reference, i.e. no copies and no changes.\index{Classes!copy constructor}
 \end{enumerate}
 \begin{lstlisting}
-// all forms call the (*Car(2000)*) constructor
-Car bmw {2000};
-Car bmw = {2000};
-Car bmw = Car{2000};
+// copy constructor
+MyVector::MyVector(const MyVector& v)
+{
+    n = v.n;
+    e = new double[n];
+    copy(v.e,v.e+v.n,e);
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Move constructor\index{Classes!move constructor}
+\end{enumerate}
+\begin{lstlisting}
+// move constructor
+MyVector::MyVector(MyVector&& v)
+{
+    n = v.n;
+    e = v.e;
+    v.n = 0;
+    v.e = nullptr;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Copy assignment\index{Classes!copy assignment}
+\end{enumerate}
+\begin{lstlisting}
+// copy assignment
+MyVector& MyVector::operator=(const MyVector& rv)
+{
+    if (e) delete[] e;
+    e = new double[rv.n];
+    copy(rv.e,rv.e+rv.n,e);
+    n = rv.n;
+    return *this;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Move assignment\index{Classes!move assignment}
+\end{enumerate}
+\begin{lstlisting}
+// move assignment
+MyVector& MyVector::operator=(MyVector&& rv)
+{
+    delete[] e;
+    n = rv.n;
+    e = rv.e;
+    rv.n = 0;
+    rv.e = nullptr;
+    return *this;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Constructor invocations\index{Classes!constructor invocations}
+\end{enumerate}
+\begin{lstlisting}
+// constructor with size
+MyVector v1(4); 
+
+// constructor with initialiser list
+MyVector v2{1,2,3,4}; 
+
+// copy constructor
+MyVector v3{v2}; 
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Move invocations. Avoids copying when moving is sufficient, e.g. when returning an object from a function:\index{Classes!move invocations}
+\end{enumerate}
+\begin{lstlisting}
+// example of a function returning an object
+MyVector func()
+{
+    MyVector v4{11,12,13,14,15};
+    for (size_t i=0; i<v4.size(); i++) v4[i] += i;
+    return v4;
+}
+
+// move constructor
+MyVector v5 = func(); 
+
+// move assignment
+v4 = func();       
 \end{lstlisting}
 %
 % Operator overloading

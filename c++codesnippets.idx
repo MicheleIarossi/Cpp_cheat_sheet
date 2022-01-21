@@ -1,6 +1,6 @@
 \indexentry{<iostream>}{1}
 \indexentry{<iostream>}{1}
-\indexentry{\textbf{std} namespace}{1}
+\indexentry{\textbf{std}}{1}
 \indexentry{Conversions!safe}{2}
 \indexentry{Conversions!unsafe}{2}
 \indexentry{Constants!\textbf{constexpr}}{2}
@@ -169,10 +169,36 @@
 \indexentry{Range-based \textbf{for} statement}{13}
 \indexentry{Vector!loop over elements}{13}
 \indexentry{Vector!out of range exception}{13}
-\indexentry{\textbf{new}}{17}
-\indexentry{\textbf{new}}{17}
-\indexentry{\textbf{delete}}{17}
-\indexentry{\textbf{delete}}{17}
-\indexentry{\textbf{new}}{18}
-\indexentry{\textbf{delete}}{18}
-\indexentry{\textbf{new}}{20}
+\indexentry{Enumerations!in \textbf{class} scope}{13}
+\indexentry{Enumerations!definition}{13}
+\indexentry{\textbf{enum class}}{13}
+\indexentry{Enumerations!usage}{13}
+\indexentry{Enumerations!prohibited conversions}{13}
+\indexentry{Enumerations!conversion function}{13}
+\indexentry{Classes!example of a vector class}{14}
+\indexentry{\textbf{explicit}}{14}
+\indexentry{\textbf{size\_t}}{14}
+\indexentry{\textbf{operator=}}{14}
+\indexentry{Classes!virtual destructor}{14}
+\indexentry{Classes!subscript operator}{14}
+\indexentry{\textbf{operator[]}}{14}
+\indexentry{Classes!constant member function}{14}
+\indexentry{\textbf{nullptr}}{14}
+\indexentry{Classes!constructors}{14}
+\indexentry{Classes!constructors!vector size}{14}
+\indexentry{Classes!constructors!member initialisation list}{14}
+\indexentry{Classes!constructors!initialiser list parameter}{14}
+\indexentry{\textbf{copy}}{14}
+\indexentry{Classes!copy constructor}{14}
+\indexentry{Classes!move constructor}{15}
+\indexentry{Classes!copy assignment}{15}
+\indexentry{Classes!move assignment}{15}
+\indexentry{Classes!constructor invocations}{15}
+\indexentry{Classes!move invocations}{16}
+\indexentry{\textbf{new}}{19}
+\indexentry{\textbf{new}}{19}
+\indexentry{\textbf{delete}}{19}
+\indexentry{\textbf{delete}}{19}
+\indexentry{\textbf{new}}{19}
+\indexentry{\textbf{delete}}{19}
+\indexentry{\textbf{new}}{21}

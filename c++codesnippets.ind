@@ -21,18 +21,24 @@
     \subitem putback, 7
     \subitem unget, 7
     \subitem unset, 6
+  \item \textbf{copy}, 14
   \item \textbf{cout}, 3, 6
     \subitem put, 7
-  \item \textbf{delete}, 4, 5, 17, 18
+  \item \textbf{delete}, 4, 5, 19
+  \item \textbf{enum class}, 13
+  \item \textbf{explicit}, 14
   \item \textbf{ifstream}, 8
   \item \textbf{istringstream}, 12
-  \item \textbf{new}, 4, 5, 17, 18, 20
-  \item \textbf{nullptr}, 3
+  \item \textbf{new}, 4, 5, 19, 21
+  \item \textbf{nullptr}, 3, 14
   \item \textbf{ofstream}, 8
+  \item \textbf{operator=}, 14
+  \item \textbf{operator[]}, 14
   \item \textbf{ostringstream}, 12
   \item \textbf{rand}, 4
+  \item \textbf{size\_t}, 14
   \item \textbf{srand}, 4
-  \item \textbf{std} namespace, 1
+  \item \textbf{std}, 1
   \item \textbf{stod}, 11
   \item \textbf{stoi}, 11
   \item \textbf{stol}, 11
@@ -64,6 +70,21 @@
   \item Casts
     \subitem \textbf{reinterpret\_cast}, 2
     \subitem \textbf{static\_cast}, 2
+  \item Classes
+    \subitem constant member function, 14
+    \subitem constructor invocations, 15
+    \subitem constructors, 14
+      \subsubitem initialiser list parameter, 14
+      \subsubitem member initialisation list, 14
+      \subsubitem vector size, 14
+    \subitem copy assignment, 15
+    \subitem copy constructor, 14
+    \subitem example of a vector class, 14
+    \subitem move assignment, 15
+    \subitem move constructor, 15
+    \subitem move invocations, 16
+    \subitem subscript operator, 14
+    \subitem virtual destructor, 14
   \item Constants
     \subitem \textbf{constexpr}, 2
     \subitem \textbf{const}, 2
@@ -75,6 +96,15 @@
 
   \item Dynamic array, \see{Pointers}{4}
   \item Dynamic bidimensional array, \see{Pointers}{5}
+
+  \indexspace
+
+  \item Enumerations
+    \subitem conversion function, 13
+    \subitem definition, 13
+    \subitem in \textbf{class} scope, 13
+    \subitem prohibited conversions, 13
+    \subitem usage, 13
 
   \indexspace
 
