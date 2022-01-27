@@ -166,6 +166,7 @@
 \indexentry{Vector!access to an element!unchecked}{12}
 \indexentry{Vector!access to an element!checked}{12}
 \indexentry{Vector!add an element}{13}
+\indexentry{Vector!resize}{13}
 \indexentry{Range-based \textbf{for} statement}{13}
 \indexentry{Vector!loop over elements}{13}
 \indexentry{Vector!out of range exception}{13}
@@ -174,7 +175,7 @@
 \indexentry{\textbf{enum class}}{13}
 \indexentry{Enumerations!usage}{13}
 \indexentry{Enumerations!prohibited conversions}{13}
-\indexentry{Enumerations!conversion function}{13}
+\indexentry{Enumerations!conversion function}{14}
 \indexentry{Classes!example of a vector class}{14}
 \indexentry{\textbf{explicit}}{14}
 \indexentry{\textbf{size\_t}}{14}
@@ -188,12 +189,12 @@
 \indexentry{Classes!constructors!vector size}{14}
 \indexentry{Classes!constructors!member initialisation list}{14}
 \indexentry{Classes!constructors!initialiser list parameter}{14}
-\indexentry{\textbf{copy}}{14}
-\indexentry{Classes!copy constructor}{14}
+\indexentry{\textbf{copy}}{15}
+\indexentry{Classes!copy constructor}{15}
 \indexentry{Classes!move constructor}{15}
 \indexentry{Classes!copy assignment}{15}
 \indexentry{Classes!move assignment}{15}
-\indexentry{Classes!constructor invocations}{15}
+\indexentry{Classes!constructor invocations}{16}
 \indexentry{Classes!move invocations}{16}
 \indexentry{\textbf{new}}{19}
 \indexentry{\textbf{new}}{19}
@@ -201,4 +202,4 @@
 \indexentry{\textbf{delete}}{19}
 \indexentry{\textbf{new}}{19}
 \indexentry{\textbf{delete}}{19}
-\indexentry{\textbf{new}}{21}
+\indexentry{\textbf{new}}{22}

@@ -21,7 +21,7 @@
     \subitem putback, 7
     \subitem unget, 7
     \subitem unset, 6
-  \item \textbf{copy}, 14
+  \item \textbf{copy}, 15
   \item \textbf{cout}, 3, 6
     \subitem put, 7
   \item \textbf{delete}, 4, 5, 19
@@ -29,7 +29,7 @@
   \item \textbf{explicit}, 14
   \item \textbf{ifstream}, 8
   \item \textbf{istringstream}, 12
-  \item \textbf{new}, 4, 5, 19, 21
+  \item \textbf{new}, 4, 5, 19, 22
   \item \textbf{nullptr}, 3, 14
   \item \textbf{ofstream}, 8
   \item \textbf{operator=}, 14
@@ -72,13 +72,13 @@
     \subitem \textbf{static\_cast}, 2
   \item Classes
     \subitem constant member function, 14
-    \subitem constructor invocations, 15
+    \subitem constructor invocations, 16
     \subitem constructors, 14
       \subsubitem initialiser list parameter, 14
       \subsubitem member initialisation list, 14
       \subsubitem vector size, 14
     \subitem copy assignment, 15
-    \subitem copy constructor, 14
+    \subitem copy constructor, 15
     \subitem example of a vector class, 14
     \subitem move assignment, 15
     \subitem move constructor, 15
@@ -100,7 +100,7 @@
   \indexspace
 
   \item Enumerations
-    \subitem conversion function, 13
+    \subitem conversion function, 14
     \subitem definition, 13
     \subitem in \textbf{class} scope, 13
     \subitem prohibited conversions, 13
@@ -240,5 +240,6 @@
     \subitem initialised with initialiser list, 12
     \subitem loop over elements, 13
     \subitem out of range exception, 13
+    \subitem resize, 13
 
 \end{theindex}

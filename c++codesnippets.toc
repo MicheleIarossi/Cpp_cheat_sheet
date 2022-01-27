@@ -19,8 +19,8 @@
 \contentsline {section}{Copy constructor}{17}{}%
 \contentsline {section}{Inheritance}{17}{}%
 \contentsline {section}{Polymorphism}{18}{}%
-\contentsline {section}{Exceptions}{19}{}%
-\contentsline {section}{Templates}{20}{}%
+\contentsline {section}{Exceptions}{20}{}%
+\contentsline {section}{Templates}{21}{}%
 \contentsline {section}{Iterators}{22}{}%
-\contentsline {section}{Containers}{22}{}%
+\contentsline {section}{Containers}{23}{}%
 \contentsline {section}{Algorithms}{24}{}%

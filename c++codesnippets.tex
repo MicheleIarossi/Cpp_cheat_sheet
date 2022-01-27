@@ -843,6 +843,10 @@ cout << v.at(i);(*\index{Vector!access to an element!checked}*)
 // add an element
 v.push_back(10);(*\index{Vector!add an element}*)
 
+// resize to 20 elements
+// new elements are initialised to 0
+v.resize(20);(*\index{Vector!resize}*)
+
 // range-for-loop(*\index{Range-based \textbf{for} statement}*)
 for (auto x : v)(*\index{Vector!loop over elements}*)
   cout << v << endl;
@@ -853,7 +857,7 @@ cout << v.size();\index{Vector!size}
 // capacity: number of elements currently allocated
 cout << v.capacity();\index{Vector!capacity}
 
-// reserve more capacity e.g. at least 64 (*int*)s
+// reserve (reallocate) more capacity e.g. at least 64 (*int*)s
 v.reserve(64);\index{Vector!reserve more capacity}
 \end{lstlisting}
 \begin{enumerate}
