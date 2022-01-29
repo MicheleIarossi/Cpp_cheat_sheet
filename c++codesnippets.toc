@@ -12,15 +12,14 @@
 \contentsline {section}{Files}{8}{}%
 \contentsline {section}{Strings}{11}{}%
 \contentsline {section}{String streams}{12}{}%
-\contentsline {section}{Vectors}{12}{}%
-\contentsline {section}{Enumerations}{13}{}%
-\contentsline {section}{Classes}{14}{}%
-\contentsline {section}{Operator overloading}{16}{}%
-\contentsline {section}{Copy constructor}{17}{}%
-\contentsline {section}{Inheritance}{17}{}%
-\contentsline {section}{Polymorphism}{18}{}%
-\contentsline {section}{Exceptions}{20}{}%
-\contentsline {section}{Templates}{21}{}%
-\contentsline {section}{Iterators}{22}{}%
-\contentsline {section}{Containers}{23}{}%
-\contentsline {section}{Algorithms}{24}{}%
+\contentsline {section}{Vectors}{13}{}%
+\contentsline {section}{Enumerations}{14}{}%
+\contentsline {section}{Classes}{15}{}%
+\contentsline {section}{Operator overloading}{18}{}%
+\contentsline {section}{Inheritance}{19}{}%
+\contentsline {section}{Polymorphism}{20}{}%
+\contentsline {section}{Exceptions}{21}{}%
+\contentsline {section}{Templates}{22}{}%
+\contentsline {section}{Iterators}{23}{}%
+\contentsline {section}{Containers}{24}{}%
+\contentsline {section}{Algorithms}{26}{}%

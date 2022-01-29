@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.44~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.45~-~GNU GPL v3.0}
 
 %\layout
 
@@ -388,14 +388,22 @@ delete[] m;(*\index{\textbf{delete}}*)
 // long string + null char '\0'
 const int SIZE = 10 + 1;
 char msg[SIZE] = "Hello!";
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Checking for end of string when looping:\index{C-Strings!end of string}
+\end{enumerate}
+\begin{lstlisting}
 // correct looping over (*C-string*)s(*\index{C-Strings!correct looping}*)
 int i = 0;
 while ( msg[i] != '\0' && i < SIZE)
 {
    // process msg[i]
 }
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Safe C-string operations:
+\end{enumerate}
+\begin{lstlisting}
 // safe string copy, at most 10 characters are copied(*\index{C-Strings!safe looping}*)
 strncpy(msg, srcStr, 10);(*\index{\textbf{strncpy}}*)
 
@@ -404,7 +412,11 @@ strncmp(msg, srcStr, 10);(*\index{\textbf{strncmp}}*)
 
 // safe string concatenation, at most 10 characters are concatenated(*\index{C-Strings!safe concatenation}*)
 strncat(msg, srcStr, 10);(*\index{\textbf{strncat}}*)
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Conversions:
+\end{enumerate}
+\begin{lstlisting}
 // from (*C-string*) to (*int*), (*long*), (*float*)
 int    n = atoi("567");(*\index{C-Strings!conversions!to integer}*)(*\index{\textbf{atoi}}*)
 long   n = atol("1234567");(*\index{C-Strings!conversions!to long integer}*)(*\index{\textbf{atol}}*)
@@ -497,7 +509,7 @@ cout << showpos << 3.64;(*\index{Input-output streams!floating point format mani
 \begin{lstlisting}
 // read any character from (*cin*) (doesn't skip spaces, newlines, etc.)(*\index{Input-output streams!reading and writing characters!read any character}*)
 char nextChar;
-cin.get(nextChar);(*\index{\textbf{cin}!get}}*)
+cin.get(nextChar);(*\index{\textbf{cin}!get}*)
 
 // write a character to (*cout*)(*\index{Input-output streams!reading and writing characters!write a single character}*)
 cout.put(nextChar)(*\index{\textbf{cout}!put}*)
@@ -735,31 +747,59 @@ out_stream.close()
 // initialization(*\index{Strings!initialisation}*)
 string s1 = "Hello";
 string s2("World");
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Concatenation:
+\end{enumerate}
+\begin{lstlisting}
 // concatenation(*\index{Strings!concatenation}*)
 string s3 = s1 + ", " + s2;
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Read a line:
+\end{enumerate}
+\begin{lstlisting}
 // read a line(*\index{Strings!reading a line}*)
 string line;
 getline(cin,line);
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Access to a character:
+\end{enumerate}
+\begin{lstlisting}
 // access to the ith character (no illegal index checking)(*\index{Strings!access to character!no illegal index checking}*)
 s1[i];
 
 // access to the ith character (with illegal index checking)(*\index{Strings!access to character!with illegal index checking}*)
 s1.at(i);
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Append:
+\end{enumerate}
+\begin{lstlisting}
 // append(*\index{Strings!append}*)
 s1.append(s2);
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Size and length:
+\end{enumerate}
+\begin{lstlisting}
 // size and length(*\index{Strings!size and length}*)
 s1.size();
 s1.length();
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Substring:
+\end{enumerate}
+\begin{lstlisting}
 // substring from position 5 and length 4 characters
 string substring;
 substring = s4.substr(5,4);(*\index{Strings!substring}*)
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Find:
+\end{enumerate}
+\begin{lstlisting}
 // find (returns string::npos if not found)(*\index{Strings!find}*)
 size_t pos;
 pos = s3.find("World");
@@ -768,10 +808,18 @@ if (pos == string::npos)
 
 // find starting from position 5
 s3.find("l",5);
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] C-string:
+\end{enumerate}
+\begin{lstlisting}
 // C-string(*\index{Strings!C-string}*)
 s3.c_str();
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Conversions:
+\end{enumerate}
+\begin{lstlisting}
 // from (*string*) to (*int*), (*long*), (*float*)
 int    n = stoi("456");(*\index{Strings!from string to!integer}*)(*\index{\textbf{stoi}}*)
 long   n = stol("1234567");(*\index{Strings!from string to!long integer}*)(*\index{\textbf{stol}}*)
@@ -823,7 +871,7 @@ cout << data_stream.str();
 \section{Vectors}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Sequence of elements accessed via an index:
+\item[$\Rightarrow$] Vectors as supported by the C++ standard library:
 \end{enumerate}
 \begin{lstlisting}
 #include <vector>(*\index{<vector>}*)
@@ -833,32 +881,55 @@ vector<int> v = {2, 4, 6, 8};(*\index{Vector!initialised with initialiser list}*
 
 // vector with 10 elements all initialised to 0
 vector<int> v(10);(*\index{Vector!initialised with all elements to 0}*)
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Access:
+\end{enumerate}
+\begin{lstlisting}
 // unchecked access to the (*i*)th element
 cout << v[i];(*\index{Vector!access to an element!unchecked}*)
 
 // checked access to the (*i*)th element
 cout << v.at(i);(*\index{Vector!access to an element!checked}*)
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Add:
+\end{enumerate}
+\begin{lstlisting}
 // add an element
 v.push_back(10);(*\index{Vector!add an element}*)
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Resize:
+\end{enumerate}
+\begin{lstlisting}
 // resize to 20 elements
 // new elements are initialised to 0
 v.resize(20);(*\index{Vector!resize}*)
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Loop over:
+\end{enumerate}
+\begin{lstlisting}
 // range-for-loop(*\index{Range-based \textbf{for} statement}*)
 for (auto x : v)(*\index{Vector!loop over elements}*)
-  cout << v << endl;
-
+  cout << v << endl;\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Size and capacity:
+\end{enumerate}
+\begin{lstlisting}
 // size
-cout << v.size();\index{Vector!size}
+cout << v.size();(*\index{Vector!size}*)
 
 // capacity: number of elements currently allocated
-cout << v.capacity();\index{Vector!capacity}
-
+cout << v.capacity();(*\index{Vector!capacity}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Reserve more capacity:
+\end{enumerate}
+\begin{lstlisting}
 // reserve (reallocate) more capacity e.g. at least 64 (*int*)s
-v.reserve(64);\index{Vector!reserve more capacity}
+v.reserve(64);(*\index{Vector!reserve more capacity}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Throws an \textbf{out\_of\_range} exception if accessed out of bounds:
@@ -918,41 +989,56 @@ int d = int(Weekdays::fri);
 \item[$\Rightarrow$] Example class using dynamic arrays:\index{Classes!example of a vector class}
 \end{enumerate}
 \begin{lstlisting}
-class MyVector
+#include <algorithms>(*\index{<algorithms>}*)
+
+class MyVector(*\index{\textbf{class}}*)
 {
 public:
+    // constructor
+    explicit MyVector();
     // explicit constructor (avoids type conversions)
     explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\textbf{size\_t}}*)
-    // explicit constructor with initialiser list
+    // constructor with initialiser list
     explicit MyVector(initializer_list<double>);
     // copy constructor (pass by
     // reference, no copying!)
     MyVector(const MyVector&);
     // move constructor
     MyVector(MyVector&&);
-    // copy assignment(*\index{\textbf{operator=}}*)
-    MyVector& operator=(const MyVector&);
+    // copy assignment
+    MyVector& operator=(const MyVector&);(*\index{\textbf{operator=}}*)
     // move assignment
     MyVector& operator=(MyVector&&);
-    // virtual destructor(*\index{Classes!virtual destructor}*)
-    virtual ~MyVector() { if (!e) delete[] e; }
+    // virtual destructor
+    virtual ~MyVector() { if (!e) delete[] e; }(*\index{Classes!virtual destructor}*)
     // subscript operators(*\index{Classes!subscript operator}*)
-    double& operator[](size_t i) { return e[i]; }(*\index{\textbf{operator[]}}*)
-    double& operator[](size_t i) const { return e[i]; };
-    // size (constant member function)(*\index{Classes!constant member function}*)
-    size_t size() const { return n; }
+    // write
+    double& operator[](size_t i) { return e[i]; }(*\index{Classes!subscript operator!write}*)
+    // read
+    double operator[](size_t i) const { return e[i]; };(*\index{Classes!subscript operator!read}*)
+    // size
+    size_t size() const { return n; }(*\index{Classes!constant member function}*)
+    // capacity
+    size_t capacity() const { return m; }(*\index{Classes!constant member function}*)
+    // reserve
+    void reserve(size_t);
+    // resize
+    void resize(size_t);
+    // push back
+    void push_back(double);
 private:
-    size_t n{0};
+    size_t n{0}; // size
+    size_t m{0}; // capacity
     double *e{nullptr};(*\index{\textbf{nullptr}}*)
 };
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Constructors definitions. By using the \textbf{explicit} qualifier, undesired type conversions are avoided. Note: If you give no constructor, the compiler will generate a default constructor that does nothing.
-If you give at least one constructor, then the compiler will generate no other constructors.\index{Classes!constructors}
+If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}
 \end{enumerate}
 \begin{lstlisting}
 // constructor with member initialisation list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialisation list}*)
-MyVector::MyVector(size_t s) : n{s}, e{new double[n]}
+MyVector::MyVector(size_t s) : n{s}, m{s}, e{new double[n]}
 {
      for (int i=0; i<n; i++) e[i] = 0;
 }
@@ -960,21 +1046,24 @@ MyVector::MyVector(size_t s) : n{s}, e{new double[n]}
 // constructor with initialiser list parameter(*\index{Classes!constructors!initialiser list parameter}*)
 MyVector::MyVector(initializer_list<double> l)
 {
-    n = l.size();
+    n = m = l.size();
     e = new double[n];
     copy(l.begin(),l.end(),e);(*\index{\textbf{copy}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Copy constructor. Note: Argument is passed by const reference, i.e. no copies and no changes.\index{Classes!copy constructor}
+\item[$\Rightarrow$] Copy constructor. The argument is passed by const reference, i.e. no copies and no changes. Note: If not defined, C++ automatically adds the default copy
+constructor. This might not be correct if dynamic variables are used,
+because class members are simply copied\index{Classes!copy constructor}
 \end{enumerate}
 \begin{lstlisting}
 // copy constructor
 MyVector::MyVector(const MyVector& v)
 {
     n = v.n;
+    m = v.m;
     e = new double[n];
-    copy(v.e,v.e+v.n,e);
+    copy(v.e,v.e+v.n,e);(*\index{\textbf{copy}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
@@ -985,23 +1074,36 @@ MyVector::MyVector(const MyVector& v)
 MyVector::MyVector(MyVector&& v)
 {
     n = v.n;
+    m = v.m;
     e = v.e;
     v.n = 0;
+    v.m = 0;
     v.e = nullptr;
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Copy assignment\index{Classes!copy assignment}
+\item[$\Rightarrow$] Copy assignment. Note: If not defined, C++ automatically adds  the default assignment operator.
+It might not be correct if dynamic variables are used,
+because class members are simply copied\index{Classes!copy assignment}
 \end{enumerate}
 \begin{lstlisting}
 // copy assignment
 MyVector& MyVector::operator=(const MyVector& rv)
 {
-    if (e) delete[] e;
-    e = new double[rv.n];
+    // check for self assignment
+    if (this == &rv)
+        return *this;
+    // check if new allocation is needed
+    if (rv.n > m)
+    {
+        if (e) delete[] e;
+        e = new double[rv.n];
+        m = rv.n;
+    }
+    // copy the values
     copy(rv.e,rv.e+rv.n,e);
     n = rv.n;
-    return *this;
+    return *this;(*\index{\textbf{this}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
@@ -1013,10 +1115,51 @@ MyVector& MyVector::operator=(MyVector&& rv)
 {
     delete[] e;
     n = rv.n;
+    m = rv.m;
     e = rv.e;
     rv.n = 0;
+    rv.m = 0;
     rv.e = nullptr;
-    return *this;
+    return *this;(*\index{\textbf{this}}*)
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Reserve (reallocation), resize and push back\index{Classes!reallocation of resources}
+\end{enumerate}
+\begin{lstlisting}
+// reserve
+void MyVector::reserve(size_t new_m)
+{
+    if (new_m <= m)
+        return;
+    // new allocation
+    double* p = new double[new_m];
+    if (e)
+    {
+        copy(e,e+n,p);(*\index{\textbf{copy}}*)
+        delete[] e;
+    }
+    e = p;
+    m = new_m;
+}
+
+// resize
+void MyVector::resize(size_t new_n)
+{
+    reserve(new_n);
+    for (size_t i = n; i < new_n; i++) e[i] = 0;
+    n = new_n;
+}
+
+// push back
+void MyVector::push_back(double d)
+{
+    if (m == 0)
+        reserve(8);
+    else if (n == m)
+        reserve(2*m);
+    e[n] = d;
+    ++n;
 }
 \end{lstlisting}
 \begin{enumerate}
@@ -1056,9 +1199,9 @@ v4 = func();
 \section{Operator overloading}
 \small
 The behaviour is different if overloaded as class members or 
-friend functions.
+friend functions
 \begin{enumerate}
-\item[$\Rightarrow$] As class members:
+\item[$\Rightarrow$] As class members\index{Operator overloading!as class member}
 \end{enumerate}
 \begin{lstlisting}
 class Euro
@@ -1071,15 +1214,14 @@ class Euro
     // (*Euro(5).operator+( Euro(2) )*),
     // doesn't work for (*2 + Euro(5)*), (*2*) is not a calling object
     //  of type (*Euro*) !
-    Euro operator+(const Euro& amount); 
-    friend Euro operator+(const Euro& amount1, const Euro& amount2);
+    Euro operator+(const Euro& amount); (*\index{\textbf{operator+}}*)
 private:
     int euro;
     int cents;
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] As friend members:
+\item[$\Rightarrow$] As friend members\index{Operator overloading!as \textbf{friend} member}
 \end{enumerate}
 \begin{lstlisting}
 class Euro
@@ -1092,44 +1234,12 @@ class Euro
     // the constructor to (*Euro*) objects
     friend Euro operator+(const Euro& amount1, const Euro& amount2);
     // insertion and extraction operators
-    friend ostream& operator<<(ostream& outs, const Euro& amount);
-    friend istream& operator>>(istream& ins, Euro& amount);
+    friend ostream& operator<<(ostream& outs, const Euro& amount);(*\index{\textbf{operator<<}}*)(*\index{\textbf{friend}}*)
+    friend istream& operator>>(istream& ins, Euro& amount);(*\index{\textbf{operator>>}}*)
 private:
     int euro;
     int cents;
 };
-\end{lstlisting}
-%
-% Copy constructor / Assignment operator
-%
-\section{Copy constructor}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] If not defined, C++ automatically adds the default copy
-constructor and the default assignment operator.
-They might not be correct if dynamic variables are used,
-because class members are simply copied:
-\end{enumerate}
-\begin{lstlisting}
-class Int_list
-{
-    // constructor with size of the list
-    Int_list(int size);
-    // copy constructor
-    Int_list(Int_list& list);
-    // assignment operator
-    Int_list& operator=(const Int_list& list);
-private:
-    int *p;
-    int size;
-}
-
-// call the copy constructor
-// (*second\_list*) is initialised from (*first\_list*)
-Int_list second_list(first_list); 
-
-// call the assignment operator
-third_list = first_list;
 \end{lstlisting}
 %
 % Inheritance
