@@ -194,6 +194,7 @@
 \indexentry{Classes!constant member function}{15}
 \indexentry{\textbf{nullptr}}{15}
 \indexentry{Classes!constructors}{15}
+\indexentry{Default value!\textbf{double()}}{15}
 \indexentry{Classes!constructors!vector size}{15}
 \indexentry{Classes!constructors!member initialisation list}{15}
 \indexentry{Classes!constructors!initialiser list parameter}{16}

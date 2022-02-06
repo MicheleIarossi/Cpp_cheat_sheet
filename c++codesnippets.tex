@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.45~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.46~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1034,13 +1034,14 @@ private:
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Constructors definitions. By using the \textbf{explicit} qualifier, undesired type conversions are avoided. Note: If you give no constructor, the compiler will generate a default constructor that does nothing.
-If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}
+If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}. Notice the use of \textbf{double()} as the default value (0.0)
+when initialising the vector.\index{Default value!\textbf{double()}}
 \end{enumerate}
 \begin{lstlisting}
 // constructor with member initialisation list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialisation list}*)
 MyVector::MyVector(size_t s) : n{s}, m{s}, e{new double[n]}
 {
-     for (int i=0; i<n; i++) e[i] = 0;
+     for (int i=0; i<n; i++) e[i] = double();
 }
 
 // constructor with initialiser list parameter(*\index{Classes!constructors!initialiser list parameter}*)
@@ -1147,7 +1148,7 @@ void MyVector::reserve(size_t new_m)
 void MyVector::resize(size_t new_n)
 {
     reserve(new_n);
-    for (size_t i = n; i < new_n; i++) e[i] = 0;
+    for (size_t i = n; i < new_n; i++) e[i] = double();
     n = new_n;
 }
 

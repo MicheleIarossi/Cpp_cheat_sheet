@@ -104,6 +104,8 @@
 
   \indexspace
 
+  \item Default value
+    \subitem \textbf{double()}, 15
   \item Dynamic array, \see{Pointers}{4}
   \item Dynamic bidimensional array, \see{Pointers}{5}
 
