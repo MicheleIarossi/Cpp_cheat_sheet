@@ -7,7 +7,7 @@
   \item <fstream>, 8
   \item <iomanip>, 6
   \item <iostream>, 1
-  \item <sstream>, 12
+  \item <sstream>, 13
   \item <string>, 11
   \item <vector>, 13
   \item \textbf{atof}, 6
@@ -26,14 +26,14 @@
   \item \textbf{copy}, 16, 17
   \item \textbf{cout}, 3, 6
     \subitem put, 7
-  \item \textbf{delete}, 4, 5, 20, 21
+  \item \textbf{delete}, 4, 5, 21
   \item \textbf{enum class}, 14
   \item \textbf{explicit}, 15
   \item \textbf{friend}, 19
   \item \textbf{ifstream}, 8
   \item \textbf{istringstream}, 12
-  \item \textbf{new}, 4, 5, 20, 21, 23
-  \item \textbf{nullptr}, 3, 15
+  \item \textbf{new}, 4, 5, 21, 23
+  \item \textbf{nullptr}, 3, 16
   \item \textbf{ofstream}, 8
   \item \textbf{operator+}, 19
   \item \textbf{operator<<}, 19
@@ -80,11 +80,11 @@
   \item Classes
     \subitem constant member function, 15
     \subitem constructor invocations, 18
-    \subitem constructors, 15
+    \subitem constructors, 16
       \subsubitem initialiser list parameter, 16
-      \subsubitem member initialisation list, 15
-      \subsubitem vector size, 15
-    \subitem copy assignment, 16
+      \subsubitem member initialisation list, 16
+      \subsubitem vector size, 16
+    \subitem copy assignment, 17
     \subitem copy constructor, 16
     \subitem example of a vector class, 15
     \subitem move assignment, 17
@@ -105,17 +105,17 @@
   \indexspace
 
   \item Default value
-    \subitem \textbf{double()}, 15
+    \subitem \textbf{double()}, 16
   \item Dynamic array, \see{Pointers}{4}
   \item Dynamic bidimensional array, \see{Pointers}{5}
 
   \indexspace
 
   \item Enumerations
-    \subitem conversion function, 14
+    \subitem conversion function, 15
     \subitem definition, 14
     \subitem in \textbf{class} scope, 14
-    \subitem prohibited conversions, 14
+    \subitem prohibited conversions, 15
     \subitem usage, 14
 
   \indexspace
@@ -198,7 +198,7 @@
 
   \item Operator overloading
     \subitem as \textbf{friend} member, 19
-    \subitem as class member, 18
+    \subitem as class member, 19
 
   \indexspace
 
@@ -220,20 +220,20 @@
   \item Random numbers
     \subitem integer random number, 4
     \subitem seed the generator, 4
-  \item Range-based \textbf{for} statement, 4, 13
+  \item Range-based \textbf{for} statement, 4, 14
 
   \indexspace
 
   \item String streams
-    \subitem input string stream, 12
+    \subitem input string stream, 13
     \subitem output string stream, 13
-    \subitem read numbers from data stream, 12
+    \subitem read numbers from data stream, 13
     \subitem return the string in the stream, 13
   \item Strings
     \subitem access to character
       \subsubitem no illegal index checking, 11
       \subsubitem with illegal index checking, 11
-    \subitem append, 11
+    \subitem append, 12
     \subitem C-string, 12
     \subitem concatenation, 11
     \subitem find, 12
@@ -257,10 +257,10 @@
     \subitem capacity, 14
     \subitem initialised with all elements to 0, 13
     \subitem initialised with initialiser list, 13
-    \subitem loop over elements, 13
+    \subitem loop over elements, 14
     \subitem out of range exception, 14
     \subitem reserve more capacity, 14
-    \subitem resize, 13
+    \subitem resize, 14
     \subitem size, 14
 
 \end{theindex}

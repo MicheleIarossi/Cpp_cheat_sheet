@@ -20,6 +20,6 @@
 \contentsline {section}{Polymorphism}{20}{}%
 \contentsline {section}{Exceptions}{21}{}%
 \contentsline {section}{Templates}{22}{}%
-\contentsline {section}{Iterators}{23}{}%
+\contentsline {section}{Iterators}{24}{}%
 \contentsline {section}{Containers}{24}{}%
 \contentsline {section}{Algorithms}{26}{}%

@@ -139,7 +139,7 @@
 \indexentry{Strings!reading a line}{11}
 \indexentry{Strings!access to character!no illegal index checking}{11}
 \indexentry{Strings!access to character!with illegal index checking}{11}
-\indexentry{Strings!append}{11}
+\indexentry{Strings!append}{12}
 \indexentry{Strings!size and length}{12}
 \indexentry{Strings!substring}{12}
 \indexentry{Strings!find}{12}
@@ -153,9 +153,9 @@
 \indexentry{Strings!from numeric type to string}{12}
 \indexentry{\textbf{to\_string}}{12}
 \indexentry{\textbf{istringstream}}{12}
-\indexentry{<sstream>}{12}
-\indexentry{String streams!input string stream}{12}
-\indexentry{String streams!read numbers from data stream}{12}
+\indexentry{<sstream>}{13}
+\indexentry{String streams!input string stream}{13}
+\indexentry{String streams!read numbers from data stream}{13}
 \indexentry{\textbf{ostringstream}}{13}
 \indexentry{String streams!output string stream}{13}
 \indexentry{String streams!manipulators|see{Input-output streams!integer format manipulators}}{13}
@@ -167,9 +167,9 @@
 \indexentry{Vector!access to an element!unchecked}{13}
 \indexentry{Vector!access to an element!checked}{13}
 \indexentry{Vector!add an element}{13}
-\indexentry{Vector!resize}{13}
-\indexentry{Range-based \textbf{for} statement}{13}
-\indexentry{Vector!loop over elements}{13}
+\indexentry{Vector!resize}{14}
+\indexentry{Range-based \textbf{for} statement}{14}
+\indexentry{Vector!loop over elements}{14}
 \indexentry{Vector!size}{14}
 \indexentry{Vector!capacity}{14}
 \indexentry{Vector!reserve more capacity}{14}
@@ -178,8 +178,8 @@
 \indexentry{Enumerations!definition}{14}
 \indexentry{\textbf{enum class}}{14}
 \indexentry{Enumerations!usage}{14}
-\indexentry{Enumerations!prohibited conversions}{14}
-\indexentry{Enumerations!conversion function}{14}
+\indexentry{Enumerations!prohibited conversions}{15}
+\indexentry{Enumerations!conversion function}{15}
 \indexentry{Classes!example of a vector class}{15}
 \indexentry{<algorithms>}{15}
 \indexentry{\textbf{class}}{15}
@@ -192,17 +192,17 @@
 \indexentry{Classes!subscript operator!read}{15}
 \indexentry{Classes!constant member function}{15}
 \indexentry{Classes!constant member function}{15}
-\indexentry{\textbf{nullptr}}{15}
-\indexentry{Classes!constructors}{15}
-\indexentry{Default value!\textbf{double()}}{15}
-\indexentry{Classes!constructors!vector size}{15}
-\indexentry{Classes!constructors!member initialisation list}{15}
+\indexentry{\textbf{nullptr}}{16}
+\indexentry{Classes!constructors}{16}
+\indexentry{Default value!\textbf{double()}}{16}
+\indexentry{Classes!constructors!vector size}{16}
+\indexentry{Classes!constructors!member initialisation list}{16}
 \indexentry{Classes!constructors!initialiser list parameter}{16}
 \indexentry{\textbf{copy}}{16}
 \indexentry{Classes!copy constructor}{16}
 \indexentry{\textbf{copy}}{16}
 \indexentry{Classes!move constructor}{16}
-\indexentry{Classes!copy assignment}{16}
+\indexentry{Classes!copy assignment}{17}
 \indexentry{\textbf{this}}{17}
 \indexentry{Classes!move assignment}{17}
 \indexentry{\textbf{this}}{17}
@@ -210,16 +210,16 @@
 \indexentry{\textbf{copy}}{17}
 \indexentry{Classes!constructor invocations}{18}
 \indexentry{Classes!move invocations}{18}
-\indexentry{Operator overloading!as class member}{18}
+\indexentry{Operator overloading!as class member}{19}
 \indexentry{\textbf{operator+}}{19}
 \indexentry{Operator overloading!as \textbf{friend} member}{19}
 \indexentry{\textbf{operator<<}}{19}
 \indexentry{\textbf{friend}}{19}
 \indexentry{\textbf{operator>>}}{19}
-\indexentry{\textbf{new}}{20}
-\indexentry{\textbf{new}}{20}
-\indexentry{\textbf{delete}}{20}
-\indexentry{\textbf{delete}}{20}
+\indexentry{\textbf{new}}{21}
+\indexentry{\textbf{new}}{21}
+\indexentry{\textbf{delete}}{21}
+\indexentry{\textbf{delete}}{21}
 \indexentry{\textbf{new}}{21}
 \indexentry{\textbf{delete}}{21}
 \indexentry{\textbf{new}}{23}
