@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.46~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.47~-~GNU GPL v3.0}
 
 %\layout
 
@@ -450,7 +450,7 @@ cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to th
 cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Integer format manipulators: once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
+\item[$\Rightarrow$] Integer format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
 \index{Input-output streams!integer format manipulators}
 \end{enumerate}
 \begin{lstlisting}
@@ -475,7 +475,7 @@ cin.unsetf(ios::hex);
 cin >> val;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Floating point format manipulators:  once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
+\item[$\Rightarrow$] Floating point format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
 \index{Input-output streams!floating point format manipulators}
 \end{enumerate}
 \begin{lstlisting}
@@ -837,7 +837,7 @@ string s = to_string(123.456);(*\index{\textbf{to\_string}}*)
 \small
 A string is used as a source for an input stream or as a target for an output stream. \\
 \begin{enumerate}
-\item[$\Rightarrow$] Input string stream:\textbf{istringstream}\index{\textbf{istringstream}}
+\item[$\Rightarrow$] Input string stream: \textbf{istringstream}\index{\textbf{istringstream}}
 \end{enumerate}
 \begin{lstlisting}
 #include <sstream>(*\index{<sstream>}*)
@@ -851,7 +851,7 @@ while ( is >> val )
     cout << val << endl;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Output string stream:\textbf{ostringstream}\index{\textbf{ostringstream}}
+\item[$\Rightarrow$] Output string stream: \textbf{ostringstream}\index{\textbf{ostringstream}}
 \end{enumerate}
 \begin{lstlisting}
 #include <sstream>
@@ -988,7 +988,7 @@ int d = int(Weekdays::fri);
 \section{Classes}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Example class using dynamic arrays:\index{Classes!example of a vector class}
+\item[$\Rightarrow$] Class using dynamic arrays:\index{Classes!example of a vector class}
 \end{enumerate}
 \begin{lstlisting}
 #include <algorithms>(*\index{<algorithms>}*)
@@ -1001,7 +1001,7 @@ public:
     // explicit constructor (avoids type conversions)
     explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\textbf{size\_t}}*)
     // constructor with initialiser list
-    explicit MyVector(initializer_list<double>);
+    explicit MyVector(initializer_list<double>);(*\index{\textbf{initializer\_list}}*)
     // copy constructor (pass by
     // reference, no copying!)
     MyVector(const MyVector&);
@@ -1035,7 +1035,7 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Constructors definitions. By using the \textbf{explicit} qualifier, undesired type conversions are avoided. Note: If you give no constructor, the compiler will generate a default constructor that does nothing.
+\item[$\Rightarrow$] Constructors definitions\\ \\ By using the \textbf{explicit} qualifier, undesired type conversions are avoided\index{Classes!constructors!type conversions}. If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}. Notice the use of \textbf{double()} as the default value (0.0)
 when initialising the vector.\index{Default value!\textbf{double()}}
 \end{enumerate}
@@ -1055,7 +1055,7 @@ MyVector::MyVector(initializer_list<double> l)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Copy constructor. The argument is passed by const reference, i.e. no copies and no changes. Note: If not defined, C++ automatically adds the default copy
+\item[$\Rightarrow$] Copy constructor\\ \\ The argument is passed by const reference, i.e. no copies and no changes. If not defined, C++ automatically adds the default copy
 constructor. This might not be correct if dynamic variables are used,
 because class members are simply copied\index{Classes!copy constructor}
 \end{enumerate}
@@ -1085,7 +1085,7 @@ MyVector::MyVector(MyVector&& v)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Copy assignment. Note: If not defined, C++ automatically adds  the default assignment operator.
+\item[$\Rightarrow$] Copy assignment\\ \\ If not defined, C++ automatically adds  the default assignment operator.
 It might not be correct if dynamic variables are used,
 because class members are simply copied\index{Classes!copy assignment}
 \end{enumerate}
@@ -1173,13 +1173,13 @@ void MyVector::push_back(double d)
 MyVector v1(4); 
 
 // constructor with initialiser list
-MyVector v2{1,2,3,4}; 
+MyVector v2{1,2,3,4};(*\index{\textbf{initializer\_list}}*)
 
 // copy constructor
 MyVector v3{v2}; 
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Move invocations. Avoids copying when moving is sufficient, e.g. when returning an object from a function:\index{Classes!move invocations}
+\item[$\Rightarrow$] Move invocations\\ \\ Avoids copying when moving is sufficient, e.g. when returning an object from a function:\index{Classes!move invocations}
 \end{enumerate}
 \begin{lstlisting}
 // example of a function returning an object
@@ -1201,22 +1201,19 @@ v4 = func();
 %
 \section{Operator overloading}
 \small
-The behaviour is different if overloaded as class members or 
-friend functions
+The behaviour is different if an operator is overloaded as  a class member or 
+friend function.
 \begin{enumerate}
 \item[$\Rightarrow$] As class members\index{Operator overloading!as class member}
 \end{enumerate}
 \begin{lstlisting}
 class Euro
 {
+public:
     // constructor for  (*euro*)
     Euro(int euro);
     // constructor for  (*euro*) and (*cents*)
     Euro(int euro, int cents);
-    // works for (*Euro(5) + 2*), equivalent to 
-    // (*Euro(5).operator+( Euro(2) )*),
-    // doesn't work for (*2 + Euro(5)*), (*2*) is not a calling object
-    //  of type (*Euro*) !
     Euro operator+(const Euro& amount); (*\index{\textbf{operator+}}*)
 private:
     int euro;
@@ -1224,17 +1221,26 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
+\item[$\Rightarrow$] The definition above requires a calling object:
+\end{enumerate}
+\begin{lstlisting}
+// works, equivalent to (*Euro\{5\}.operator+( Euro\{2\} )*)
+Euro result = Euro{5} + 2; 
+
+// doesn't work, (*2*) is not a calling object of type (*Euro*) !
+Euro result = 2 + Euro{5}; 
+\end{lstlisting}
+\begin{enumerate}
 \item[$\Rightarrow$] As friend members\index{Operator overloading!as \textbf{friend} member}
 \end{enumerate}
 \begin{lstlisting}
 class Euro
 {
+public:
     // constructor for  (*euro*)
     Euro(int euro);
     // constructor for (*euro*) and (*cents*)
     Euro(int euro, int cents);
-    // works for every combination (*int*) arguments are converted by 
-    // the constructor to (*Euro*) objects
     friend Euro operator+(const Euro& amount1, const Euro& amount2);
     // insertion and extraction operators
     friend ostream& operator<<(ostream& outs, const Euro& amount);(*\index{\textbf{operator<<}}*)(*\index{\textbf{friend}}*)
@@ -1244,65 +1250,294 @@ private:
     int cents;
 };
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] The definition above works for every combination because \textbf{int} arguments are converted by the constructor to \texttt{Euro} objects:
+\index{Classes!constructors!type conversions}
+\end{enumerate}
+\begin{lstlisting}
+// works, equivalent to (*Euro\{5\} + Euro\{2\}*)
+Euro result = Euro{5} + 2; 
+
+// works, equivalent to (*Euro\{2\} + Euro\{5\}*)
+Euro result = 2 + Euro{5}; 
+\end{lstlisting}
 %
 % Inheritance
 %
 \section{Inheritance}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Constructors, destructor, private member functions, copy constructor
-and assignment operator are not inherited! Derived classes get the default ones
-if they are not explicitly provided but are present in the base class.
+\item[$\Rightarrow$] Abstract base class (excerpt):
+\index{Inheritance!abstract base class}
 \end{enumerate}
 \begin{lstlisting}
-// a simple book class
-class Book
+class Shape : public Fl_Widget
 {
 public:
-    Book(string t, int p);
-    void print(ostream& os);
+    // no copy constructor allowed
+    Shape(const Shape&) = delete;
+    // no copy assignment allowed
+    Shape& operator=(const Shape&) = delete;
+    // virtual destructor
+    virtual ~Shape() {}
+    // overrides the pure virtual function (*Fl\_Widget::draw()*)
+    void draw() {
+        set_fl_style();
+        if ( is_visible() ) draw_shape();
+        restore_fl_style();
+    }
+    void move(int dx, int dy) { move_shape(dx,dy); }
+    // getter functions
+    Point get_top_left_corner() const { return get_tl(); }
+    Point get_bottom_right_corner() const { return get_br(); }
+    int get_width() const { return w(); }
+    int get_height() const { return h(); }
 protected:
-    int pages;
-    string title;
+    // Shape is an abstract class
+    // no instances of Shape can be created!
+    Shape() : Fl_Widget(0,0,0,0) {}
+    // helper functions available for derived classes
+    Point get_tl() const  { return tl; }
+    void  set_tl(Point p) { tl = p; }
+    Point get_br() const  { return br; }
+    void  set_br(Point p) { br = p; }
+    void  update_tl_br(const Point& p);
+    // functions to be overridden by the derived classes
+    virtual void draw_shape() = 0;(*\index{\textbf{= 0}}*)
+    virtual void move_shape(int dx, int dy) = 0;(*\index{\textbf{= 0}}*)
+    virtual void resize_shape(Point a, Point b) {
+        set_tl(a);
+        set_br(b);
+        resize(tl.x,tl.y,br.x-tl.x,br.y-tl.y);
+    }
+    virtual void resize_shape() {
+        resize(tl.x,tl.y,br.x-tl.x,br.y-tl.y);
+    }
+private:
+    // internal private representation
+    Point tl{};                  // top-left corner
+    Point br{};                // bottom-right corner
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Redefinition of function members:
+\item[$\Rightarrow$] A base class can be a derived class itself:
+\index{Inheritance!base class}
 \end{enumerate}
 \begin{lstlisting}
-// a simple textbook class
-class Textbook : public Book
+class Shape : public Fl_Widget
 {
-public:
-    Textbook(string t, int p, string s);
-    // redefinition of (*print()*) from the base class
-    void print(ostream& os);
-protected:
-    string subject;
+    ...
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{protected} members can be accessed
-by derived function members:
+\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \textbf{= delete}\index{\textbf{= delete}}  syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called!
+\index{Inheritance!disabling copy constructors and assignment}
 \end{enumerate}
 \begin{lstlisting}
-// has access to (*protected*) members of he base class
-void Textbook::print(ostream& os)
+class Shape : public Fl_Widget
 {
-    os << "The title of this textbook is '" << title
-         << " and the textbook has " << pages << " pages."  << endl;
-    os << "The subject is \"" << subject << "\"" << endl;
-}
+public:
+    // no copy constructor allowed
+    Shape(const Shape&) = delete;
+    // no copy assignment allowed
+    Shape& operator=(const Shape&) = delete;
+    ...
+};
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] With redefinition, no polymorphism!
+\item[$\Rightarrow$] Virtual destructor\\ \\ Destructors should be declared \textbf{virtual}. When derived
+objects are referenced by base class pointers, the destructor of the derived class is called if it is declared \textbf{virtual}.
+\index{Inheritance!virtual destructor}\index{\textbf{virtual}}
 \end{enumerate}
 \begin{lstlisting}
-TextBook a_Math_Textbook("Calculus",1200,"Real variables");
-Book *a_book = &a_Math_Textbook;
-
-// call (*Book::print()*) not (*Textbook::print()*)!
-a_book->print(cout);
+class Shape : public Fl_Widget
+{
+public:
+    ...
+    // virtual destructor
+    virtual ~Shape() {}
+    ...
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Protected constructor\\ \\ By declaring the constructor as \textbf{protected}, no instances of this class can be created by a user. Since \texttt{Shape} is an abstract class, it should be used only as a base class for derived classes.
+\index{Inheritance!protected constructor}\index{\textbf{protected}}
+\end{enumerate}
+\begin{lstlisting}
+class Shape : public Fl_Widget
+{
+    ...
+protected:
+    ...
+    // Shape is an abstract class
+    // no instances of Shape can be created!
+    Shape() : Fl_Widget(0,0,0,0) {}
+    ...
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Protected member functions\\ \\ By declaring member functions as protected, access is restricted only to the class itself or to derived classes, a user cannot call such functions. This is useful for helper functions which are not supposed to be called directly outside the class.
+\index{Inheritance!protected member functions}
+\end{enumerate}
+\begin{lstlisting}
+class Shape : public Fl_Widget
+{
+    ...
+protected:
+    ...
+    // helper functions available for derived classes
+    Point get_tl() const  { return tl; }
+    void  set_tl(Point p) { tl = p; }
+    ...
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Pure virtual functions\\ \\ The protected member functions \texttt{draw\_shape()} and \texttt{move\_shape()} are pure virtual functions, i.e. a derived class must provide an implementation for them. Notice the syntax  \textbf{= 0}\index{\textbf{= 0}} which signals that the function is a pure virtual function. When a class has function members that are declared as pure virtual functions, then the class becomes an abstract class.
+\index{Inheritance!pure virtual functions}
+\end{enumerate}
+\begin{lstlisting}
+class Shape : public Fl_Widget
+{
+    ...
+protected:
+    ...
+    // functions to be overridden by the derived classes
+    virtual void draw_shape() = 0;(*\index{\textbf{= 0}}*)
+    virtual void move_shape(int dx, int dy) = 0;(*\index{\textbf{= 0}}*)
+    ...
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Virtual functions\\ \\ The protected member functions \texttt{resize\_shape()} is declared as a virtual function and an implementation is provided. This means that if a derived class does not override the implementation of the base class, the derived class inherits the implementation from the base class.
+\index{Inheritance!virtual functions}
+\end{enumerate}
+\begin{lstlisting}
+class Shape : public Fl_Widget
+{
+    ...
+protected:
+    ...
+    virtual void resize_shape(Point a, Point b) {
+        set_tl(a);
+        set_br(b);
+        resize(tl.x,tl.y,br.x-tl.x,br.y-tl.y);
+    }
+    virtual void resize_shape() {
+        resize(tl.x,tl.y,br.x-tl.x,br.y-tl.y);
+    }
+    ...
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] A derived class from the base class \texttt{Shape}:
+\index{Inheritance!derived class}
+\end{enumerate}
+\begin{lstlisting}
+class Line : public Shape
+{
+public:
+    Line(pair<Point,Point> line) : l{line} {(*\index{\textbf{pair}}*)
+        resize_shape(l.first,l.second);
+    }
+    virtual ~Line() {}
+    pair<Point,Point> get_line() const { return l; }
+    void set_line(pair<Point,Point> line) { l = line; }
+protected:
+    void draw_shape() {
+        fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
+    }
+    void move_shape(int dx, int dy) {
+        l.first.x  += dx;  l.first.y += dy;
+        l.second.x += dx; l.second.y += dy;
+        resize_shape(l.first,l.second);
+    }
+private:
+    pair<Point,Point> l;
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{Line} is derived from \texttt{Shape}, it models the relationship that a \texttt{Line} is a \texttt{Shape}
+\index{Inheritance!derived class}
+\end{enumerate}
+\begin{lstlisting}
+class Line : public Shape
+{
+    ...
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{Line} has its own getter and setter functions for accessing its own internal private representation:
+\index{Classes!getter and setter functions}
+\end{enumerate}
+\begin{lstlisting}
+class Line : public Shape
+{
+public:
+    ...
+    pair<Point,Point> get_line() const { return l; }
+    void set_line(pair<Point,Point> line) { l = line; }
+    ...
+private:
+    pair<Point,Point> l;
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{Line} specialises the virtual functions \texttt{draw\_shape()} and \texttt{move\_shape()} according to its representation:
+\index{Inheritance!function specialisation}
+\end{enumerate}
+\begin{lstlisting}
+class Line : public Shape
+{
+public:
+    ...
+protected:
+    void draw_shape() {
+        fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
+    }
+    void move_shape(int dx, int dy) {
+        l.first.x  += dx;  l.first.y += dy;
+        l.second.x += dx; l.second.y += dy;
+        resize_shape(l.first,l.second);
+    }
+    ...
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{Circle} is also derived from \texttt{Shape}, a \texttt{Circle} is also a \texttt{Shape}.
+\index{Inheritance!function specialisation}
+\end{enumerate}
+\begin{lstlisting}
+class Circle : public Shape
+{
+public:
+    Circle(Point a, int rr) : c{a}, r{rr} {
+        resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
+    }
+    virtual ~Circle() {}
+    Point get_center() const { return c; }
+    void set_center(Point p) {
+        c = p;
+        resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
+    }
+    int get_radius() const { return r; }
+    void set_radius(int rr) {
+        r = rr;
+        resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
+    }
+protected:
+    void draw_shape() {
+        Point tl = get_tl();
+        Point br = get_br();
+        fl_arc(tl.x,tl.y,br.x-tl.x,br.y-tl.y,0,360);
+    }
+    void move_shape(int dx,int dy) {
+        c.x += dx; c.y += dy;
+        resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
+    }
+private:
+    Point c{}; // center
+    int r{0};  // radius
+};
 \end{lstlisting}
 %
 % Polymorphism
@@ -1310,66 +1545,45 @@ a_book->print(cout);
 \section{Polymorphism}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{virtual} allows for late binding, i.e.
-polymorphism. Function members are
-overridden in the derived class. Note: Destructors should also be
- declared \textbf{virtual}. When derived
-objects are referenced by base class
-pointers, the destructor of the derived class
-is called if it is declared virtual.
+\item[$\Rightarrow$] From a window perspective, it is possible to attach and draw any type of widget, and the window just needs to call the \texttt{Fl\_Widget::draw()} method:
+\index{Polymorphism}
 \end{enumerate}
 \begin{lstlisting}
-// a simple book class
-class Book
-{
-public:
-    Book(string t, int p);
-    virtual ~Book();
-    void print(ostream& os);
-protected:
-    int *pages;
-    string *title;
-};
-
-Book::Book(string t, int p)
-{
-    pages = new int(p);(*\index{\textbf{new}}*)
-    title = new string(t);(*\index{\textbf{new}}*)
+void Window::draw(Fl_Widget& w) {
+    w.draw();
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Since \texttt{Fl\_Widget::draw()} is a pure virtual function, it is overridden by \texttt{Shape::draw()}, which in turn calls the pure virtual function \texttt{Shape::draw\_shape()}, which gets specialised in every derived class, e.g. as in \texttt{Line} or \texttt{Circle}:
+\end{enumerate}
+\begin{lstlisting}
+void Shape::draw() {
+    set_fl_style();
+    if ( is_visible() ) draw_shape();
+    restore_fl_style();
 }
 
-Book::~Book()
-{
-    delete pages;(*\index{\textbf{delete}}*)
-    delete title;(*\index{\textbf{delete}}*)
+void Circle:: draw_shape() {
+    Point tl = get_tl();
+    Point br = get_br();
+    fl_arc(tl.x,tl.y,br.x-tl.x,br.y-tl.y,0,360);
 }
 
-// a simple textbook class
-class Textbook : public Book
-{
-public:
-    Textbook(string t, int p, string s);
-    virtual ~Textbook();
-    // overriding of (*print()*)  from the base class
-    virtual void print(ostream& os);
-protected:
-    string *subject;
-};
-
-Textbook::Textbook(string t, int p, string s) : Book(t, p)
-{
-    subject = new string(s);(*\index{\textbf{new}}*)
+void Line::draw_shape() {
+    fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
 }
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Polymorphism is allowed by the \textbf{virtual} keyword which guarantees late binding: the call \texttt{w.draw()} inside \texttt{Windows::draw()} binds to the \texttt{draw\_shape()} function of the actual object referenced, either to a \texttt{Line} or \texttt{Circle} instance.
+\index{Polymorphism!late binding}
+\end{enumerate}
+\begin{lstlisting}
+Window win;
+Line diagonal { {Point{200,200},Point{250,250}} };
+Circle c1{Point{100,200},50};
 
-Textbook::~Textbook()
-{
-    delete subject;(*\index{\textbf{delete}}*)
-}
-
-TextBook a_Math_Textbook("Calculus",1200,"Real variables");
-Book *a_book = &a_Math_Textbook;
-
-// call (*Textbook::print()*)!
-a_book->print(cout);
+win.draw(diagonal); // calls (*Line::draw\_shape()*)
+win.draw(c1); // calls (*Circle::draw\_shape()*)
 \end{lstlisting}
 %
 % Exceptions

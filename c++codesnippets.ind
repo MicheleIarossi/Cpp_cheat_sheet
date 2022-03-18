@@ -10,6 +10,8 @@
   \item <sstream>, 13
   \item <string>, 11
   \item <vector>, 13
+  \item \textbf{= 0}, 20, 22
+  \item \textbf{= delete}, 21
   \item \textbf{atof}, 6
   \item \textbf{atoi}, 6
   \item \textbf{atol}, 6
@@ -23,16 +25,17 @@
     \subitem unget, 7
     \subitem unset, 6
   \item \textbf{class}, 15
-  \item \textbf{copy}, 16, 17
+  \item \textbf{copy}, 16, 18
   \item \textbf{cout}, 3, 6
     \subitem put, 7
-  \item \textbf{delete}, 4, 5, 21
+  \item \textbf{delete}, 4, 5
   \item \textbf{enum class}, 14
   \item \textbf{explicit}, 15
   \item \textbf{friend}, 19
   \item \textbf{ifstream}, 8
+  \item \textbf{initializer\_list}, 15, 18
   \item \textbf{istringstream}, 12
-  \item \textbf{new}, 4, 5, 21, 23
+  \item \textbf{new}, 4, 5, 28
   \item \textbf{nullptr}, 3, 16
   \item \textbf{ofstream}, 8
   \item \textbf{operator+}, 19
@@ -40,6 +43,8 @@
   \item \textbf{operator=}, 15
   \item \textbf{operator>>}, 19
   \item \textbf{ostringstream}, 13
+  \item \textbf{pair}, 23
+  \item \textbf{protected}, 21
   \item \textbf{rand}, 4
   \item \textbf{size\_t}, 15
   \item \textbf{srand}, 4
@@ -52,6 +57,7 @@
   \item \textbf{strncpy}, 5
   \item \textbf{this}, 17
   \item \textbf{to\_string}, 12
+  \item \textbf{virtual}, 21
   \item \textbf{void $\ast$}, 2
 
   \indexspace
@@ -83,10 +89,12 @@
     \subitem constructors, 16
       \subsubitem initialiser list parameter, 16
       \subsubitem member initialisation list, 16
+      \subsubitem type conversions, 16, 20
       \subsubitem vector size, 16
     \subitem copy assignment, 17
     \subitem copy constructor, 16
     \subitem example of a vector class, 15
+    \subitem getter and setter functions, 23
     \subitem move assignment, 17
     \subitem move constructor, 16
     \subitem move invocations, 18
@@ -153,6 +161,17 @@
 
   \indexspace
 
+  \item Inheritance
+    \subitem abstract base class, 20
+    \subitem base class, 21
+    \subitem derived class, 23
+    \subitem disabling copy constructors and assignment, 21
+    \subitem function specialisation, 24
+    \subitem protected constructor, 21
+    \subitem protected member functions, 22
+    \subitem pure virtual functions, 22
+    \subitem virtual destructor, 21
+    \subitem virtual functions, 22
   \item Input-output streams, 6
     \subitem error stream, \see{\textbf{cerr}}{6}
     \subitem floating point format manipulators, 6
@@ -214,6 +233,8 @@
     \subitem free store, 4
     \subitem simple pointer, 4
     \subitem subscript operator\textbf{[]}, 5
+  \item Polymorphism, 25
+    \subitem late binding, 25
 
   \indexspace
 
@@ -224,6 +245,7 @@
 
   \indexspace
 
+  \item Slicing, 21
   \item String streams
     \subitem input string stream, 13
     \subitem output string stream, 13
