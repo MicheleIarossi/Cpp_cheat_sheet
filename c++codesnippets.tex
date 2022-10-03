@@ -259,6 +259,18 @@ const Object& default_value()
 \item Return error conditions of the function as return values
 \end{itemize}
 \end{enumerate}
+\begin{enumerate}
+\item[$\Rightarrow$] Function pointer type definition:
+\index{Functions!pointer to function}
+\end{enumerate}
+\begin{lstlisting}
+// pointer to a function returning a (*void*) and
+// having parameters a pointer to a (*Fl\_Widget*) and a pointer to a (*void*)
+typedef void ( *Callback_type )( Fl_Widget*, void* ); (*\index{\textbf{typedef}}*)
+
+// (*cb*) is a callback defined as above
+Callback_type cb;
+\end{lstlisting}
 %
 % Namespaces
 %
