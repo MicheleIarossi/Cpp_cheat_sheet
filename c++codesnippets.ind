@@ -1,52 +1,53 @@
 \begin{theindex}
 
-  \item <algorithms>, 15
+  \item <algorithms>, 16
   \item <cstdlib>, 4
-  \item <cstring>, 5
+  \item <cstring>, 6
   \item <ctime>, 4
   \item <fstream>, 9
   \item <iomanip>, 7
   \item <iostream>, 1
   \item <sstream>, 13
-  \item <string>, 11
-  \item <vector>, 13
-  \item \textbf{= 0}, 21--23
-  \item \textbf{= delete}, 21
+  \item <string>, 12
+  \item <vector>, 14
+  \item \textbf{= 0}, 21, 23
+  \item \textbf{= delete}, 22
+  \item \textbf{[ ]}, 4
   \item \textbf{atof}, 6
   \item \textbf{atoi}, 6
   \item \textbf{atol}, 6
-  \item \textbf{auto}, 4
-  \item \textbf{cerr}, 6
-  \item \textbf{cin}, 4, 6
+  \item \textbf{auto}, 5
+  \item \textbf{cerr}, 7
+  \item \textbf{cin}, 4, 7
     \subitem clear, 8
-    \subitem get, 7
+    \subitem get, 8
     \subitem getline, 8
     \subitem putback, 8
     \subitem unget, 8
     \subitem unset, 7
-  \item \textbf{class}, 15
-  \item \textbf{copy}, 16--18
-  \item \textbf{cout}, 4, 6
+  \item \textbf{class}, 16
+  \item \textbf{copy}, 17, 18
+  \item \textbf{cout}, 4, 7
     \subitem put, 8
-  \item \textbf{delete}, 5
+  \item \textbf{delete}, 5, 6
   \item \textbf{enum class}, 15
-  \item \textbf{explicit}, 15
+  \item \textbf{explicit}, 16
   \item \textbf{friend}, 20
   \item \textbf{ifstream}, 9
-  \item \textbf{initializer\_list}, 15, 18
+  \item \textbf{initializer\_list}, 16, 19
   \item \textbf{istringstream}, 13
-  \item \textbf{new}, 4, 5, 28
+  \item \textbf{new}, 5, 28
   \item \textbf{nullptr}, 3, 16
   \item \textbf{ofstream}, 9
-  \item \textbf{operator+}, 19
+  \item \textbf{operator+}, 20
   \item \textbf{operator<<}, 20
-  \item \textbf{operator=}, 15
+  \item \textbf{operator=}, 16
   \item \textbf{operator>>}, 20
   \item \textbf{ostringstream}, 13
-  \item \textbf{pair}, 23
+  \item \textbf{pair}, 24
   \item \textbf{protected}, 22
   \item \textbf{rand}, 4
-  \item \textbf{size\_t}, 15
+  \item \textbf{size\_t}, 16
   \item \textbf{srand}, 4
   \item \textbf{std}, 1
   \item \textbf{stod}, 13
@@ -55,29 +56,29 @@
   \item \textbf{strncat}, 6
   \item \textbf{strncmp}, 6
   \item \textbf{strncpy}, 6
-  \item \textbf{this}, 17, 18
+  \item \textbf{this}, 18
   \item \textbf{to\_string}, 13
   \item \textbf{typedef}, 3
-  \item \textbf{virtual}, 21
+  \item \textbf{virtual}, 22
   \item \textbf{void $\ast$}, 2
 
   \indexspace
 
   \item Arrays
-    \subitem declaration and initialisation, 4
-    \subitem modifying elements of an array, 4
-    \subitem printing elements of an array, 4
+    \subitem declaration and initialisation, 5
+    \subitem modifying elements of an array, 5
+    \subitem printing elements of an array, 5
 
   \indexspace
 
-  \item C-Strings, 5
+  \item C-Strings, 6
     \subitem conversions
       \subsubitem to double, 6
       \subsubitem to integer, 6
       \subsubitem to long integer, 6
     \subitem correct looping, 6
-    \subitem definition, 5
-    \subitem end of string, 5
+    \subitem definition, 6
+    \subitem end of string, 6
     \subitem safe compare, 6
     \subitem safe concatenation, 6
     \subitem safe looping, 6
@@ -86,24 +87,24 @@
     \subitem \textbf{static\_cast}, 2
   \item Classes
     \subitem constant member function, 16
-    \subitem constructor invocations, 18
+    \subitem constructor invocations, 19
     \subitem constructors, 16
-      \subsubitem initialiser list parameter, 16
-      \subsubitem member initialisation list, 16
+      \subsubitem initialiser list parameter, 17
+      \subsubitem member initialisation list, 17
       \subsubitem type conversions, 16, 20
-      \subsubitem vector size, 16
+      \subsubitem vector size, 17
     \subitem copy assignment, 17
-    \subitem copy constructor, 16
-    \subitem example of a vector class, 15
+    \subitem copy constructor, 17
+    \subitem example of a vector class, 16
     \subitem getter and setter functions, 24
-    \subitem move assignment, 17
+    \subitem move assignment, 18
     \subitem move constructor, 17
     \subitem move invocations, 19
     \subitem reallocation of resources, 18
     \subitem subscript operator, 16
       \subsubitem read, 16
       \subsubitem write, 16
-    \subitem virtual destructor, 15
+    \subitem virtual destructor, 16
   \item Constants
     \subitem \textbf{constexpr}, 2
     \subitem \textbf{const}, 2
@@ -130,14 +131,14 @@
   \indexspace
 
   \item Files
-    \subitem checking for failure, 9
-      \subsubitem corrupted stream, 9
-      \subsubitem end of file, 9
-      \subsubitem format data error, 9
+    \subitem checking for failure, 10
+      \subsubitem corrupted stream, 10
+      \subsubitem end of file, 10
+      \subsubitem format data error, 10
       \subsubitem setting back to good state, 10
     \subitem checking for unexpected input, 10
-    \subitem closing by going out of scope, 11
-    \subitem closing explicitly, 11
+    \subitem closing by going out of scope, 12
+    \subitem closing explicitly, 12
     \subitem ignoring input, 11
     \subitem loop for reading all the input, 11
     \subitem moving the file pointer
@@ -148,7 +149,7 @@
     \subitem opening both as input and output, 9
     \subitem opening explicitly, 9
     \subitem reading a line, 11
-    \subitem reading and writing, 10
+    \subitem reading and writing, 11
   \item Functions
     \subitem arguments
       \subsubitem copy-by-reference, 3
@@ -167,47 +168,54 @@
     \subitem abstract base class, 20
     \subitem base class, 21
     \subitem derived class, 23, 24
-    \subitem disabling copy constructors and assignment, 21
-    \subitem function specialisation, 24
+    \subitem disabling copy constructors and assignment, 22
+    \subitem function specialisation, 24, 25
     \subitem protected constructor, 22
     \subitem protected member functions, 22
-    \subitem pure virtual functions, 22
-    \subitem virtual destructor, 21
+    \subitem pure virtual functions, 23
+    \subitem virtual destructor, 22
     \subitem virtual functions, 23
-  \item Input-output streams, 6
-    \subitem error stream, \see{\textbf{cerr}}{6}
+  \item Input-output streams, 7
+    \subitem error stream, \see{\textbf{cerr}}{7}
     \subitem floating point format manipulators, 7
-      \subsubitem  text width, 7
-      \subsubitem always show decimal point, 7
-      \subsubitem always show plus sign, 7
+      \subsubitem  text width, 8
+      \subsubitem always show decimal point, 8
+      \subsubitem always show plus sign, 8
       \subsubitem default float notation, 7
       \subsubitem fixed notation, 7
-      \subsubitem left aligned , 7
-      \subsubitem precision, 7
-      \subsubitem right aligned, 7
+      \subsubitem left aligned , 8
+      \subsubitem precision, 8
+      \subsubitem right aligned, 8
       \subsubitem scientific notation, 7
     \subitem handling of unexpected input, 8
-      \subsubitem clearing the failed state of the input stream, 8
+      \subsubitem clearing the failed state of the input stream, 9
       \subsubitem setting explicitly the failure bit, 8
-    \subitem input stream, \see{\textbf{cin}}{6}
-    \subitem integer format manipulators, 6
+    \subitem input stream, \see{\textbf{cin}}{7}
+    \subitem integer format manipulators, 7
       \subsubitem decimal, 7
       \subsubitem don't show the base, 7
       \subsubitem hexadecimal, 7
       \subsubitem otctal, 7
       \subsubitem reading a value from the keyboard in any notation, 7
       \subsubitem show the base, 7
-    \subitem output stream, \see{\textbf{cout}}{6}
-    \subitem reading and writing characters, 7
+    \subitem output stream, \see{\textbf{cout}}{7}
+    \subitem reading and writing characters, 8
       \subsubitem putting a character back into the input stream, 8
       \subsubitem putting the last character back into the input stream, 
 		8
       \subsubitem read a whole line, 8
-      \subsubitem read any character, 7
+      \subsubitem read any character, 8
       \subsubitem write a single character, 8
-    \subitem reading from the keyboard, 6
-    \subitem writing error message to the screen, 6
-    \subitem writing to the screen, 6
+    \subitem reading from the keyboard, 7
+    \subitem writing error message to the screen, 7
+    \subitem writing to the screen, 7
+
+  \indexspace
+
+  \item Lambda expressions
+    \subitem lambda introducers, 4
+    \subitem with access to local variables, 4
+    \subitem without access to local variables, 4
 
   \indexspace
 
@@ -218,7 +226,7 @@
   \indexspace
 
   \item Operator overloading
-    \subitem as \textbf{friend} member, 19
+    \subitem as \textbf{friend} member, 20
     \subitem as class member, 19
 
   \indexspace
@@ -231,9 +239,9 @@
       \subsubitem deallocation, 5
     \subitem dynamic matrix
       \subsubitem allocation, 5
-      \subsubitem deallocation, 5
+      \subsubitem deallocation, 6
     \subitem free store, 5
-    \subitem simple pointer, 4
+    \subitem simple pointer, 5
     \subitem subscript operator\textbf{[]}, 5
   \item Polymorphism, 25
     \subitem late binding, 26
@@ -243,33 +251,33 @@
   \item Random numbers
     \subitem integer random number, 4
     \subitem seed the generator, 4
-  \item Range-based \textbf{for} statement, 4, 14
+  \item Range-based \textbf{for} statement, 5, 14
 
   \indexspace
 
-  \item Slicing, 21
+  \item Slicing, 22
   \item String streams
     \subitem input string stream, 13
-    \subitem output string stream, 13
+    \subitem output string stream, 14
     \subitem read numbers from data stream, 13
-    \subitem return the string in the stream, 13
+    \subitem return the string in the stream, 14
   \item Strings
     \subitem access to character
       \subsubitem no illegal index checking, 12
       \subsubitem with illegal index checking, 12
     \subitem append, 12
-    \subitem C-string, 12
+    \subitem C-string, 13
     \subitem concatenation, 12
-    \subitem find, 12
+    \subitem find, 13
     \subitem from numeric type to string, 13
     \subitem from string to
       \subsubitem double, 13
       \subsubitem integer, 13
       \subsubitem long integer, 13
-    \subitem initialisation, 11
+    \subitem initialisation, 12
     \subitem reading a line, 12
     \subitem size and length, 12
-    \subitem substring, 12
+    \subitem substring, 13
 
   \indexspace
 
@@ -278,13 +286,13 @@
       \subsubitem checked, 14
       \subsubitem unchecked, 14
     \subitem add an element, 14
-    \subitem capacity, 14
+    \subitem capacity, 15
     \subitem initialised with all elements to 0, 14
-    \subitem initialised with initialiser list, 13
+    \subitem initialised with initialiser list, 14
     \subitem loop over elements, 14
-    \subitem out of range exception, 14
-    \subitem reserve more capacity, 14
+    \subitem out of range exception, 15
+    \subitem reserve more capacity, 15
     \subitem resize, 14
-    \subitem size, 14
+    \subitem size, 15
 
 \end{theindex}

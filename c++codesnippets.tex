@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.47~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.50~-~GNU GPL v3.0}
 
 %\layout
 
@@ -271,6 +271,34 @@ typedef void ( *Callback_type )( Fl_Widget*, void* ); (*\index{\textbf{typedef}}
 // (*cb*) is a callback defined as above
 Callback_type cb;
 \end{lstlisting}
+%
+% Lambda expressions
+%
+\section{Lambda expressions}
+\small
+An unnamed function that can be used where a function is needed as an argument or object.
+It is introduced by \textbf{[ ]} which are called \emph{lambda introducers}.\index{\textbf{[ ]}}
+\index{Lambda expressions!lambda introducers} 
+\begin{enumerate}
+\item[$\Rightarrow$] Without access to local variables:\index{Lambda expressions!without access to local variables}
+\end{enumerate}
+\begin{lstlisting}
+// Instantiates a (*Function*) object where the first argument is
+// an unnamed function having one (*double*) parameter (*x*)
+// and returning a (*double*). The return type is inferred
+Function e_gr{[](double x){return exp(x);},{-8.0,8.0},0.001,
+        {-8.0,8.0},{320,240},400};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] With access to local variables:\index{Lambda expressions!with access to local variables}
+\end{enumerate}
+\begin{lstlisting}
+// Same as above, but the variable (*n*) inside the lambda introducer
+// is available for the function to be used
+int n = 5;
+Function ee_gr{[n](double x){return expe(x,n);},{-8.0,8.0},0.001,
+        {-8.0,8.0},{320,240},400};
+ \end{lstlisting}
 %
 % Namespaces
 %

@@ -19,6 +19,10 @@
 \indexentry{\textbf{nullptr}}{3}
 \indexentry{Functions!pointer to function}{3}
 \indexentry{\textbf{typedef}}{3}
+\indexentry{\textbf{[ ]}}{4}
+\indexentry{Lambda expressions!lambda introducers}{4}
+\indexentry{Lambda expressions!without access to local variables}{4}
+\indexentry{Lambda expressions!with access to local variables}{4}
 \indexentry{Namespaces!\textbf{using} declarations}{4}
 \indexentry{\textbf{cin}}{4}
 \indexentry{\textbf{cout}}{4}
@@ -29,13 +33,13 @@
 \indexentry{\textbf{srand}}{4}
 \indexentry{Random numbers!integer random number}{4}
 \indexentry{\textbf{rand}}{4}
-\indexentry{Range-based \textbf{for} statement}{4}
-\indexentry{Arrays!declaration and initialisation}{4}
-\indexentry{Arrays!modifying elements of an array}{4}
-\indexentry{\textbf{auto}}{4}
-\indexentry{Arrays!printing elements of an array}{4}
-\indexentry{Pointers!simple pointer}{4}
-\indexentry{\textbf{new}}{4}
+\indexentry{Range-based \textbf{for} statement}{5}
+\indexentry{Arrays!declaration and initialisation}{5}
+\indexentry{Arrays!modifying elements of an array}{5}
+\indexentry{\textbf{auto}}{5}
+\indexentry{Arrays!printing elements of an array}{5}
+\indexentry{Pointers!simple pointer}{5}
+\indexentry{\textbf{new}}{5}
 \indexentry{Pointers!dereference operator \textbf{$\ast$}}{5}
 \indexentry{Pointers!free store}{5}
 \indexentry{\textbf{delete}}{5}
@@ -50,13 +54,13 @@
 \indexentry{\textbf{new}}{5}
 \indexentry{\textbf{new}}{5}
 \indexentry{Pointers!subscript operator\textbf{[]}}{5}
-\indexentry{Pointers!dynamic matrix!deallocation}{5}
-\indexentry{\textbf{delete}}{5}
-\indexentry{\textbf{delete}}{5}
-\indexentry{C-Strings}{5}
-\indexentry{<cstring>}{5}
-\indexentry{C-Strings!definition}{5}
-\indexentry{C-Strings!end of string}{5}
+\indexentry{Pointers!dynamic matrix!deallocation}{6}
+\indexentry{\textbf{delete}}{6}
+\indexentry{\textbf{delete}}{6}
+\indexentry{C-Strings}{6}
+\indexentry{<cstring>}{6}
+\indexentry{C-Strings!definition}{6}
+\indexentry{C-Strings!end of string}{6}
 \indexentry{C-Strings!correct looping}{6}
 \indexentry{C-Strings!safe looping}{6}
 \indexentry{\textbf{strncpy}}{6}
@@ -70,17 +74,17 @@
 \indexentry{\textbf{atol}}{6}
 \indexentry{C-Strings!conversions!to double}{6}
 \indexentry{\textbf{atof}}{6}
-\indexentry{Input-output streams}{6}
-\indexentry{\textbf{cin}}{6}
-\indexentry{\textbf{cout}}{6}
-\indexentry{\textbf{cerr}}{6}
-\indexentry{Input-output streams!input stream|see{\textbf{cin}}}{6}
-\indexentry{Input-output streams!output stream|see{\textbf{cout}}}{6}
-\indexentry{Input-output streams!error stream|see{\textbf{cerr}}}{6}
-\indexentry{Input-output streams!reading from the keyboard}{6}
-\indexentry{Input-output streams!writing to the screen}{6}
-\indexentry{Input-output streams!writing error message to the screen}{6}
-\indexentry{Input-output streams!integer format manipulators}{6}
+\indexentry{Input-output streams}{7}
+\indexentry{\textbf{cin}}{7}
+\indexentry{\textbf{cout}}{7}
+\indexentry{\textbf{cerr}}{7}
+\indexentry{Input-output streams!input stream|see{\textbf{cin}}}{7}
+\indexentry{Input-output streams!output stream|see{\textbf{cout}}}{7}
+\indexentry{Input-output streams!error stream|see{\textbf{cerr}}}{7}
+\indexentry{Input-output streams!reading from the keyboard}{7}
+\indexentry{Input-output streams!writing to the screen}{7}
+\indexentry{Input-output streams!writing error message to the screen}{7}
+\indexentry{Input-output streams!integer format manipulators}{7}
 \indexentry{<iomanip>}{7}
 \indexentry{Input-output streams!integer format manipulators!show the base}{7}
 \indexentry{Input-output streams!integer format manipulators!decimal}{7}
@@ -93,15 +97,15 @@
 \indexentry{Input-output streams!floating point format manipulators!default float notation}{7}
 \indexentry{Input-output streams!floating point format manipulators!fixed notation}{7}
 \indexentry{Input-output streams!floating point format manipulators!scientific notation}{7}
-\indexentry{Input-output streams!floating point format manipulators!precision}{7}
-\indexentry{Input-output streams!floating point format manipulators! text width}{7}
-\indexentry{Input-output streams!floating point format manipulators!left aligned }{7}
-\indexentry{Input-output streams!floating point format manipulators!right aligned}{7}
-\indexentry{Input-output streams!floating point format manipulators!always show decimal point}{7}
-\indexentry{Input-output streams!floating point format manipulators!always show plus sign}{7}
-\indexentry{Input-output streams!reading and writing characters}{7}
-\indexentry{Input-output streams!reading and writing characters!read any character}{7}
-\indexentry{\textbf{cin}!get}{7}
+\indexentry{Input-output streams!floating point format manipulators!precision}{8}
+\indexentry{Input-output streams!floating point format manipulators! text width}{8}
+\indexentry{Input-output streams!floating point format manipulators!left aligned }{8}
+\indexentry{Input-output streams!floating point format manipulators!right aligned}{8}
+\indexentry{Input-output streams!floating point format manipulators!always show decimal point}{8}
+\indexentry{Input-output streams!floating point format manipulators!always show plus sign}{8}
+\indexentry{Input-output streams!reading and writing characters}{8}
+\indexentry{Input-output streams!reading and writing characters!read any character}{8}
+\indexentry{\textbf{cin}!get}{8}
 \indexentry{Input-output streams!reading and writing characters!write a single character}{8}
 \indexentry{\textbf{cout}!put}{8}
 \indexentry{Input-output streams!reading and writing characters!read a whole line}{8}
@@ -113,7 +117,7 @@
 \indexentry{Input-output streams!handling of unexpected input}{8}
 \indexentry{Input-output streams!handling of unexpected input!setting explicitly the failure bit}{8}
 \indexentry{\textbf{cin}!clear}{8}
-\indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}{8}
+\indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}{9}
 \indexentry{\textbf{ifstream}}{9}
 \indexentry{\textbf{ofstream}}{9}
 \indexentry{<fstream>}{9}
@@ -121,31 +125,31 @@
 \indexentry{Files!opening as output}{9}
 \indexentry{Files!opening both as input and output}{9}
 \indexentry{Files!opening explicitly}{9}
-\indexentry{Files!checking for failure}{9}
-\indexentry{Files!checking for failure!corrupted stream}{9}
-\indexentry{Files!checking for failure!end of file}{9}
-\indexentry{Files!checking for failure!format data error}{9}
+\indexentry{Files!checking for failure}{10}
+\indexentry{Files!checking for failure!corrupted stream}{10}
+\indexentry{Files!checking for failure!end of file}{10}
+\indexentry{Files!checking for failure!format data error}{10}
 \indexentry{Files!checking for failure!setting back to good state}{10}
 \indexentry{Files!checking for unexpected input}{10}
-\indexentry{Files!reading and writing}{10}
+\indexentry{Files!reading and writing}{11}
 \indexentry{Files!reading a line}{11}
 \indexentry{Files!ignoring input}{11}
 \indexentry{Files!moving the file pointer!reading with seek get}{11}
 \indexentry{Files!moving the file pointer!writing with seek put}{11}
 \indexentry{Files!loop for reading all the input}{11}
-\indexentry{Files!closing by going out of scope}{11}
-\indexentry{Files!closing explicitly}{11}
-\indexentry{<string>}{11}
-\indexentry{Strings!initialisation}{11}
+\indexentry{Files!closing by going out of scope}{12}
+\indexentry{Files!closing explicitly}{12}
+\indexentry{<string>}{12}
+\indexentry{Strings!initialisation}{12}
 \indexentry{Strings!concatenation}{12}
 \indexentry{Strings!reading a line}{12}
 \indexentry{Strings!access to character!no illegal index checking}{12}
 \indexentry{Strings!access to character!with illegal index checking}{12}
 \indexentry{Strings!append}{12}
 \indexentry{Strings!size and length}{12}
-\indexentry{Strings!substring}{12}
-\indexentry{Strings!find}{12}
-\indexentry{Strings!C-string}{12}
+\indexentry{Strings!substring}{13}
+\indexentry{Strings!find}{13}
+\indexentry{Strings!C-string}{13}
 \indexentry{Strings!from string to!integer}{13}
 \indexentry{\textbf{stoi}}{13}
 \indexentry{Strings!from string to!long integer}{13}
@@ -159,12 +163,12 @@
 \indexentry{String streams!input string stream}{13}
 \indexentry{String streams!read numbers from data stream}{13}
 \indexentry{\textbf{ostringstream}}{13}
-\indexentry{String streams!output string stream}{13}
-\indexentry{String streams!manipulators|see{Input-output streams!integer format manipulators}}{13}
-\indexentry{String streams!manipulators|see{Input-output streams!floating format manipulators}}{13}
-\indexentry{String streams!return the string in the stream}{13}
-\indexentry{<vector>}{13}
-\indexentry{Vector!initialised with initialiser list}{13}
+\indexentry{String streams!output string stream}{14}
+\indexentry{String streams!manipulators|see{Input-output streams!integer format manipulators}}{14}
+\indexentry{String streams!manipulators|see{Input-output streams!floating format manipulators}}{14}
+\indexentry{String streams!return the string in the stream}{14}
+\indexentry{<vector>}{14}
+\indexentry{Vector!initialised with initialiser list}{14}
 \indexentry{Vector!initialised with all elements to 0}{14}
 \indexentry{Vector!access to an element!unchecked}{14}
 \indexentry{Vector!access to an element!checked}{14}
@@ -172,24 +176,24 @@
 \indexentry{Vector!resize}{14}
 \indexentry{Range-based \textbf{for} statement}{14}
 \indexentry{Vector!loop over elements}{14}
-\indexentry{Vector!size}{14}
-\indexentry{Vector!capacity}{14}
-\indexentry{Vector!reserve more capacity}{14}
-\indexentry{Vector!out of range exception}{14}
+\indexentry{Vector!size}{15}
+\indexentry{Vector!capacity}{15}
+\indexentry{Vector!reserve more capacity}{15}
+\indexentry{Vector!out of range exception}{15}
 \indexentry{Enumerations!in \textbf{class} scope}{15}
 \indexentry{Enumerations!definition}{15}
 \indexentry{\textbf{enum class}}{15}
 \indexentry{Enumerations!usage}{15}
 \indexentry{Enumerations!prohibited conversions}{15}
 \indexentry{Enumerations!conversion function}{15}
-\indexentry{Classes!example of a vector class}{15}
-\indexentry{<algorithms>}{15}
-\indexentry{\textbf{class}}{15}
-\indexentry{\textbf{explicit}}{15}
-\indexentry{\textbf{size\_t}}{15}
-\indexentry{\textbf{initializer\_list}}{15}
-\indexentry{\textbf{operator=}}{15}
-\indexentry{Classes!virtual destructor}{15}
+\indexentry{Classes!example of a vector class}{16}
+\indexentry{<algorithms>}{16}
+\indexentry{\textbf{class}}{16}
+\indexentry{\textbf{explicit}}{16}
+\indexentry{\textbf{size\_t}}{16}
+\indexentry{\textbf{initializer\_list}}{16}
+\indexentry{\textbf{operator=}}{16}
+\indexentry{Classes!virtual destructor}{16}
 \indexentry{Classes!subscript operator}{16}
 \indexentry{Classes!subscript operator!write}{16}
 \indexentry{Classes!subscript operator!read}{16}
@@ -199,25 +203,25 @@
 \indexentry{Classes!constructors!type conversions}{16}
 \indexentry{Classes!constructors}{16}
 \indexentry{Default value!\textbf{double()}}{16}
-\indexentry{Classes!constructors!vector size}{16}
-\indexentry{Classes!constructors!member initialisation list}{16}
-\indexentry{Classes!constructors!initialiser list parameter}{16}
-\indexentry{\textbf{copy}}{16}
-\indexentry{Classes!copy constructor}{16}
+\indexentry{Classes!constructors!vector size}{17}
+\indexentry{Classes!constructors!member initialisation list}{17}
+\indexentry{Classes!constructors!initialiser list parameter}{17}
+\indexentry{\textbf{copy}}{17}
+\indexentry{Classes!copy constructor}{17}
 \indexentry{\textbf{copy}}{17}
 \indexentry{Classes!move constructor}{17}
 \indexentry{Classes!copy assignment}{17}
-\indexentry{\textbf{this}}{17}
-\indexentry{Classes!move assignment}{17}
+\indexentry{\textbf{this}}{18}
+\indexentry{Classes!move assignment}{18}
 \indexentry{\textbf{this}}{18}
 \indexentry{Classes!reallocation of resources}{18}
 \indexentry{\textbf{copy}}{18}
-\indexentry{Classes!constructor invocations}{18}
-\indexentry{\textbf{initializer\_list}}{18}
+\indexentry{Classes!constructor invocations}{19}
+\indexentry{\textbf{initializer\_list}}{19}
 \indexentry{Classes!move invocations}{19}
 \indexentry{Operator overloading!as class member}{19}
-\indexentry{\textbf{operator+}}{19}
-\indexentry{Operator overloading!as \textbf{friend} member}{19}
+\indexentry{\textbf{operator+}}{20}
+\indexentry{Operator overloading!as \textbf{friend} member}{20}
 \indexentry{\textbf{operator<<}}{20}
 \indexentry{\textbf{friend}}{20}
 \indexentry{\textbf{operator>>}}{20}
@@ -226,25 +230,25 @@
 \indexentry{\textbf{= 0}}{21}
 \indexentry{\textbf{= 0}}{21}
 \indexentry{Inheritance!base class}{21}
-\indexentry{\textbf{= delete}}{21}
-\indexentry{Slicing}{21}
-\indexentry{Inheritance!disabling copy constructors and assignment}{21}
-\indexentry{Inheritance!virtual destructor}{21}
-\indexentry{\textbf{virtual}}{21}
+\indexentry{\textbf{= delete}}{22}
+\indexentry{Slicing}{22}
+\indexentry{Inheritance!disabling copy constructors and assignment}{22}
+\indexentry{Inheritance!virtual destructor}{22}
+\indexentry{\textbf{virtual}}{22}
 \indexentry{Inheritance!protected constructor}{22}
 \indexentry{\textbf{protected}}{22}
 \indexentry{Inheritance!protected member functions}{22}
-\indexentry{\textbf{= 0}}{22}
-\indexentry{Inheritance!pure virtual functions}{22}
+\indexentry{\textbf{= 0}}{23}
+\indexentry{Inheritance!pure virtual functions}{23}
 \indexentry{\textbf{= 0}}{23}
 \indexentry{\textbf{= 0}}{23}
 \indexentry{Inheritance!virtual functions}{23}
 \indexentry{Inheritance!derived class}{23}
-\indexentry{\textbf{pair}}{23}
+\indexentry{\textbf{pair}}{24}
 \indexentry{Inheritance!derived class}{24}
 \indexentry{Classes!getter and setter functions}{24}
 \indexentry{Inheritance!function specialisation}{24}
-\indexentry{Inheritance!function specialisation}{24}
+\indexentry{Inheritance!function specialisation}{25}
 \indexentry{Polymorphism}{25}
 \indexentry{Polymorphism!late binding}{26}
 \indexentry{\textbf{new}}{28}

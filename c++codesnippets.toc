@@ -3,18 +3,19 @@
 \contentsline {section}{Constants}{2}{}%
 \contentsline {section}{Type casting}{2}{}%
 \contentsline {section}{Functions}{3}{}%
+\contentsline {section}{Lambda expressions}{4}{}%
 \contentsline {section}{Namespaces}{4}{}%
 \contentsline {section}{Random numbers}{4}{}%
-\contentsline {section}{Arrays}{4}{}%
-\contentsline {section}{Pointers}{4}{}%
-\contentsline {section}{C-Strings}{5}{}%
-\contentsline {section}{Input-output streams}{6}{}%
+\contentsline {section}{Arrays}{5}{}%
+\contentsline {section}{Pointers}{5}{}%
+\contentsline {section}{C-Strings}{6}{}%
+\contentsline {section}{Input-output streams}{7}{}%
 \contentsline {section}{Files}{9}{}%
-\contentsline {section}{Strings}{11}{}%
+\contentsline {section}{Strings}{12}{}%
 \contentsline {section}{String streams}{13}{}%
-\contentsline {section}{Vectors}{13}{}%
+\contentsline {section}{Vectors}{14}{}%
 \contentsline {section}{Enumerations}{15}{}%
-\contentsline {section}{Classes}{15}{}%
+\contentsline {section}{Classes}{16}{}%
 \contentsline {section}{Operator overloading}{19}{}%
 \contentsline {section}{Inheritance}{20}{}%
 \contentsline {section}{Polymorphism}{25}{}%
