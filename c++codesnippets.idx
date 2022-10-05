@@ -227,9 +227,7 @@
 \indexentry{\textbf{operator>>}}{20}
 \indexentry{Classes!constructors!type conversions}{20}
 \indexentry{Inheritance!abstract base class}{20}
-\indexentry{\textbf{= 0}}{21}
-\indexentry{\textbf{= 0}}{21}
-\indexentry{Inheritance!base class}{21}
+\indexentry{Inheritance!base class}{22}
 \indexentry{\textbf{= delete}}{22}
 \indexentry{Slicing}{22}
 \indexentry{Inheritance!disabling copy constructors and assignment}{22}
@@ -237,18 +235,18 @@
 \indexentry{\textbf{virtual}}{22}
 \indexentry{Inheritance!protected constructor}{22}
 \indexentry{\textbf{protected}}{22}
-\indexentry{Inheritance!protected member functions}{22}
+\indexentry{Inheritance!protected member functions}{23}
 \indexentry{\textbf{= 0}}{23}
 \indexentry{Inheritance!pure virtual functions}{23}
 \indexentry{\textbf{= 0}}{23}
 \indexentry{\textbf{= 0}}{23}
-\indexentry{Inheritance!virtual functions}{23}
-\indexentry{Inheritance!derived class}{23}
+\indexentry{Inheritance!virtual functions}{24}
+\indexentry{Inheritance!derived class}{24}
 \indexentry{\textbf{pair}}{24}
 \indexentry{Inheritance!derived class}{24}
 \indexentry{Classes!getter and setter functions}{24}
-\indexentry{Inheritance!function specialisation}{24}
 \indexentry{Inheritance!function specialisation}{25}
-\indexentry{Polymorphism}{25}
+\indexentry{Inheritance!function specialisation}{25}
+\indexentry{Polymorphism}{26}
 \indexentry{Polymorphism!late binding}{26}
-\indexentry{\textbf{new}}{28}
+\indexentry{\textbf{new}}{29}

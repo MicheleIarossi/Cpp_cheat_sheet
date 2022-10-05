@@ -10,7 +10,7 @@
   \item <sstream>, 13
   \item <string>, 12
   \item <vector>, 14
-  \item \textbf{= 0}, 21, 23
+  \item \textbf{= 0}, 23
   \item \textbf{= delete}, 22
   \item \textbf{[ ]}, 4
   \item \textbf{atof}, 6
@@ -36,7 +36,7 @@
   \item \textbf{ifstream}, 9
   \item \textbf{initializer\_list}, 16, 19
   \item \textbf{istringstream}, 13
-  \item \textbf{new}, 5, 28
+  \item \textbf{new}, 5, 29
   \item \textbf{nullptr}, 3, 16
   \item \textbf{ofstream}, 9
   \item \textbf{operator+}, 20
@@ -166,15 +166,15 @@
 
   \item Inheritance
     \subitem abstract base class, 20
-    \subitem base class, 21
-    \subitem derived class, 23, 24
+    \subitem base class, 22
+    \subitem derived class, 24
     \subitem disabling copy constructors and assignment, 22
-    \subitem function specialisation, 24, 25
+    \subitem function specialisation, 25
     \subitem protected constructor, 22
-    \subitem protected member functions, 22
+    \subitem protected member functions, 23
     \subitem pure virtual functions, 23
     \subitem virtual destructor, 22
-    \subitem virtual functions, 23
+    \subitem virtual functions, 24
   \item Input-output streams, 7
     \subitem error stream, \see{\textbf{cerr}}{7}
     \subitem floating point format manipulators, 7
@@ -243,7 +243,7 @@
     \subitem free store, 5
     \subitem simple pointer, 5
     \subitem subscript operator\textbf{[]}, 5
-  \item Polymorphism, 25
+  \item Polymorphism, 26
     \subitem late binding, 26
 
   \indexspace

@@ -18,9 +18,9 @@
 \contentsline {section}{Classes}{16}{}%
 \contentsline {section}{Operator overloading}{19}{}%
 \contentsline {section}{Inheritance}{20}{}%
-\contentsline {section}{Polymorphism}{25}{}%
-\contentsline {section}{Exceptions}{26}{}%
-\contentsline {section}{Templates}{27}{}%
-\contentsline {section}{Iterators}{28}{}%
-\contentsline {section}{Containers}{29}{}%
+\contentsline {section}{Polymorphism}{26}{}%
+\contentsline {section}{Exceptions}{27}{}%
+\contentsline {section}{Templates}{28}{}%
+\contentsline {section}{Iterators}{29}{}%
+\contentsline {section}{Containers}{30}{}%
 \contentsline {section}{Algorithms}{31}{}%

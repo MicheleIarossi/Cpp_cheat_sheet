@@ -1311,7 +1311,7 @@ Euro result = 2 + Euro{5};
 \index{Inheritance!abstract base class}
 \end{enumerate}
 \begin{lstlisting}
-class Shape : public Fl_Widget
+class Shape : public Widget
 {
 public:
     // no copy constructor allowed
@@ -1320,43 +1320,54 @@ public:
     Shape& operator=(const Shape&) = delete;
     // virtual destructor
     virtual ~Shape() {}
-    // overrides the pure virtual function (*Fl\_Widget::draw()*)
-    void draw() {
-        set_fl_style();
-        if ( is_visible() ) draw_shape();
-        restore_fl_style();
-    }
-    void move(int dx, int dy) { move_shape(dx,dy); }
-    // getter functions
-    Point get_top_left_corner() const { return get_tl(); }
-    Point get_bottom_right_corner() const { return get_br(); }
-    int get_width() const { return w(); }
-    int get_height() const { return h(); }
+    // overrides Fl_Widget::draw()
+    void draw();
+    // moves a shape relative to the current
+    // top-left corner (call of redraw()
+    // might be needed)
+    void move(int dx, int dy);
+    // setter and getter methods for
+    // color, style, font, transparency
+    // (call of redraw() might be needed)
+    void set_color(Color_type c);
+    void set_color(int c);
+    Color_type get_color() const { return to_color_type(new_color); }
+    void set_style(Style_type s, int w);
+    Style_type get_style() const { return to_style_type(line_style); }
+    void set_font(Font_type f, int s);
 protected:
-    // Shape is an abstract class
+    // Shape is an abstract class,
     // no instances of Shape can be created!
-    Shape() : Fl_Widget(0,0,0,0) {}
-    // helper functions available for derived classes
-    Point get_tl() const  { return tl; }
-    void  set_tl(Point p) { tl = p; }
-    Point get_br() const  { return br; }
-    void  set_br(Point p) { br = p; }
-    void  update_tl_br(const Point& p);
-    // functions to be overridden by the derived classes
-    virtual void draw_shape() = 0;(*\index{\textbf{= 0}}*)
-    virtual void move_shape(int dx, int dy) = 0;(*\index{\textbf{= 0}}*)
-    virtual void resize_shape(Point a, Point b) {
-        set_tl(a);
-        set_br(b);
-        resize(tl.x,tl.y,br.x-tl.x,br.y-tl.y);
+    Shape() : Widget() {}
+    // protected virtual methods to be overridden
+    // by derived classes
+    virtual void draw_shape() = 0;
+    virtual void move_shape(int dx, int dy) = 0;
+    // protected setter methods
+    virtual void set_color_shape(Color_type c) {
+        new_color = to_fl_color(c);
     }
-    virtual void resize_shape() {
-        resize(tl.x,tl.y,br.x-tl.x,br.y-tl.y);
+    virtual void set_color_shape(int c) {
+        new_color = to_fl_color(c);
     }
+    virtual void set_style_shape(Style_type s, int w);
+    virtual void set_font_shape(Font_type f, int s);
+    // helper methods for FLTK style and font
+    void set_fl_style();
+    void restore_fl_style();
+    void set_fl_font();
+    void restore_fl_font() { fl_font(old_font,old_fontsize); }
+    // test method for checking resize calls
+    void draw_outline();
 private:
-    // internal private representation
-    Point tl{};                  // top-left corner
-    Point br{};                // bottom-right corner
+    Fl_Color new_color{Fl_Color()};   // color
+    Fl_Color old_color{Fl_Color()};   // old color
+    Fl_Font new_font{0};              // font
+    Fl_Font old_font{0};              // old font
+    Fl_Fontsize new_fontsize{0};      // font size
+    Fl_Fontsize old_fontsize{0};      // old font size
+    int line_style{0};                // line style
+    int line_width{0};                // line width
 };
 \end{lstlisting}
 \begin{enumerate}
@@ -1364,7 +1375,9 @@ private:
 \index{Inheritance!base class}
 \end{enumerate}
 \begin{lstlisting}
-class Shape : public Fl_Widget
+// (*Shape*) is a base class for (*Line*)
+// but (*Shape*) is derived from (*Widget*)
+class Line : public Shape
 {
     ...
 };
@@ -1374,7 +1387,7 @@ class Shape : public Fl_Widget
 \index{Inheritance!disabling copy constructors and assignment}
 \end{enumerate}
 \begin{lstlisting}
-class Shape : public Fl_Widget
+class Shape : public Widget
 {
 public:
     // no copy constructor allowed
@@ -1390,7 +1403,7 @@ objects are referenced by base class pointers, the destructor of the derived cla
 \index{Inheritance!virtual destructor}\index{\textbf{virtual}}
 \end{enumerate}
 \begin{lstlisting}
-class Shape : public Fl_Widget
+class Shape : public Widget
 {
 public:
     ...
@@ -1404,14 +1417,14 @@ public:
 \index{Inheritance!protected constructor}\index{\textbf{protected}}
 \end{enumerate}
 \begin{lstlisting}
-class Shape : public Fl_Widget
+class Shape : public Widget
 {
     ...
 protected:
     ...
     // Shape is an abstract class
     // no instances of Shape can be created!
-    Shape() : Fl_Widget(0,0,0,0) {}
+    Shape() : Widget() {}
     ...
 };
 \end{lstlisting}
@@ -1420,14 +1433,16 @@ protected:
 \index{Inheritance!protected member functions}
 \end{enumerate}
 \begin{lstlisting}
-class Shape : public Fl_Widget
+class Shape : public Widget
 {
     ...
 protected:
     ...
-    // helper functions available for derived classes
-    Point get_tl() const  { return tl; }
-    void  set_tl(Point p) { tl = p; }
+    // helper methods for FLTK style and font
+    void set_fl_style();
+    void restore_fl_style();
+    void set_fl_font();
+    void restore_fl_font() { fl_font(old_font,old_fontsize); }
     ...
 };
 \end{lstlisting}
@@ -1436,34 +1451,34 @@ protected:
 \index{Inheritance!pure virtual functions}
 \end{enumerate}
 \begin{lstlisting}
-class Shape : public Fl_Widget
+class Shape : Widget
 {
     ...
 protected:
     ...
-    // functions to be overridden by the derived classes
+    // protected virtual methods to be overridden by 
+    // derived classes
     virtual void draw_shape() = 0;(*\index{\textbf{= 0}}*)
     virtual void move_shape(int dx, int dy) = 0;(*\index{\textbf{= 0}}*)
     ...
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Virtual functions\\ \\ The protected member functions \texttt{resize\_shape()} is declared as a virtual function and an implementation is provided. This means that if a derived class does not override the implementation of the base class, the derived class inherits the implementation from the base class.
+\item[$\Rightarrow$] Virtual functions\\ \\ The protected member functions \texttt{set\_color\_shape()} is declared as a virtual function and an implementation is provided. This means that if a derived class does not override the implementation of the base class, the derived class inherits the implementation from the base class.
 \index{Inheritance!virtual functions}
 \end{enumerate}
 \begin{lstlisting}
-class Shape : public Fl_Widget
+class Shape : Widget
 {
     ...
 protected:
     ...
-    virtual void resize_shape(Point a, Point b) {
-        set_tl(a);
-        set_br(b);
-        resize(tl.x,tl.y,br.x-tl.x,br.y-tl.y);
+    // protected setter methods
+    virtual void set_color_shape(Color_type c) {
+        new_color = to_fl_color(c);
     }
-    virtual void resize_shape() {
-        resize(tl.x,tl.y,br.x-tl.x,br.y-tl.y);
+    virtual void set_color_shape(int c) {
+        new_color = to_fl_color(c);
     }
     ...
 };
