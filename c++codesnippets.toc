@@ -16,11 +16,11 @@
 \contentsline {section}{Vectors}{14}{}%
 \contentsline {section}{Enumerations}{15}{}%
 \contentsline {section}{Classes}{16}{}%
-\contentsline {section}{Operator overloading}{19}{}%
-\contentsline {section}{Inheritance}{20}{}%
+\contentsline {section}{Operator overloading}{20}{}%
+\contentsline {section}{Inheritance}{21}{}%
 \contentsline {section}{Polymorphism}{26}{}%
 \contentsline {section}{Exceptions}{27}{}%
-\contentsline {section}{Templates}{28}{}%
+\contentsline {section}{Templates}{29}{}%
 \contentsline {section}{Iterators}{31}{}%
 \contentsline {section}{Containers}{32}{}%
 \contentsline {section}{Algorithms}{34}{}%

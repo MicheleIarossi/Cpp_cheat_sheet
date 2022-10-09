@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.51~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.52~-~GNU GPL v3.0}
 
 %\layout
 
@@ -410,6 +410,21 @@ for (int i=0; i<5; i++)
 for (int i=0; i<5; i++)
     delete[] m[i];(*\index{\textbf{delete}}*)
 delete[] m;(*\index{\textbf{delete}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{unique\_ptr}:\index{Pointers!\textbf{unique\_ptr}}\index{\textbf{unique\_ptr}}
+Holds ownership of a dynamic object according to RAII, i.e. resource acquisition is initialisation\index{Pointers!RAII}. It will 
+automatically destroy the object if needed.
+\end{enumerate}
+\begin{lstlisting}
+MyVector<int>* my_function()
+{
+    unique_ptr<MyVector<int>*> p { new MyVector<int>};
+    /* ... */
+    /* if something goes wrong, deletes the object */
+   /* ... */   
+    return p.release(); // returns the pointer
+}
 \end{lstlisting}
 %
 % C-Strings
