@@ -7,12 +7,14 @@
   \item <fstream>, 9
   \item <iomanip>, 7
   \item <iostream>, 1
+  \item <memory>, 6
   \item <sstream>, 14
   \item <string>, 12
   \item <vector>, 14
   \item \textbf{= 0}, 23, 24
   \item \textbf{= delete}, 22
   \item \textbf{[ ]}, 4
+  \item \textbf{allocator}, 31
   \item \textbf{atof}, 7
   \item \textbf{atoi}, 7
   \item \textbf{atol}, 7
@@ -295,7 +297,8 @@
 
   \item Templates
     \subitem class, 29
-    \subitem friend operator, 31
+    \subitem class parameter, 31
+    \subitem friend operator, 32
     \subitem function, 29
     \subitem instantiation, 30
     \subitem integer parameters, 31

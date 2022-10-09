@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.52~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.53~-~GNU GPL v3.0}
 
 %\layout
 
@@ -417,6 +417,8 @@ Holds ownership of a dynamic object according to RAII, i.e. resource acquisition
 automatically destroy the object if needed.
 \end{enumerate}
 \begin{lstlisting}
+#include <memory>(*\index{<memory>}*)
+
 MyVector<int>* my_function()
 {
     unique_ptr<MyVector<int>*> p { new MyVector<int>};
@@ -1890,10 +1892,81 @@ Wrapper<double,5> array;
 Wrapper<char,3> array;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Templated friend operator:\index{Templates!friend operator}
+\item[$\Rightarrow$] Class template parameter\index{Templates!class parameter}
 \end{enumerate}
 \begin{lstlisting}
-// Note the declaration of the templated friend operator.
+// Usage of an allocator as a class template parameter
+// Generalises (*\texttt{MyVector}*) for data types without a default constructor
+// and with customised memory management
+template<class T, class A=allocator<T>>(*\index{\textbf{allocator}}*)
+class MyVector
+{
+public:
+    // constructor
+    explicit MyVector();
+    // constructor with size and default value
+    explicit MyVector(size_t,T def = T());
+    // constructor with initialiser list
+    explicit MyVector(initializer_list<T>);
+    // copy constructor (pass by
+    // reference, no copying!)
+    MyVector(const MyVector&);
+    // move constructor
+    MyVector(MyVector&&);
+    // copy assignment
+    MyVector& operator=(const MyVector&);
+    // move assignment
+    MyVector& operator=(MyVector&&);
+    // virtual destructor
+    virtual ~MyVector();
+    // subscript operators
+    // write
+    T& operator[](size_t i) { return e[i]; }
+    // read
+    const T& operator[](size_t i) const { return e[i]; };
+    // size
+    size_t size() const { return n; }
+    // capacity
+    size_t capacity() const { return m; }
+    // reserve
+    void reserve(size_t);
+    // resize
+    void resize(size_t,T def = T());
+    // push back
+    void push_back(T);
+private:
+    A alloc;
+    size_t n{0}; // size
+    size_t m{0}; // capacity
+    T *e{nullptr};
+};
+
+// reserve
+template<class T,class A>
+void MyVector<T,A>::reserve(size_t new_m)
+{
+    if (new_m <= m)
+        return;
+    // new allocation
+    T* p = alloc.allocate(new_m);
+    if (e)
+    {
+        // copy
+        for (size_t i=0; i<n; ++i) alloc.construct(&p[i],e[i]);
+        // destroy
+        for (size_t i=0; i<n; ++i) alloc.destroy(&e[i]);
+        // deallocate
+        alloc.deallocate(e,m);
+    }
+    e = p;
+    m = new_m;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Template friend operator:\index{Templates!friend operator}
+\end{enumerate}
+\begin{lstlisting}
+// Note the declaration of the template friend operator.
 template<class T>
 class A_list
 {

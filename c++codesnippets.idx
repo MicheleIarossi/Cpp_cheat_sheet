@@ -60,6 +60,7 @@
 \indexentry{Pointers!\textbf{unique\_ptr}}{6}
 \indexentry{\textbf{unique\_ptr}}{6}
 \indexentry{Pointers!RAII}{6}
+\indexentry{<memory>}{6}
 \indexentry{C-Strings}{6}
 \indexentry{<cstring>}{6}
 \indexentry{C-Strings!definition}{6}
@@ -267,4 +268,6 @@
 \indexentry{Templates!specialisation}{30}
 \indexentry{Templates!instantiation}{30}
 \indexentry{Templates!integer parameters}{31}
-\indexentry{Templates!friend operator}{31}
+\indexentry{Templates!class parameter}{31}
+\indexentry{\textbf{allocator}}{31}
+\indexentry{Templates!friend operator}{32}
