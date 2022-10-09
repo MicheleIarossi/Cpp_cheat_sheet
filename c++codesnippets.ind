@@ -292,6 +292,7 @@
 
   \item Templates
     \subitem class, 29
+    \subitem friend operator, 31
     \subitem function, 28
     \subitem instantiation, 30
     \subitem integer parameters, 30

@@ -1874,41 +1874,30 @@ private:
 Wrapper<double,5> array;
 Wrapper<char,3> array;
 \end{lstlisting}
-%\begin{enumerate}
-%\item[$\Rightarrow$] Templated friend operator:
-%\end{enumerate}
-%\begin{lstlisting}
-%// Methods are defined as template functions.
-%// Note the declaration of the templated friend operator.
-%template<class T>
-%class A_list
-%{
-%    // constructor with size of the list
-%    A_list(int size);
-%    // destructor
-%    ~A_list();
-%    // copy constructor
-%    A_list(A_list<T>& b);
-%    // assignment operator
-%    A_list<T>& operator=(const A_list<T>& b);
-%    // friend insertion operator
-%    template <class TT>
-%    friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);
-%private:
-%    T *p;
-%    int size;
-%}
-%
-%// constructor definition
-%template<class T>
-%A_list<T>::A_list(int size)
-%{
-%    p = new T[size];(*\index{\textbf{new}}*)
-%}
-%
-%// variable declaration
-%A_list<double> list;
-%\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Templated friend operator:\index{Templates!friend operator}
+\end{enumerate}
+\begin{lstlisting}
+// Note the declaration of the templated friend operator.
+template<class T>
+class A_list
+{
+    // constructor with size of the list
+    A_list(int size);
+    // destructor
+    ~A_list();
+    // copy constructor
+    A_list(A_list<T>& b);
+    // assignment operator
+    A_list<T>& operator=(const A_list<T>& b);
+    // friend insertion operator
+    template <class TT>
+    friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);
+private:
+    T *p;
+    int size;
+}
+\end{lstlisting}
 %
 % Iterators
 %
