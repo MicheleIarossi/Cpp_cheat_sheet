@@ -36,7 +36,7 @@
   \item \textbf{ifstream}, 9
   \item \textbf{initializer\_list}, 16, 19
   \item \textbf{istringstream}, 13
-  \item \textbf{new}, 5, 29
+  \item \textbf{new}, 5
   \item \textbf{nullptr}, 3, 16
   \item \textbf{ofstream}, 9
   \item \textbf{operator+}, 20
@@ -56,6 +56,7 @@
   \item \textbf{strncat}, 6
   \item \textbf{strncmp}, 6
   \item \textbf{strncpy}, 6
+  \item \textbf{template}, 29
   \item \textbf{this}, 18
   \item \textbf{to\_string}, 13
   \item \textbf{typedef}, 3
@@ -278,6 +279,17 @@
     \subitem reading a line, 12
     \subitem size and length, 12
     \subitem substring, 13
+
+  \indexspace
+
+  \item Templates
+    \subitem class, 28
+    \subitem function, 28
+    \subitem instantiation, 29
+    \subitem integer parameters, 30
+    \subitem method definition, 29
+    \subitem specialisation, 29
+    \subitem type generator, 28
 
   \indexspace
 

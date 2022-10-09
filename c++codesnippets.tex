@@ -1052,12 +1052,12 @@ public:
     // move assignment
     MyVector& operator=(MyVector&&);
     // virtual destructor
-    virtual ~MyVector() { if (!e) delete[] e; }(*\index{Classes!virtual destructor}*)
+    virtual ~MyVector() { if (e) delete[] e; }(*\index{Classes!virtual destructor}*)
     // subscript operators(*\index{Classes!subscript operator}*)
     // write
     double& operator[](size_t i) { return e[i]; }(*\index{Classes!subscript operator!write}*)
     // read
-    double operator[](size_t i) const { return e[i]; };(*\index{Classes!subscript operator!read}*)
+    const double& operator[](size_t i) const { return e[i]; };(*\index{Classes!subscript operator!read}*)
     // size
     size_t size() const { return n; }(*\index{Classes!constant member function}*)
     // capacity
@@ -1383,7 +1383,7 @@ class Line : public Shape
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \textbf{= delete}\index{\textbf{= delete}}  syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called!
+\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \textbf{= delete}\index{\textbf{= delete}}  syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
 \index{Inheritance!disabling copy constructors and assignment}
 \end{enumerate}
 \begin{lstlisting}
@@ -1715,10 +1715,10 @@ void my_function( );
 %
 \section{Templates}
 \small
-Function templates:
+Types are used as parameters for a function or a class.  C++ does not need the template declaration. Always put the 
+template definition in the header file directly!
 \begin{enumerate}
-\item[$\Rightarrow$] C++ does not need the template declaration.
-The template function definition is included directly.
+\item[$\Rightarrow$] Function template:\index{Templates!function}
 \end{enumerate}
 \begin{lstlisting}
 // generic swap function
@@ -1740,41 +1740,150 @@ swap(a, b);
 // swaps two (*char*)s
 swap(c, d);
 \end{lstlisting}
-Class templates:
 \begin{enumerate}
-\item[$\Rightarrow$] Methods are defined as template functions.
-Note the declaration of the templated friend operator.
+\item[$\Rightarrow$] Class templates: extending \texttt{MyVector} with templates. Class templates are also called \emph{type generators}.
+\index{Templates!class}\index{Templates!type generator}
 \end{enumerate}
 \begin{lstlisting}
 template<class T>
-class A_list
+class MyVector
 {
-    // constructor with size of the list
-    A_list(int size);
-    // destructor
-    ~A_list();
-    // copy constructor
-    A_list(A_list<T>& b);
-    // assignment operator
-    A_list<T>& operator=(const A_list<T>& b);
-    // friend insertion operator
-    template <class TT>
-    friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);
+public:
+    // constructor
+    explicit MyVector();
+    // constructor with size
+    explicit MyVector(size_t);
+    // constructor with initialiser list
+    explicit MyVector(initializer_list<T>);
+    // copy constructor (pass by
+    // reference, no copying!)
+    MyVector(const MyVector&);
+    // move constructor
+    MyVector(MyVector&&);
+    // copy assignment
+    MyVector& operator=(const MyVector&);
+    // move assignment
+    MyVector& operator=(MyVector&&);
+    // virtual destructor
+    virtual ~MyVector() { if (e) delete[] e; }
+    // subscript operators
+    // write
+    T& operator[](size_t i) { return e[i]; }
+    // read
+    const T& operator[](size_t i) const { return e[i]; };
+    // size
+    size_t size() const { return n; }
+    // capacity
+    size_t capacity() const { return m; }
+    // reserve
+    void reserve(size_t);
+    // resize
+    void resize(size_t);
+    // push back
+    void push_back(T);
 private:
-    T *p;
-    int size;
-}
-
-// constructor definition
-template<class T>
-A_list<T>::A_list(int size)
-{
-    p = new T[size];(*\index{\textbf{new}}*)
-}
-
-// variable declaration
-A_list<double> list;
+    size_t n{0}; // size
+    size_t m{0}; // capacity
+    T *e{nullptr};
+};
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Method definition with templates:\index{Templates!method definition}
+\end{enumerate}
+\begin{lstlisting}
+// copy assignment
+template<class T>(*\index{\textbf{template}}*)
+MyVector<T>& MyVector<T>::operator=(const MyVector<T>& rv)
+{
+    // check for self assignment
+    if (this == &rv)
+        return *this;
+    // check if new allocation is needed
+    if (rv.n > m)
+    {
+        if (e) delete[] e;
+        e = new T[rv.n];
+        m = rv.n;
+    }
+    // copy the values
+    copy(rv.e,rv.e+rv.n,e);
+    n = rv.n;
+    return *this;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \emph{Specialisation} or \emph{template instantiation}:\index{Templates!specialisation}\index{Templates!instantiation}
+\end{enumerate}
+\begin{lstlisting}
+// (*MyVector*) of (*double*)
+MyVector<double> v4{11,12,13,14,15};
+
+// function returning a (*MyVector*) of (*double*)
+MyVector<double> func()
+{
+    MyVector<double> v4{11,12,13,14,15};
+    for (size_t i=0; i<v4.size(); i++) v4[i] += i;
+    return v4;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Integer template parameters\index{Templates!integer parameters}
+\end{enumerate}
+\begin{lstlisting}
+// Wrapper class for an array 
+template<class T,size_t N>
+class Wrapper
+{
+public:
+    Wrapper() { for(T& e : v)  e=T(); }
+    ~Wrapper() {}
+    T& operator[](int n) { return v[n]; };
+    const T& operator[](int n) const { return v[n]; };
+    size_t size() const { return N; }
+private:
+    T v[N];
+};
+
+// usage
+Wrapper<double,5> array;
+Wrapper<char,3> array;
+\end{lstlisting}
+
+%\begin{enumerate}
+%\item[$\Rightarrow$] Method definition with templates:
+%\end{enumerate}
+%\begin{lstlisting}
+%// Methods are defined as template functions.
+%// Note the declaration of the templated friend operator.
+%template<class T>
+%class A_list
+%{
+%    // constructor with size of the list
+%    A_list(int size);
+%    // destructor
+%    ~A_list();
+%    // copy constructor
+%    A_list(A_list<T>& b);
+%    // assignment operator
+%    A_list<T>& operator=(const A_list<T>& b);
+%    // friend insertion operator
+%    template <class TT>
+%    friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);
+%private:
+%    T *p;
+%    int size;
+%}
+%
+%// constructor definition
+%template<class T>
+%A_list<T>::A_list(int size)
+%{
+%    p = new T[size];(*\index{\textbf{new}}*)
+%}
+%
+%// variable declaration
+%A_list<double> list;
+%\end{lstlisting}
 %
 % Iterators
 %

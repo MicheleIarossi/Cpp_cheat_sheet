@@ -249,4 +249,11 @@
 \indexentry{Inheritance!function specialisation}{25}
 \indexentry{Polymorphism}{26}
 \indexentry{Polymorphism!late binding}{26}
-\indexentry{\textbf{new}}{29}
+\indexentry{Templates!function}{28}
+\indexentry{Templates!class}{28}
+\indexentry{Templates!type generator}{28}
+\indexentry{Templates!method definition}{29}
+\indexentry{\textbf{template}}{29}
+\indexentry{Templates!specialisation}{29}
+\indexentry{Templates!instantiation}{29}
+\indexentry{Templates!integer parameters}{30}
