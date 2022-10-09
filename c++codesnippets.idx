@@ -179,6 +179,7 @@
 \indexentry{Vector!size}{15}
 \indexentry{Vector!capacity}{15}
 \indexentry{Vector!reserve more capacity}{15}
+\indexentry{Exceptions!out\_of\_range}{15}
 \indexentry{Vector!out of range exception}{15}
 \indexentry{Enumerations!in \textbf{class} scope}{15}
 \indexentry{Enumerations!definition}{15}
@@ -249,11 +250,17 @@
 \indexentry{Inheritance!function specialisation}{25}
 \indexentry{Polymorphism}{26}
 \indexentry{Polymorphism!late binding}{26}
+\indexentry{Exceptions!\textbf{try...catch}}{27}
+\indexentry{\textbf{try}}{27}
+\indexentry{\textbf{catch}}{27}
+\indexentry{Exceptions!DivideByZero}{27}
+\indexentry{Exceptions!OtherException}{27}
+\indexentry{Exceptions!Basic guarantee}{28}
 \indexentry{Templates!function}{28}
-\indexentry{Templates!class}{28}
-\indexentry{Templates!type generator}{28}
+\indexentry{Templates!class}{29}
+\indexentry{Templates!type generator}{29}
 \indexentry{Templates!method definition}{29}
-\indexentry{\textbf{template}}{29}
-\indexentry{Templates!specialisation}{29}
-\indexentry{Templates!instantiation}{29}
+\indexentry{\textbf{template}}{30}
+\indexentry{Templates!specialisation}{30}
+\indexentry{Templates!instantiation}{30}
 \indexentry{Templates!integer parameters}{30}

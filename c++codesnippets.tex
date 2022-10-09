@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.50~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.51~-~GNU GPL v3.0}
 
 %\layout
 
@@ -974,7 +974,7 @@ cout << v.capacity();(*\index{Vector!capacity}*)
 v.reserve(64);(*\index{Vector!reserve more capacity}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Throws an \textbf{out\_of\_range} exception if accessed out of bounds:
+\item[$\Rightarrow$] Throws an \textbf{out\_of\_range} exception if accessed out of bounds:\index{Exceptions!out\_of\_range}
 \end{enumerate}
 \begin{lstlisting}
 // out of bounds access
@@ -1661,7 +1661,7 @@ protected:
     string msg;
 };
 
-try
+try(*\index{Exceptions!\textbf{try...catch}}\index{\textbf{try}}\index{\textbf{catch}}*)
 {
     throw My_exception("error");
 }
@@ -1698,7 +1698,7 @@ the exception specification list. These exceptions are not
 caught by the function itself!
 \end{enumerate}
 \begin{lstlisting}
-// exceptions of type (*DivideByZero*) or (*OtherException*) are
+// exceptions of type (*DivideByZero*) or (*OtherException*) are(*\index{Exceptions!DivideByZero}\index{Exceptions!OtherException}*)
 // to be caught outside the function. All other exceptions 
 // end the program if not caught inside the function.
 void my_function( ) throw (DivideByZero, OtherException);
@@ -1709,6 +1709,32 @@ void my_function( ) throw ( );
 
 // all exceptions of all types treated normally.
 void my_function( );
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \emph{Basic guarantee}\index{Exceptions!Basic guarantee}: Any part of your code should either succeed or throw an exception without leaking any resource.
+\end{enumerate}
+\begin{lstlisting}
+// Does local cleanup avoiding leaking of resources
+// if exception occurs
+void my_function(void)
+{
+    void *p;
+    socket *s;
+    
+    try
+    {
+        /* code that acquires some resource (memory, socket, etc.) */
+        /* and might throw an exception */
+    }
+    catch (...)
+    { 
+        /* local cleanup here */
+        delete p;      /* free memory */
+        s.release();  /* release socket */  
+        /* re-throw because function didn't succeed */
+        throw()
+    }    
+}
 \end{lstlisting}
 %
 % Templates
@@ -1848,9 +1874,8 @@ private:
 Wrapper<double,5> array;
 Wrapper<char,3> array;
 \end{lstlisting}
-
 %\begin{enumerate}
-%\item[$\Rightarrow$] Method definition with templates:
+%\item[$\Rightarrow$] Templated friend operator:
 %\end{enumerate}
 %\begin{lstlisting}
 %// Methods are defined as template functions.

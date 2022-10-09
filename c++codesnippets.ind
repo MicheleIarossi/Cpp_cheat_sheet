@@ -17,6 +17,7 @@
   \item \textbf{atoi}, 6
   \item \textbf{atol}, 6
   \item \textbf{auto}, 5
+  \item \textbf{catch}, 27
   \item \textbf{cerr}, 7
   \item \textbf{cin}, 4, 7
     \subitem clear, 8
@@ -56,9 +57,10 @@
   \item \textbf{strncat}, 6
   \item \textbf{strncmp}, 6
   \item \textbf{strncpy}, 6
-  \item \textbf{template}, 29
+  \item \textbf{template}, 30
   \item \textbf{this}, 18
   \item \textbf{to\_string}, 13
+  \item \textbf{try}, 27
   \item \textbf{typedef}, 3
   \item \textbf{virtual}, 22
   \item \textbf{void $\ast$}, 2
@@ -128,6 +130,12 @@
     \subitem in \textbf{class} scope, 15
     \subitem prohibited conversions, 15
     \subitem usage, 15
+  \item Exceptions
+    \subitem \textbf{try...catch}, 27
+    \subitem Basic guarantee, 28
+    \subitem DivideByZero, 27
+    \subitem OtherException, 27
+    \subitem out\_of\_range, 15
 
   \indexspace
 
@@ -283,13 +291,13 @@
   \indexspace
 
   \item Templates
-    \subitem class, 28
+    \subitem class, 29
     \subitem function, 28
-    \subitem instantiation, 29
+    \subitem instantiation, 30
     \subitem integer parameters, 30
     \subitem method definition, 29
-    \subitem specialisation, 29
-    \subitem type generator, 28
+    \subitem specialisation, 30
+    \subitem type generator, 29
 
   \indexspace
 
