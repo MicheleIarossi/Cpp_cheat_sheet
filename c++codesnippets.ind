@@ -29,6 +29,7 @@
     \subitem unget, 8
     \subitem unset, 7
   \item \textbf{class}, 16
+  \item \textbf{constant\_iterator}, 33
   \item \textbf{copy}, 17, 19
   \item \textbf{cout}, 4, 7
     \subitem put, 8
@@ -39,6 +40,9 @@
   \item \textbf{ifstream}, 9
   \item \textbf{initializer\_list}, 16, 19
   \item \textbf{istringstream}, 13
+  \item \textbf{iterator}, 33
+    \subitem begin, 33
+    \subitem end, 33
   \item \textbf{new}, 5
   \item \textbf{nullptr}, 3, 17
   \item \textbf{ofstream}, 9
@@ -50,8 +54,13 @@
   \item \textbf{pair}, 24
   \item \textbf{protected}, 23
   \item \textbf{rand}, 4
+  \item \textbf{reinterpret\_cast}, 2
+  \item \textbf{reverse\_iterator}, 33
+    \subitem rbegin, 33
+    \subitem rend, 33
   \item \textbf{size\_t}, 16
   \item \textbf{srand}, 4
+  \item \textbf{static\_cast}, 2
   \item \textbf{std}, 1
   \item \textbf{stod}, 13
   \item \textbf{stoi}, 13
@@ -221,6 +230,13 @@
     \subitem reading from the keyboard, 7
     \subitem writing error message to the screen, 7
     \subitem writing to the screen, 7
+  \item Iterators, 33
+    \subitem \textbf{constant\_iterator}, 33
+    \subitem \textbf{iterator}, 33
+    \subitem \textbf{reverse\_iterator}, 33
+    \subitem bidirectional access, 33
+    \subitem custom implementation, 33
+    \subitem random access, 33
 
   \indexspace
 

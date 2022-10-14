@@ -6,8 +6,10 @@
 \indexentry{Constants!\textbf{constexpr}}{2}
 \indexentry{Constants!\textbf{const}}{2}
 \indexentry{Casts!\textbf{static\_cast}}{2}
+\indexentry{\textbf{static\_cast}}{2}
 \indexentry{\textbf{void $\ast$}}{2}
 \indexentry{Casts!\textbf{reinterpret\_cast}}{2}
+\indexentry{\textbf{reinterpret\_cast}}{2}
 \indexentry{Functions!arguments!default}{3}
 \indexentry{Functions!arguments!omitted}{3}
 \indexentry{Functions!arguments!read-only}{3}
@@ -271,3 +273,17 @@
 \indexentry{Templates!class parameter}{31}
 \indexentry{\textbf{allocator}}{31}
 \indexentry{Templates!friend operator}{32}
+\indexentry{Iterators}{33}
+\indexentry{\textbf{iterator}}{33}
+\indexentry{Iterators!\textbf{iterator}}{33}
+\indexentry{\textbf{iterator}!begin}{33}
+\indexentry{Iterators!bidirectional access}{33}
+\indexentry{Iterators!random access}{33}
+\indexentry{\textbf{constant\_iterator}}{33}
+\indexentry{Iterators!\textbf{constant\_iterator}}{33}
+\indexentry{\textbf{iterator}!end}{33}
+\indexentry{\textbf{reverse\_iterator}}{33}
+\indexentry{Iterators!\textbf{reverse\_iterator}}{33}
+\indexentry{\textbf{reverse\_iterator}!rbegin}{33}
+\indexentry{\textbf{reverse\_iterator}!rend}{33}
+\indexentry{Iterators!custom implementation}{33}

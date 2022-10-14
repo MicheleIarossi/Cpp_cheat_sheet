@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.53~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.54~-~GNU GPL v3.0}
 
 %\layout
 
@@ -171,7 +171,7 @@ const int m = n + 1;
 \section{Type casting}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}, i.e. types that can be converted into each other:
+\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}\index{\textbf{static\_cast}}, i.e. types that can be converted into each other:
 \end{enumerate}
 \begin{lstlisting}
 // (*int 15*) to (*double 15.0*)
@@ -190,7 +190,7 @@ void *p = &num;(*\index{\textbf{void $\ast$}}*)
 double *pd = static_cast<double*>(p);
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{reinterpret\_cast} for casting between unrelated pointer types\index{Casts!\textbf{reinterpret\_cast}}:
+\item[$\Rightarrow$] Use \textbf{reinterpret\_cast} for casting between unrelated pointer types\index{Casts!\textbf{reinterpret\_cast}}\index{\textbf{reinterpret\_cast}}:
 \end{enumerate}
 \begin{lstlisting}
 // reinterprets a (*long*) value as a (*double*) one
@@ -1992,18 +1992,18 @@ private:
 \section{Iterators}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] An iterator is a generalisation of a pointer. Different containers have
-different iterators.
+\item[$\Rightarrow$] An iterator is a generalisation of a pointer. It is an object that identifies an element of a sequence. Different containers have
+different iterators.\index{Iterators}
 \end{enumerate}
 \begin{lstlisting}
 #include <vector>
 
 vector<int> v = {1,2,3,4,5};
 // mutable iterator
-vector<int>::iterator e;
+vector<int>::iterator e;(*\index{\textbf{iterator}}*)(*\index{Iterators!\textbf{iterator}}*)
 
 // bidirectional access
-e = v.begin();
+e = v.begin();(*\index{\textbf{iterator}!begin}*)(*\index{Iterators!bidirectional access}*)
 ++e;
 // print (*v[1]*)
 cout << *e << endl;
@@ -2011,7 +2011,7 @@ cout << *e << endl;
 // print (*v[0]*)
 cout << *e << endl;
 
-// random access
+// random access(*\index{Iterators!random access}*)
 e = v.begin();
 // print (*v[3]*)
 cout << e[3] << endl;
@@ -2020,21 +2020,138 @@ cout << e[3] << endl;
 e[3] = 9;
 
 // constant iterator (only read)
-vector<int>::constant_iterator c;
+vector<int>::constant_iterator c;(*\index{\textbf{constant\_iterator}}*)(*\index{Iterators!\textbf{constant\_iterator}}*)
 
-// print out the vector content (read only)   
-for (c = v.begin(); c != v.end(); c++)
+// print out the vector content (read only)
+// (*\texttt{end()}*) points one element beyond the last one!
+for (c = v.begin(); c != v.end(); c++)(*\index{\textbf{iterator}!end}*)
     cout << *c << endl;
 
 // not allowed
 // (*c[2] = 2;*)
 
 // reverse iterator
-vector<int>::reverse_iterator r;
+vector<int>::reverse_iterator r;(*\index{\textbf{reverse\_iterator}}*)(*\index{Iterators!\textbf{reverse\_iterator}}*)
 
 // print out the vector content in reverse order
-for (r = v.rbegin(); r != v.rend(); r++)
+for (r = v.rbegin(); r != v.rend(); r++)(*\index{\textbf{reverse\_iterator}!rbegin}*)(*\index{\textbf{reverse\_iterator}!rend}*)
     cout << *r << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Example iterator for a custom linked list class\index{Iterators!custom implementation}
+\end{enumerate}
+\begin{lstlisting}
+#include <iostream>
+#include <ostream>
+#include <algorithm>
+
+// node of the linked list
+template <class T>
+class LListNode
+{
+public:
+    // constructor for a new node
+    LListNode(T new_data = T(), LListNode<T>* new_next = nullptr) :
+    data(new_data), next(new_next) {};
+    // friends
+    friend class LList<T>;
+    template <class TT>
+    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);
+private:
+    // data element
+    T data{T()};
+    // next pointer
+    LListNode<T>* next{nullptr};
+};
+
+// linked list declaration
+template <class T>
+class LList
+{
+public:
+    // default constructor
+    LList() : head(nullptr) {};
+    // copy constructor
+    LList(const LList<T>& rhs) { *this = rhs; };
+    // assignment operator
+    LList<T>& operator=(const LList<T>& rhs);
+    // virtual destructor
+    virtual ~LList() { clear(); };
+    // clear (free) the list
+    void clear();
+    // get head
+    LListNode<T>* get_head() const { return head; };
+    // get node
+    LListNode<T>* get_node(int n=0) const;
+    // insert a new data element at the head of the list
+    void insert_at_head(T new_data);
+    // insert a new data element at the end of the list
+    void insert_at_end(T new_data);
+    // insert a new element at a given pointed node
+    void insert_at_point(LListNode<T>* ptr, T new_data);
+    // remove the data element at the head of the list
+    T remove_head();
+    // test for empty list
+    bool is_empty() const { return head == nullptr; };
+    // count of the elements stored in the list
+    int size() const;
+    // insertion operator
+    template <class TT>
+    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);
+    // iterator type
+    class iterator;
+    // iterator to first element
+    iterator begin() { return iterator(head); }
+    // iterator to one beyond last element
+    iterator end() { return iterator(nullptr); }
+private:
+    // head pointer
+    LListNode<T>* head{nullptr};
+    // recursive copy list function
+    LListNode<T>* recursive_copy(LListNode<T>* rhs);
+};
+
+// iterator class for the linked list
+template <class T>
+class LList<T>::iterator
+{
+public:
+    iterator(LListNode<T>* p) : curr{p} {}
+    iterator& operator++() { curr = curr->next; return *this; }
+    T& operator*() const { return curr->data; }
+    bool operator==(const iterator& b) const { return curr == b.curr; }
+    bool operator!=(const iterator& b) const { return curr != b.curr; }
+private:
+    LListNode<T>* curr{nullptr};
+};
+
+// example usage
+LList<int> data_list;
+
+// inserts element into the list
+data_list.insert_at_head(45);
+data_list.insert_at_head(-21);
+data_list.insert_at_end(127);
+
+// prints data_list = (-21) -> (45) -> (127)
+cout << "data_list = " << data_list << endl;
+// prints  data_list.size() = 3
+cout << "data_list.size() = " << data_list.size() << "\n\n";
+
+// applies standard algorithms on the custom linked list
+LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);
+
+// checks if the element has been found
+if ( p != second_list.end() )
+        cout << "found element " << *p << "\n\n";
+else
+        cout << "cannot find element " << 45 << "\n\n";
+
+// write access
+*p = 180;
+
+// prints data_list = (-21) -> (180) -> (127)
+cout << "data_list = " << data_list << endl;
 \end{lstlisting}
 %
 % Containers
