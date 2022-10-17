@@ -103,7 +103,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.54~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.55~-~GNU GPL v3.0}
 
 %\layout
 
@@ -346,7 +346,7 @@ int n = rand();(*\index{\textbf{rand}}*)
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] Range-based \textbf{for} statement:
-\index{Range-based \textbf{for} statement}
+\index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
 // changes the values and outputs 3579
@@ -355,7 +355,10 @@ int arr[] = {2, 4, 6, 8};(*\index{Arrays!declaration and initialisation}*)
 for (int& x : arr)
   x++;(*\index{Arrays!modifying elements of an array}*)
 
-for (auto x : arr)(*\index{\textbf{auto}}*)
+// (*auto*) lets the compiler use the type of the 
+// elements in the container because it knows the type
+// already
+for (auto x : arr)(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
   cout << x;(*\index{Arrays!printing elements of an array}*)
 \end{lstlisting}
 %
@@ -567,6 +570,14 @@ cout << showpos << 3.64;(*\index{Input-output streams!floating point format mani
 // read any character from (*cin*) (doesn't skip spaces, newlines, etc.)(*\index{Input-output streams!reading and writing characters!read any character}*)
 char nextChar;
 cin.get(nextChar);(*\index{\textbf{cin}!get}*)
+
+// loop for keeping reading
+// stops when end of line control character (control-d)(*\index{end of line control character}*)
+// is inserted
+while ( cin.get(nextChar) )
+{
+    // process character
+}
 
 // write a character to (*cout*)(*\index{Input-output streams!reading and writing characters!write a single character}*)
 cout.put(nextChar)(*\index{\textbf{cout}!put}*)
@@ -970,7 +981,7 @@ v.resize(20);(*\index{Vector!resize}*)
 \item[$\Rightarrow$] Loop over:
 \end{enumerate}
 \begin{lstlisting}
-// range-for-loop(*\index{Range-based \textbf{for} statement}*)
+// range-for-loop(*\index{range-for-loop}*)
 for (auto x : v)(*\index{Vector!loop over elements}*)
   cout << v << endl;\end{lstlisting}
 \begin{enumerate}
@@ -2024,8 +2035,8 @@ vector<int>::constant_iterator c;(*\index{\textbf{constant\_iterator}}*)(*\index
 
 // print out the vector content (read only)
 // (*\texttt{end()}*) points one element beyond the last one!
-for (c = v.begin(); c != v.end(); c++)(*\index{\textbf{iterator}!end}*)
-    cout << *c << endl;
+for (auto c = v.begin(); c != v.end(); c++)(*\index{\textbf{iterator}!end}*)
+    cout << *c << endl;(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
 
 // not allowed
 // (*c[2] = 2;*)
@@ -2034,11 +2045,11 @@ for (c = v.begin(); c != v.end(); c++)(*\index{\textbf{iterator}!end}*)
 vector<int>::reverse_iterator r;(*\index{\textbf{reverse\_iterator}}*)(*\index{Iterators!\textbf{reverse\_iterator}}*)
 
 // print out the vector content in reverse order
-for (r = v.rbegin(); r != v.rend(); r++)(*\index{\textbf{reverse\_iterator}!rbegin}*)(*\index{\textbf{reverse\_iterator}!rend}*)
-    cout << *r << endl;
+for (auto r = v.rbegin(); r != v.rend(); r++)(*\index{\textbf{reverse\_iterator}!rbegin}*)(*\index{\textbf{reverse\_iterator}!rend}*)
+    cout << *r << endl;(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Example iterator for a custom linked list class\index{Iterators!custom implementation}
+\item[$\Rightarrow$] Example implementation of an iterator for a custom linked list class\index{Iterators!custom implementation}
 \end{enumerate}
 \begin{lstlisting}
 #include <iostream>
@@ -2117,6 +2128,7 @@ class LList<T>::iterator
 {
 public:
     iterator(LListNode<T>* p) : curr{p} {}
+    // prefix increment, returns a reference!(*\index{Operator overloading!prefix increment ++}*)
     iterator& operator++() { curr = curr->next; return *this; }
     T& operator*() const { return curr->data; }
     bool operator==(const iterator& b) const { return curr == b.curr; }
@@ -2181,6 +2193,10 @@ data.erase(e);
 // print out the content    
 for (e = data.begin(); e != data.end(); e++)
     cout << *e << endl;
+    
+// range-for-loop
+for (auto x : data)(*\index{range-for-loop}*)
+    cout << x << endl;(*\index{\textbf{auto}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Adapter containers: \textbf{stack}
@@ -2253,7 +2269,7 @@ two = dict.find("two");
 // erase    
 dict.erase(two);
 
-// ranged loop
+// rang-for-loop(*\index{range-for-loop}*)
 for (auto n : dict)
     cout << "(" <<  n.first << "," <<  n.second << ")" << endl;
 \end{lstlisting}

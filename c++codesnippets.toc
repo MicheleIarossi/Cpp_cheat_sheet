@@ -12,9 +12,9 @@
 \contentsline {section}{Input-output streams}{7}{}%
 \contentsline {section}{Files}{9}{}%
 \contentsline {section}{Strings}{12}{}%
-\contentsline {section}{String streams}{13}{}%
+\contentsline {section}{String streams}{14}{}%
 \contentsline {section}{Vectors}{14}{}%
-\contentsline {section}{Enumerations}{15}{}%
+\contentsline {section}{Enumerations}{16}{}%
 \contentsline {section}{Classes}{16}{}%
 \contentsline {section}{Operator overloading}{20}{}%
 \contentsline {section}{Inheritance}{21}{}%
@@ -23,4 +23,4 @@
 \contentsline {section}{Templates}{29}{}%
 \contentsline {section}{Iterators}{33}{}%
 \contentsline {section}{Containers}{36}{}%
-\contentsline {section}{Algorithms}{37}{}%
+\contentsline {section}{Algorithms}{38}{}%
