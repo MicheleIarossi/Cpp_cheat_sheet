@@ -1,11 +1,11 @@
 This is makeindex, version 2.16 [TeX Live 2022] (kpathsea + Thai support).
 Scanning input file c++codesnippets.idx....
-!! Input index error (file = c++codesnippets.idx, line = 175):
+!! Input index error (file = c++codesnippets.idx, line = 184):
    -- Extra `!' at position 53 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 176):
+!! Input index error (file = c++codesnippets.idx, line = 185):
    -- Extra `!' at position 53 of first argument.
-done (297 entries accepted, 2 rejected).
-Sorting entries.....done (2604 comparisons).
-Generating output file c++codesnippets.ind....done (343 lines written, 0 warnings).
+done (311 entries accepted, 2 rejected).
+Sorting entries.....done (2758 comparisons).
+Generating output file c++codesnippets.ind....done (358 lines written, 0 warnings).
 Output written in c++codesnippets.ind.
 Transcript written in c++codesnippets.ilg.

@@ -90,9 +90,10 @@
 \usepackage[british]{babel}
 
 % for making the index
-\usepackage{makeidx}
+\usepackage{imakeidx}
 
 \makeindex
+\indexsetup{othercode=\fontsize{9}{10}\selectfont}
 
 % This is the body: text mixed with commands
 
@@ -103,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.55~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.56~-~GNU GPL v3.0}
 
 %\layout
 
@@ -123,7 +124,7 @@ In the following code snippets, the standard I/O library and namespace are alway
 \index{<iostream>}
 \begin{lstlisting}
 #include <iostream> (*\index{<iostream>}*)
-using namespace std;(*\index{\textbf{std}}*) 
+using namespace std;(*\index{\texttt{std}}*) 
 \end{lstlisting}
 
 \newpage
@@ -137,12 +138,12 @@ using namespace std;(*\index{\textbf{std}}*)
 \end{enumerate}
 \begin{lstlisting}
 // safe conversions (*\index{Conversions!safe}*)
-double x {54.21};
-int a {2342};
+double x {54.21};(*\index{\textbf{double}}*)
+int a {2342};(*\index{\textbf{int}}*)
 
 // unsafe conversions (compile error!) (*\index{Conversions!unsafe}*)
 int y {x};
-char b {a};
+char b {a};(*\index{\textbf{char}}*)
 \end{lstlisting}
 %
 % constants
@@ -151,15 +152,15 @@ char b {a};
 \small
 There are two options:
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{constexpr}\index{Constants!\textbf{constexpr}} must be known at compile time:
+\item[$\Rightarrow$] \texttt{constexpr}\index{Constants!\textbf{constexpr}}\index{\textbf{constexpr}} must be known at compile time:
 \end{enumerate}
 \begin{lstlisting}
 constexpr int max = 200;
 constexpr int c = max + 2;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{const}\index{Constants!\textbf{const}} variables don't change at runtime. They cannot be declared as
-\textbf{constexpr} because their value is not known at compile time:
+\item[$\Rightarrow$] \texttt{const}\index{Constants!\textbf{const}}\index{\textbf{const}} variables don't change at runtime. They cannot be declared as
+\texttt{constexpr} because their value is not known at compile time:
 \end{enumerate}
 \begin{lstlisting}
 // the value of (*n*) is not known at compile time
@@ -171,7 +172,7 @@ const int m = n + 1;
 \section{Type casting}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}\index{\textbf{static\_cast}}, i.e. types that can be converted into each other:
+\item[$\Rightarrow$] Use \texttt{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}\index{\textbf{static\_cast}}, i.e. types that can be converted into each other:
 \end{enumerate}
 \begin{lstlisting}
 // (*int 15*) to (*double 15.0*)
@@ -179,18 +180,18 @@ double num;
 num = static_cast<double>(15);
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{static\_cast} for casting a void pointer to the desired pointer type:
+\item[$\Rightarrow$] Use \texttt{static\_cast} for casting a void pointer to the desired pointer type:
 \end{enumerate}
 \begin{lstlisting}
-// (*void*) pointer can point to anything
+// (*void **) pointer can point to anything
 double num;
-void *p = &num;(*\index{\textbf{void $\ast$}}*) 
+void *p = &num;(*\index{\texttt{void $\ast$}}*) 
 
-// back to double type
+// back to (*double*) type
 double *pd = static_cast<double*>(p);
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{reinterpret\_cast} for casting between unrelated pointer types\index{Casts!\textbf{reinterpret\_cast}}\index{\textbf{reinterpret\_cast}}:
+\item[$\Rightarrow$] Use \texttt{reinterpret\_cast} for casting between unrelated pointer types\index{Casts!\textbf{reinterpret\_cast}}\index{\textbf{reinterpret\_cast}}:
 \end{enumerate}
 \begin{lstlisting}
 // reinterprets a (*long*) value as a (*double*) one
@@ -253,7 +254,7 @@ const Object& default_value()
 \index{Functions!arguments!rule of thumb}
 \begin{itemize}
 \item Pass-by-value for small objects
-\item Pointer parameter type if \textbf{nullptr} means no object given\index{\textbf{nullptr}}
+\item Pointer parameter type if \texttt{nullptr} means no object given\index{\textbf{nullptr}}
 \item Pass-by-const-reference for large objects that are not changed
 \item Pass-by-reference for large objects that are changed (output parameters)
 \item Return error conditions of the function as return values
@@ -277,7 +278,7 @@ Callback_type cb;
 \section{Lambda expressions}
 \small
 An unnamed function that can be used where a function is needed as an argument or object.
-It is introduced by \textbf{[ ]} which are called \emph{lambda introducers}.\index{\textbf{[ ]}}
+It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.\index{[ ]}
 \index{Lambda expressions!lambda introducers} 
 \begin{enumerate}
 \item[$\Rightarrow$] Without access to local variables:\index{Lambda expressions!without access to local variables}
@@ -305,7 +306,7 @@ Function ee_gr{[n](double x){return expe(x,n);},{-8.0,8.0},0.001,
 \section{Namespaces}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{using} declarations for avoiding fully qualified names:
+\item[$\Rightarrow$] \texttt{using}\index{\textbf{using}} declarations for avoiding fully qualified names:
 \index{Namespaces!\textbf{using} declarations}
 \end{enumerate}
 \begin{lstlisting}
@@ -313,11 +314,11 @@ Function ee_gr{[n](double x){return expe(x,n);},{-8.0,8.0},0.001,
 using std::string;
 
 // use (*cin*), (*cout*) instead of (*std::cin*), (*std::cout*)
-using std::cin;(*\index{\textbf{cin}}*)
-using std::cout;(*\index{\textbf{cout}}*)
+using std::cin;(*\index{\texttt{cin}}*)
+using std::cout;(*\index{\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{using namespace} directives for including the whole namespace:
+\item[$\Rightarrow$] \texttt{using namespace}\index{\textbf{namespace}} directives for including the whole namespace:
 \index{Namespaces!\textbf{using namespace} directives}
 \end{enumerate}
 \begin{lstlisting}
@@ -333,10 +334,10 @@ using namespace std;
 #include <ctime>(*\index{<ctime>}*)
 
 // seed the generator(*\index{Random numbers!seed the generator}*)
-srand( time(0) );(*\index{\textbf{srand}}*)
+srand( time(0) );(*\index{\texttt{srand}}*)
 
-// integer random number between 0 and RAND_MAX(*\index{Random numbers!integer random number}*)
-int n = rand();(*\index{\textbf{rand}}*)
+// integer random number between (*0*) and (*RAND\_MAX*) (*\index{Random numbers!integer random number}*)
+int n = rand();(*\index{\texttt{rand}}*)
 \end{lstlisting}
 %\columnbreak
 %
@@ -345,11 +346,11 @@ int n = rand();(*\index{\textbf{rand}}*)
 \section{Arrays}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Range-based \textbf{for} statement:
+\item[$\Rightarrow$] Range-based \texttt{for} statement:
 \index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
-// changes the values and outputs 3579
+// changes the values and outputs (*3579*)
 int arr[] = {2, 4, 6, 8};(*\index{Arrays!declaration and initialisation}*)
 
 for (int& x : arr)
@@ -383,7 +384,7 @@ double dd = *d;(*\index{Pointers!dereference operator \textbf{$\ast$}}*)
 delete d;(*\index{\textbf{delete}}*)
 
 // reassign: now (*d*) points to (*dd*)
-d = &dd;(*\index{Pointers!address of operator \textbf{\&}}*)
+d = &dd;(*\index{Pointers!address of operator \texttt{\&}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Dynamic array:\index{Dynamic array|see{Pointers}}
@@ -407,7 +408,7 @@ for (int i=0; i<5; i++)
 // memory initialisation    
 for (int i=0; i<5; i++)
     for (int j=0; j<5; j++)
-        m[i][j] = i*j;(*\index{Pointers!subscript operator\textbf{[]}}*)
+        m[i][j] = i*j;(*\index{Pointers!subscript operator\texttt{[]}}*)
 
 // memory deallocation(*\index{Pointers!dynamic matrix!deallocation}*)
 for (int i=0; i<5; i++)
@@ -415,7 +416,7 @@ for (int i=0; i<5; i++)
 delete[] m;(*\index{\textbf{delete}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{unique\_ptr}:\index{Pointers!\textbf{unique\_ptr}}\index{\textbf{unique\_ptr}}
+\item[$\Rightarrow$] \texttt{unique\_ptr}:\index{Pointers!\texttt{unique\_ptr}}\index{\texttt{unique\_ptr}}
 Holds ownership of a dynamic object according to RAII, i.e. resource acquisition is initialisation\index{Pointers!RAII}. It will 
 automatically destroy the object if needed.
 \end{enumerate}
@@ -444,7 +445,7 @@ MyVector<int>* my_function()
 #include <cstring>(*\index{<cstring>}*)
 #include <cstdlib>
 
-// (*C-string*) for max 10 characters(*\index{C-Strings!definition}*)
+// (*C-string*) for max (*10*) characters(*\index{C-Strings!definition}*)
 // long string + null char '\0'
 const int SIZE = 10 + 1;
 char msg[SIZE] = "Hello!";
@@ -464,23 +465,23 @@ while ( msg[i] != '\0' && i < SIZE)
 \item[$\Rightarrow$] Safe C-string operations:
 \end{enumerate}
 \begin{lstlisting}
-// safe string copy, at most 10 characters are copied(*\index{C-Strings!safe looping}*)
-strncpy(msg, srcStr, 10);(*\index{\textbf{strncpy}}*)
+// safe string copy, at most (*10*) characters are copied(*\index{C-Strings!safe looping}*)
+strncpy(msg, srcStr, 10);(*\index{\texttt{strncpy}}*)
 
-// safe string compare, at most 10 characters are compared(*\index{C-Strings!safe compare}*)
-strncmp(msg, srcStr, 10);(*\index{\textbf{strncmp}}*)
+// safe string compare, at most (*10*) characters are compared(*\index{C-Strings!safe compare}*)
+strncmp(msg, srcStr, 10);(*\index{\texttt{strncmp}}*)
 
-// safe string concatenation, at most 10 characters are concatenated(*\index{C-Strings!safe concatenation}*)
-strncat(msg, srcStr, 10);(*\index{\textbf{strncat}}*)
+// safe string concatenation, at most (*10*) characters are concatenated(*\index{C-Strings!safe concatenation}*)
+strncat(msg, srcStr, 10);(*\index{\texttt{strncat}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Conversions:
 \end{enumerate}
 \begin{lstlisting}
 // from (*C-string*) to (*int*), (*long*), (*float*)
-int    n = atoi("567");(*\index{C-Strings!conversions!to integer}*)(*\index{\textbf{atoi}}*)
-long   n = atol("1234567");(*\index{C-Strings!conversions!to long integer}*)(*\index{\textbf{atol}}*)
-double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\textbf{atof}}*)
+int    n = atoi("567");(*\index{C-Strings!conversions!to integer}*)(*\index{\texttt{atoi}}*)
+long   n = atol("1234567");(*\index{C-Strings!conversions!to long integer}*)(*\index{\texttt{atol}}*)(*\index{\textbf{long}}*)
+double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\texttt{atof}}*)
 \end{lstlisting}
 %
 % Input-output streams
@@ -489,10 +490,10 @@ double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\t
 \index{Input-output streams}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Input stream \textbf{cin}\index{\textbf{cin}}, output stream \textbf{cout}\index{\textbf{cout}}, error stream \textbf{cerr}\index{\textbf{cerr}}:
-\index{Input-output streams!input stream|see{\textbf{cin}}}
-\index{Input-output streams!output stream|see{\textbf{cout}}}
-\index{Input-output streams!error stream|see{\textbf{cerr}}}
+\item[$\Rightarrow$] Input stream \texttt{cin}\index{\texttt{cin}}, output stream \texttt{cout}\index{\texttt{cout}}, error stream \texttt{cerr}\index{\texttt{cerr}}:
+\index{Input-output streams!input stream|see{\texttt{cin}}}
+\index{Input-output streams!output stream|see{\texttt{cout}}}
+\index{Input-output streams!error stream|see{\texttt{cerr}}}
 \end{enumerate}
 \begin{lstlisting}
 int number;
@@ -527,7 +528,7 @@ cout << noshowbase;(*\index{Input-output streams!integer format manipulators!don
 // values can be read from input in decimal, octal(*\index{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}*)
 // or hexadecimal format previous unsetting
 // of all the flags
-cin.unsetf(ios::dec);(*\index{\textbf{cin}!unset}*)
+cin.unsetf(ios::dec);(*\index{\texttt{cin}!\texttt{unset}}*)
 cin.unsetf(ios::oct);
 cin.unsetf(ios::hex);
 
@@ -569,7 +570,7 @@ cout << showpos << 3.64;(*\index{Input-output streams!floating point format mani
 \begin{lstlisting}
 // read any character from (*cin*) (doesn't skip spaces, newlines, etc.)(*\index{Input-output streams!reading and writing characters!read any character}*)
 char nextChar;
-cin.get(nextChar);(*\index{\textbf{cin}!get}*)
+cin.get(nextChar);(*\index{\texttt{cin}!\texttt{get}}*)
 
 // loop for keeping reading
 // stops when end of line control character (control-d)(*\index{end of line control character}*)
@@ -580,21 +581,21 @@ while ( cin.get(nextChar) )
 }
 
 // write a character to (*cout*)(*\index{Input-output streams!reading and writing characters!write a single character}*)
-cout.put(nextChar)(*\index{\textbf{cout}!put}*)
+cout.put(nextChar)(*\index{\texttt{cout}!\texttt{put}}*)
 
 // read a whole line of 80 chars(*\index{Input-output streams!reading and writing characters!read a whole line}*)
 char line[80+1];
-cin.getline(line,81);(*\index{\textbf{cin}!getline}*)
+cin.getline(line,81);(*\index{\texttt{cin}!\texttt{getline}}*)
 
 // put back (*nextChar*) to (*cin*), (*nextChar*) will be the next(*\index{Input-output streams!reading and writing characters!putting a character back into the input stream}*)
 // char read by (*cin.get()*)
-cin.putback(nextChar);(*\index{\textbf{cin}!putback}*)
+cin.putback(nextChar);(*\index{\texttt{cin}!\texttt{putback}}*)
 
 // put back the last char got from (*cin.get()*) to (*cin*)(*\index{Input-output streams!reading and writing characters!putting the last character back into the input stream}*)
-cin.unget();(*\index{\textbf{cin}!unget}*)
+cin.unget();(*\index{\texttt{cin}!\texttt{unget}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] If the input pattern is unexpected, it is possible to set the state of \textbf{cin} to failed:
+\item[$\Rightarrow$] If the input pattern is unexpected, it is possible to set the state of \texttt{cin} to failed:
 \index{Input-output streams!handling of unexpected input}
 \end{enumerate}
 \begin{lstlisting}
@@ -608,7 +609,7 @@ try
         cin.unget();
         
         // set failed bit(*\index{Input-output streams!handling of unexpected input!setting explicitly the failure bit}*)
-        cin.clear(ios_base::failbit);(*\index{\textbf{cin}!clear}*)
+        cin.clear(ios_base::failbit);(*\index{\texttt{cin}!\texttt{clear}}*)
     
         // throw an exception or deal with failed stream
         throw runtime_error("Unexpected input");
@@ -640,8 +641,8 @@ catch (runtime_error e)
 \section{Files}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Accessed by means of \textbf{ifstream} (input) or
-\textbf{ofstream} (output) objects:\index{\textbf{ifstream}}\index{\textbf{ofstream}}
+\item[$\Rightarrow$] Accessed by means of \texttt{ifstream} (input) or
+\texttt{ofstream} (output) objects:\index{\texttt{ifstream}}\index{\texttt{ofstream}}
 \end{enumerate}
 \begin{lstlisting}
 #include <fstream>(*\index{<fstream>}*)
@@ -652,7 +653,7 @@ ifstream in_stream {"infile.dat"};
 ofstream out_stream {"outfile.dat"};
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Accessed both in input and output mode by means of \textbf{fstream} objects (not recommended):
+\item[$\Rightarrow$] Accessed both in input and output mode by means of \texttt{fstream}\index{\texttt{fstream}} objects (not recommended):
 \end{enumerate}
 \begin{lstlisting}
 #include <fstream>
@@ -774,8 +775,8 @@ in_stream.ignore(9999,'\n');
 \end{enumerate}
 \begin{lstlisting}
 // skip 5 characters when reading (seek get)
-in_stream.seekg(5);(*\index{Files!moving the file pointer!reading with seek get}*)
-// skip 8 characters when writing (seek put)(*\index{Files!moving the file pointer!writing with seek put}*)
+in_stream.seekg(5);(*\index{Files!moving the file pointer!reading with \texttt{seekg} (seek get)}*)
+// skip 8 characters when writing (seek put)(*\index{Files!moving the file pointer!writing with \texttt{seekp} (seek put)}*)
 out_stream.seekp(8);
 \end{lstlisting}
 \begin{enumerate}
@@ -847,14 +848,14 @@ s1.at(i);
 \item[$\Rightarrow$] Append:
 \end{enumerate}
 \begin{lstlisting}
-// append(*\index{Strings!append}*)
+// append(*\index{Strings!\texttt{append}}*)
 s1.append(s2);
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Size and length:
 \end{enumerate}
 \begin{lstlisting}
-// size and length(*\index{Strings!size and length}*)
+// size and length(*\index{Strings!\texttt{size} and \texttt{length}}*)
 s1.size();
 s1.length();
 \end{lstlisting}
@@ -864,13 +865,13 @@ s1.length();
 \begin{lstlisting}
 // substring from position 5 and length 4 characters
 string substring;
-substring = s4.substr(5,4);(*\index{Strings!substring}*)
+substring = s4.substr(5,4);(*\index{Strings!\texttt{substr}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Find:
 \end{enumerate}
 \begin{lstlisting}
-// find (returns string::npos if not found)(*\index{Strings!find}*)
+// find (returns string::npos if not found)(*\index{Strings!\texttt{find}}*)
 size_t pos;
 pos = s3.find("World");
 if (pos == string::npos)
@@ -883,7 +884,7 @@ s3.find("l",5);
 \item[$\Rightarrow$] C-string:
 \end{enumerate}
 \begin{lstlisting}
-// C-string(*\index{Strings!C-string}*)
+// C-string(*\index{Strings!\texttt{c\_str}}*)
 s3.c_str();
 \end{lstlisting}
 \begin{enumerate}
@@ -891,12 +892,12 @@ s3.c_str();
 \end{enumerate}
 \begin{lstlisting}
 // from (*string*) to (*int*), (*long*), (*float*)
-int    n = stoi("456");(*\index{Strings!from string to!integer}*)(*\index{\textbf{stoi}}*)
-long   n = stol("1234567");(*\index{Strings!from string to!long integer}*)(*\index{\textbf{stol}}*)
-double n = stod("12.345");(*\index{Strings!from string to!double}*)(*\index{\textbf{stod}}*)
+int    n = stoi("456");(*\index{Strings!from string to!integer}*)(*\index{\texttt{stoi}}*)
+long   n = stol("1234567");(*\index{Strings!from string to!long integer}*)(*\index{\texttt{stol}}*)
+double n = stod("12.345");(*\index{Strings!from string to!double}*)(*\index{\texttt{stod}}*)
 
 // from numeric type to (*string*)(*\index{Strings!from numeric type to string}*)
-string s = to_string(123.456);(*\index{\textbf{to\_string}}*)
+string s = to_string(123.456);(*\index{\texttt{to\_string}}*)
 \end{lstlisting}
 %
 % String streams
@@ -905,7 +906,7 @@ string s = to_string(123.456);(*\index{\textbf{to\_string}}*)
 \small
 A string is used as a source for an input stream or as a target for an output stream. \\
 \begin{enumerate}
-\item[$\Rightarrow$] Input string stream: \textbf{istringstream}\index{\textbf{istringstream}}
+\item[$\Rightarrow$] Input string stream: \texttt{istringstream}\index{\texttt{istringstream}}
 \end{enumerate}
 \begin{lstlisting}
 #include <sstream>(*\index{<sstream>}*)
@@ -919,7 +920,7 @@ while ( is >> val )
     cout << val << endl;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Output string stream: \textbf{ostringstream}\index{\textbf{ostringstream}}
+\item[$\Rightarrow$] Output string stream: \texttt{ostringstream}\index{\texttt{ostringstream}}
 \end{enumerate}
 \begin{lstlisting}
 #include <sstream>
@@ -967,7 +968,7 @@ cout << v.at(i);(*\index{Vector!access to an element!checked}*)
 \end{enumerate}
 \begin{lstlisting}
 // add an element
-v.push_back(10);(*\index{Vector!add an element}*)
+v.push_back(10);(*\index{Vector!\texttt{push\_back}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Resize:
@@ -975,7 +976,7 @@ v.push_back(10);(*\index{Vector!add an element}*)
 \begin{lstlisting}
 // resize to 20 elements
 // new elements are initialised to 0
-v.resize(20);(*\index{Vector!resize}*)
+v.resize(20);(*\index{Vector!\texttt{resize}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Loop over:
@@ -989,20 +990,20 @@ for (auto x : v)(*\index{Vector!loop over elements}*)
 \end{enumerate}
 \begin{lstlisting}
 // size
-cout << v.size();(*\index{Vector!size}*)
+cout << v.size();(*\index{Vector!\texttt{size}}*)
 
 // capacity: number of elements currently allocated
-cout << v.capacity();(*\index{Vector!capacity}*)
+cout << v.capacity();(*\index{Vector!\texttt{capacity}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Reserve more capacity:
 \end{enumerate}
 \begin{lstlisting}
 // reserve (reallocate) more capacity e.g. at least 64 (*int*)s
-v.reserve(64);(*\index{Vector!reserve more capacity}*)
+v.reserve(64);(*\index{Vector!\texttt{reserve}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Throws an \textbf{out\_of\_range} exception if accessed out of bounds:\index{Exceptions!out\_of\_range}
+\item[$\Rightarrow$] Throws an \texttt{out\_of\_range} exception if accessed out of bounds:\index{Exceptions!\texttt{out\_of\_range}}
 \end{enumerate}
 \begin{lstlisting}
 // out of bounds access
@@ -1022,7 +1023,7 @@ try
 \section{Enumerations}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{enum class} defines symbolic constants in the scope of the class:\index{Enumerations!in \textbf{class} scope}
+\item[$\Rightarrow$] \texttt{enum class} defines symbolic constants in the scope of the class:\index{Enumerations!in \textbf{class} scope}
 \end{enumerate}
 \begin{lstlisting}
 // enum definition(*\index{Enumerations!definition}*)
@@ -1035,7 +1036,7 @@ enum class Weekdays(*\index{\textbf{enum class}}*)
 Weekdays day = Weekdays::tue;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{int}s cannot be assigned to \textbf{enum class} and vice versa:
+\item[$\Rightarrow$] \texttt{int}s cannot be assigned to \texttt{enum class} and vice versa:
 \end{enumerate}
 \begin{lstlisting}
 // errors!(*\index{Enumerations!prohibited conversions}*)
@@ -1067,16 +1068,16 @@ public:
     // constructor
     explicit MyVector();
     // explicit constructor (avoids type conversions)
-    explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\textbf{size\_t}}*)
+    explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
     // constructor with initialiser list
-    explicit MyVector(initializer_list<double>);(*\index{\textbf{initializer\_list}}*)
+    explicit MyVector(initializer_list<double>);(*\index{\texttt{initializer\_list}}*)
     // copy constructor (pass by
     // reference, no copying!)
     MyVector(const MyVector&);
     // move constructor
     MyVector(MyVector&&);
     // copy assignment
-    MyVector& operator=(const MyVector&);(*\index{\textbf{operator=}}*)
+    MyVector& operator=(const MyVector&);(*\index{\texttt{operator=}}*)
     // move assignment
     MyVector& operator=(MyVector&&);
     // virtual destructor
@@ -1103,8 +1104,8 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Constructors definitions\\ \\ By using the \textbf{explicit} qualifier, undesired type conversions are avoided\index{Classes!constructors!type conversions}. If you give no constructor, the compiler will generate a default constructor that does nothing.
-If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}. Notice the use of \textbf{double()} as the default value (0.0)
+\item[$\Rightarrow$] Constructors definitions\\ \\ By using the \texttt{explicit} qualifier, undesired type conversions are avoided\index{Classes!constructors!type conversions}. If you give no constructor, the compiler will generate a default constructor that does nothing.
+If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}. Notice the use of \texttt{double()} as the default value (0.0)
 when initialising the vector.\index{Default value!\textbf{double()}}
 \end{enumerate}
 \begin{lstlisting}
@@ -1119,7 +1120,7 @@ MyVector::MyVector(initializer_list<double> l)
 {
     n = m = l.size();
     e = new double[n];
-    copy(l.begin(),l.end(),e);(*\index{\textbf{copy}}*)
+    copy(l.begin(),l.end(),e);(*\index{\texttt{copy}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
@@ -1134,7 +1135,7 @@ MyVector::MyVector(const MyVector& v)
     n = v.n;
     m = v.m;
     e = new double[n];
-    copy(v.e,v.e+v.n,e);(*\index{\textbf{copy}}*)
+    copy(v.e,v.e+v.n,e);(*\index{\texttt{copy}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
@@ -1207,7 +1208,7 @@ void MyVector::reserve(size_t new_m)
     double* p = new double[new_m];
     if (e)
     {
-        copy(e,e+n,p);(*\index{\textbf{copy}}*)
+        copy(e,e+n,p);(*\index{\texttt{copy}}*)
         delete[] e;
     }
     e = p;
@@ -1241,7 +1242,7 @@ void MyVector::push_back(double d)
 MyVector v1(4); 
 
 // constructor with initialiser list
-MyVector v2{1,2,3,4};(*\index{\textbf{initializer\_list}}*)
+MyVector v2{1,2,3,4};(*\index{initializer\_list}*)
 
 // copy constructor
 MyVector v3{v2}; 
@@ -1282,7 +1283,7 @@ public:
     Euro(int euro);
     // constructor for  (*euro*) and (*cents*)
     Euro(int euro, int cents);
-    Euro operator+(const Euro& amount); (*\index{\textbf{operator+}}*)
+    Euro operator+(const Euro& amount); (*\index{\texttt{operator+}}*)
 private:
     int euro;
     int cents;
@@ -1311,15 +1312,15 @@ public:
     Euro(int euro, int cents);
     friend Euro operator+(const Euro& amount1, const Euro& amount2);
     // insertion and extraction operators
-    friend ostream& operator<<(ostream& outs, const Euro& amount);(*\index{\textbf{operator<<}}*)(*\index{\textbf{friend}}*)
-    friend istream& operator>>(istream& ins, Euro& amount);(*\index{\textbf{operator>>}}*)
+    friend ostream& operator<<(ostream& outs, const Euro& amount);(*\index{\texttt{operator<<}}*)(*\index{\textbf{friend}}*)
+    friend istream& operator>>(istream& ins, Euro& amount);(*\index{\texttt{operator>>}}*)
 private:
     int euro;
     int cents;
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] The definition above works for every combination because \textbf{int} arguments are converted by the constructor to \texttt{Euro} objects:
+\item[$\Rightarrow$] The definition above works for every combination because \texttt{int} arguments are converted by the constructor to \texttt{Euro} objects:
 \index{Classes!constructors!type conversions}
 \end{enumerate}
 \begin{lstlisting}
@@ -1411,7 +1412,7 @@ class Line : public Shape
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \textbf{= delete}\index{\textbf{= delete}}  syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
+\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \texttt{= delete}\index{= delete}  syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
 \index{Inheritance!disabling copy constructors and assignment}
 \end{enumerate}
 \begin{lstlisting}
@@ -1426,8 +1427,8 @@ public:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Virtual destructor\\ \\ Destructors should be declared \textbf{virtual}. When derived
-objects are referenced by base class pointers, the destructor of the derived class is called if it is declared \textbf{virtual}.
+\item[$\Rightarrow$] Virtual destructor\\ \\ Destructors should be declared \texttt{virtual}. When derived
+objects are referenced by base class pointers, the destructor of the derived class is called if it is declared \texttt{virtual}.
 \index{Inheritance!virtual destructor}\index{\textbf{virtual}}
 \end{enumerate}
 \begin{lstlisting}
@@ -1441,7 +1442,7 @@ public:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Protected constructor\\ \\ By declaring the constructor as \textbf{protected}, no instances of this class can be created by a user. Since \texttt{Shape} is an abstract class, it should be used only as a base class for derived classes.
+\item[$\Rightarrow$] Protected constructor\\ \\ By declaring the constructor as \texttt{protected}, no instances of this class can be created by a user. Since \texttt{Shape} is an abstract class, it should be used only as a base class for derived classes.
 \index{Inheritance!protected constructor}\index{\textbf{protected}}
 \end{enumerate}
 \begin{lstlisting}
@@ -1475,7 +1476,7 @@ protected:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Pure virtual functions\\ \\ The protected member functions \texttt{draw\_shape()} and \texttt{move\_shape()} are pure virtual functions, i.e. a derived class must provide an implementation for them. Notice the syntax  \textbf{= 0}\index{\textbf{= 0}} which signals that the function is a pure virtual function. When a class has function members that are declared as pure virtual functions, then the class becomes an abstract class.
+\item[$\Rightarrow$] Pure virtual functions\\ \\ The protected member functions \texttt{draw\_shape()} and \texttt{move\_shape()} are pure virtual functions, i.e. a derived class must provide an implementation for them. Notice the syntax \texttt{= 0}\index{= 0} which signals that the function is a pure virtual function. When a class has function members that are declared as pure virtual functions, then the class becomes an abstract class.
 \index{Inheritance!pure virtual functions}
 \end{enumerate}
 \begin{lstlisting}
@@ -1486,8 +1487,8 @@ protected:
     ...
     // protected virtual methods to be overridden by 
     // derived classes
-    virtual void draw_shape() = 0;(*\index{\textbf{= 0}}*)
-    virtual void move_shape(int dx, int dy) = 0;(*\index{\textbf{= 0}}*)
+    virtual void draw_shape() = 0;(*\index{= 0}*)
+    virtual void move_shape(int dx, int dy) = 0;(*\index{= 0}*)
     ...
 };
 \end{lstlisting}
@@ -1519,7 +1520,7 @@ protected:
 class Line : public Shape
 {
 public:
-    Line(pair<Point,Point> line) : l{line} {(*\index{\textbf{pair}}*)
+    Line(pair<Point,Point> line) : l{line} {(*\index{\texttt{pair}}*)
         resize_shape(l.first,l.second);
     }
     virtual ~Line() {}
@@ -1657,7 +1658,7 @@ void Line::draw_shape() {
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Polymorphism is allowed by the \textbf{virtual} keyword which guarantees late binding: the call \texttt{w.draw()} inside \texttt{Windows::draw()} binds to the \texttt{draw\_shape()} function of the actual object referenced, either to a \texttt{Line} or \texttt{Circle} instance.
+\item[$\Rightarrow$] Polymorphism is allowed by the \texttt{virtual} keyword which guarantees late binding: the call \texttt{w.draw()} inside \texttt{Windows::draw()} binds to the \texttt{draw\_shape()} function of the actual object referenced, either to a \texttt{Line} or \texttt{Circle} instance.
 \index{Polymorphism!late binding}
 \end{enumerate}
 \begin{lstlisting}
@@ -1675,7 +1676,7 @@ win.draw(c1); // calls (*Circle::draw\_shape()*)
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] The value thrown by
-\textbf{throw} can be of any type.
+\texttt{throw}\index{\textbf{throw}} can be of any type.
 \end{enumerate}
 \begin{lstlisting}
 // exception class
@@ -1705,7 +1706,7 @@ catch (...)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions.  For example \textbf{runtime\_error} can be 
+\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions.  For example \texttt{runtime\_error} can be 
 thrown when runtime errors occur:
 \end{enumerate}
 \begin{lstlisting}
@@ -1726,7 +1727,7 @@ the exception specification list. These exceptions are not
 caught by the function itself!
 \end{enumerate}
 \begin{lstlisting}
-// exceptions of type (*DivideByZero*) or (*OtherException*) are(*\index{Exceptions!DivideByZero}\index{Exceptions!OtherException}*)
+// exceptions of type (*DivideByZero*) or (*OtherException*) are(*\index{Exceptions!\texttt{DivideByZero}}\index{Exceptions!\texttt{OtherException}}*)
 // to be caught outside the function. All other exceptions 
 // end the program if not caught inside the function.
 void my_function( ) throw (DivideByZero, OtherException);
@@ -1776,7 +1777,7 @@ template definition in the header file directly!
 \end{enumerate}
 \begin{lstlisting}
 // generic swap function
-template<class T>
+template<class T>\index{\textbf{template}}
 void swap(T& a, T& b)
 {
     T temp = a;
@@ -1909,7 +1910,7 @@ Wrapper<char,3> array;
 // Usage of an allocator as a class template parameter
 // Generalises (*\texttt{MyVector}*) for data types without a default constructor
 // and with customised memory management
-template<class T, class A=allocator<T>>(*\index{\textbf{allocator}}*)
+template<class T, class A=allocator<T>>(*\index{\texttt{allocator}}*)
 class MyVector
 {
 public:
@@ -2011,10 +2012,10 @@ different iterators.\index{Iterators}
 
 vector<int> v = {1,2,3,4,5};
 // mutable iterator
-vector<int>::iterator e;(*\index{\textbf{iterator}}*)(*\index{Iterators!\textbf{iterator}}*)
+vector<int>::iterator e;(*\index{\texttt{iterator}}*)(*\index{Iterators!\texttt{iterator}}*)
 
 // bidirectional access
-e = v.begin();(*\index{\textbf{iterator}!begin}*)(*\index{Iterators!bidirectional access}*)
+e = v.begin();(*\index{\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!bidirectional access}*)
 ++e;
 // print (*v[1]*)
 cout << *e << endl;
@@ -2031,21 +2032,21 @@ cout << e[3] << endl;
 e[3] = 9;
 
 // constant iterator (only read)
-vector<int>::constant_iterator c;(*\index{\textbf{constant\_iterator}}*)(*\index{Iterators!\textbf{constant\_iterator}}*)
+vector<int>::constant_iterator c;(*\index{\texttt{constant\_iterator}}*)(*\index{Iterators!\texttt{constant\_iterator}}*)
 
 // print out the vector content (read only)
 // (*\texttt{end()}*) points one element beyond the last one!
-for (auto c = v.begin(); c != v.end(); c++)(*\index{\textbf{iterator}!end}*)
+for (auto c = v.begin(); c != v.end(); c++)(*\index{\texttt{iterator}!\texttt{end}}*)
     cout << *c << endl;(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
 
 // not allowed
 // (*c[2] = 2;*)
 
 // reverse iterator
-vector<int>::reverse_iterator r;(*\index{\textbf{reverse\_iterator}}*)(*\index{Iterators!\textbf{reverse\_iterator}}*)
+vector<int>::reverse_iterator r;(*\index{\texttt{reverse\_iterator}}*)(*\index{Iterators!\texttt{reverse\_iterator}}*)
 
 // print out the vector content in reverse order
-for (auto r = v.rbegin(); r != v.rend(); r++)(*\index{\textbf{reverse\_iterator}!rbegin}*)(*\index{\textbf{reverse\_iterator}!rend}*)
+for (auto r = v.rbegin(); r != v.rend(); r++)(*\index{\texttt{reverse\_iterator}!\texttt{rbegin}}*)(*\index{\texttt{reverse\_iterator}!\texttt{rend}}*)
     cout << *r << endl;(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -2145,15 +2146,17 @@ data_list.insert_at_head(45);
 data_list.insert_at_head(-21);
 data_list.insert_at_end(127);
 
-// prints data_list = (-21) -> (45) -> (127)
+// prints (*data\_list = (-21) -> (45) -> (127)*)
 cout << "data_list = " << data_list << endl;
-// prints  data_list.size() = 3
+// prints  (*data\_list.size() = 3*)
 cout << "data_list.size() = " << data_list.size() << "\n\n";
 
 // applies standard algorithms on the custom linked list
-LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);
+LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);(*\index{\texttt{find}}*)
 
-// checks if the element has been found
+// checks if the element has been found(*\index{Iterators!end of sequence convention}*)
+// standard algorithms return the end of a sequence, 
+// i.e. the (*end*) iterator, to indicate failure
 if ( p != second_list.end() )
         cout << "found element " << *p << "\n\n";
 else
@@ -2162,7 +2165,7 @@ else
 // write access
 *p = 180;
 
-// prints data_list = (-21) -> (180) -> (127)
+// prints (*data\_list = (-21) -> (180) -> (127)*)
 cout << "data_list = " << data_list << endl;
 \end{lstlisting}
 %
@@ -2171,12 +2174,12 @@ cout << "data_list = " << data_list << endl;
 \section{Containers}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Sequential containers: \textbf{list}
+\item[$\Rightarrow$] Sequential containers: \texttt{list}
 \end{enumerate}
 \begin{lstlisting}
 #include <list>
 
-list<double> data = {1.32,-2.45,5.65};
+list<double> data = {1.32,-2.45,5.65,-8.93,2.76};
 
 // adds elements
 data.push_back(9.23);
@@ -2185,9 +2188,11 @@ data.push_front(-3.94);
 // bidirectional iterator, no random access    
 list<double>::iterator e;
 
-// erase    
+// (*advance*)
 e = data.begin();
-++e;
+advance(e,2);(*\index{Containers!\texttt{advance}}*)
+
+// erases element (*5.65*)
 data.erase(e);
 
 // print out the content    
@@ -2199,7 +2204,7 @@ for (auto x : data)(*\index{range-for-loop}*)
     cout << x << endl;(*\index{\textbf{auto}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Adapter containers: \textbf{stack}
+\item[$\Rightarrow$] Adapter containers: \texttt{stack}
 \end{enumerate}
 \begin{lstlisting}
 #include <stack>
@@ -2221,7 +2226,7 @@ double d = numbers.top();
 numbers.pop();
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \textbf{set}
+\item[$\Rightarrow$] Associative containers: \texttt{set}
 \end{enumerate}
 \begin{lstlisting}
 #include <set>
@@ -2244,7 +2249,7 @@ for (c = letters.begin(); c != letters.end(); c++)
     cout << *c << endl;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \textbf{map}
+\item[$\Rightarrow$] Associative containers: \texttt{map}
 \end{enumerate}
 \begin{lstlisting}
 #include <string>
@@ -2288,7 +2293,7 @@ for (auto n : dict)
 vector<int> v = {6,2,7,13,4,3,1};
 vector<int>::iterator p;
 
-// find
+// (*find*)(*\index{\texttt{find}}*)
 p = find(v.begin(),v.end(),13);
 
 // merge sort
