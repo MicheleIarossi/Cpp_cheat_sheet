@@ -7,13 +7,15 @@
   \item <fstream>, 9
   \item <iomanip>, 7
   \item <iostream>, 1
+  \item <list>, 36
+  \item <map>, 37
   \item <memory>, 6
+  \item <set>, 37
   \item <sstream>, 14
+  \item <stack>, 37
   \item <string>, 12
+  \item <utility>, 37
   \item <vector>, 14
-  \item = 0, 24
-  \item = delete, 22
-  \item [ ], 4
   \item \textbf{auto}, 5, 33, 34, 36
   \item \textbf{catch}, 27
   \item \textbf{char}, 2
@@ -40,6 +42,9 @@
   \item \textbf{typedef}, 3
   \item \textbf{using}, 4
   \item \textbf{virtual}, 23
+  \item \texttt{= 0}, 24
+  \item \texttt{= delete}, 22
+  \item \texttt{[ ]}, 4
   \item \texttt{allocator}, 31
   \item \texttt{atof}, 7
   \item \texttt{atoi}, 7
@@ -56,7 +61,7 @@
   \item \texttt{copy}, 17--19
   \item \texttt{cout}, 4, 7
     \subitem \texttt{put}, 8
-  \item \texttt{find}, 36, 38
+  \item \texttt{find}, 36
   \item \texttt{fstream}, 10
   \item \texttt{ifstream}, 9
   \item \texttt{initializer\_list}, 16
@@ -90,6 +95,8 @@
 
   \indexspace
 
+  \item Algorithms
+    \subitem \texttt{find}, 38
   \item Arrays
     \subitem declaration and initialisation, 5
     \subitem modifying elements of an array, 5
@@ -136,6 +143,23 @@
     \subitem \textbf{const}, 2
   \item Containers
     \subitem \texttt{advance}, 36
+    \subitem \texttt{erase}, 36, 38
+    \subitem \texttt{find}, 38
+    \subitem \texttt{insert}, 37
+    \subitem \texttt{pop}, 37
+    \subitem \texttt{push\_back}, 36
+    \subitem \texttt{push\_front}, 36
+    \subitem \texttt{push}, 37
+    \subitem \texttt{size}, 37
+    \subitem \texttt{top}, 37
+    \subitem adapter
+      \subsubitem \texttt{stack}, 36
+    \subitem associative
+      \subsubitem \texttt{map}, 37
+      \subsubitem \texttt{set}, 37
+    \subitem sequential
+      \subsubitem \texttt{list}, 36
+      \subsubitem \texttt{vector}, \see{Vector}{36}
   \item Conversions
     \subitem safe, 2
     \subitem unsafe, 2
@@ -303,6 +327,7 @@
   \indexspace
 
   \item Slicing, 22
+  \item STL, 38
   \item String streams
     \subitem input string stream, 14
     \subitem output string stream, 14

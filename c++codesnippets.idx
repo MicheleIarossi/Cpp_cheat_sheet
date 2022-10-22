@@ -26,7 +26,7 @@
 \indexentry{\textbf{nullptr}}{3}
 \indexentry{Functions!pointer to function}{3}
 \indexentry{\textbf{typedef}}{3}
-\indexentry{[ ]}{4}
+\indexentry{\texttt{[ ]}}{4}
 \indexentry{Lambda expressions!lambda introducers}{4}
 \indexentry{Lambda expressions!without access to local variables}{4}
 \indexentry{Lambda expressions!with access to local variables}{4}
@@ -246,7 +246,7 @@
 \indexentry{Classes!constructors!type conversions}{21}
 \indexentry{Inheritance!abstract base class}{21}
 \indexentry{Inheritance!base class}{22}
-\indexentry{= delete}{22}
+\indexentry{\texttt{= delete}}{22}
 \indexentry{Slicing}{22}
 \indexentry{Inheritance!disabling copy constructors and assignment}{22}
 \indexentry{Inheritance!virtual destructor}{23}
@@ -254,10 +254,10 @@
 \indexentry{Inheritance!protected constructor}{23}
 \indexentry{\textbf{protected}}{23}
 \indexentry{Inheritance!protected member functions}{23}
-\indexentry{= 0}{24}
+\indexentry{\texttt{= 0}}{24}
 \indexentry{Inheritance!pure virtual functions}{24}
-\indexentry{= 0}{24}
-\indexentry{= 0}{24}
+\indexentry{\texttt{= 0}}{24}
+\indexentry{\texttt{= 0}}{24}
 \indexentry{Inheritance!virtual functions}{24}
 \indexentry{Inheritance!derived class}{24}
 \indexentry{\texttt{pair}}{24}
@@ -306,8 +306,30 @@
 \indexentry{Operator overloading!prefix increment ++}{35}
 \indexentry{\texttt{find}}{36}
 \indexentry{Iterators!end of sequence convention}{36}
+\indexentry{Containers!sequential!\texttt{list}}{36}
+\indexentry{Containers!sequential!\texttt{vector}|see{Vector}}{36}
+\indexentry{<list>}{36}
+\indexentry{Containers!\texttt{push\_back}}{36}
+\indexentry{Containers!\texttt{push\_front}}{36}
 \indexentry{Containers!\texttt{advance}}{36}
+\indexentry{Containers!\texttt{erase}}{36}
 \indexentry{range-for-loop}{36}
 \indexentry{\textbf{auto}}{36}
+\indexentry{Containers!adapter!\texttt{stack}}{36}
+\indexentry{<stack>}{37}
+\indexentry{Containers!\texttt{push}}{37}
+\indexentry{Containers!\texttt{size}}{37}
+\indexentry{Containers!\texttt{top}}{37}
+\indexentry{Containers!\texttt{pop}}{37}
+\indexentry{Containers!associative!\texttt{set}}{37}
+\indexentry{<set>}{37}
+\indexentry{Containers!\texttt{insert}}{37}
+\indexentry{Containers!associative!\texttt{map}}{37}
+\indexentry{<map>}{37}
+\indexentry{<utility>}{37}
+\indexentry{Containers!\texttt{insert}}{37}
+\indexentry{Containers!\texttt{find}}{38}
+\indexentry{Containers!\texttt{erase}}{38}
 \indexentry{range-for-loop}{38}
-\indexentry{\texttt{find}}{38}
+\indexentry{STL}{38}
+\indexentry{Algorithms!\texttt{find}}{38}

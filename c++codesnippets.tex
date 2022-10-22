@@ -278,7 +278,7 @@ Callback_type cb;
 \section{Lambda expressions}
 \small
 An unnamed function that can be used where a function is needed as an argument or object.
-It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.\index{[ ]}
+It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.\index{\texttt{[ ]}}
 \index{Lambda expressions!lambda introducers} 
 \begin{enumerate}
 \item[$\Rightarrow$] Without access to local variables:\index{Lambda expressions!without access to local variables}
@@ -1412,7 +1412,7 @@ class Line : public Shape
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \texttt{= delete}\index{= delete}  syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
+\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \texttt{= delete}\index{\texttt{= delete}}  syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
 \index{Inheritance!disabling copy constructors and assignment}
 \end{enumerate}
 \begin{lstlisting}
@@ -1476,7 +1476,7 @@ protected:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Pure virtual functions\\ \\ The protected member functions \texttt{draw\_shape()} and \texttt{move\_shape()} are pure virtual functions, i.e. a derived class must provide an implementation for them. Notice the syntax \texttt{= 0}\index{= 0} which signals that the function is a pure virtual function. When a class has function members that are declared as pure virtual functions, then the class becomes an abstract class.
+\item[$\Rightarrow$] Pure virtual functions\\ \\ The protected member functions \texttt{draw\_shape()} and \texttt{move\_shape()} are pure virtual functions, i.e. a derived class must provide an implementation for them. Notice the syntax \index{\texttt{= 0}} which signals that the function is a pure virtual function. When a class has function members that are declared as pure virtual functions, then the class becomes an abstract class.
 \index{Inheritance!pure virtual functions}
 \end{enumerate}
 \begin{lstlisting}
@@ -1487,8 +1487,8 @@ protected:
     ...
     // protected virtual methods to be overridden by 
     // derived classes
-    virtual void draw_shape() = 0;(*\index{= 0}*)
-    virtual void move_shape(int dx, int dy) = 0;(*\index{= 0}*)
+    virtual void draw_shape() = 0;(*\index{\texttt{= 0}}*)
+    virtual void move_shape(int dx, int dy) = 0;(*\index{\texttt{= 0}}*)
     ...
 };
 \end{lstlisting}
@@ -2174,16 +2174,16 @@ cout << "data_list = " << data_list << endl;
 \section{Containers}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Sequential containers: \texttt{list}
+\item[$\Rightarrow$] Sequential containers: \texttt{list}\index{Containers!sequential!\texttt{list}}\index{Containers!sequential!\texttt{vector}|see{Vector}}
 \end{enumerate}
 \begin{lstlisting}
-#include <list>
+#include <list>(*\index{<list>}*)
 
 list<double> data = {1.32,-2.45,5.65,-8.93,2.76};
 
 // adds elements
-data.push_back(9.23);
-data.push_front(-3.94);
+data.push_back(9.23);(*\index{Containers!\texttt{push\_back}}*)
+data.push_front(-3.94);(*\index{Containers!\texttt{push\_front}}*)
 
 // bidirectional iterator, no random access    
 list<double>::iterator e;
@@ -2193,7 +2193,7 @@ e = data.begin();
 advance(e,2);(*\index{Containers!\texttt{advance}}*)
 
 // erases element (*5.65*)
-data.erase(e);
+data.erase(e);(*\index{Containers!\texttt{erase}}*)
 
 // print out the content    
 for (e = data.begin(); e != data.end(); e++)
@@ -2204,37 +2204,37 @@ for (auto x : data)(*\index{range-for-loop}*)
     cout << x << endl;(*\index{\textbf{auto}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Adapter containers: \texttt{stack}
+\item[$\Rightarrow$] Adapter containers: \texttt{stack}\index{Containers!adapter!\texttt{stack}}
 \end{enumerate}
 \begin{lstlisting}
-#include <stack>
+#include <stack>(*\index{<stack>}*)
 
 stack<double> numbers;
 
 // push on the stack
-numbers.push(5.65);
+numbers.push(5.65);(*\index{Containers!\texttt{push}}*)
 numbers.push(-3.95);
 numbers.push(6.95);
 
 // size
-cout << numbers.size()
+cout << numbers.size()(*\index{Containers!\texttt{size}}*)
 
 // read top data element
-double d = numbers.top();
+double d = numbers.top();(*\index{Containers!\texttt{top}}*)
 
 // pop top element
-numbers.pop();
+numbers.pop();(*\index{Containers!\texttt{pop}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \texttt{set}
+\item[$\Rightarrow$] Associative containers: \texttt{set}\index{Containers!associative!\texttt{set}}
 \end{enumerate}
 \begin{lstlisting}
-#include <set>
+#include <set>(*\index{<set>}*)
 
 set<char> letters;
 
 // inserting elements    
-letters.insert('a');
+letters.insert('a');(*\index{Containers!\texttt{insert}}*)
 letters.insert('d');
 // no duplicates!
 letters.insert('d');
@@ -2249,19 +2249,19 @@ for (c = letters.begin(); c != letters.end(); c++)
     cout << *c << endl;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \texttt{map}
+\item[$\Rightarrow$] Associative containers: \texttt{map}\index{Containers!associative!\texttt{map}}
 \end{enumerate}
 \begin{lstlisting}
 #include <string>
-#include <map>
-#include <utility>
+#include <map>(*\index{<map>}*)
+#include <utility>(*\index{<utility>}*)
 
 // initialisation
 map<string,int> dict = { {"one",1}, {"two",2} };
 pair<string,int> three("three",3);
 
 // insertion    
-dict.insert(three);
+dict.insert(three);(*\index{Containers!\texttt{insert}}*)
 dict["four"] = 4;
 dict["five"] = 5;
 
@@ -2269,10 +2269,10 @@ dict["five"] = 5;
 map<string,int>::iterator two;
 
 // find    
-two = dict.find("two");
+two = dict.find("two");(*\index{Containers!\texttt{find}}*)
 
 // erase    
-dict.erase(two);
+dict.erase(two);(*\index{Containers!\texttt{erase}}*)
 
 // rang-for-loop(*\index{range-for-loop}*)
 for (auto n : dict)
@@ -2284,7 +2284,7 @@ for (auto n : dict)
 \section{Algorithms}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Provided by the C++ standard library:
+\item[$\Rightarrow$] Provided by the C++ standard template library (STL)\index{STL}:
 \end{enumerate}
 \begin{lstlisting}
 #include <vector>
@@ -2293,7 +2293,8 @@ for (auto n : dict)
 vector<int> v = {6,2,7,13,4,3,1};
 vector<int>::iterator p;
 
-// (*find*)(*\index{\texttt{find}}*)
+// (*find*)(*\index{Algorithms!\texttt{find}}*)
+// points to the first occurrence of 13 in (*v*)
 p = find(v.begin(),v.end(),13);
 
 // merge sort
