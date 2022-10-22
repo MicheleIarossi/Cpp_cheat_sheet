@@ -196,6 +196,7 @@
 \indexentry{Vector!\texttt{resize}}{15}
 \indexentry{range-for-loop}{15}
 \indexentry{Vector!loop over elements}{15}
+\indexentry{\textbf{auto}}{15}
 \indexentry{Vector!\texttt{size}}{15}
 \indexentry{Vector!\texttt{capacity}}{15}
 \indexentry{Vector!\texttt{reserve}}{15}
@@ -334,5 +335,6 @@
 \indexentry{Containers!\texttt{find}}{38}
 \indexentry{Containers!\texttt{erase}}{38}
 \indexentry{range-for-loop}{38}
+\indexentry{\textbf{auto}}{38}
 \indexentry{STL}{38}
 \indexentry{Algorithms!\texttt{find}}{38}

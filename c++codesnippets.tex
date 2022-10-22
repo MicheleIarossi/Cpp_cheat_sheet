@@ -991,7 +991,7 @@ v.resize(20);(*\index{Vector!\texttt{resize}}*)
 \end{enumerate}
 \begin{lstlisting}
 // range-for-loop(*\index{range-for-loop}*)
-for (auto x : v)(*\index{Vector!loop over elements}*)
+for (auto x : v)(*\index{Vector!loop over elements}*)(*\index{\textbf{auto}}*)
   cout << v << endl;\end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Size and capacity:
@@ -2044,6 +2044,8 @@ vector<int>::constant_iterator c;(*\index{\texttt{constant\_iterator}}*)(*\index
 
 // print out the vector content (read only)
 // (*\texttt{end()}*) points one element beyond the last one!
+// (*auto*) gives to (*c*) the same type of the element on the right
+// hand side of the assignment
 for (auto c = v.begin(); c != v.end(); c++)(*\index{\texttt{iterator}!\texttt{end}}*)
     cout << *c << endl;(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
 
@@ -2283,7 +2285,7 @@ two = dict.find("two");(*\index{Containers!\texttt{find}}*)
 dict.erase(two);(*\index{Containers!\texttt{erase}}*)
 
 // rang-for-loop(*\index{range-for-loop}*)
-for (auto n : dict)
+for (auto n : dict)(*\index{\textbf{auto}}*)
     cout << "(" <<  n.first << "," <<  n.second << ")" << endl;
 \end{lstlisting}
 %
