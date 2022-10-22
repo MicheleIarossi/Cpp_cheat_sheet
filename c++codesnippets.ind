@@ -40,7 +40,10 @@
   \item \textbf{throw}, 27
   \item \textbf{try}, 27
   \item \textbf{typedef}, 3
-  \item \textbf{using}, 4
+  \item \textbf{using}
+    \subitem alias, 4
+    \subitem declaration, 4
+    \subitem directive, 4
   \item \textbf{virtual}, 23
   \item \texttt{= 0}, 24
   \item \texttt{= delete}, 22
@@ -97,6 +100,7 @@
 
   \item Algorithms
     \subitem \texttt{find}, 38
+  \item Alias, \see{\textbf{using}}{4}
   \item Arrays
     \subitem declaration and initialisation, 5
     \subitem modifying elements of an array, 5

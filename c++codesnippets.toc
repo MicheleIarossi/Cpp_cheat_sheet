@@ -4,7 +4,7 @@
 \contentsline {section}{Type casting}{2}{}%
 \contentsline {section}{Functions}{3}{}%
 \contentsline {section}{Lambda expressions}{4}{}%
-\contentsline {section}{Namespaces}{4}{}%
+\contentsline {section}{Namespaces and aliases}{4}{}%
 \contentsline {section}{Random numbers}{4}{}%
 \contentsline {section}{Arrays}{5}{}%
 \contentsline {section}{Pointers}{5}{}%

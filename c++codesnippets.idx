@@ -30,12 +30,15 @@
 \indexentry{Lambda expressions!lambda introducers}{4}
 \indexentry{Lambda expressions!without access to local variables}{4}
 \indexentry{Lambda expressions!with access to local variables}{4}
-\indexentry{\textbf{using}}{4}
+\indexentry{\textbf{using}!declaration}{4}
 \indexentry{Namespaces!\textbf{using} declarations}{4}
 \indexentry{\texttt{cin}}{4}
 \indexentry{\texttt{cout}}{4}
 \indexentry{\textbf{namespace}}{4}
+\indexentry{\textbf{using}!directive}{4}
 \indexentry{Namespaces!\textbf{using namespace} directives}{4}
+\indexentry{\textbf{using}!alias}{4}
+\indexentry{Alias|see{\textbf{using}}}{4}
 \indexentry{<cstdlib>}{4}
 \indexentry{<ctime>}{4}
 \indexentry{Random numbers!seed the generator}{4}

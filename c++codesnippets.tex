@@ -303,10 +303,10 @@ Function ee_gr{[n](double x){return expe(x,n);},{-8.0,8.0},0.001,
 %
 % Namespaces
 %
-\section{Namespaces}
+\section{Namespaces and aliases}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{using}\index{\textbf{using}} declarations for avoiding fully qualified names:
+\item[$\Rightarrow$] \texttt{using}\index{\textbf{using}!declaration} declarations for avoiding fully qualified names:
 \index{Namespaces!\textbf{using} declarations}
 \end{enumerate}
 \begin{lstlisting}
@@ -318,11 +318,19 @@ using std::cin;(*\index{\texttt{cin}}*)
 using std::cout;(*\index{\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{using namespace}\index{\textbf{namespace}} directives for including the whole namespace:
+\item[$\Rightarrow$] \texttt{using namespace}\index{\textbf{namespace}}\index{\textbf{using}!directive} directives for including the whole namespace:
 \index{Namespaces!\textbf{using namespace} directives}
 \end{enumerate}
 \begin{lstlisting}
 using namespace std;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] An \emph{alias} is a symbolic name that means exactly the same as what it refers to\index{\textbf{using}!alias}:
+\index{Alias|see{\textbf{using}}}
+\end{enumerate}
+\begin{lstlisting}
+using value_type = int; // (*value\_type*) means (*int*)
+using pchar = char*; // (*pchar*) means (*char$\ast$*)    
 \end{lstlisting}
 %
 % Random numbers
