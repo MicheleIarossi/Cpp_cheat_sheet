@@ -49,27 +49,27 @@
   \item \textbf{namespace}, 1, 4
   \item \textbf{new}, 5, 6, 17--19, 30
   \item \textbf{nullptr}, 3, 17--19, 30, 32, 34, 35
-  \item \textbf{protected}, 23
+  \item \textbf{protected}, 22--27
   \item \textbf{reinterpret\_cast}, 2
   \item \textbf{static\_cast}, 2
-  \item \textbf{template}, 30
-  \item \textbf{this}, 18, 19
-  \item \textbf{throw}, 27
-  \item \textbf{try}, 27
+  \item \textbf{template}, 29--35
+  \item \textbf{this}, 18, 19, 30, 34, 35
+  \item \textbf{throw}, 9, 11, 27--29
+  \item \textbf{try}, 9, 11, 15, 27, 28
   \item \textbf{typedef}, 3
   \item \textbf{using}
     \subitem alias, 4
     \subitem declaration, 4
     \subitem directive, 4
-  \item \textbf{virtual}, 23
-  \item \texttt{= 0}, 24
-  \item \texttt{= delete}, 22
+  \item \textbf{virtual}, 16, 21--27, 30, 32, 34
+  \item \texttt{= 0}, 22, 24
+  \item \texttt{= delete}, 21, 23
   \item \texttt{[ ]}, 4
   \item \texttt{allocator}, 31
   \item \texttt{atof}, 7
   \item \texttt{atoi}, 7
   \item \texttt{atol}, 7
-  \item \texttt{cerr}, 7
+  \item \texttt{cerr}, 7, 9, 11, 13, 28
   \item \texttt{cin}, 4, 7
     \subitem \texttt{clear}, 9
     \subitem \texttt{getline}, 8
@@ -112,6 +112,7 @@
   \item \texttt{strncpy}, 6
   \item \texttt{to\_string}, 13
   \item \texttt{unique\_ptr}, 6
+  \item \texttt{vector}, \see{Containers}{38}
   \item \texttt{void $\ast$}, 2
 
   \indexspace
@@ -120,6 +121,8 @@
     \subitem \texttt{accumulate}, 39
     \subitem \texttt{find\_if}, 38, 39
     \subitem \texttt{find}, 38
+    \subitem \texttt{inner\_product}, 39
+    \subitem generic \texttt{accumulate}, 39
   \item Alias, \see{\textbf{using}}{4}
   \item Arrays
     \subitem declaration and initialisation, 5
@@ -161,7 +164,7 @@
     \subitem subscript operator, 17
       \subsubitem read, 17
       \subsubitem write, 17
-    \subitem virtual destructor, 16
+    \subitem virtual destructor, 16, 21, 23, 25--27, 30, 32, 34
   \item Constants
     \subitem \textbf{constexpr}, 2
     \subitem \textbf{const}, 2
@@ -183,7 +186,7 @@
       \subsubitem \texttt{set}, 37
     \subitem sequential
       \subsubitem \texttt{list}, 36
-      \subsubitem \texttt{vector}, \see{Vector}{36}
+      \subsubitem \texttt{vector}, 14, 15, 33, 36, 38, 39
   \item Conversions
     \subitem safe, 2
     \subitem unsafe, 2
@@ -205,7 +208,7 @@
     \subitem prohibited conversions, 16
     \subitem usage, 16
   \item Exceptions
-    \subitem \textbf{try-catch}, 27
+    \subitem \textbf{try-catch}, 9, 11, 15, 27, 28
     \subitem \texttt{DivideByZero}, 28
     \subitem \texttt{OtherException}, 28
     \subitem \texttt{out\_of\_range}, 15
@@ -391,7 +394,7 @@
 
   \indexspace
 
-  \item Vector
+  \item Vector, 14
     \subitem \texttt{capacity}, 15
     \subitem \texttt{push\_back}, 15
     \subitem \texttt{reserve}, 15

@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.56~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.57~-~GNU GPL v3.0}
 
 %\layout
 
@@ -172,12 +172,12 @@ const int m = n + 1;(*\index{\textbf{const}}*)(*\index{\textbf{int}}*)
 \section{Type casting}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Use \texttt{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}\index{\textbf{static\_cast}}, i.e. types that can be converted into each other:
+\item[$\Rightarrow$] Use \texttt{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}, i.e. types that can be converted into each other:
 \end{enumerate}
 \begin{lstlisting}
 // (*int 15*) to (*double 15.0*)
 double num;(*\index{\textbf{double}}*)
-num = static_cast<double>(15);
+num = static_cast<double>(15);(*\index{\textbf{static\_cast}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Use \texttt{static\_cast} for casting a void pointer to the desired pointer type:
@@ -188,15 +188,15 @@ double num;(*\index{\textbf{double}}*)
 void *p = &num;(*\index{\texttt{void $\ast$}}*) 
 
 // back to (*double*) type
-double *pd = static_cast<double*>(p);(*\index{\textbf{double}}*)
+double *pd = static_cast<double*>(p);(*\index{\textbf{double}}*)(*\index{\textbf{static\_cast}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \texttt{reinterpret\_cast} for casting between unrelated pointer types\index{Casts!\textbf{reinterpret\_cast}}\index{\textbf{reinterpret\_cast}}:
+\item[$\Rightarrow$] Use \texttt{reinterpret\_cast} for casting between unrelated pointer types\index{Casts!\textbf{reinterpret\_cast}}:
 \end{enumerate}
 \begin{lstlisting}
 // reinterprets a (*long*) value as a (*double*) one
 long n = 53;(*\index{\textbf{long}}*)
-double *pd = reinterpret_cast<double *>(&n);(*\index{\textbf{double}}*)
+double *pd = reinterpret_cast<double *>(&n);(*\index{\textbf{double}}*)(*\index{\textbf{reinterpret\_cast}}:*)
 
 // prints out (*2.61855e-322*)
 cout << *pd << endl;
@@ -278,7 +278,7 @@ Callback_type cb;
 \section{Lambda expressions}
 \small
 An unnamed function that can be used where a function is needed as an argument or object.
-It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.\index{\texttt{[ ]}}
+It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.
 \index{Lambda expressions!lambda introducers} 
 \begin{enumerate}
 \item[$\Rightarrow$] Without access to local variables:\index{Lambda expressions!without access to local variables}
@@ -287,7 +287,7 @@ It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.\ind
 // Instantiates a (*Function*) object where the first argument is
 // an unnamed function having one (*double*) parameter (*x*)
 // and returning a (*double*). The return type is inferred
-Function e_gr{[](double x){return exp(x);},{-8.0,8.0},0.001,
+Function e_gr{[](double x){return exp(x);},{-8.0,8.0},0.001,(*\index{\texttt{[ ]}}*)
         {-8.0,8.0},{320,240},400};(*\index{\textbf{double}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -498,7 +498,7 @@ double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\t
 \index{Input-output streams}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Input stream \texttt{cin}\index{\texttt{cin}}, output stream \texttt{cout}\index{\texttt{cout}}, error stream \texttt{cerr}\index{\texttt{cerr}}:
+\item[$\Rightarrow$] Input stream \texttt{cin}\index{\texttt{cin}}, output stream \texttt{cout}\index{\texttt{cout}}, error stream \texttt{cerr}:
 \index{Input-output streams!input stream|see{\texttt{cin}}}
 \index{Input-output streams!output stream|see{\texttt{cout}}}
 \index{Input-output streams!error stream|see{\texttt{cerr}}}
@@ -516,7 +516,7 @@ cin >> number >> ch;(*\index{Input-output streams!reading from the keyboard}*)
 cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to the screen}*)
 
 // write error message on standard error (display)
-cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)
+cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)(*\index{\texttt{cerr}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Integer format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
@@ -607,7 +607,7 @@ cin.unget();(*\index{\texttt{cin}!\texttt{unget}}*)
 \index{Input-output streams!handling of unexpected input}
 \end{enumerate}
 \begin{lstlisting}
-try
+try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
 {
     // check for unexpected input
     char ch;(*\index{\textbf{char}}*)
@@ -620,12 +620,12 @@ try
         cin.clear(ios_base::failbit);(*\index{\texttt{cin}!\texttt{clear}}*)
     
         // throw an exception or deal with failed stream
-        throw runtime_error("Unexpected input");
+        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)
     }
 }
 catch (runtime_error e)(*\index{\textbf{catch}}*)
 {
-    cerr << "Error! " << e.what() << "\n";
+    cerr << "Error! " << e.what() << "\n";(*\index{\texttt{cerr}}*)
             
     // check for failure
     if (cin.fail())
@@ -637,7 +637,7 @@ catch (runtime_error e)(*\index{\textbf{catch}}*)
         string wrong_input;
         cin >> wrong_input;
                     
-        cerr << "Got '" << wrong_input[0] << "'\n";
+        cerr << "Got '" << wrong_input[0] << "'\n";(*\index{\texttt{cerr}}*)
     }
      // End of file (eof) or corrupted state (bad)
     else return 1;
@@ -720,7 +720,7 @@ if ( !in_stream )
 and try to recover somewhere else, e.g. by throwing an exception:
 \end{enumerate}
 \begin{lstlisting}
-try
+try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
 {
     // check for unexpected input(*\index{Files!checking for unexpected input}*)
     char ch;(*\index{\textbf{char}}*)
@@ -733,12 +733,12 @@ try
         in_stream.clear(ios_base::failbit);
     
         // throw an exception or deal with failed stream
-        throw runtime_error("Unexpected input");
+        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)
     }
 }
 catch (runtime_error e)(*\index{\textbf{catch}}*)
 {
-    cerr << "Error! " << e.what() << "\n";
+    cerr << "Error! " << e.what() << "\n";(*\index{\texttt{cerr}}*)
             
     // check for failure
     if (in_stream.fail())
@@ -750,7 +750,7 @@ catch (runtime_error e)(*\index{\textbf{catch}}*)
         string wrong_input;
         in_stream >> wrong_input;
                     
-        cerr << "Got '" << wrong_input[0] << "'\n";
+        cerr << "Got '" << wrong_input[0] << "'\n";(*\index{\texttt{cerr}}*)
     }
     // end-of-file or bad state
     else return 1;
@@ -883,7 +883,7 @@ substring = s4.substr(5,4);(*\index{Strings!\texttt{substr}}*)
 size_t pos;
 pos = s3.find("World");
 if (pos == string::npos)
-    cerr << "Error: String not found!\n";
+    cerr << "Error: String not found!\n";(*\index{\texttt{cerr}}*)
 
 // find starting from position 5
 s3.find("l",5);
@@ -950,16 +950,16 @@ cout << data_stream.str();
 \section{Vectors}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Vectors as supported by the C++ standard library:
+\item[$\Rightarrow$] Vectors\index{Vector} as supported by the C++ standard library:
 \end{enumerate}
 \begin{lstlisting}
 #include <vector>(*\index{<vector>}*)
 
 // vector with base type (*int*)
-vector<int> v = {2, 4, 6, 8};(*\index{Vector!initialised with initialiser list}*)
+vector<int> v = {2, 4, 6, 8};(*\index{Vector!initialised with initialiser list}*)(*\index{Containers!sequential!\texttt{vector}}*)
 
 // vector with 10 elements all initialised to 0
-vector<int> v(10);(*\index{Vector!initialised with all elements to 0}*)
+vector<int> v(10);(*\index{Vector!initialised with all elements to 0}*)(*\index{Containers!sequential!\texttt{vector}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Access:
@@ -1015,9 +1015,9 @@ v.reserve(64);(*\index{Vector!\texttt{reserve}}*)
 \end{enumerate}
 \begin{lstlisting}
 // out of bounds access
-vector<int> v = {2, 4, 6, 8};
+vector<int> v = {2, 4, 6, 8};(*\index{Containers!sequential!\texttt{vector}}*)
 
-try
+try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
 {
     cout << v.at(7);
 } catch (out_of_range e)(*\index{Vector!out of range exception}*)(*\index{\textbf{catch}}*)
@@ -1089,7 +1089,7 @@ public:
     // move assignment
     MyVector& operator=(MyVector&&);
     // virtual destructor
-    virtual ~MyVector() { if (e) delete[] e; }(*\index{Classes!virtual destructor}*)(*\index{\textbf{delete}}*)
+    virtual ~MyVector() { if (e) delete[] e; }(*\index{Classes!virtual destructor}*)(*\index{\textbf{delete}}*)(*\index{\textbf{virtual}}*)
     // subscript operators(*\index{Classes!subscript operator}*)
     // write
     double& operator[](size_t i) { return e[i]; }(*\index{Classes!subscript operator!write}*)(*\index{\textbf{double}}*)
@@ -1171,8 +1171,8 @@ because class members are simply copied\index{Classes!copy assignment}
 MyVector& MyVector::operator=(const MyVector& rv)(*\index{\textbf{const}}*)
 {
     // check for self assignment
-    if (this == &rv)
-        return *this;
+    if (this == &rv)(*\index{\textbf{this}}*)
+        return *this;(*\index{\textbf{this}}*)
     // check if new allocation is needed
     if (rv.n > m)
     {
@@ -1355,11 +1355,11 @@ class Shape : public Widget(*\index{\textbf{class}!\texttt{Shape}}*)
 {
 public:
     // no copy constructor allowed
-    Shape(const Shape&) = delete;(*\index{\textbf{const}}*)
+    Shape(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)
     // no copy assignment allowed
-    Shape& operator=(const Shape&) = delete;(*\index{\textbf{const}}*)
+    Shape& operator=(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)
     // virtual destructor
-    virtual ~Shape() {}
+    virtual ~Shape() {}(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     // overrides Fl_Widget::draw()
     void draw();
     // moves a shape relative to the current
@@ -1375,23 +1375,23 @@ public:
     void set_style(Style_type s, int w);(*\index{\textbf{int}}*)
     Style_type get_style() const { return to_style_type(line_style); }(*\index{\textbf{const}}*)
     void set_font(Font_type f, int s);(*\index{\textbf{int}}*)
-protected:
+protected:(*\index{\textbf{protected}}*)
     // Shape is an abstract class,
     // no instances of Shape can be created!
     Shape() : Widget() {}
     // protected virtual methods to be overridden
     // by derived classes
-    virtual void draw_shape() = 0;
-    virtual void move_shape(int dx, int dy) = 0;(*\index{\textbf{int}}*)
+    virtual void draw_shape() = 0;(*\index{\textbf{virtual}}*)(*\index{\texttt{= 0}}*)
+    virtual void move_shape(int dx, int dy) = 0;(*\index{\textbf{int}}*)(*\index{\textbf{virtual}}*)(*\index{\texttt{= 0}}*)
     // protected setter methods
-    virtual void set_color_shape(Color_type c) {
+    virtual void set_color_shape(Color_type c) {(*\index{\textbf{virtual}}*)
         new_color = to_fl_color(c);
     }
-    virtual void set_color_shape(int c) {(*\index{\textbf{int}}*)
+    virtual void set_color_shape(int c) {(*\index{\textbf{int}}*)(*\index{\textbf{virtual}}*)
         new_color = to_fl_color(c);
     }
-    virtual void set_style_shape(Style_type s, int w);(*\index{\textbf{int}}*)
-    virtual void set_font_shape(Font_type f, int s);(*\index{\textbf{int}}*)
+    virtual void set_style_shape(Style_type s, int w);(*\index{\textbf{int}}*)(*\index{\textbf{virtual}}*)
+    virtual void set_font_shape(Font_type f, int s);(*\index{\textbf{int}}*)(*\index{\textbf{virtual}}*)
     // helper methods for FLTK style and font
     void set_fl_style();
     void restore_fl_style();
@@ -1423,7 +1423,7 @@ class Line : public Shape(*\index{\textbf{class}!\texttt{Line}}*)
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \texttt{= delete}\index{\texttt{= delete}}  syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
+\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \texttt{= delete} syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
 \index{Inheritance!disabling copy constructors and assignment}
 \end{enumerate}
 \begin{lstlisting}
@@ -1431,16 +1431,16 @@ class Shape : public Widget(*\index{\textbf{class}!\texttt{Shape}}*)
 {
 public:
     // no copy constructor allowed
-    Shape(const Shape&) = delete;(*\index{\textbf{const}}*)
+    Shape(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)
     // no copy assignment allowed
-    Shape& operator=(const Shape&) = delete;(*\index{\textbf{const}}*)
+    Shape& operator=(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)
     ...
 };
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Virtual destructor\\ \\ Destructors should be declared \texttt{virtual}. When derived
 objects are referenced by base class pointers, the destructor of the derived class is called if it is declared \texttt{virtual}.
-\index{Inheritance!virtual destructor}\index{\textbf{virtual}}
+\index{Inheritance!virtual destructor}
 \end{enumerate}
 \begin{lstlisting}
 class Shape : public Widget(*\index{\textbf{class}!\texttt{Shape}}*)
@@ -1448,7 +1448,7 @@ class Shape : public Widget(*\index{\textbf{class}!\texttt{Shape}}*)
 public:
     ...
     // virtual destructor
-    virtual ~Shape() {}
+    virtual ~Shape() {}(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     ...
 };
 \end{lstlisting}
@@ -1460,7 +1460,7 @@ public:
 class Shape : public Widget(*\index{\textbf{class}!\texttt{Shape}}*)
 {
     ...
-protected:
+protected:(*\index{\textbf{protected}}*)
     ...
     // Shape is an abstract class
     // no instances of Shape can be created!
@@ -1476,7 +1476,7 @@ protected:
 class Shape : public Widget(*\index{\textbf{class}!\texttt{Shape}}*)
 {
     ...
-protected:
+protected:(*\index{\textbf{protected}}*)
     ...
     // helper methods for FLTK style and font
     void set_fl_style();
@@ -1494,12 +1494,12 @@ protected:
 class Shape : Widget(*\index{\textbf{class}!\texttt{Shape}}*)
 {
     ...
-protected:
+protected:(*\index{\textbf{protected}}*)
     ...
     // protected virtual methods to be overridden by 
     // derived classes
-    virtual void draw_shape() = 0;(*\index{\texttt{= 0}}*)
-    virtual void move_shape(int dx, int dy) = 0;(*\index{\texttt{= 0}}*)(*\index{\textbf{int}}*)
+    virtual void draw_shape() = 0;(*\index{\texttt{= 0}}*)(*\index{\textbf{virtual}}*)
+    virtual void move_shape(int dx, int dy) = 0;(*\index{\texttt{= 0}}*)(*\index{\textbf{int}}*)(*\index{\textbf{virtual}}*)
     ...
 };
 \end{lstlisting}
@@ -1511,13 +1511,13 @@ protected:
 class Shape : Widget(*\index{\textbf{class}!\texttt{Shape}}*)
 {
     ...
-protected:
+protected:(*\index{\textbf{protected}}*)
     ...
     // protected setter methods
-    virtual void set_color_shape(Color_type c) {
+    virtual void set_color_shape(Color_type c) {(*\index{\textbf{virtual}}*)
         new_color = to_fl_color(c);
     }
-    virtual void set_color_shape(int c) {(*\index{\textbf{int}}*)
+    virtual void set_color_shape(int c) {(*\index{\textbf{int}}*)(*\index{\textbf{virtual}}*)
         new_color = to_fl_color(c);
     }
     ...
@@ -1534,10 +1534,10 @@ public:
     Line(pair<Point,Point> line) : l{line} {(*\index{\texttt{pair}}*)
         resize_shape(l.first,l.second);
     }
-    virtual ~Line() {}
+    virtual ~Line() {}(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     pair<Point,Point> get_line() const { return l; }(*\index{\textbf{const}}*)
     void set_line(pair<Point,Point> line) { l = line; }
-protected:
+protected:(*\index{\textbf{protected}}*)
     void draw_shape() {
         fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
     }
@@ -1585,7 +1585,7 @@ class Line : public Shape(*\index{\textbf{class}!\texttt{Line}}*)
 {
 public:
     ...
-protected:
+protected:(*\index{\textbf{protected}}*)
     void draw_shape() {
         fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
     }
@@ -1608,7 +1608,7 @@ public:
     Circle(Point a, int rr) : c{a}, r{rr} {(*\index{\textbf{int}}*)
         resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
     }
-    virtual ~Circle() {}
+    virtual ~Circle() {}(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     Point get_center() const { return c; }(*\index{\textbf{const}}*)
     void set_center(Point p) {
         c = p;
@@ -1619,7 +1619,7 @@ public:
         r = rr;
         resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
     }
-protected:
+protected:(*\index{\textbf{protected}}*)
     void draw_shape() {
         Point tl = get_tl();
         Point br = get_br();
@@ -1687,7 +1687,7 @@ win.draw(c1); // calls (*Circle::draw\_shape()*)
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] The value thrown by
-\texttt{throw}\index{\textbf{throw}} can be of any type.
+\texttt{throw} can be of any type.
 \end{enumerate}
 \begin{lstlisting}
 // exception class
@@ -1695,20 +1695,20 @@ class My_exception(*\index{\textbf{class}!\texttt{My\_exception}}*)
 {
 public:
     My_exception(string s);
-    virtual ~My_exception();
+    virtual ~My_exception();(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     friend ostream& operator<<(ostream& os, const My_exception& e);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)
-protected:
+protected:(*\index{\textbf{protected}}*)
     string msg;
 };
 
 try(*\index{Exceptions!\textbf{try-catch}}\index{\textbf{try}}*)
 {
-    throw My_exception("error");
+    throw My_exception("error");(*\index{\textbf{throw}}*)
 }
 catch (My_exception& e)(*\index{\textbf{catch}}*)
 {
     // error stream
-    cerr << e;
+    cerr << e;(*\index{\texttt{cerr}}*)
 }
 // everything else
 catch (...)(*\index{\textbf{catch}}*)
@@ -1721,14 +1721,14 @@ catch (...)(*\index{\textbf{catch}}*)
 thrown when runtime errors occur:
 \end{enumerate}
 \begin{lstlisting}
-try
+try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
 {
-    throw runtime_error("unexpected result!");
+    throw runtime_error("unexpected result!");(*\index{\textbf{throw}}*)
 }
 catch (runtime_error& e)(*\index{\textbf{catch}}*)
 {
     // error stream
-    cerr << "runtime error: " << e.what() << "\n";
+    cerr << "runtime error: " << e.what() << "\n";(*\index{\texttt{cerr}}*)
     return 1;
 }
 \end{lstlisting}
@@ -1741,11 +1741,11 @@ caught by the function itself!
 // exceptions of type (*DivideByZero*) or (*OtherException*) are(*\index{Exceptions!\texttt{DivideByZero}}\index{Exceptions!\texttt{OtherException}}*)
 // to be caught outside the function. All other exceptions 
 // end the program if not caught inside the function.
-void my_function( ) throw (DivideByZero, OtherException);
+void my_function( ) throw (DivideByZero, OtherException);(*\index{\textbf{throw}}*)
 
 // empty exception list, i.e. all exceptions end the
 // program if thrown but not caught inside the function.
-void my_function( ) throw ( );
+void my_function( ) throw ( );(*\index{\textbf{throw}}*)
 
 // all exceptions of all types treated normally.
 void my_function( );
@@ -1761,7 +1761,7 @@ void my_function(void)
     void *p;
     socket *s;
     
-    try
+    try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
     {
         /* code that acquires some resource (memory, socket, etc.) */
         /* and might throw an exception */
@@ -1772,7 +1772,7 @@ void my_function(void)
         delete p;      /* free memory */(*\index{\textbf{delete}}*)
         s.release();  /* release socket */  
         /* re-throw because function didn't succeed */
-        throw()
+        throw()(*\index{\textbf{throw}}*)
     }    
 }
 \end{lstlisting}
@@ -1788,7 +1788,7 @@ template definition in the header file directly!
 \end{enumerate}
 \begin{lstlisting}
 // generic swap function
-template<class T>\index{\textbf{template}}
+template<class T>(*\index{\textbf{template}}*)
 void swap(T& a, T& b)
 {
     T temp = a;
@@ -1811,7 +1811,7 @@ swap(c, d);
 \index{Templates!class}\index{Templates!type generator}
 \end{enumerate}
 \begin{lstlisting}
-template<class T>
+template<class T>(*\index{\textbf{template}}*)
 class MyVector(*\index{\textbf{class}!\texttt{MyVector}}*)
 {
 public:
@@ -1831,7 +1831,7 @@ public:
     // move assignment
     MyVector& operator=(MyVector&&);
     // virtual destructor
-    virtual ~MyVector() { if (e) delete[] e; }(*\index{\textbf{delete}}*)
+    virtual ~MyVector() { if (e) delete[] e; }(*\index{\textbf{delete}}*)(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     // subscript operators
     // write
     T& operator[](size_t i) { return e[i]; }
@@ -1862,8 +1862,8 @@ template<class T>(*\index{\textbf{template}}*)
 MyVector<T>& MyVector<T>::operator=(const MyVector<T>& rv)(*\index{\textbf{class}!\texttt{MyVector<T>}}*)(*\index{\textbf{const}}*)
 {
     // check for self assignment
-    if (this == &rv)
-        return *this;
+    if (this == &rv)(*\index{\textbf{this}}*)
+        return *this;(*\index{\textbf{this}}*)
     // check if new allocation is needed
     if (rv.n > m)
     {
@@ -1874,7 +1874,7 @@ MyVector<T>& MyVector<T>::operator=(const MyVector<T>& rv)(*\index{\textbf{class
     // copy the values
     copy(rv.e,rv.e+rv.n,e);
     n = rv.n;
-    return *this;
+    return *this;(*\index{\textbf{this}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
@@ -1897,7 +1897,7 @@ MyVector<double> func()
 \end{enumerate}
 \begin{lstlisting}
 // Wrapper class for an array 
-template<class T,size_t N>
+template<class T,size_t N>(*\index{\textbf{template}}*)
 class Wrapper(*\index{\textbf{class}!\texttt{Wrapper}}*)
 {
 public:
@@ -1921,7 +1921,7 @@ Wrapper<char,3> array;
 // Usage of an allocator as a class template parameter
 // Generalises (*\texttt{MyVector}*) for data types without a default constructor
 // and with customised memory management
-template<class T, class A=allocator<T>>(*\index{\texttt{allocator}}*)
+template<class T, class A=allocator<T>>(*\index{\texttt{allocator}}*)(*\index{\textbf{template}}*)
 class MyVector(*\index{\textbf{class}!\texttt{MyVector<T,A>}}*)
 {
 public:
@@ -1941,7 +1941,7 @@ public:
     // move assignment
     MyVector& operator=(MyVector&&);
     // virtual destructor
-    virtual ~MyVector();
+    virtual ~MyVector();(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     // subscript operators
     // write
     T& operator[](size_t i) { return e[i]; }
@@ -1965,7 +1965,7 @@ private:
 };
 
 // reserve
-template<class T,class A>
+template<class T,class A>(*\index{\textbf{template}}*)
 void MyVector<T,A>::reserve(size_t new_m)
 {
     if (new_m <= m)
@@ -1990,7 +1990,7 @@ void MyVector<T,A>::reserve(size_t new_m)
 \end{enumerate}
 \begin{lstlisting}
 // Note the declaration of the template friend operator.
-template<class T>
+template<class T>(*\index{\textbf{template}}*)
 class A_list(*\index{\textbf{class}!\texttt{A\_list}}*)
 {
     // constructor with size of the list
@@ -2002,7 +2002,7 @@ class A_list(*\index{\textbf{class}!\texttt{A\_list}}*)
     // assignment operator
     A_list<T>& operator=(const A_list<T>& b);(*\index{\textbf{const}}*)
     // friend insertion operator
-    template <class TT>
+    template <class TT>(*\index{\textbf{template}}*)
     friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)
 private:
     T *p;
@@ -2021,7 +2021,7 @@ different iterators.\index{Iterators}
 \begin{lstlisting}
 #include <vector>(*\index{<vector>}*)
 
-vector<int> v = {1,2,3,4,5};
+vector<int> v = {1,2,3,4,5};(*\index{Containers!sequential!\texttt{vector}}*)
 // mutable iterator
 vector<int>::iterator e;(*\index{\texttt{iterator}}*)(*\index{Iterators!\texttt{iterator}}*)
 
@@ -2071,7 +2071,7 @@ for (auto r = v.rbegin(); r != v.rend(); r++)(*\index{\texttt{reverse\_iterator}
 #include <algorithm>(*\index{<algorithm>}*)
 
 // node of the linked list
-template <class T>
+template <class T>(*\index{\textbf{template}}*)
 class LListNode(*\index{\textbf{class}!\texttt{LListNode<T>}}*)
 {
 public:
@@ -2090,18 +2090,18 @@ private:
 };
 
 // linked list declaration
-template <class T>
+template <class T>(*\index{\textbf{template}}*)
 class LList(*\index{\textbf{class}!\texttt{LList<T>}}*)
 {
 public:
     // default constructor
     LList() : head(nullptr) {};(*\index{\textbf{nullptr}}*)
     // copy constructor
-    LList(const LList<T>& rhs) { *this = rhs; };
+    LList(const LList<T>& rhs) { *this = rhs; };(*\index{\textbf{this}}*)
     // assignment operator
     LList<T>& operator=(const LList<T>& rhs);(*\index{\textbf{const}}*)
     // virtual destructor
-    virtual ~LList() { clear(); };
+    virtual ~LList() { clear(); };(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     // clear (free) the list
     void clear();
     // get head
@@ -2137,13 +2137,13 @@ private:
 };
 
 // iterator class for the linked list
-template <class T>
+template <class T>(*\index{\textbf{template}}*)
 class LList<T>::iterator
 {
 public:
     iterator(LListNode<T>* p) : curr{p} {}
     // prefix increment, returns a reference!(*\index{Operator overloading!prefix increment ++}*)
-    iterator& operator++() { curr = curr->next; return *this; }
+    iterator& operator++() { curr = curr->next; return *this; }(*\index{\textbf{this}}*)
     T& operator*() const { return curr->data; }(*\index{\textbf{const}}*)
     bool operator==(const iterator& b) const { return curr == b.curr; }(*\index{\textbf{const}}*)
     bool operator!=(const iterator& b) const { return curr != b.curr; }(*\index{\textbf{const}}*)
@@ -2187,7 +2187,7 @@ cout << "data_list = " << data_list << endl;
 \section{Containers}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Sequential containers: \texttt{list}\index{Containers!sequential!\texttt{list}}\index{Containers!sequential!\texttt{vector}|see{Vector}}
+\item[$\Rightarrow$] Sequential containers: \texttt{list}\index{Containers!sequential!\texttt{list}}\index{Containers!sequential!\texttt{vector}}
 \end{enumerate}
 \begin{lstlisting}
 #include <list>(*\index{<list>}*)
@@ -2288,6 +2288,8 @@ two = dict.find("two");(*\index{Containers!\texttt{find}}*)
 dict.erase(two);(*\index{Containers!\texttt{erase}}*)
 
 // rang-for-loop(*\index{range-for-loop}*)
+// inside the loop (*n*) is a (*pair*)
+// the key is (*n.first*) and the value is (*n.second*)
 for (auto n : dict)(*\index{\textbf{auto}}*)
     cout << "(" <<  n.first << "," <<  n.second << ")" << endl;
 \end{lstlisting}
@@ -2305,7 +2307,7 @@ for (auto n : dict)(*\index{\textbf{auto}}*)
 #include <numeric>(*\index{<numeric>}*)
 #include <functional>(*\index{<functional>}*)
 
-vector<int> v = {6,2,7,13,4,3,1};
+vector<int> v = {6,2,7,13,4,3,1};(*\index{\texttt{vector}|see{Containers}}*)(*\index{Containers!sequential!\texttt{vector}}*)
 vector<int>::iterator p;
 
 // (*find*)(*\index{Algorithms!\texttt{find}}*)
@@ -2337,11 +2339,17 @@ p = find_if(v.begin(),v.end(),Test_greater(7));
 // adds the values from a sequence
 // the last parameter is the initial value
 // the return type is the type of the initial value!
-long sl = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{accumulate}}*)(*\index{\textbf{long}}*)
+long res = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{accumulate}}*)(*\index{\textbf{long}}*)
 
-// generic accumulate performing multiplication instead of sum
+// generic accumulate performing multiplication instead of sum(*\index{Algorithms!generic \texttt{accumulate}}*)
 // passes a function object (*multiplies<int>()*) defined in (*<functional>*)(*\index{\texttt{multiplies<int>()}}*)
-double prod = accumulate(v.begin(),v.end(),1.0,multiplies<int>());(*\index{\textbf{double}}*)
+double res = accumulate(v.begin(),v.end(),1.0,multiplies<int>());(*\index{\textbf{double}}*)
+
+// (*inner product*)
+vector<int> v1 = {-2,2,4,11,-4,3,1};(*\index{Containers!sequential!\texttt{vector}}*)
+vector<int> v2 = {4,2,4,18,5,3,1,7,9,};(*\index{Containers!sequential!\texttt{vector}}*)
+
+long res = inner_product(v1.begin(), v1.end(), v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\textbf{long}}*)
 
 // merge sort
 sort(v.begin(),v.end());
