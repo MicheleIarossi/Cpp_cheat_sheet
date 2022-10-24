@@ -121,9 +121,8 @@
 
 \noindent
 In the following code snippets, the standard I/O library and namespace are always used:
-\index{<iostream>}
 \begin{lstlisting}
-#include <iostream>(*\index{<iostream>}*)
+#include <iostream>(*\index{\texttt{<iostream>}}*)
 using namespace std;(*\index{\texttt{std}}*)(*\index{\textbf{namespace}}*)
 \end{lstlisting}
 
@@ -199,7 +198,7 @@ long n = 53;(*\index{\textbf{long}}*)
 double *pd = reinterpret_cast<double *>(&n);(*\index{\textbf{double}}*)(*\index{\textbf{reinterpret\_cast}}:*)
 
 // prints out (*2.61855e-322*)
-cout << *pd << endl;
+cout << *pd << endl;(*\index{\texttt{cout}}*)
 
 \end{lstlisting}
 %
@@ -311,18 +310,18 @@ Function ee_gr{[n](double x){return expe(x,n);},{-8.0,8.0},0.001,
 \end{enumerate}
 \begin{lstlisting}
 // use (*string*) instead of (*std::string*)
-using std::string;
+using std::string;(*\index{\texttt{std}}*)(*\index{Strings!\texttt{string}}*)
 
 // use (*cin*), (*cout*) instead of (*std::cin*), (*std::cout*)
-using std::cin;(*\index{\texttt{cin}}*)
-using std::cout;(*\index{\texttt{cout}}*)
+using std::cin;(*\index{\texttt{cin}}*)(*\index{\texttt{std}}*)
+using std::cout;(*\index{\texttt{cout}}*)(*\index{\texttt{std}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{using namespace}\index{\textbf{namespace}}\index{\textbf{using}!directive} directives for including the whole namespace:
 \index{Namespaces!\textbf{using namespace} directives}
 \end{enumerate}
 \begin{lstlisting}
-using namespace std;(*\index{\textbf{namespace}}*)
+using namespace std;(*\index{\textbf{namespace}}*)(*\index{\texttt{std}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] An \emph{alias} is a symbolic name that means exactly the same as what it refers to\index{\textbf{using}!alias}:
@@ -330,7 +329,7 @@ using namespace std;(*\index{\textbf{namespace}}*)
 \end{enumerate}
 \begin{lstlisting}
 using value_type = int; // (*value\_type*) means (*int*)
-using pchar = char*; // (*pchar*) means (*char$\ast$*)    
+using pchar = char*; // (*pchar*) means (*char$\ast$*)(*\index{\textbf{char}}*)
 \end{lstlisting}
 %
 % Random numbers
@@ -338,11 +337,11 @@ using pchar = char*; // (*pchar*) means (*char$\ast$*)
 \section{Random numbers}
 \small
 \begin{lstlisting}
-#include <cstdlib>(*\index{<cstdlib>}*)
-#include <ctime>(*\index{<ctime>}*)
+#include <cstdlib>(*\index{\texttt{<cstdlib>}}*)
+#include <ctime>(*\index{\texttt{<ctime>}}*)
 
 // seed the generator(*\index{Random numbers!seed the generator}*)
-srand( time(0) );(*\index{\texttt{srand}}*)
+srand( time(0) );(*\index{\texttt{srand}}*)(*\index{\texttt{time}}*)
 
 // integer random number between (*0*) and (*RAND\_MAX*) (*\index{Random numbers!integer random number}*)
 int n = rand();(*\index{\texttt{rand}}*)(*\index{\textbf{int}}*)
@@ -368,7 +367,7 @@ for (int& x : arr)(*\index{\textbf{int}}*)
 // elements in the container because it knows the type
 // already
 for (auto x : arr)(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
-  cout << x;(*\index{Arrays!printing elements of an array}*)
+  cout << x;(*\index{Arrays!printing elements of an array}*)(*\index{\texttt{cout}}*)
 \end{lstlisting}
 %
 % Pointers
@@ -424,16 +423,16 @@ for (int i=0; i<5; i++)(*\index{\textbf{int}}*)
 delete[] m;(*\index{\textbf{delete}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{unique\_ptr}:\index{Pointers!\texttt{unique\_ptr}}\index{\texttt{unique\_ptr}}
+\item[$\Rightarrow$] \texttt{unique\_ptr}:\index{Pointers!\texttt{unique\_ptr}}
 Holds ownership of a dynamic object according to RAII, i.e. resource acquisition is initialisation\index{Pointers!RAII}. It will 
 automatically destroy the object if needed.
 \end{enumerate}
 \begin{lstlisting}
-#include <memory>(*\index{<memory>}*)
+#include <memory>(*\index{\texttt{<memory>}}*)
 
 MyVector<int>* my_function()
 {
-    unique_ptr<MyVector<int>*> p { new MyVector<int>};(*\index{\textbf{new}}*)
+    unique_ptr<MyVector<int>*> p { new MyVector<int>};(*\index{\textbf{new}}*)(*\index{\texttt{unique\_ptr}}*)
     /* ... */
     /* if something goes wrong, deletes the object */
    /* ... */   
@@ -450,8 +449,8 @@ MyVector<int>* my_function()
 \item[$\Rightarrow$] Legacy strings from C:
 \end{enumerate}
 \begin{lstlisting}
-#include <cstring>(*\index{<cstring>}*)
-#include <cstdlib>(*\index{<cstdlib>}*)
+#include <cstring>(*\index{\texttt{<cstring>}}*)
+#include <cstdlib>(*\index{\texttt{<cstdlib>}}*)
 
 // (*C-string*) for max (*10*) characters(*\index{C-Strings!definition}*)
 // long string + null char '\0'
@@ -498,7 +497,7 @@ double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\t
 \index{Input-output streams}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Input stream \texttt{cin}\index{\texttt{cin}}, output stream \texttt{cout}\index{\texttt{cout}}, error stream \texttt{cerr}:
+\item[$\Rightarrow$] Input stream \texttt{cin}, output stream \texttt{cout}, error stream \texttt{cerr}:
 \index{Input-output streams!input stream|see{\texttt{cin}}}
 \index{Input-output streams!output stream|see{\texttt{cout}}}
 \index{Input-output streams!error stream|see{\texttt{cerr}}}
@@ -510,10 +509,10 @@ char ch;(*\index{\textbf{char}}*)
 // read a number followed by a character
 // from standard input (keyboard)
 // (ignores whitespaces, newlines, etc.)
-cin >> number >> ch;(*\index{Input-output streams!reading from the keyboard}*)
+cin >> number >> ch;(*\index{Input-output streams!reading from the keyboard}*)(*\index{\texttt{cin}}*)
 
 // write on standard output (display)
-cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to the screen}*)
+cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to the screen}*)(*\index{\texttt{cout}}*)
 
 // write error message on standard error (display)
 cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)(*\index{\texttt{cerr}}*)
@@ -523,53 +522,53 @@ cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to 
 \index{Input-output streams!integer format manipulators}
 \end{enumerate}
 \begin{lstlisting}
-#include <iomanip>(*\index{<iomanip>}*)
+#include <iomanip>(*\index{\texttt{<iomanip>}}*)
 
 // set decimal, octal, or hexadecimal notation,
 // and show the base, i.e. (*0*) for octal and (*0x*) for hexadecimal
-cout << showbase;(*\index{Input-output streams!integer format manipulators!show the base}*)
-cout << dec << 1974 << endl;(*\index{Input-output streams!integer format manipulators!decimal}*)
-cout << oct << 1974 << endl;(*\index{Input-output streams!integer format manipulators!otctal}*)
-cout << hex << 1974 << endl;(*\index{Input-output streams!integer format manipulators!hexadecimal}*)
-cout << noshowbase;(*\index{Input-output streams!integer format manipulators!don't show the base}*)
+cout << showbase;(*\index{Input-output streams!integer format manipulators!show the base}*)(*\index{\texttt{cout}}*)(*\index{\texttt{cout}!\texttt{showbase}}*)
+cout << dec << 1974 << endl;(*\index{Input-output streams!integer format manipulators!decimal}*)(*\index{\texttt{cout}!\texttt{dec}}*)
+cout << oct << 1974 << endl;(*\index{Input-output streams!integer format manipulators!otctal}*)(*\index{\texttt{cout}!\texttt{oct}}*)
+cout << hex << 1974 << endl;(*\index{Input-output streams!integer format manipulators!hexadecimal}*)(*\index{\texttt{cout}!\texttt{hex}}*)
+cout << noshowbase;(*\index{Input-output streams!integer format manipulators!don't show the base}*)(*\index{\texttt{cout}!\texttt{noshowbase}}*)
 
 // values can be read from input in decimal, octal(*\index{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}*)
 // or hexadecimal format previous unsetting
 // of all the flags
-cin.unsetf(ios::dec);(*\index{\texttt{cin}!\texttt{unset}}*)
-cin.unsetf(ios::oct);
-cin.unsetf(ios::hex);
+cin.unsetf(ios::dec);(*\index{\texttt{cin}!\texttt{unset}}*)(*\index{\texttt{cin}!\texttt{unset}!\texttt{ios::dec}}*)
+cin.unsetf(ios::oct);(*\index{\texttt{cin}!\texttt{unset}!\texttt{ios::oct}}*)
+cin.unsetf(ios::hex);(*\index{\texttt{cin}!\texttt{unset}!\texttt{ios::hex}}*)
 
 //  now (*val*) can be inserted in any format
-cin >> val;
+cin >> val;(*\index{\texttt{cin}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Floating point format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
 \index{Input-output streams!floating point format manipulators}
 \end{enumerate}
 \begin{lstlisting}
-#include <iomanip>(*\index{<iomanip>}*)
+#include <iomanip>(*\index{\texttt{<iomanip>}}*)
 
 // set default, fixed, or scientific notation
-cout << defaultfloat << 1023.984;(*\index{Input-output streams!floating point format manipulators!default float notation}*)
-cout << fixed << 1023.984;(*\index{Input-output streams!floating point format manipulators!fixed notation}*)
-cout << scientific << 1023.984;(*\index{Input-output streams!floating point format manipulators!scientific notation}*)
+cout << defaultfloat << 1023.984;(*\index{Input-output streams!floating point format manipulators!default float notation}*)(*\index{\texttt{cout}!\texttt{defaultfloat}}*)
+cout << fixed << 1023.984;(*\index{Input-output streams!floating point format manipulators!fixed notation}*)(*\index{\texttt{cout}!\texttt{fixed}}*)
+cout << scientific << 1023.984;(*\index{Input-output streams!floating point format manipulators!scientific notation}*)(*\index{\texttt{cout}!\texttt{scientific}}*)
 
 // set precision
-cout << setprecision(2) << 1023.984;(*\index{Input-output streams!floating point format manipulators!precision}*)
+cout << setprecision(2) << 1023.984;(*\index{Input-output streams!floating point format manipulators!precision}*)(*\index{\texttt{cout}!\texttt{setprecision}}*)
 
 // set character text width
-cout << setw(10);(*\index{Input-output streams!floating point format manipulators! text width}*)
+cout << setw(10);(*\index{Input-output streams!floating point format manipulators! text width}*)(*\index{\texttt{cout}!\texttt{setw}}*)
 
 // set left or right alignment
-cout << left  << 1023.984;(*\index{Input-output streams!floating point format manipulators!left aligned }*)
-cout << right << 1023.984;(*\index{Input-output streams!floating point format manipulators!right aligned}*)
+cout << left  << 1023.984;(*\index{Input-output streams!floating point format manipulators!left aligned }*)(*\index{\texttt{cout}!\texttt{left}}*)
+cout << right << 1023.984;(*\index{Input-output streams!floating point format manipulators!right aligned}*)(*\index{\texttt{cout}!\texttt{right}}*)
 
 // always show decimal point and zeros
-cout << showpoint << 0.532;(*\index{Input-output streams!floating point format manipulators!always show decimal point}*)
+cout << showpoint << 0.532;(*\index{Input-output streams!floating point format manipulators!always show decimal point}*)(*\index{\texttt{cout}!\texttt{showpoint}}*)
 
 // always show plus sign
-cout << showpos << 3.64;(*\index{Input-output streams!floating point format manipulators!always show plus sign}*)
+cout << showpos << 3.64;(*\index{Input-output streams!floating point format manipulators!always show plus sign}*)(*\index{\texttt{cout}!\texttt{showpos}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Single characters read and write:
@@ -583,7 +582,7 @@ cin.get(nextChar);(*\index{\texttt{cin}!\texttt{get}}*)
 // loop for keeping reading
 // stops when end of line control character (control-d)(*\index{end of line control character}*)
 // is inserted
-while ( cin.get(nextChar) )
+while ( cin.get(nextChar) )(*\index{\texttt{cin}!\texttt{get}}*)
 {
     // process character
 }
@@ -607,14 +606,14 @@ cin.unget();(*\index{\texttt{cin}!\texttt{unget}}*)
 \index{Input-output streams!handling of unexpected input}
 \end{enumerate}
 \begin{lstlisting}
-try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
+try(*\index{\textbf{try-catch}}*)(*\index{Exceptions!\textbf{try-catch}}*)
 {
     // check for unexpected input
     char ch;(*\index{\textbf{char}}*)
-    if ( cin >> ch && ch != expected_char )
+    if ( cin >> ch && ch != expected_char )(*\index{\texttt{cin}}*)
     {
         // put back last character read
-        cin.unget();
+        cin.unget();(*\index{\texttt{cin}!\texttt{unget}}*)
         
         // set failed bit(*\index{Input-output streams!handling of unexpected input!setting explicitly the failure bit}*)
         cin.clear(ios_base::failbit);(*\index{\texttt{cin}!\texttt{clear}}*)
@@ -623,19 +622,19 @@ try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
         throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)
     }
 }
-catch (runtime_error e)(*\index{\textbf{catch}}*)
+catch (runtime_error e)
 {
     cerr << "Error! " << e.what() << "\n";(*\index{\texttt{cerr}}*)
             
     // check for failure
-    if (cin.fail())
+    if (cin.fail())(*\index{\texttt{cin}!\texttt{fail}}*)
     {
         // clear failed bit(*\index{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}*)
-        cin.clear();
+        cin.clear();(*\index{\texttt{cin}!\texttt{clear}}*)
                 
         // read wrong input
-        string wrong_input;
-        cin >> wrong_input;
+        string wrong_input;(*\index{Strings!\texttt{string}}*)
+        cin >> wrong_input;(*\index{\texttt{cin}}*)
                     
         cerr << "Got '" << wrong_input[0] << "'\n";(*\index{\texttt{cerr}}*)
     }
@@ -650,35 +649,35 @@ catch (runtime_error e)(*\index{\textbf{catch}}*)
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] Accessed by means of \texttt{ifstream} (input) or
-\texttt{ofstream} (output) objects:\index{\texttt{ifstream}}\index{\texttt{ofstream}}
+\texttt{ofstream} (output) objects:
 \end{enumerate}
 \begin{lstlisting}
-#include <fstream>(*\index{<fstream>}*)
+#include <fstream>(*\index{\texttt{<fstream>}}*)
 
 // open input file(*\index{Files!opening as input}*)
-ifstream in_stream {"infile.dat"};
+ifstream in_stream {"infile.dat"};(*\index{\texttt{ifstream}}*)
 // open output file(*\index{Files!opening as output}*)
-ofstream out_stream {"outfile.dat"};
+ofstream out_stream {"outfile.dat"};(*\index{\texttt{ofstream}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Accessed both in input and output mode by means of \texttt{fstream}\index{\texttt{fstream}} objects (not recommended):
 \end{enumerate}
 \begin{lstlisting}
-#include <fstream>(*\index{<fstream>}*)
+#include <fstream>(*\index{\texttt{<fstream>}}*)
 
 // open file in both input and output mode(*\index{Files!opening both as input and output}*)
-fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};
+fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};(*\index{\texttt{fstream}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Opened explicitly (not recommended):
 \end{enumerate}
 \begin{lstlisting}
-#include <fstream>(*\index{<fstream>}*)
+#include <fstream>(*\index{\texttt{<fstream>}}*)
 
 // input file 
-ifstream in_stream;
+ifstream in_stream;(*\index{\texttt{ifstream}}*)
 // output file
-ofstream out_stream;
+ofstream out_stream;(*\index{\texttt{ofstream}}*)
 
 // open files(*\index{Files!opening explicitly}*)
 in_stream.open("infile.dat");
@@ -710,7 +709,7 @@ if ( !in_stream )
         in_stream.clear();(*\index{Files!checking for failure!setting back to good state}*)
         
         // read again
-        string wrong_input;
+        string wrong_input;(*\index{Strings!\texttt{string}}*)
         in_stream >> wrong_input;
     }
 }
@@ -720,7 +719,7 @@ if ( !in_stream )
 and try to recover somewhere else, e.g. by throwing an exception:
 \end{enumerate}
 \begin{lstlisting}
-try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
+try(*\index{\textbf{try-catch}}*)(*\index{Exceptions!\textbf{try-catch}}*)
 {
     // check for unexpected input(*\index{Files!checking for unexpected input}*)
     char ch;(*\index{\textbf{char}}*)
@@ -736,7 +735,7 @@ try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
         throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)
     }
 }
-catch (runtime_error e)(*\index{\textbf{catch}}*)
+catch (runtime_error e)
 {
     cerr << "Error! " << e.what() << "\n";(*\index{\texttt{cerr}}*)
             
@@ -747,7 +746,7 @@ catch (runtime_error e)(*\index{\textbf{catch}}*)
         in_stream.clear();
                 
         // read wrong input
-        string wrong_input;
+        string wrong_input;(*\index{Strings!\texttt{string}}*)
         in_stream >> wrong_input;
                     
         cerr << "Got '" << wrong_input[0] << "'\n";(*\index{\texttt{cerr}}*)
@@ -768,7 +767,7 @@ out_stream << data1 << data2;
 \item[$\Rightarrow$] Read a line:
 \end{enumerate}
 \begin{lstlisting}
-string line;
+string line;(*\index{Strings!\texttt{string}}*)
 getline(in_stream, line);(*\index{Files!reading a line}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -799,7 +798,7 @@ while ( in_stream >> next )(*\index{Files!loop for reading all the input}*)
 
 // check the EOF flag
 if ( in_stream.eof() )
-    cout << "EOF reached!" << endl;
+    cout << "EOF reached!" << endl;(*\index{\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] When a file object gets out of scope, the file is closed automatically, but explicit
@@ -819,28 +818,28 @@ out_stream.close()
 \item[$\Rightarrow$] Strings as supported by the C++ standard library:
 \end{enumerate}
 \begin{lstlisting}
-#include <string>(*\index{<string>}*)
+#include <string>(*\index{\texttt{<string>}}*)
 
 // initialization(*\index{Strings!initialisation}*)
-string s1 = "Hello";
-string s2("World");
-string s3{"World"};
-string s4{string(5,'*')}; // "*****"
+string s1 = "Hello";(*\index{Strings!\texttt{string}}*)
+string s2("World");(*\index{Strings!\texttt{string}}*)
+string s3{"World"};(*\index{Strings!\texttt{string}}*)
+string s4{string(5,'*')}; // "*****"(*\index{Strings!\texttt{string}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Concatenation:
 \end{enumerate}
 \begin{lstlisting}
 // concatenation(*\index{Strings!concatenation}*)
-string s3 = s1 + ", " + s2;
+string s3 = s1 + ", " + s2;(*\index{Strings!\texttt{string}}*)(*\index{Strings!\texttt{+}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Read a line:
 \end{enumerate}
 \begin{lstlisting}
 // read a line(*\index{Strings!reading a line}*)
-string line;
-getline(cin,line);
+string line;(*\index{Strings!\texttt{string}}*)
+getline(cin,line);(*\index{\texttt{cin}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Access to a character:
@@ -850,22 +849,22 @@ getline(cin,line);
 s1[i];
 
 // access to the ith character (with illegal index checking)(*\index{Strings!access to character!with illegal index checking}*)
-s1.at(i);
+s1.at(i);(*\index{Strings!\texttt{at}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Append:
 \end{enumerate}
 \begin{lstlisting}
-// append(*\index{Strings!\texttt{append}}*)
-s1.append(s2);
+// append
+s1.append(s2);(*\index{Strings!\texttt{append}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Size and length:
 \end{enumerate}
 \begin{lstlisting}
-// size and length(*\index{Strings!\texttt{size} and \texttt{length}}*)
-s1.size();
-s1.length();
+// size and length
+s1.size();(*\index{Strings!\texttt{size}}*)
+s1.length();(*\index{Strings!\texttt{length}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Substring:
@@ -879,14 +878,14 @@ substring = s4.substr(5,4);(*\index{Strings!\texttt{substr}}*)
 \item[$\Rightarrow$] Find:
 \end{enumerate}
 \begin{lstlisting}
-// find (returns string::npos if not found)(*\index{Strings!\texttt{find}}*)
-size_t pos;
-pos = s3.find("World");
+// find (returns string::npos if not found)
+size_t pos;(*\index{\texttt{size\_t}}*)
+pos = s3.find("World");(*\index{Strings!\texttt{find}}*)
 if (pos == string::npos)
     cerr << "Error: String not found!\n";(*\index{\texttt{cerr}}*)
 
 // find starting from position 5
-s3.find("l",5);
+s3.find("l",5);(*\index{Strings!\texttt{find}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] C-string:
@@ -905,7 +904,7 @@ long   n = stol("1234567");(*\index{Strings!from string to!long integer}*)(*\ind
 double n = stod("12.345");(*\index{Strings!from string to!double}*)(*\index{\texttt{stod}}*)(*\index{\textbf{double}}*)
 
 // from numeric type to (*string*)(*\index{Strings!from numeric type to string}*)
-string s = to_string(123.456);(*\index{\texttt{to\_string}}*)
+string s = to_string(123.456);(*\index{\texttt{to\_string}}*)(*\index{Strings!\texttt{string}}*)
 \end{lstlisting}
 %
 % String streams
@@ -914,27 +913,27 @@ string s = to_string(123.456);(*\index{\texttt{to\_string}}*)
 \small
 A string is used as a source for an input stream or as a target for an output stream. \\
 \begin{enumerate}
-\item[$\Rightarrow$] Input string stream: \texttt{istringstream}\index{\texttt{istringstream}}
+\item[$\Rightarrow$] Input string stream: \texttt{istringstream}
 \end{enumerate}
 \begin{lstlisting}
-#include <sstream>(*\index{<sstream>}*)
+#include <sstream>(*\index{\texttt{<sstream>}}*)
 
 // input string stream(*\index{String streams!input string stream}*)
-istringstream data_stream{"1.234 -5643.32"};
+istringstream data_stream{"1.234 -5643.32"};(*\index{\texttt{istringstream}}*)
 
 // read numbers from data stream(*\index{String streams!read numbers from data stream}*)
 double val;(*\index{\textbf{double}}*)
 while ( is >> val )
-    cout << val << endl;
+    cout << val << endl;(*\index{\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Output string stream: \texttt{ostringstream}\index{\texttt{ostringstream}}
+\item[$\Rightarrow$] Output string stream: \texttt{ostringstream}
 \end{enumerate}
 \begin{lstlisting}
-#include <sstream>
+#include <sstream>(*\index{\texttt{<sstream>}}*)
 
 // output string stream(*\index{String streams!output string stream}*)
-ostringstream data_stream;
+ostringstream data_stream;(*\index{\texttt{ostringstream}}*)
 
 // the same manipulators of input-output streams
 // can be used(*\index{String streams!manipulators|see{Input-output streams!integer format manipulators}}*)(*\index{String streams!manipulators|see{Input-output streams!floating format manipulators}}*)
@@ -942,7 +941,7 @@ data_stream << fixed << setprecision(2) << showpos;
 data_stream << 6.432 << " " << -313.2134 << "\n";
 
 // the (*str()*) method returns the string in the stream(*\index{String streams!return the string in the stream}*)
-cout << data_stream.str();
+cout << data_stream.str();(*\index{\texttt{cout}}*)
 \end{lstlisting}
 %
 % Vectors
@@ -950,33 +949,33 @@ cout << data_stream.str();
 \section{Vectors}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Vectors\index{Vector} as supported by the C++ standard library:
+\item[$\Rightarrow$] Vectors\index{Vectors} as supported by the C++ standard library:
 \end{enumerate}
 \begin{lstlisting}
-#include <vector>(*\index{<vector>}*)
+#include <vector>(*\index{\texttt{<vector>}}*)
 
 // vector with base type (*int*)
-vector<int> v = {2, 4, 6, 8};(*\index{Vector!initialised with initialiser list}*)(*\index{Containers!sequential!\texttt{vector}}*)
+vector<int> v = {2, 4, 6, 8};(*\index{Vectors!initialised with initialiser list}*)(*\index{Containers!\texttt{vector}}*)(*\index{\textbf{int}}*)
 
 // vector with 10 elements all initialised to 0
-vector<int> v(10);(*\index{Vector!initialised with all elements to 0}*)(*\index{Containers!sequential!\texttt{vector}}*)
+vector<int> v(10);(*\index{Vectors!initialised with all elements to 0}*)(*\index{Containers!\texttt{vector}}*)(*\index{\textbf{int}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Access:
 \end{enumerate}
 \begin{lstlisting}
 // unchecked access to the (*i*)th element
-cout << v[i];(*\index{Vector!access to an element!unchecked}*)
+cout << v[i];(*\index{Vectors!access to an element!unchecked}*)(*\index{\texttt{cout}}*)
 
 // checked access to the (*i*)th element
-cout << v.at(i);(*\index{Vector!access to an element!checked}*)
+cout << v.at(i);(*\index{Vectors!access to an element!checked}*)(*\index{\texttt{cout}}*)(*\index{Containers!\texttt{vector}!\texttt{at}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Add:
 \end{enumerate}
 \begin{lstlisting}
 // add an element
-v.push_back(10);(*\index{Vector!\texttt{push\_back}}*)
+v.push_back(10);(*\index{Vectors!\texttt{push\_back}}*)(*\index{Containers!\texttt{vector}!\texttt{push\_back}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Resize:
@@ -984,43 +983,51 @@ v.push_back(10);(*\index{Vector!\texttt{push\_back}}*)
 \begin{lstlisting}
 // resize to 20 elements
 // new elements are initialised to 0
-v.resize(20);(*\index{Vector!\texttt{resize}}*)
+v.resize(20);(*\index{Vectors!\texttt{resize}}*)(*\index{Containers!\texttt{vector}!\texttt{resize}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Loop over:
 \end{enumerate}
 \begin{lstlisting}
 // range-for-loop(*\index{range-for-loop}*)
-for (auto x : v)(*\index{Vector!loop over elements}*)(*\index{\textbf{auto}}*)
-  cout << v << endl;\end{lstlisting}
+for (auto x : v)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)
+  cout << x << endl;(*\index{\texttt{cout}}*)
+
+// (*auto*) gives to (*x*) the same type of the element on the right
+// hand side of the assignment, in this case an (*vector::iterator*)
+for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)
+  cout << *x << endl;(*\index{\texttt{cout}}*)
+
+
+\end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Size and capacity:
 \end{enumerate}
 \begin{lstlisting}
 // size
-cout << v.size();(*\index{Vector!\texttt{size}}*)
+cout << v.size();(*\index{Vectors!\texttt{size}}*)(*\index{\texttt{cout}}*)(*\index{Containers!\texttt{vector}!\texttt{size}}*)
 
 // capacity: number of elements currently allocated
-cout << v.capacity();(*\index{Vector!\texttt{capacity}}*)
+cout << v.capacity();(*\index{Vectors!\texttt{capacity}}*)(*\index{\texttt{cout}}*)(*\index{Containers!\texttt{vector}!\texttt{capacity}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Reserve more capacity:
 \end{enumerate}
 \begin{lstlisting}
 // reserve (reallocate) more capacity e.g. at least 64 (*int*)s
-v.reserve(64);(*\index{Vector!\texttt{reserve}}*)
+v.reserve(64);(*\index{Vectors!\texttt{reserve}}*)(*\index{Containers!\texttt{vector}!\texttt{reserve}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Throws an \texttt{out\_of\_range} exception if accessed out of bounds:\index{Exceptions!\texttt{out\_of\_range}}
 \end{enumerate}
 \begin{lstlisting}
 // out of bounds access
-vector<int> v = {2, 4, 6, 8};(*\index{Containers!sequential!\texttt{vector}}*)
+vector<int> v = {2, 4, 6, 8};(*\index{Containers!\texttt{vector}}*)(*\index{\textbf{int}}*)
 
-try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
+try(*\index{\textbf{try-catch}}*)(*\index{Exceptions!\textbf{try-catch}}*)
 {
-    cout << v.at(7);
-} catch (out_of_range e)(*\index{Vector!out of range exception}*)(*\index{\textbf{catch}}*)
+    cout << v.at(7);(*\index{\texttt{cout}}*)
+} catch (out_of_range e)(*\index{Vectors!out of range exception}*)
 {
     // access error!
 }
@@ -1068,7 +1075,7 @@ int d = int(Weekdays::fri);(*\index{\textbf{int}}*)
 \item[$\Rightarrow$] Class using dynamic arrays:\index{Classes!example of a vector class}
 \end{enumerate}
 \begin{lstlisting}
-#include <algorithm>(*\index{<algorithm>}*)
+#include <algorithm>(*\index{\texttt{<algorithm>}}*)
 
 class MyVector(*\index{\textbf{class}!\texttt{MyVector}}*)
 {
@@ -1078,36 +1085,36 @@ public:
     // explicit constructor (avoids type conversions)
     explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
     // constructor with initialiser list
-    explicit MyVector(initializer_list<double>);(*\index{\texttt{initializer\_list}}*)(*\index{\textbf{explicit}}*)
+    explicit MyVector(initializer_list<double>);(*\index{\texttt{initializer\_list}}*)(*\index{\textbf{explicit}}*)(*\index{\textbf{double}}*)
     // copy constructor (pass by
     // reference, no copying!)
     MyVector(const MyVector&);(*\index{\textbf{const}}*)
     // move constructor
     MyVector(MyVector&&);
     // copy assignment
-    MyVector& operator=(const MyVector&);(*\index{\texttt{operator=}}*)(*\index{\textbf{const}}*)
+    MyVector& operator=(const MyVector&);(*\index{\texttt{operator=}}*)(*\index{\textbf{const}}*)(*\index{\texttt{operator=}}*)
     // move assignment
-    MyVector& operator=(MyVector&&);
+    MyVector& operator=(MyVector&&);(*\index{\texttt{operator=}}*)(*\index{\texttt{operator=}}*)
     // virtual destructor
     virtual ~MyVector() { if (e) delete[] e; }(*\index{Classes!virtual destructor}*)(*\index{\textbf{delete}}*)(*\index{\textbf{virtual}}*)
     // subscript operators(*\index{Classes!subscript operator}*)
     // write
-    double& operator[](size_t i) { return e[i]; }(*\index{Classes!subscript operator!write}*)(*\index{\textbf{double}}*)
+    double& operator[](size_t i) { return e[i]; }(*\index{Classes!subscript operator!write}*)(*\index{\textbf{double}}*)(*\index{\texttt{size\_t}}*)
     // read
-    const double& operator[](size_t i) const { return e[i]; };(*\index{Classes!subscript operator!read}*)(*\index{\textbf{const}}*)(*\index{\textbf{double}}*)
+    const double& operator[](size_t i) const { return e[i]; };(*\index{Classes!subscript operator!read}*)(*\index{\textbf{const}}*)(*\index{\textbf{double}}*)(*\index{\texttt{size\_t}}*)
     // size
-    size_t size() const { return n; }(*\index{Classes!constant member function}*)(*\index{\textbf{const}}*)
+    size_t size() const { return n; }(*\index{Classes!constant member function}*)(*\index{\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // capacity
-    size_t capacity() const { return m; }(*\index{Classes!constant member function}*)(*\index{\textbf{const}}*)
+    size_t capacity() const { return m; }(*\index{Classes!constant member function}*)(*\index{\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // reserve
-    void reserve(size_t);
+    void reserve(size_t);(*\index{\texttt{size\_t}}*)
     // resize
-    void resize(size_t);
+    void resize(size_t);(*\index{\texttt{size\_t}}*)
     // push back
     void push_back(double);(*\index{\textbf{double}}*)
 private:
-    size_t n{0}; // size
-    size_t m{0}; // capacity
+    size_t n{0}; // size(*\index{\texttt{size\_t}}*)
+    size_t m{0}; // capacity(*\index{\texttt{size\_t}}*)
     double *e{nullptr};(*\index{\textbf{nullptr}}*)(*\index{\textbf{double}}*)
 };
 \end{lstlisting}
@@ -1118,13 +1125,13 @@ when initialising the vector.\index{Default value!\textbf{double()}}
 \end{enumerate}
 \begin{lstlisting}
 // constructor with member initialisation list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialisation list}*)
-MyVector::MyVector(size_t s) : n{s}, m{s}, e{new double[n]}(*\index{\textbf{double}}*)(*\index{\textbf{new}}*)
+MyVector::MyVector(size_t s) : n{s}, m{s}, e{new double[n]}(*\index{\textbf{double}}*)(*\index{\textbf{new}}*)(*\index{\texttt{size\_t}}*)
 {
      for (int i=0; i<n; i++) e[i] = double();(*\index{\textbf{double}}*)(*\index{\textbf{int}}*)
 }
 
 // constructor with initialiser list parameter(*\index{Classes!constructors!initialiser list parameter}*)
-MyVector::MyVector(initializer_list<double> l)
+MyVector::MyVector(initializer_list<double> l)(*\index{\texttt{initializer\_list}}*)
 {
     n = m = l.size();
     e = new double[n];(*\index{\textbf{double}}*)(*\index{\textbf{new}}*)
@@ -1168,7 +1175,7 @@ because class members are simply copied\index{Classes!copy assignment}
 \end{enumerate}
 \begin{lstlisting}
 // copy assignment
-MyVector& MyVector::operator=(const MyVector& rv)(*\index{\textbf{const}}*)
+MyVector& MyVector::operator=(const MyVector& rv)(*\index{\textbf{const}}*)(*\index{\texttt{operator=}}*)
 {
     // check for self assignment
     if (this == &rv)(*\index{\textbf{this}}*)
@@ -1181,7 +1188,7 @@ MyVector& MyVector::operator=(const MyVector& rv)(*\index{\textbf{const}}*)
         m = rv.n;
     }
     // copy the values
-    copy(rv.e,rv.e+rv.n,e);
+    copy(rv.e,rv.e+rv.n,e);(*\index{\texttt{copy}}*)
     n = rv.n;
     return *this;(*\index{\textbf{this}}*)
 }
@@ -1191,7 +1198,7 @@ MyVector& MyVector::operator=(const MyVector& rv)(*\index{\textbf{const}}*)
 \end{enumerate}
 \begin{lstlisting}
 // move assignment
-MyVector& MyVector::operator=(MyVector&& rv)
+MyVector& MyVector::operator=(MyVector&& rv)(*\index{\texttt{operator=}}*)
 {
     delete[] e;(*\index{\textbf{delete}}*)
     n = rv.n;
@@ -1208,7 +1215,7 @@ MyVector& MyVector::operator=(MyVector&& rv)
 \end{enumerate}
 \begin{lstlisting}
 // reserve
-void MyVector::reserve(size_t new_m)
+void MyVector::reserve(size_t new_m)(*\index{\texttt{size\_t}}*)
 {
     if (new_m <= m)
         return;
@@ -1224,10 +1231,10 @@ void MyVector::reserve(size_t new_m)
 }
 
 // resize
-void MyVector::resize(size_t new_n)
+void MyVector::resize(size_t new_n)(*\index{\texttt{size\_t}}*)
 {
     reserve(new_n);
-    for (size_t i = n; i < new_n; i++) e[i] = double();(*\index{\textbf{double}}*)
+    for (size_t i = n; i < new_n; i++) e[i] = double();(*\index{\textbf{double}}*)(*\index{\texttt{size\_t}}*)
     n = new_n;
 }
 
@@ -1250,7 +1257,7 @@ void MyVector::push_back(double d)(*\index{\textbf{double}}*)
 MyVector v1(4); 
 
 // constructor with initialiser list
-MyVector v2{1,2,3,4};(*\index{initializer\_list}*)
+MyVector v2{1,2,3,4};(*\index{\texttt{initializer\_list}}*)
 
 // copy constructor
 MyVector v3{v2}; 
@@ -1263,7 +1270,7 @@ MyVector v3{v2};
 MyVector func()
 {
     MyVector v4{11,12,13,14,15};
-    for (size_t i=0; i<v4.size(); i++) v4[i] += i;
+    for (size_t i=0; i<v4.size(); i++) v4[i] += i;(*\index{\texttt{size\_t}}*)
     return v4;
 }
 
@@ -1291,7 +1298,7 @@ public:
     Euro(int euro);(*\index{\textbf{int}}*)
     // constructor for  (*euro*) and (*cents*)
     Euro(int euro, int cents);(*\index{\textbf{int}}*)
-    Euro operator+(const Euro& amount); (*\index{\texttt{operator+}}*)(*\index{\textbf{const}}*)
+    Euro operator+(const Euro& amount);(*\index{\texttt{operator+}}*)(*\index{\textbf{const}}*)
 private:
     int euro;(*\index{\textbf{int}}*)
     int cents;(*\index{\textbf{int}}*)
@@ -1321,7 +1328,7 @@ public:
     Euro(int euro);(*\index{\textbf{int}}*)
     // constructor for (*euro*) and (*cents*)
     Euro(int euro, int cents);(*\index{\textbf{int}}*)
-    friend Euro operator+(const Euro& amount1, const Euro& amount2);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)
+    friend Euro operator+(const Euro& amount1, const Euro& amount2);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator+}}*)
     // insertion and extraction operators
     friend ostream& operator<<(ostream& outs, const Euro& amount);(*\index{\texttt{operator<<}}*)(*\index{\textbf{friend}}*)(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)
     friend istream& operator>>(istream& ins, Euro& amount);(*\index{\texttt{operator>>}}*)(*\index{\textbf{friend}}*)
@@ -1357,7 +1364,7 @@ public:
     // no copy constructor allowed
     Shape(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)
     // no copy assignment allowed
-    Shape& operator=(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)
+    Shape& operator=(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)(*\index{\texttt{operator=}}*)
     // virtual destructor
     virtual ~Shape() {}(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     // overrides Fl_Widget::draw()
@@ -1433,7 +1440,7 @@ public:
     // no copy constructor allowed
     Shape(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)
     // no copy assignment allowed
-    Shape& operator=(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)
+    Shape& operator=(const Shape&) = delete;(*\index{\textbf{const}}*)(*\index{\texttt{= delete}}*)(*\index{\texttt{operator=}}*)
     ...
 };
 \end{lstlisting}
@@ -1535,8 +1542,8 @@ public:
         resize_shape(l.first,l.second);
     }
     virtual ~Line() {}(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
-    pair<Point,Point> get_line() const { return l; }(*\index{\textbf{const}}*)
-    void set_line(pair<Point,Point> line) { l = line; }
+    pair<Point,Point> get_line() const { return l; }(*\index{\textbf{const}}*)(*\index{\texttt{pair}}*)
+    void set_line(pair<Point,Point> line) { l = line; }(*\index{\texttt{pair}}*)
 protected:(*\index{\textbf{protected}}*)
     void draw_shape() {
         fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
@@ -1547,7 +1554,7 @@ protected:(*\index{\textbf{protected}}*)
         resize_shape(l.first,l.second);
     }
 private:
-    pair<Point,Point> l;
+    pair<Point,Point> l;(*\index{\texttt{pair}}*)
 };
 \end{lstlisting}
 \begin{enumerate}
@@ -1569,11 +1576,11 @@ class Line : public Shape(*\index{\textbf{class}!\texttt{Line}}*)
 {
 public:
     ...
-    pair<Point,Point> get_line() const { return l; }(*\index{\textbf{const}}*)
-    void set_line(pair<Point,Point> line) { l = line; }
+    pair<Point,Point> get_line() const { return l; }(*\index{\textbf{const}}*)(*\index{\texttt{pair}}*)
+    void set_line(pair<Point,Point> line) { l = line; }(*\index{\texttt{pair}}*)
     ...
 private:
-    pair<Point,Point> l;
+    pair<Point,Point> l;(*\index{\texttt{pair}}*)
 };
 \end{lstlisting}
 \begin{enumerate}
@@ -1694,24 +1701,24 @@ win.draw(c1); // calls (*Circle::draw\_shape()*)
 class My_exception(*\index{\textbf{class}!\texttt{My\_exception}}*)
 {
 public:
-    My_exception(string s);
+    My_exception(string s);(*\index{Strings!\texttt{string}}*)
     virtual ~My_exception();(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
-    friend ostream& operator<<(ostream& os, const My_exception& e);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)
+    friend ostream& operator<<(ostream& os, const My_exception& e);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 protected:(*\index{\textbf{protected}}*)
-    string msg;
+    string msg;(*\index{Strings!\texttt{string}}*)
 };
 
-try(*\index{Exceptions!\textbf{try-catch}}\index{\textbf{try}}*)
+try(*\index{Exceptions!\textbf{try-catch}}*)(*\index{\textbf{try-catch}}*)
 {
     throw My_exception("error");(*\index{\textbf{throw}}*)
 }
-catch (My_exception& e)(*\index{\textbf{catch}}*)
+catch (My_exception& e)
 {
     // error stream
     cerr << e;(*\index{\texttt{cerr}}*)
 }
 // everything else
-catch (...)(*\index{\textbf{catch}}*)
+catch (...)
 {
     exit(1);
 }
@@ -1721,11 +1728,11 @@ catch (...)(*\index{\textbf{catch}}*)
 thrown when runtime errors occur:
 \end{enumerate}
 \begin{lstlisting}
-try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
+try(*\index{\textbf{try-catch}}*)(*\index{Exceptions!\textbf{try-catch}}*)
 {
     throw runtime_error("unexpected result!");(*\index{\textbf{throw}}*)
 }
-catch (runtime_error& e)(*\index{\textbf{catch}}*)
+catch (runtime_error& e)
 {
     // error stream
     cerr << "runtime error: " << e.what() << "\n";(*\index{\texttt{cerr}}*)
@@ -1758,15 +1765,15 @@ void my_function( );
 // if exception occurs
 void my_function(void)
 {
-    void *p;
+    void *p;(*\index{\texttt{void $\ast$}}*) 
     socket *s;
     
-    try(*\index{\textbf{try}}*)(*\index{Exceptions!\textbf{try-catch}}*)
+    try(*\index{\textbf{try-catch}}*)(*\index{Exceptions!\textbf{try-catch}}*)
     {
         /* code that acquires some resource (memory, socket, etc.) */
         /* and might throw an exception */
     }
-    catch (...)(*\index{\textbf{catch}}*)
+    catch (...)
     { 
         /* local cleanup here */
         delete p;      /* free memory */(*\index{\textbf{delete}}*)
@@ -1818,38 +1825,38 @@ public:
     // constructor
     explicit MyVector();(*\index{\textbf{explicit}}*)
     // constructor with size
-    explicit MyVector(size_t);(*\index{\textbf{explicit}}*)
+    explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
     // constructor with initialiser list
-    explicit MyVector(initializer_list<T>);(*\index{\textbf{explicit}}*)
+    explicit MyVector(initializer_list<T>);(*\index{\textbf{explicit}}*)(*\index{\texttt{initializer\_list}}*)
     // copy constructor (pass by
     // reference, no copying!)
     MyVector(const MyVector&);(*\index{\textbf{const}}*)
     // move constructor
     MyVector(MyVector&&);
     // copy assignment
-    MyVector& operator=(const MyVector&);(*\index{\textbf{const}}*)
+    MyVector& operator=(const MyVector&);(*\index{\textbf{const}}*)(*\index{\texttt{operator=}}*)
     // move assignment
-    MyVector& operator=(MyVector&&);
+    MyVector& operator=(MyVector&&);(*\index{\texttt{operator=}}*)
     // virtual destructor
     virtual ~MyVector() { if (e) delete[] e; }(*\index{\textbf{delete}}*)(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     // subscript operators
     // write
-    T& operator[](size_t i) { return e[i]; }
+    T& operator[](size_t i) { return e[i]; }(*\index{\texttt{size\_t}}*)
     // read
-    const T& operator[](size_t i) const { return e[i]; };(*\index{\textbf{const}}*)
+    const T& operator[](size_t i) const { return e[i]; };(*\index{\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // size
-    size_t size() const { return n; }(*\index{\textbf{const}}*)
+    size_t size() const { return n; }(*\index{\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // capacity
-    size_t capacity() const { return m; }(*\index{\textbf{const}}*)
+    size_t capacity() const { return m; }(*\index{\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // reserve
-    void reserve(size_t);
+    void reserve(size_t);(*\index{\texttt{size\_t}}*)
     // resize
-    void resize(size_t);
+    void resize(size_t);(*\index{\texttt{size\_t}}*)
     // push back
     void push_back(T);
 private:
-    size_t n{0}; // size
-    size_t m{0}; // capacity
+    size_t n{0}; // size(*\index{\texttt{size\_t}}*)
+    size_t m{0}; // capacity(*\index{\texttt{size\_t}}*)
     T *e{nullptr};(*\index{\textbf{nullptr}}*)
 };
 \end{lstlisting}
@@ -1859,7 +1866,7 @@ private:
 \begin{lstlisting}
 // copy assignment
 template<class T>(*\index{\textbf{template}}*)
-MyVector<T>& MyVector<T>::operator=(const MyVector<T>& rv)(*\index{\textbf{class}!\texttt{MyVector<T>}}*)(*\index{\textbf{const}}*)
+MyVector<T>& MyVector<T>::operator=(const MyVector<T>& rv)(*\index{\textbf{class}!\texttt{MyVector<T>}}*)(*\index{\textbf{const}}*)(*\index{\texttt{operator=}}*)
 {
     // check for self assignment
     if (this == &rv)(*\index{\textbf{this}}*)
@@ -1872,7 +1879,7 @@ MyVector<T>& MyVector<T>::operator=(const MyVector<T>& rv)(*\index{\textbf{class
         m = rv.n;
     }
     // copy the values
-    copy(rv.e,rv.e+rv.n,e);
+    copy(rv.e,rv.e+rv.n,e);(*\index{\texttt{copy}}*)
     n = rv.n;
     return *this;(*\index{\textbf{this}}*)
 }
@@ -1888,7 +1895,7 @@ MyVector<double> v4{11,12,13,14,15};
 MyVector<double> func()
 {
     MyVector<double> v4{11,12,13,14,15};
-    for (size_t i=0; i<v4.size(); i++) v4[i] += i;
+    for (size_t i=0; i<v4.size(); i++) v4[i] += i;(*\index{\texttt{size\_t}}*)
     return v4;
 }
 \end{lstlisting}
@@ -1905,14 +1912,14 @@ public:
     ~Wrapper() {}
     T& operator[](int n) { return v[n]; };(*\index{\textbf{int}}*)
     const T& operator[](int n) const { return v[n]; };(*\index{\textbf{const}}*)(*\index{\textbf{int}}*)
-    size_t size() const { return N; }(*\index{\textbf{const}}*)
+    size_t size() const { return N; }(*\index{\textbf{const}}*)(*\index{\texttt{size\_t}}*)
 private:
     T v[N];
 };
 
 // usage
-Wrapper<double,5> array;
-Wrapper<char,3> array;
+Wrapper<double,5> array;(*\index{\textbf{double}}*)
+Wrapper<char,3> array;(*\index{\textbf{char}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Class template parameter\index{Templates!class parameter}
@@ -1928,18 +1935,18 @@ public:
     // constructor
     explicit MyVector();(*\index{\textbf{explicit}}*)
     // constructor with size and default value
-    explicit MyVector(size_t,T def = T());(*\index{\textbf{explicit}}*)
+    explicit MyVector(size_t,T def = T());(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
     // constructor with initialiser list
-    explicit MyVector(initializer_list<T>);(*\index{\textbf{explicit}}*)
+    explicit MyVector(initializer_list<T>);(*\index{\textbf{explicit}}*)(*\index{\texttt{initializer\_list}}*)
     // copy constructor (pass by
     // reference, no copying!)
     MyVector(const MyVector&);(*\index{\textbf{const}}*)
     // move constructor
     MyVector(MyVector&&);
     // copy assignment
-    MyVector& operator=(const MyVector&);(*\index{\textbf{const}}*)
+    MyVector& operator=(const MyVector&);(*\index{\textbf{const}}*)(*\index{\texttt{operator=}}*)
     // move assignment
-    MyVector& operator=(MyVector&&);
+    MyVector& operator=(MyVector&&);(*\index{\texttt{operator=}}*)
     // virtual destructor
     virtual ~MyVector();(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     // subscript operators
@@ -1948,25 +1955,25 @@ public:
     // read
     const T& operator[](size_t i) const { return e[i]; };(*\index{\textbf{const}}*)
     // size
-    size_t size() const { return n; }(*\index{\textbf{const}}*)
+    size_t size() const { return n; }(*\index{\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // capacity
-    size_t capacity() const { return m; }(*\index{\textbf{const}}*)
+    size_t capacity() const { return m; }(*\index{\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // reserve
-    void reserve(size_t);
+    void reserve(size_t);(*\index{\texttt{size\_t}}*)
     // resize
-    void resize(size_t,T def = T());
+    void resize(size_t,T def = T());(*\index{\texttt{size\_t}}*)
     // push back
     void push_back(T);
 private:
     A alloc;
-    size_t n{0}; // size
-    size_t m{0}; // capacity
+    size_t n{0}; // size(*\index{\texttt{size\_t}}*)
+    size_t m{0}; // capacity(*\index{\texttt{size\_t}}*)
     T *e{nullptr};(*\index{\textbf{nullptr}}*)
 };
 
 // reserve
 template<class T,class A>(*\index{\textbf{template}}*)
-void MyVector<T,A>::reserve(size_t new_m)
+void MyVector<T,A>::reserve(size_t new_m)(*\index{\texttt{size\_t}}*)
 {
     if (new_m <= m)
         return;
@@ -1975,9 +1982,9 @@ void MyVector<T,A>::reserve(size_t new_m)
     if (e)
     {
         // copy
-        for (size_t i=0; i<n; ++i) alloc.construct(&p[i],e[i]);
+        for (size_t i=0; i<n; ++i) alloc.construct(&p[i],e[i]);(*\index{\texttt{size\_t}}*)
         // destroy
-        for (size_t i=0; i<n; ++i) alloc.destroy(&e[i]);
+        for (size_t i=0; i<n; ++i) alloc.destroy(&e[i]);(*\index{\texttt{size\_t}}*)
         // deallocate
         alloc.deallocate(e,m);
     }
@@ -2000,10 +2007,10 @@ class A_list(*\index{\textbf{class}!\texttt{A\_list}}*)
     // copy constructor
     A_list(A_list<T>& b);
     // assignment operator
-    A_list<T>& operator=(const A_list<T>& b);(*\index{\textbf{const}}*)
+    A_list<T>& operator=(const A_list<T>& b);(*\index{\textbf{const}}*)(*\index{\texttt{operator=}}*)
     // friend insertion operator
     template <class TT>(*\index{\textbf{template}}*)
-    friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)
+    friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 private:
     T *p;
     int size;(*\index{\textbf{int}}*)
@@ -2019,56 +2026,54 @@ private:
 different iterators.\index{Iterators}
 \end{enumerate}
 \begin{lstlisting}
-#include <vector>(*\index{<vector>}*)
+#include <vector>(*\index{\texttt{<vector>}}*)
 
-vector<int> v = {1,2,3,4,5};(*\index{Containers!sequential!\texttt{vector}}*)
+vector<int> v = {1,2,3,4,5};(*\index{Containers!\texttt{vector}}*)(*\index{\textbf{int}}*)
 // mutable iterator
-vector<int>::iterator e;(*\index{\texttt{iterator}}*)(*\index{Iterators!\texttt{iterator}}*)
+vector<int>::iterator e;(*\index{\texttt{iterator}}*)(*\index{Iterators!\texttt{iterator}}*)(*\index{\texttt{iterator}}*)(*\index{\textbf{int}}*)
 
 // bidirectional access
 e = v.begin();(*\index{\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!bidirectional access}*)
 ++e;
 // print (*v[1]*)
-cout << *e << endl;
+cout << *e << endl;(*\index{\texttt{cout}}*)
 --e;
 // print (*v[0]*)
-cout << *e << endl;
+cout << *e << endl;(*\index{\texttt{cout}}*)
 
 // random access(*\index{Iterators!random access}*)
 e = v.begin();
 // print (*v[3]*)
-cout << e[3] << endl;
+cout << e[3] << endl;(*\index{\texttt{cout}}*)
 
 // change an element
 e[3] = 9;
 
 // constant iterator (only read)
-vector<int>::constant_iterator c;(*\index{\texttt{constant\_iterator}}*)(*\index{Iterators!\texttt{constant\_iterator}}*)
+vector<int>::const_iterator c;(*\index{\texttt{const\_iterator}}*)(*\index{Iterators!\texttt{const\_iterator}}*)(*\index{\textbf{int}}*)
 
 // print out the vector content (read only)
 // (*\texttt{end()}*) points one element beyond the last one!
-// (*auto*) gives to (*c*) the same type of the element on the right
-// hand side of the assignment
-for (auto c = v.begin(); c != v.end(); c++)(*\index{\texttt{iterator}!\texttt{end}}*)
-    cout << *c << endl;(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
+for (c = v.begin(); c != v.end(); c++)(*\index{\texttt{iterator}!\texttt{end}}*)
+    cout << *c << endl;(*\index{range-for-loop}*)(*\index{\texttt{cout}}*)
 
 // not allowed
 // (*c[2] = 2;*)
 
 // reverse iterator
-vector<int>::reverse_iterator r;(*\index{\texttt{reverse\_iterator}}*)(*\index{Iterators!\texttt{reverse\_iterator}}*)
+vector<int>::reverse_iterator r;(*\index{\texttt{reverse\_iterator}}*)(*\index{Iterators!\texttt{reverse\_iterator}}*)(*\index{\textbf{int}}*)
 
 // print out the vector content in reverse order
-for (auto r = v.rbegin(); r != v.rend(); r++)(*\index{\texttt{reverse\_iterator}!\texttt{rbegin}}*)(*\index{\texttt{reverse\_iterator}!\texttt{rend}}*)
-    cout << *r << endl;(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
+for (r = v.rbegin(); r != v.rend(); r++)(*\index{\texttt{reverse\_iterator}!\texttt{rbegin}}*)(*\index{\texttt{reverse\_iterator}!\texttt{rend}}*)
+    cout << *r << endl;(*\index{range-for-loop}*)(*\index{\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Example implementation of an iterator for a custom linked list class\index{Iterators!custom implementation}
 \end{enumerate}
 \begin{lstlisting}
-#include <iostream>(*\index{<iostream>}*)
-#include <ostream>(*\index{<ostream>}*)
-#include <algorithm>(*\index{<algorithm>}*)
+#include <iostream>(*\index{\texttt{<iostream>}}*)
+#include <ostream>(*\index{\texttt{<ostream>}}*)
+#include <algorithm>(*\index{\texttt{<algorithm>}}*)
 
 // node of the linked list
 template <class T>(*\index{\textbf{template}}*)
@@ -2081,7 +2086,7 @@ public:
     // friends
     friend class LList<T>;(*\index{\textbf{friend}}*)
     template <class TT>
-    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)
+    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 private:
     // data element
     T data{T()};
@@ -2099,7 +2104,7 @@ public:
     // copy constructor
     LList(const LList<T>& rhs) { *this = rhs; };(*\index{\textbf{this}}*)
     // assignment operator
-    LList<T>& operator=(const LList<T>& rhs);(*\index{\textbf{const}}*)
+    LList<T>& operator=(const LList<T>& rhs);(*\index{\textbf{const}}*)(*\index{\texttt{operator=}}*)
     // virtual destructor
     virtual ~LList() { clear(); };(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     // clear (free) the list
@@ -2122,9 +2127,9 @@ public:
     int size() const;(*\index{\textbf{int}}*)
     // insertion operator
     template <class TT>
-    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)
+    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);(*\index{\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
     // iterator type
-    class iterator;
+    class iterator;(*\index{\texttt{iterator}}*)
     // iterator to first element
     iterator begin() { return iterator(head); }
     // iterator to one beyond last element
@@ -2138,21 +2143,21 @@ private:
 
 // iterator class for the linked list
 template <class T>(*\index{\textbf{template}}*)
-class LList<T>::iterator
+class LList<T>::iterator(*\index{\texttt{iterator}}*)
 {
 public:
     iterator(LListNode<T>* p) : curr{p} {}
     // prefix increment, returns a reference!(*\index{Operator overloading!prefix increment ++}*)
-    iterator& operator++() { curr = curr->next; return *this; }(*\index{\textbf{this}}*)
+    iterator& operator++() { curr = curr->next; return *this; }(*\index{\textbf{this}}*)(*\index{\texttt{operator++}}*)
     T& operator*() const { return curr->data; }(*\index{\textbf{const}}*)
-    bool operator==(const iterator& b) const { return curr == b.curr; }(*\index{\textbf{const}}*)
-    bool operator!=(const iterator& b) const { return curr != b.curr; }(*\index{\textbf{const}}*)
+    bool operator==(const iterator& b) const { return curr == b.curr; }(*\index{\textbf{const}}*)(*\index{\texttt{operator=}}*)
+    bool operator!=(const iterator& b) const { return curr != b.curr; }(*\index{\textbf{const}}*)(*\index{\texttt{operator"!=}}*)
 private:
     LListNode<T>* curr{nullptr};(*\index{\textbf{nullptr}}*)
 };
 
 // example usage
-LList<int> data_list;
+LList<int> data_list;(*\index{\textbf{int}}*)
 
 // inserts element into the list
 data_list.insert_at_head(45);
@@ -2160,26 +2165,26 @@ data_list.insert_at_head(-21);
 data_list.insert_at_end(127);
 
 // prints (*data\_list = (-21) -> (45) -> (127)*)
-cout << "data_list = " << data_list << endl;
+cout << "data_list = " << data_list << endl;(*\index{\texttt{cout}}*)
 // prints  (*data\_list.size() = 3*)
-cout << "data_list.size() = " << data_list.size() << "\n\n";
+cout << "data_list.size() = " << data_list.size() << "\n\n";(*\index{\texttt{cout}}*)
 
 // applies standard algorithms on the custom linked list
-LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);(*\index{\texttt{find}}*)
+LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);(*\index{\texttt{find}}*)(*\index{\texttt{iterator}}*)(*\index{\textbf{int}}*)
 
 // checks if the element has been found(*\index{Iterators!end of sequence convention}*)
 // standard algorithms return the end of a sequence, 
 // i.e. the (*end*) iterator, to indicate failure
 if ( p != second_list.end() )
-        cout << "found element " << *p << "\n\n";
+        cout << "found element " << *p << "\n\n";(*\index{\texttt{cout}}*)
 else
-        cout << "cannot find element " << 45 << "\n\n";
+        cout << "cannot find element " << 45 << "\n\n";(*\index{\texttt{cout}}*)
 
 // write access
 *p = 180;
 
 // prints (*data\_list = (-21) -> (180) -> (127)*)
-cout << "data_list = " << data_list << endl;
+cout << "data_list = " << data_list << endl;(*\index{\texttt{cout}}*)
 \end{lstlisting}
 %
 % Containers
@@ -2187,111 +2192,111 @@ cout << "data_list = " << data_list << endl;
 \section{Containers}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Sequential containers: \texttt{list}\index{Containers!sequential!\texttt{list}}\index{Containers!sequential!\texttt{vector}}
+\item[$\Rightarrow$] Sequential containers: \texttt{list}\index{Containers!sequential|see{\texttt{list}}}\index{Containers!sequential|see{\texttt{vector}}}
 \end{enumerate}
 \begin{lstlisting}
-#include <list>(*\index{<list>}*)
+#include <list>(*\index{\texttt{<list>}}*)
 
-list<double> data = {1.32,-2.45,5.65,-8.93,2.76};
+list<double> data = {1.32,-2.45,5.65,-8.93,2.76};(*\index{\texttt{list}|see{Containers}}*)(*\index{Containers!\texttt{list}}*)(*\index{\textbf{double}}*)
 
 // adds elements
-data.push_back(9.23);(*\index{Containers!\texttt{push\_back}}*)
-data.push_front(-3.94);(*\index{Containers!\texttt{push\_front}}*)
+data.push_back(9.23);(*\index{Containers!\texttt{list}!\texttt{push\_back}}*)
+data.push_front(-3.94);(*\index{Containers!\texttt{list}!\texttt{push\_front}}*)
 
 // bidirectional iterator, no random access    
-list<double>::iterator e;
+list<double>::iterator e;(*\index{\texttt{iterator}}*)(*\index{\textbf{double}}*)(*\index{Containers!\texttt{list}}*)
 
 // (*advance*)
 e = data.begin();
 advance(e,2);(*\index{Containers!\texttt{advance}}*)
 
 // erases element (*5.65*)
-data.erase(e);(*\index{Containers!\texttt{erase}}*)
+data.erase(e);(*\index{Containers!\texttt{list}!\texttt{erase}}*)
 
 // print out the content    
 for (e = data.begin(); e != data.end(); e++)
-    cout << *e << endl;
+    cout << *e << endl;(*\index{\texttt{cout}}*)
     
 // range-for-loop
 for (auto x : data)(*\index{range-for-loop}*)
-    cout << x << endl;(*\index{\textbf{auto}}*)
+    cout << x << endl;(*\index{\textbf{auto}}*)(*\index{\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Adapter containers: \texttt{stack}\index{Containers!adapter!\texttt{stack}}
+\item[$\Rightarrow$] Adapter containers: \texttt{stack}\index{Containers!adapter|see{\texttt{stack}}}
 \end{enumerate}
 \begin{lstlisting}
-#include <stack>(*\index{<stack>}*)
+#include <stack>(*\index{\texttt{<stack>}}*)
 
-stack<double> numbers;
+stack<double> numbers;(*\index{\texttt{stack}|see{Containers}}*)(*\index{Containers!\texttt{stack}}*)(*\index{\textbf{double}}*)
 
 // push on the stack
-numbers.push(5.65);(*\index{Containers!\texttt{push}}*)
+numbers.push(5.65);(*\index{Containers!\texttt{stack}!\texttt{push}}*)
 numbers.push(-3.95);
 numbers.push(6.95);
 
 // size
-cout << numbers.size()(*\index{Containers!\texttt{size}}*)
+cout << numbers.size()(*\index{Containers!\texttt{stack}!\texttt{size}}*)(*\index{\texttt{cout}}*)
 
 // read top data element
-double d = numbers.top();(*\index{Containers!\texttt{top}}*)(*\index{\textbf{double}}*)
+double d = numbers.top();(*\index{Containers!\texttt{stack}!\texttt{top}}*)(*\index{\textbf{double}}*)
 
 // pop top element
-numbers.pop();(*\index{Containers!\texttt{pop}}*)
+numbers.pop();(*\index{Containers!\texttt{stack}!\texttt{pop}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \texttt{set}\index{Containers!associative!\texttt{set}}
+\item[$\Rightarrow$] Associative containers: \texttt{set}\index{Containers!associative|see{\texttt{set}}}
 \end{enumerate}
 \begin{lstlisting}
-#include <set>(*\index{<set>}*)
+#include <set>(*\index{\texttt{<set>}}*)
 
-set<char> letters;
+set<char> letters;(*\index{\texttt{set}|see{Containers}}*)(*\index{Containers!\texttt{set}}*)(*\index{\textbf{char}}*)
 
 // inserting elements    
-letters.insert('a');(*\index{Containers!\texttt{insert}}*)
+letters.insert('a');(*\index{Containers!\texttt{set}!\texttt{insert}}*)
 letters.insert('d');
 // no duplicates!
 letters.insert('d');
 letters.insert('g');
 
 // erase    
-letters.erase('a');
+letters.erase('a');(*\index{Containers!\texttt{set}!\texttt{erase}}*)
 
 // const iterator 
-set<char>::const_iterator c;   
-for (c = letters.begin(); c != letters.end(); c++)
-    cout << *c << endl;
+set<char>::const_iterator c;(*\index{\textbf{const}}*)(*\index{\texttt{const\_iterator}}*)(*\index{Containers!\texttt{set}!\texttt{const\_iterator}}*)
+for (c = letters.begin(); c != letters.end(); c++)(*\index{\texttt{const\_iterator}!\texttt{begin}}*)(*\index{\texttt{const\_iterator}!\texttt{end}}*)
+    cout << *c << endl;(*\index{\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \texttt{map}\index{Containers!associative!\texttt{map}}
+\item[$\Rightarrow$] Associative containers: \texttt{map}\index{Containers!associative|see{\texttt{map}}}
 \end{enumerate}
 \begin{lstlisting}
-#include <string>(*\index{<string>}*)
-#include <map>(*\index{<map>}*)
-#include <utility>(*\index{<utility>}*)
+#include <string>(*\index{\texttt{<string>}}*)
+#include <map>(*\index{\texttt{<map>}}*)
+#include <utility>(*\index{\texttt{<utility>}}*)
 
 // initialisation
-map<string,int> dict = { {"one",1}, {"two",2} };
-pair<string,int> three("three",3);
+map<string,int> dict = { {"one",1}, {"two",2} };(*\index{\texttt{map}|see{Containers}}*)(*\index{\textbf{int}}*)(*\index{Containers!\texttt{map}}*)(*\index{Strings!\texttt{string}}*)
+pair<string,int> three("three",3);(*\index{\texttt{pair}}*)(*\index{\textbf{int}}*)(*\index{Strings!\texttt{string}}*)
 
 // insertion    
-dict.insert(three);(*\index{Containers!\texttt{insert}}*)
+dict.insert(three);(*\index{Containers!\texttt{map}!\texttt{insert}}*)
 dict["four"] = 4;
 dict["five"] = 5;
 
 // iterator    
-map<string,int>::iterator two;
+map<string,int>::iterator two;(*\index{\texttt{iterator}}*)(*\index{\textbf{int}}*)(*\index{Strings!\texttt{string}}*)
 
 // find    
-two = dict.find("two");(*\index{Containers!\texttt{find}}*)
+two = dict.find("two");(*\index{Containers!\texttt{map}!\texttt{find}}*)
 
 // erase    
-dict.erase(two);(*\index{Containers!\texttt{erase}}*)
+dict.erase(two);(*\index{Containers!\texttt{map}!\texttt{erase}}*)
 
 // rang-for-loop(*\index{range-for-loop}*)
 // inside the loop (*n*) is a (*pair*)
 // the key is (*n.first*) and the value is (*n.second*)
 for (auto n : dict)(*\index{\textbf{auto}}*)
-    cout << "(" <<  n.first << "," <<  n.second << ")" << endl;
+    cout << "(" <<  n.first << "," <<  n.second << ")" << endl;(*\index{\texttt{cout}}*)
 \end{lstlisting}
 %
 % Algorithms
@@ -2302,23 +2307,23 @@ for (auto n : dict)(*\index{\textbf{auto}}*)
 \item[$\Rightarrow$] Provided by the C++ standard template library (STL)\index{STL}:
 \end{enumerate}
 \begin{lstlisting}
-#include <vector>(*\index{<vector>}*)
-#include <algorithm>(*\index{<algorithm>}*)
-#include <numeric>(*\index{<numeric>}*)
-#include <functional>(*\index{<functional>}*)
+#include <vector>(*\index{\texttt{<vector>}}*)
+#include <algorithm>(*\index{\texttt{<algorithm>}}*)
+#include <numeric>(*\index{\texttt{<numeric>}}*)
+#include <functional>(*\index{\texttt{<functional>}}*)
 
-vector<int> v = {6,2,7,13,4,3,1};(*\index{\texttt{vector}|see{Containers}}*)(*\index{Containers!sequential!\texttt{vector}}*)
-vector<int>::iterator p;
+vector<int> v = {6,2,7,13,4,3,1};(*\index{\texttt{vector}|see{Containers}}*)(*\index{\texttt{vector}|see{Vectors}}*)(*\index{Containers!\texttt{vector}}*)(*\index{\textbf{int}}*)
+vector<int>::iterator p;(*\index{\texttt{iterator}}*)(*\index{\textbf{int}}*)
 
 // (*find*)(*\index{Algorithms!\texttt{find}}*)
 // points to the first occurrence of 13 in (*v*)
-p = find(v.begin(),v.end(),13);
+p = find(v.begin(),v.end(),13);(*\index{\texttt{find}}*)
 
 bool test_greater_than_5(int x) { return x>5; }(*\index{\textbf{int}}*)
 // (*find\_if*)(*\index{Algorithms!\texttt{find\_if}}*)
 // general search, stops as soon as the predicate is satisfied
 // points to the first occurrence of an element greater than 5 in (*v*)
-p = find_if(v.begin(),v.end(),test_greater_than_5);
+p = find_if(v.begin(),v.end(),test_greater_than_5);(*\index{\texttt{find\_if}}*)
 
 // function object(*\index{function object}*)
 class Test_greater(*\index{\textbf{class}!\texttt{Test\_greater}}*)
@@ -2333,7 +2338,7 @@ private:
 // (*find\_if*)(*\index{Algorithms!\texttt{find\_if}}*)
 // general search, stops as soon as the predicate is satisfied
 // points to the first occurrence of an element greater than 7 in (*v*)
-p = find_if(v.begin(),v.end(),Test_greater(7));
+p = find_if(v.begin(),v.end(),Test_greater(7));(*\index{\texttt{find\_if}}*)
 
 // (*accumulate*)
 // adds the values from a sequence
@@ -2343,23 +2348,23 @@ long res = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{acc
 
 // generic accumulate performing multiplication instead of sum(*\index{Algorithms!generic \texttt{accumulate}}*)
 // passes a function object (*multiplies<int>()*) defined in (*<functional>*)(*\index{\texttt{multiplies<int>()}}*)
-double res = accumulate(v.begin(),v.end(),1.0,multiplies<int>());(*\index{\textbf{double}}*)
+double res = accumulate(v.begin(),v.end(),1.0,multiplies<int>());(*\index{\textbf{double}}*)(*\index{\textbf{int}}*)
 
 // (*inner product*)
-vector<int> v1 = {-2,2,4,11,-4,3,1};(*\index{Containers!sequential!\texttt{vector}}*)
-vector<int> v2 = {4,2,4,18,5,3,1,7,9,};(*\index{Containers!sequential!\texttt{vector}}*)
+vector<int> v1 = {-2,2,4,11,-4,3,1};(*\index{Containers!\texttt{vector}}*)(*\index{\textbf{int}}*)
+vector<int> v2 = {4,2,4,18,5,3,1,7,9,};(*\index{Containers!\texttt{vector}}*)(*\index{\textbf{int}}*)
 
 long res = inner_product(v1.begin(), v1.end(), v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\textbf{long}}*)
 
 // merge sort
-sort(v.begin(),v.end());
+sort(v.begin(),v.end());(*\index{Algorithms!\texttt{sort}}*)
 
 // binary search
 bool found;
-found = binary_search(v.begin(), v.end(), 3);
+found = binary_search(v.begin(), v.end(), 3);(*\index{Algorithms!\texttt{binary\_search}}*)
 
 // reverse
-reverse(v.begin(),v.end());
+reverse(v.begin(),v.end());(*\index{Algorithms!\texttt{reverse}}*)
 \end{lstlisting}
 %
 % Bibliography
