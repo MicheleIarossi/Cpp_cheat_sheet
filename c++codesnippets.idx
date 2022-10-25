@@ -1,33 +1,32 @@
 \indexentry{\texttt{<iostream>}}{1}
 \indexentry{\texttt{std}}{1}
-\indexentry{\textbf{namespace}}{1}
+\indexentry{Namespaces!\textbf{using namespace} directives}{1}
+\indexentry{\textbf{namespace}|see{Namespaces}}{1}
 \indexentry{Conversions!safe}{2}
 \indexentry{\textbf{double}}{2}
 \indexentry{\textbf{int}}{2}
 \indexentry{Conversions!unsafe}{2}
 \indexentry{\textbf{int}}{2}
 \indexentry{\textbf{char}}{2}
+\indexentry{\textbf{constexpr}|see{Constants}}{2}
 \indexentry{Constants!\textbf{constexpr}}{2}
-\indexentry{\textbf{constexpr}}{2}
-\indexentry{\textbf{constexpr}}{2}
 \indexentry{\textbf{int}}{2}
-\indexentry{\textbf{constexpr}}{2}
+\indexentry{Constants!\textbf{constexpr}}{2}
 \indexentry{\textbf{int}}{2}
+\indexentry{\textbf{const}|see{Constants}}{2}
 \indexentry{Constants!\textbf{const}}{2}
-\indexentry{\textbf{const}}{2}
-\indexentry{\textbf{const}}{2}
 \indexentry{\textbf{int}}{2}
 \indexentry{Casts!\textbf{static\_cast}}{2}
 \indexentry{\textbf{double}}{2}
-\indexentry{\textbf{static\_cast}}{2}
+\indexentry{\textbf{static\_cast}|see{Casts}}{2}
 \indexentry{\textbf{double}}{2}
 \indexentry{\texttt{void $\ast$}}{2}
 \indexentry{\textbf{double}}{2}
-\indexentry{\textbf{static\_cast}}{2}
+\indexentry{\textbf{static\_cast}|see{Casts}}{2}
 \indexentry{Casts!\textbf{reinterpret\_cast}}{2}
 \indexentry{\textbf{long}}{2}
 \indexentry{\textbf{double}}{2}
-\indexentry{\textbf{reinterpret\_cast}}{2}
+\indexentry{\textbf{reinterpret\_cast}|see{Casts}}{2}
 \indexentry{\texttt{cout}}{2}
 \indexentry{Functions!arguments!default}{3}
 \indexentry{\textbf{int}}{3}
@@ -37,11 +36,11 @@
 \indexentry{Functions!arguments!read-write}{3}
 \indexentry{Functions!arguments!copy-by-value}{3}
 \indexentry{Functions!arguments!copy-by-reference}{3}
-\indexentry{\textbf{const}}{3}
+\indexentry{Constants!\textbf{const}}{3}
 \indexentry{\textbf{int}}{3}
 \indexentry{Functions!object initialisation}{3}
-\indexentry{\textbf{const}}{3}
-\indexentry{\textbf{const}}{3}
+\indexentry{Constants!\textbf{const}}{3}
+\indexentry{Constants!\textbf{const}}{3}
 \indexentry{Functions!arguments!rule of thumb}{3}
 \indexentry{\textbf{nullptr}}{3}
 \indexentry{Functions!pointer to function}{3}
@@ -53,21 +52,20 @@
 \indexentry{Lambda expressions!with access to local variables}{4}
 \indexentry{\textbf{int}}{4}
 \indexentry{\textbf{double}}{4}
-\indexentry{\textbf{using}!declaration}{4}
 \indexentry{Namespaces!\textbf{using} declarations}{4}
 \indexentry{\texttt{std}}{4}
 \indexentry{Strings!\texttt{string}}{4}
+\indexentry{\texttt{string}|see{Strings}}{4}
+\indexentry{\textbf{using}|see{Namespaces}}{4}
 \indexentry{\texttt{cin}}{4}
 \indexentry{\texttt{std}}{4}
 \indexentry{\texttt{cout}}{4}
 \indexentry{\texttt{std}}{4}
-\indexentry{\textbf{namespace}}{4}
-\indexentry{\textbf{using}!directive}{4}
 \indexentry{Namespaces!\textbf{using namespace} directives}{4}
-\indexentry{\textbf{namespace}}{4}
 \indexentry{\texttt{std}}{4}
-\indexentry{\textbf{using}!alias}{4}
-\indexentry{Alias|see{\textbf{using}}}{4}
+\indexentry{\textbf{using}|see{Namespaces}}{4}
+\indexentry{Alias!{\textbf{using}}}{4}
+\indexentry{\textbf{using}|see{Alias}}{4}
 \indexentry{\textbf{char}}{4}
 \indexentry{\texttt{<cstdlib>}}{4}
 \indexentry{\texttt{<ctime>}}{4}
@@ -124,7 +122,7 @@
 \indexentry{\texttt{<cstring>}}{6}
 \indexentry{\texttt{<cstdlib>}}{6}
 \indexentry{C-Strings!definition}{6}
-\indexentry{\textbf{const}}{6}
+\indexentry{Constants!\textbf{const}}{6}
 \indexentry{\textbf{int}}{6}
 \indexentry{\textbf{char}}{6}
 \indexentry{C-Strings!end of string}{6}
@@ -212,7 +210,7 @@
 \indexentry{Input-output streams!reading and writing characters!putting the last character back into the input stream}{9}
 \indexentry{\texttt{cin}!\texttt{unget}}{9}
 \indexentry{Input-output streams!handling of unexpected input}{9}
-\indexentry{\textbf{try-catch}}{9}
+\indexentry{\textbf{try-catch}|see{Exceptions}}{9}
 \indexentry{Exceptions!\textbf{try-catch}}{9}
 \indexentry{\textbf{char}}{9}
 \indexentry{\texttt{cin}}{9}
@@ -246,7 +244,6 @@
 \indexentry{Files!checking for failure!format data error}{10}
 \indexentry{Files!checking for failure!setting back to good state}{10}
 \indexentry{Strings!\texttt{string}}{10}
-\indexentry{\textbf{try-catch}}{11}
 \indexentry{Exceptions!\textbf{try-catch}}{11}
 \indexentry{Files!checking for unexpected input}{11}
 \indexentry{\textbf{char}}{11}
@@ -348,7 +345,6 @@
 \indexentry{Exceptions!\texttt{out\_of\_range}}{15}
 \indexentry{Containers!\texttt{vector}}{15}
 \indexentry{\textbf{int}}{15}
-\indexentry{\textbf{try-catch}}{15}
 \indexentry{Exceptions!\textbf{try-catch}}{15}
 \indexentry{\texttt{cout}}{15}
 \indexentry{Vectors!out of range exception}{15}
@@ -369,9 +365,9 @@
 \indexentry{\texttt{initializer\_list}}{16}
 \indexentry{\textbf{explicit}}{16}
 \indexentry{\textbf{double}}{16}
-\indexentry{\textbf{const}}{16}
+\indexentry{Constants!\textbf{const}}{16}
 \indexentry{\texttt{operator=}}{16}
-\indexentry{\textbf{const}}{16}
+\indexentry{Constants!\textbf{const}}{16}
 \indexentry{\texttt{operator=}}{16}
 \indexentry{\texttt{operator=}}{16}
 \indexentry{\texttt{operator=}}{16}
@@ -383,14 +379,14 @@
 \indexentry{\textbf{double}}{17}
 \indexentry{\texttt{size\_t}}{17}
 \indexentry{Classes!subscript operator!read}{17}
-\indexentry{\textbf{const}}{17}
+\indexentry{Constants!\textbf{const}}{17}
 \indexentry{\textbf{double}}{17}
 \indexentry{\texttt{size\_t}}{17}
 \indexentry{Classes!constant member function}{17}
-\indexentry{\textbf{const}}{17}
+\indexentry{Constants!\textbf{const}}{17}
 \indexentry{\texttt{size\_t}}{17}
 \indexentry{Classes!constant member function}{17}
-\indexentry{\textbf{const}}{17}
+\indexentry{Constants!\textbf{const}}{17}
 \indexentry{\texttt{size\_t}}{17}
 \indexentry{\texttt{size\_t}}{17}
 \indexentry{\texttt{size\_t}}{17}
@@ -415,14 +411,14 @@
 \indexentry{\textbf{new}}{17}
 \indexentry{\texttt{copy}}{17}
 \indexentry{Classes!copy constructor}{17}
-\indexentry{\textbf{const}}{17}
+\indexentry{Constants!\textbf{const}}{17}
 \indexentry{\textbf{double}}{18}
 \indexentry{\textbf{new}}{18}
 \indexentry{\texttt{copy}}{18}
 \indexentry{Classes!move constructor}{18}
 \indexentry{\textbf{nullptr}}{18}
 \indexentry{Classes!copy assignment}{18}
-\indexentry{\textbf{const}}{18}
+\indexentry{Constants!\textbf{const}}{18}
 \indexentry{\texttt{operator=}}{18}
 \indexentry{\textbf{this}}{18}
 \indexentry{\textbf{this}}{18}
@@ -455,19 +451,19 @@
 \indexentry{\textbf{int}}{20}
 \indexentry{\textbf{int}}{20}
 \indexentry{\texttt{operator+}}{20}
-\indexentry{\textbf{const}}{20}
+\indexentry{Constants!\textbf{const}}{20}
 \indexentry{\textbf{int}}{20}
 \indexentry{\textbf{int}}{20}
 \indexentry{Operator overloading!as \textbf{friend} member}{20}
 \indexentry{\textbf{class}!\texttt{Euro}}{20}
 \indexentry{\textbf{int}}{21}
 \indexentry{\textbf{int}}{21}
-\indexentry{\textbf{const}}{21}
+\indexentry{Constants!\textbf{const}}{21}
 \indexentry{\textbf{friend}}{21}
 \indexentry{\texttt{operator+}}{21}
 \indexentry{\texttt{operator<<}}{21}
 \indexentry{\textbf{friend}}{21}
-\indexentry{\textbf{const}}{21}
+\indexentry{Constants!\textbf{const}}{21}
 \indexentry{\textbf{friend}}{21}
 \indexentry{\texttt{operator>>}}{21}
 \indexentry{\textbf{friend}}{21}
@@ -476,18 +472,18 @@
 \indexentry{Classes!constructors!type conversions}{21}
 \indexentry{Inheritance!abstract base class}{21}
 \indexentry{\textbf{class}!\texttt{Shape}}{21}
-\indexentry{\textbf{const}}{21}
+\indexentry{Constants!\textbf{const}}{21}
 \indexentry{\texttt{= delete}}{21}
-\indexentry{\textbf{const}}{21}
+\indexentry{Constants!\textbf{const}}{21}
 \indexentry{\texttt{= delete}}{21}
 \indexentry{\texttt{operator=}}{21}
 \indexentry{\textbf{virtual}}{21}
 \indexentry{Classes!virtual destructor}{21}
 \indexentry{\textbf{int}}{21}
 \indexentry{\textbf{int}}{21}
-\indexentry{\textbf{const}}{21}
+\indexentry{Constants!\textbf{const}}{21}
 \indexentry{\textbf{int}}{21}
-\indexentry{\textbf{const}}{21}
+\indexentry{Constants!\textbf{const}}{21}
 \indexentry{\textbf{int}}{22}
 \indexentry{\textbf{protected}}{22}
 \indexentry{\textbf{virtual}}{22}
@@ -509,9 +505,9 @@
 \indexentry{Slicing}{22}
 \indexentry{Inheritance!disabling copy constructors and assignment}{22}
 \indexentry{\textbf{class}!\texttt{Shape}}{23}
-\indexentry{\textbf{const}}{23}
+\indexentry{Constants!\textbf{const}}{23}
 \indexentry{\texttt{= delete}}{23}
-\indexentry{\textbf{const}}{23}
+\indexentry{Constants!\textbf{const}}{23}
 \indexentry{\texttt{= delete}}{23}
 \indexentry{\texttt{operator=}}{23}
 \indexentry{Inheritance!virtual destructor}{23}
@@ -545,7 +541,7 @@
 \indexentry{\texttt{pair}}{25}
 \indexentry{\textbf{virtual}}{25}
 \indexentry{Classes!virtual destructor}{25}
-\indexentry{\textbf{const}}{25}
+\indexentry{Constants!\textbf{const}}{25}
 \indexentry{\texttt{pair}}{25}
 \indexentry{\texttt{pair}}{25}
 \indexentry{\textbf{protected}}{25}
@@ -555,7 +551,7 @@
 \indexentry{\textbf{class}!\texttt{Line}}{25}
 \indexentry{Classes!getter and setter functions}{25}
 \indexentry{\textbf{class}!\texttt{Line}}{25}
-\indexentry{\textbf{const}}{25}
+\indexentry{Constants!\textbf{const}}{25}
 \indexentry{\texttt{pair}}{25}
 \indexentry{\texttt{pair}}{25}
 \indexentry{\texttt{pair}}{25}
@@ -568,8 +564,8 @@
 \indexentry{\textbf{int}}{26}
 \indexentry{\textbf{virtual}}{26}
 \indexentry{Classes!virtual destructor}{26}
-\indexentry{\textbf{const}}{26}
-\indexentry{\textbf{const}}{26}
+\indexentry{Constants!\textbf{const}}{26}
+\indexentry{Constants!\textbf{const}}{26}
 \indexentry{\textbf{int}}{26}
 \indexentry{\textbf{protected}}{26}
 \indexentry{\textbf{int}}{26}
@@ -579,16 +575,13 @@
 \indexentry{Strings!\texttt{string}}{27}
 \indexentry{\textbf{virtual}}{27}
 \indexentry{Classes!virtual destructor}{27}
-\indexentry{\textbf{const}}{27}
+\indexentry{Constants!\textbf{const}}{27}
 \indexentry{\textbf{friend}}{27}
 \indexentry{\texttt{operator<<}}{27}
 \indexentry{\textbf{protected}}{27}
 \indexentry{Strings!\texttt{string}}{27}
-\indexentry{Exceptions!\textbf{try-catch}}{27}
-\indexentry{\textbf{try-catch}}{27}
 \indexentry{\textbf{throw}}{27}
 \indexentry{\texttt{cerr}}{28}
-\indexentry{\textbf{try-catch}}{28}
 \indexentry{Exceptions!\textbf{try-catch}}{28}
 \indexentry{\textbf{throw}}{28}
 \indexentry{\texttt{cerr}}{28}
@@ -598,36 +591,36 @@
 \indexentry{\textbf{throw}}{28}
 \indexentry{Exceptions!Basic guarantee}{28}
 \indexentry{\texttt{void $\ast$}}{28}
-\indexentry{\textbf{try-catch}}{28}
 \indexentry{Exceptions!\textbf{try-catch}}{28}
 \indexentry{\textbf{delete}}{29}
 \indexentry{\textbf{throw}}{29}
 \indexentry{Templates!function}{29}
-\indexentry{\textbf{template}}{29}
+\indexentry{\textbf{template}|see{Templates}}{29}
+\indexentry{Templates!\textbf{template}}{29}
 \indexentry{\textbf{int}}{29}
 \indexentry{\textbf{char}}{29}
 \indexentry{Templates!class}{29}
 \indexentry{Templates!type generator}{29}
-\indexentry{\textbf{template}}{29}
+\indexentry{Templates!\textbf{template}}{29}
 \indexentry{\textbf{class}!\texttt{MyVector}}{29}
 \indexentry{\textbf{explicit}}{29}
 \indexentry{\textbf{explicit}}{29}
 \indexentry{\texttt{size\_t}}{29}
 \indexentry{\textbf{explicit}}{29}
 \indexentry{\texttt{initializer\_list}}{29}
-\indexentry{\textbf{const}}{30}
-\indexentry{\textbf{const}}{30}
+\indexentry{Constants!\textbf{const}}{30}
+\indexentry{Constants!\textbf{const}}{30}
 \indexentry{\texttt{operator=}}{30}
 \indexentry{\texttt{operator=}}{30}
 \indexentry{\textbf{delete}}{30}
 \indexentry{\textbf{virtual}}{30}
 \indexentry{Classes!virtual destructor}{30}
 \indexentry{\texttt{size\_t}}{30}
-\indexentry{\textbf{const}}{30}
+\indexentry{Constants!\textbf{const}}{30}
 \indexentry{\texttt{size\_t}}{30}
-\indexentry{\textbf{const}}{30}
+\indexentry{Constants!\textbf{const}}{30}
 \indexentry{\texttt{size\_t}}{30}
-\indexentry{\textbf{const}}{30}
+\indexentry{Constants!\textbf{const}}{30}
 \indexentry{\texttt{size\_t}}{30}
 \indexentry{\texttt{size\_t}}{30}
 \indexentry{\texttt{size\_t}}{30}
@@ -635,9 +628,9 @@
 \indexentry{\texttt{size\_t}}{30}
 \indexentry{\textbf{nullptr}}{30}
 \indexentry{Templates!method definition}{30}
-\indexentry{\textbf{template}}{30}
+\indexentry{Templates!\textbf{template}}{30}
 \indexentry{\textbf{class}!\texttt{MyVector<T>}}{30}
-\indexentry{\textbf{const}}{30}
+\indexentry{Constants!\textbf{const}}{30}
 \indexentry{\texttt{operator=}}{30}
 \indexentry{\textbf{this}}{30}
 \indexentry{\textbf{this}}{30}
@@ -649,52 +642,52 @@
 \indexentry{Templates!instantiation}{31}
 \indexentry{\texttt{size\_t}}{31}
 \indexentry{Templates!integer parameters}{31}
-\indexentry{\textbf{template}}{31}
+\indexentry{Templates!\textbf{template}}{31}
 \indexentry{\textbf{class}!\texttt{Wrapper}}{31}
 \indexentry{\textbf{int}}{31}
-\indexentry{\textbf{const}}{31}
+\indexentry{Constants!\textbf{const}}{31}
 \indexentry{\textbf{int}}{31}
-\indexentry{\textbf{const}}{31}
+\indexentry{Constants!\textbf{const}}{31}
 \indexentry{\texttt{size\_t}}{31}
 \indexentry{\textbf{double}}{31}
 \indexentry{\textbf{char}}{31}
 \indexentry{Templates!class parameter}{31}
 \indexentry{\texttt{allocator}}{31}
-\indexentry{\textbf{template}}{31}
+\indexentry{Templates!\textbf{template}}{31}
 \indexentry{\textbf{class}!\texttt{MyVector<T,A>}}{31}
 \indexentry{\textbf{explicit}}{31}
 \indexentry{\textbf{explicit}}{31}
 \indexentry{\texttt{size\_t}}{31}
 \indexentry{\textbf{explicit}}{31}
 \indexentry{\texttt{initializer\_list}}{31}
-\indexentry{\textbf{const}}{31}
-\indexentry{\textbf{const}}{32}
+\indexentry{Constants!\textbf{const}}{31}
+\indexentry{Constants!\textbf{const}}{32}
 \indexentry{\texttt{operator=}}{32}
 \indexentry{\texttt{operator=}}{32}
 \indexentry{\textbf{virtual}}{32}
 \indexentry{Classes!virtual destructor}{32}
-\indexentry{\textbf{const}}{32}
-\indexentry{\textbf{const}}{32}
+\indexentry{Constants!\textbf{const}}{32}
+\indexentry{Constants!\textbf{const}}{32}
 \indexentry{\texttt{size\_t}}{32}
-\indexentry{\textbf{const}}{32}
+\indexentry{Constants!\textbf{const}}{32}
 \indexentry{\texttt{size\_t}}{32}
 \indexentry{\texttt{size\_t}}{32}
 \indexentry{\texttt{size\_t}}{32}
 \indexentry{\texttt{size\_t}}{32}
 \indexentry{\texttt{size\_t}}{32}
 \indexentry{\textbf{nullptr}}{32}
-\indexentry{\textbf{template}}{32}
+\indexentry{Templates!\textbf{template}}{32}
 \indexentry{\texttt{size\_t}}{32}
 \indexentry{\texttt{size\_t}}{32}
 \indexentry{\texttt{size\_t}}{32}
 \indexentry{Templates!friend operator}{32}
-\indexentry{\textbf{template}}{32}
+\indexentry{Templates!\textbf{template}}{32}
 \indexentry{\textbf{class}!\texttt{A\_list}}{33}
 \indexentry{\textbf{int}}{33}
-\indexentry{\textbf{const}}{33}
+\indexentry{Constants!\textbf{const}}{33}
 \indexentry{\texttt{operator=}}{33}
-\indexentry{\textbf{template}}{33}
-\indexentry{\textbf{const}}{33}
+\indexentry{Templates!\textbf{template}}{33}
+\indexentry{Constants!\textbf{const}}{33}
 \indexentry{\textbf{friend}}{33}
 \indexentry{\texttt{operator<<}}{33}
 \indexentry{\textbf{int}}{33}
@@ -729,42 +722,44 @@
 \indexentry{\texttt{<iostream>}}{34}
 \indexentry{\texttt{<ostream>}}{34}
 \indexentry{\texttt{<algorithm>}}{34}
-\indexentry{\textbf{template}}{34}
+\indexentry{Templates!\textbf{template}}{34}
 \indexentry{\textbf{class}!\texttt{LListNode<T>}}{34}
 \indexentry{\textbf{nullptr}}{34}
 \indexentry{\textbf{friend}}{34}
-\indexentry{\textbf{const}}{34}
+\indexentry{Templates!\textbf{template}}{34}
+\indexentry{Constants!\textbf{const}}{34}
 \indexentry{\textbf{friend}}{34}
 \indexentry{\texttt{operator<<}}{34}
 \indexentry{\textbf{nullptr}}{34}
-\indexentry{\textbf{template}}{34}
+\indexentry{Templates!\textbf{template}}{34}
 \indexentry{\textbf{class}!\texttt{LList<T>}}{34}
 \indexentry{\textbf{nullptr}}{34}
 \indexentry{\textbf{this}}{34}
-\indexentry{\textbf{const}}{34}
+\indexentry{Constants!\textbf{const}}{34}
 \indexentry{\texttt{operator=}}{34}
 \indexentry{\textbf{virtual}}{34}
 \indexentry{Classes!virtual destructor}{34}
-\indexentry{\textbf{const}}{35}
+\indexentry{Constants!\textbf{const}}{35}
 \indexentry{\textbf{int}}{35}
-\indexentry{\textbf{const}}{35}
+\indexentry{Constants!\textbf{const}}{35}
 \indexentry{\textbf{nullptr}}{35}
 \indexentry{\textbf{int}}{35}
-\indexentry{\textbf{const}}{35}
+\indexentry{Templates!\textbf{template}}{35}
+\indexentry{Constants!\textbf{const}}{35}
 \indexentry{\textbf{friend}}{35}
 \indexentry{\texttt{operator<<}}{35}
 \indexentry{\texttt{iterator}}{35}
 \indexentry{\textbf{nullptr}}{35}
 \indexentry{\textbf{nullptr}}{35}
-\indexentry{\textbf{template}}{35}
+\indexentry{Templates!\textbf{template}}{35}
 \indexentry{\texttt{iterator}}{35}
 \indexentry{Operator overloading!prefix increment ++}{35}
 \indexentry{\textbf{this}}{35}
 \indexentry{\texttt{operator++}}{35}
-\indexentry{\textbf{const}}{35}
-\indexentry{\textbf{const}}{35}
+\indexentry{Constants!\textbf{const}}{35}
+\indexentry{Constants!\textbf{const}}{35}
 \indexentry{\texttt{operator=}}{35}
-\indexentry{\textbf{const}}{35}
+\indexentry{Constants!\textbf{const}}{35}
 \indexentry{\texttt{operator"!=}}{35}
 \indexentry{\textbf{nullptr}}{35}
 \indexentry{\textbf{int}}{35}
@@ -812,7 +807,7 @@
 \indexentry{\textbf{char}}{37}
 \indexentry{Containers!\texttt{set}!\texttt{insert}}{37}
 \indexentry{Containers!\texttt{set}!\texttt{erase}}{37}
-\indexentry{\textbf{const}}{37}
+\indexentry{Constants!\textbf{const}}{37}
 \indexentry{\texttt{const\_iterator}}{37}
 \indexentry{Containers!\texttt{set}!\texttt{const\_iterator}}{37}
 \indexentry{\texttt{const\_iterator}!\texttt{begin}}{37}
@@ -857,7 +852,7 @@
 \indexentry{function object}{38}
 \indexentry{\textbf{class}!\texttt{Test\_greater}}{38}
 \indexentry{\textbf{int}}{38}
-\indexentry{\textbf{const}}{38}
+\indexentry{Constants!\textbf{const}}{38}
 \indexentry{\textbf{int}}{38}
 \indexentry{\textbf{int}}{38}
 \indexentry{Algorithms!\texttt{find\_if}}{38}

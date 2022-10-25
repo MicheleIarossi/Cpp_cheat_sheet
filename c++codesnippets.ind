@@ -16,9 +16,8 @@
     \subitem \texttt{Shape}, 21, 23, 24
     \subitem \texttt{Test\_greater}, 38
     \subitem \texttt{Wrapper}, 31
-  \item \textbf{constexpr}, 2
-  \item \textbf{const}, 2, 3, 6, 16--18, 20, 21, 23, 25--27, 30--35, 
-		37, 38
+  \item \textbf{constexpr}, \see{Constants}{2}
+  \item \textbf{const}, \see{Constants}{2}
   \item \textbf{delete}, 5, 6, 16, 18, 19, 29, 30
   \item \textbf{double}, 2, 4, 5, 7, 13, 14, 16--19, 31, 36, 37, 39
   \item \textbf{enum class}, 16
@@ -26,21 +25,18 @@
   \item \textbf{friend}, 21, 27, 33--35
   \item \textbf{int}, 2--7, 13--17, 20--22, 24--26, 29, 31, 33--39
   \item \textbf{long}, 2, 7, 13, 39
-  \item \textbf{namespace}, 1, 4
+  \item \textbf{namespace}, \see{Namespaces}{1}
   \item \textbf{new}, 5, 6, 17--19, 30
   \item \textbf{nullptr}, 3, 17--19, 30, 32, 34, 35
   \item \textbf{protected}, 22--27
-  \item \textbf{reinterpret\_cast}, 2
-  \item \textbf{static\_cast}, 2
-  \item \textbf{template}, 29--35
+  \item \textbf{reinterpret\_cast}, \see{Casts}{2}
+  \item \textbf{static\_cast}, \see{Casts}{2}
+  \item \textbf{template}, \see{Templates}{29}
   \item \textbf{this}, 18, 19, 30, 34, 35
   \item \textbf{throw}, 9, 11, 27--29
-  \item \textbf{try-catch}, 9, 11, 15, 27, 28
+  \item \textbf{try-catch}, \see{Exceptions}{9}
   \item \textbf{typedef}, 3
-  \item \textbf{using}
-    \subitem alias, 4
-    \subitem declaration, 4
-    \subitem directive, 4
+  \item \textbf{using}, \see{Alias}{4}, \see{Namespaces}{4}
   \item \textbf{virtual}, 16, 21--27, 30, 32, 34
   \item \texttt{<algorithm>}, 16, 34, 38
   \item \texttt{<cstdlib>}, 4, 6
@@ -133,6 +129,7 @@
   \item \texttt{stod}, 13
   \item \texttt{stoi}, 13
   \item \texttt{stol}, 13
+  \item \texttt{string}, \see{Strings}{4}
   \item \texttt{strncat}, 7
   \item \texttt{strncmp}, 7
   \item \texttt{strncpy}, 6
@@ -153,7 +150,8 @@
     \subitem \texttt{reverse}, 39
     \subitem \texttt{sort}, 39
     \subitem generic \texttt{accumulate}, 39
-  \item Alias, \see{\textbf{using}}{4}
+  \item Alias
+    \subitem {\textbf{using}}, 4
   \item Arrays
     \subitem declaration and initialisation, 5
     \subitem modifying elements of an array, 5
@@ -197,7 +195,8 @@
     \subitem virtual destructor, 16, 21, 23, 25--27, 30, 32, 34
   \item Constants
     \subitem \textbf{constexpr}, 2
-    \subitem \textbf{const}, 2
+    \subitem \textbf{const}, 2, 3, 6, 16--18, 20, 21, 23, 25--27, 
+		30--35, 37, 38
   \item Containers
     \subitem \texttt{advance}, 36
     \subitem \texttt{list}, 36
@@ -250,7 +249,7 @@
     \subitem prohibited conversions, 16
     \subitem usage, 16
   \item Exceptions
-    \subitem \textbf{try-catch}, 9, 11, 15, 27, 28
+    \subitem \textbf{try-catch}, 9, 11, 15, 28
     \subitem \texttt{DivideByZero}, 28
     \subitem \texttt{OtherException}, 28
     \subitem \texttt{out\_of\_range}, 15
@@ -357,7 +356,7 @@
   \indexspace
 
   \item Namespaces
-    \subitem \textbf{using namespace} directives, 4
+    \subitem \textbf{using namespace} directives, 1, 4
     \subitem \textbf{using} declarations, 4
 
   \indexspace
@@ -427,6 +426,7 @@
   \indexspace
 
   \item Templates
+    \subitem \textbf{template}, 29--35
     \subitem class, 29
     \subitem class parameter, 31
     \subitem friend operator, 32
