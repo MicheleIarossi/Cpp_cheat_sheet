@@ -1,34 +1,16 @@
 \begin{theindex}
 
-  \item \textbf{auto}, 5, 15, 36, 38
-  \item \textbf{char}, 2, 4, 6--9, 11, 29, 31, 37
-  \item \textbf{class}
-    \subitem \texttt{A\_list}, 33
-    \subitem \texttt{Circle}, 26
-    \subitem \texttt{Euro}, 20
-    \subitem \texttt{LList<T>}, 34
-    \subitem \texttt{LListNode<T>}, 34
-    \subitem \texttt{Line}, 22, 24, 25
-    \subitem \texttt{MyVector<T,A>}, 31
-    \subitem \texttt{MyVector<T>}, 30
-    \subitem \texttt{MyVector}, 16, 29
-    \subitem \texttt{My\_exception}, 27
-    \subitem \texttt{Shape}, 21, 23, 24
-    \subitem \texttt{Test\_greater}, 38
-    \subitem \texttt{Wrapper}, 31
+  \item \textbf{auto}, 5, 15, 37, 38
+  \item \textbf{class}, \see{Classes}{16}
   \item \textbf{constexpr}, \see{Constants}{2}
   \item \textbf{const}, \see{Constants}{2}
   \item \textbf{delete}, 5, 6, 16, 18, 19, 29, 30
-  \item \textbf{double}, 2, 4, 5, 7, 13, 14, 16--19, 31, 36, 37, 39
   \item \textbf{enum class}, 16
   \item \textbf{explicit}, 16, 29, 31
   \item \textbf{friend}, 21, 27, 33--35
-  \item \textbf{int}, 2--7, 13--17, 20--22, 24--26, 29, 31, 33--39
-  \item \textbf{long}, 2, 7, 13, 39
   \item \textbf{namespace}, \see{Namespaces}{1}
   \item \textbf{new}, 5, 6, 17--19, 30
   \item \textbf{nullptr}, 3, 17--19, 30, 32, 34, 35
-  \item \textbf{protected}, 22--27
   \item \textbf{reinterpret\_cast}, \see{Casts}{2}
   \item \textbf{static\_cast}, \see{Casts}{2}
   \item \textbf{template}, \see{Templates}{29}
@@ -64,47 +46,18 @@
   \item \texttt{atof}, 7
   \item \texttt{atoi}, 7
   \item \texttt{atol}, 7
-  \item \texttt{cerr}, 7, 9, 11, 13, 28
-  \item \texttt{cin}, 4, 7--9, 13
-    \subitem \texttt{clear}, 9
-    \subitem \texttt{fail}, 9
-    \subitem \texttt{getline}, 8
-    \subitem \texttt{get}, 8
-    \subitem \texttt{putback}, 9
-    \subitem \texttt{unget}, 9
-    \subitem \texttt{unset}, 7
-      \subsubitem \texttt{ios::dec}, 7
-      \subsubitem \texttt{ios::hex}, 7
-      \subsubitem \texttt{ios::oct}, 7
-  \item \texttt{const\_iterator}, 33, 37
-    \subitem \texttt{begin}, 37
-    \subitem \texttt{end}, 37
-  \item \texttt{copy}, 17--19, 30
-  \item \texttt{cout}, 2, 4, 5, 7, 12, 14, 15, 33, 34, 36--38
-    \subitem \texttt{dec}, 7
-    \subitem \texttt{defaultfloat}, 8
-    \subitem \texttt{fixed}, 8
-    \subitem \texttt{hex}, 7
-    \subitem \texttt{left}, 8
-    \subitem \texttt{noshowbase}, 7
-    \subitem \texttt{oct}, 7
-    \subitem \texttt{put}, 8
-    \subitem \texttt{right}, 8
-    \subitem \texttt{scientific}, 8
-    \subitem \texttt{setprecision}, 8
-    \subitem \texttt{setw}, 8
-    \subitem \texttt{showbase}, 7
-    \subitem \texttt{showpoint}, 8
-    \subitem \texttt{showpos}, 8
-  \item \texttt{find\_if}, 38, 39
-  \item \texttt{find}, 36, 38
+  \item \texttt{cerr}, \see{Input-output streams}{7}
+  \item \texttt{cin}, \see{Input-output streams}{4}
+  \item \texttt{const\_iterator}, \see{Iterators}{33}
+  \item \texttt{copy}, \see{Algorithms}{17}
+  \item \texttt{cout}, \see{Input-output streams}{4}
+  \item \texttt{find\_if}, \see{Algorithms}{38}
+  \item \texttt{find}, \see{Algorithms}{36}
   \item \texttt{fstream}, 10
   \item \texttt{ifstream}, 9, 10
   \item \texttt{initializer\_list}, 16, 17, 19, 29, 31
   \item \texttt{istringstream}, 14
-  \item \texttt{iterator}, 33, 35, 36, 38
-    \subitem \texttt{begin}, 33
-    \subitem \texttt{end}, 33
+  \item \texttt{iterator}, \see{Iterators}{33}
   \item \texttt{list}, \see{Containers}{36}
   \item \texttt{map}, \see{Containers}{37}
   \item \texttt{multiplies<int>()}, 39
@@ -118,9 +71,7 @@
   \item \texttt{ostringstream}, 14
   \item \texttt{pair}, 25, 37
   \item \texttt{rand}, 4
-  \item \texttt{reverse\_iterator}, 34
-    \subitem \texttt{rbegin}, 34
-    \subitem \texttt{rend}, 34
+  \item \texttt{reverse\_iterator}, \see{Iterators}{34}
   \item \texttt{set}, \see{Containers}{37}
   \item \texttt{size\_t}, 13, 16, 17, 19, 20, 29--32
   \item \texttt{srand}, 4
@@ -135,17 +86,18 @@
   \item \texttt{strncpy}, 6
   \item \texttt{time}, 4
   \item \texttt{to\_string}, 13
-  \item \texttt{unique\_ptr}, 6
+  \item \texttt{unique\_ptr}, \see{Pointers}{6}
   \item \texttt{vector}, \see{Containers}{38}, \see{Vectors}{38}
-  \item \texttt{void $\ast$}, 2, 28
+  \item \texttt{void $\ast$}, \see{Pointers}{2}
 
   \indexspace
 
   \item Algorithms
     \subitem \texttt{accumulate}, 39
     \subitem \texttt{binary\_search}, 39
-    \subitem \texttt{find\_if}, 38
-    \subitem \texttt{find}, 38
+    \subitem \texttt{copy}, 17--19, 30
+    \subitem \texttt{find\_if}, 38, 39
+    \subitem \texttt{find}, 36, 38
     \subitem \texttt{inner\_product}, 39
     \subitem \texttt{reverse}, 39
     \subitem \texttt{sort}, 39
@@ -174,6 +126,20 @@
     \subitem \textbf{reinterpret\_cast}, 2
     \subitem \textbf{static\_cast}, 2
   \item Classes
+    \subitem \textbf{class}
+      \subsubitem \texttt{A\_list}, 33
+      \subsubitem \texttt{Circle}, 26
+      \subsubitem \texttt{Euro}, 20
+      \subsubitem \texttt{LList<T>}, 34
+      \subsubitem \texttt{LListNode<T>}, 34
+      \subsubitem \texttt{Line}, 22, 24, 25
+      \subsubitem \texttt{MyVector<T,A>}, 31
+      \subsubitem \texttt{MyVector<T>}, 30
+      \subsubitem \texttt{MyVector}, 16, 29
+      \subsubitem \texttt{My\_exception}, 27
+      \subsubitem \texttt{Shape}, 21, 23, 24
+      \subsubitem \texttt{Test\_greater}, 38
+      \subsubitem \texttt{Wrapper}, 31
     \subitem constant member function, 17
     \subitem constructor invocations, 19
     \subitem constructors, 17
@@ -201,12 +167,14 @@
     \subitem \texttt{advance}, 36
     \subitem \texttt{list}, 36
       \subsubitem \texttt{erase}, 36
+      \subsubitem \texttt{iterator}, 36
       \subsubitem \texttt{push\_back}, 36
       \subsubitem \texttt{push\_front}, 36
     \subitem \texttt{map}, 37
       \subsubitem \texttt{erase}, 38
       \subsubitem \texttt{find}, 38
-      \subsubitem \texttt{insert}, 37
+      \subsubitem \texttt{insert}, 38
+      \subsubitem \texttt{iterator}, 38
     \subitem \texttt{set}, 37
       \subsubitem \texttt{const\_iterator}, 37
       \subsubitem \texttt{erase}, 37
@@ -219,9 +187,12 @@
     \subitem \texttt{vector}, 14, 15, 33, 38, 39
       \subsubitem \texttt{at}, 14
       \subsubitem \texttt{capacity}, 15
+      \subsubitem \texttt{const\_iterator}, 33
+      \subsubitem \texttt{iterator}, 15, 33
       \subsubitem \texttt{push\_back}, 15
       \subsubitem \texttt{reserve}, 15
       \subsubitem \texttt{resize}, 15
+      \subsubitem \texttt{reverse\_iterator}, 34
       \subsubitem \texttt{size}, 15
     \subitem adapter, \see{\texttt{stack}}{37}
     \subitem associative, \see{\texttt{map}}{37}, 
@@ -304,6 +275,31 @@
     \subitem virtual destructor, 23
     \subitem virtual functions, 24
   \item Input-output streams, 7
+    \subitem \texttt{cerr}, 7, 9, 11, 13, 28
+    \subitem \texttt{cin}, 4, 7--9, 13
+      \subsubitem \texttt{clear}, 9
+      \subsubitem \texttt{fail}, 9
+      \subsubitem \texttt{getline}, 8
+      \subsubitem \texttt{get}, 8
+      \subsubitem \texttt{putback}, 9
+      \subsubitem \texttt{unget}, 9
+      \subsubitem \texttt{unset}, 7
+    \subitem \texttt{cout}, 2, 4, 5, 7, 12, 14, 15, 33, 34, 36--38
+      \subsubitem \texttt{dec}, 7
+      \subsubitem \texttt{defaultfloat}, 8
+      \subsubitem \texttt{fixed}, 8
+      \subsubitem \texttt{hex}, 7
+      \subsubitem \texttt{left}, 8
+      \subsubitem \texttt{noshowbase}, 7
+      \subsubitem \texttt{oct}, 7
+      \subsubitem \texttt{put}, 8
+      \subsubitem \texttt{right}, 8
+      \subsubitem \texttt{scientific}, 8
+      \subsubitem \texttt{setprecision}, 8
+      \subsubitem \texttt{setw}, 8
+      \subsubitem \texttt{showbase}, 7
+      \subsubitem \texttt{showpoint}, 8
+      \subsubitem \texttt{showpos}, 8
     \subitem error stream, \see{\texttt{cerr}}{7}
     \subitem floating point format manipulators, 8
       \subsubitem  text width, 8
@@ -338,9 +334,19 @@
     \subitem writing error message to the screen, 7
     \subitem writing to the screen, 7
   \item Iterators, 33
-    \subitem \texttt{const\_iterator}, 33
-    \subitem \texttt{iterator}, 33
+    \subitem \texttt{LList<T>}
+      \subsubitem \texttt{iterator}, 35, 36
+    \subitem \texttt{const\_iterator}, 33, 37
+      \subsubitem \texttt{begin}, 33, 37
+      \subsubitem \texttt{end}, 33, 37
+    \subitem \texttt{initializer\_list<T>}
+      \subsubitem \texttt{iterator}, 17
+    \subitem \texttt{iterator}, 33, 36, 38
+      \subsubitem \texttt{begin}, 15, 33, 36, 38, 39
+      \subsubitem \texttt{end}, 15, 36, 38, 39
     \subitem \texttt{reverse\_iterator}, 34
+      \subsubitem \texttt{rbegin}, 34
+      \subsubitem \texttt{rend}, 34
     \subitem bidirectional access, 33
     \subitem custom implementation, 34
     \subitem end of sequence convention, 36
@@ -370,6 +376,7 @@
 
   \item Pointers
     \subitem \texttt{unique\_ptr}, 6
+    \subitem \texttt{void $\ast$}, 2, 28
     \subitem address of operator \texttt{\&}, 5
     \subitem dereference operator \textbf{$\ast$}, 5
     \subitem dynamic array
