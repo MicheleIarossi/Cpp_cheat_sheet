@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.58~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.59~-~GNU GPL v3.0}
 
 %\layout
 
@@ -992,8 +992,8 @@ for (auto x : v)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)
   cout << x << endl;(*\index{Input-output streams!\texttt{cout}}*)
 
 // (*auto*) gives to (*x*) the same type of the element on the right
-// hand side of the assignment, in this case an (*vector::iterator*)
-for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)(*\index{Containers!\texttt{vector}!\texttt{iterator}}*)
+// hand side of the assignment, in this case a (*vector::iterator*)
+for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
   cout << *x << endl;(*\index{Input-output streams!\texttt{cout}}*)
 
 
@@ -2028,10 +2028,10 @@ different iterators.\index{Iterators}
 
 vector<int> v = {1,2,3,4,5};(*\index{Containers!\texttt{vector}}*)
 // mutable iterator
-vector<int>::iterator e;(*\index{Iterators!\texttt{iterator}}*)(*\index{\texttt{iterator}|see{Iterators}}*)(*\index{Containers!\texttt{vector}!\texttt{iterator}}*)
+vector<int>::iterator e;(*\index{\texttt{iterator}|see{Iterators}}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
 
 // bidirectional access
-e = v.begin();(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!bidirectional access}*)(*\index{Containers!\texttt{vector}!\texttt{iterator}}*)
+e = v.begin();(*\index{Iterators!bidirectional access}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
 ++e;
 // print (*v[1]*)
 cout << *e << endl;(*\index{Input-output streams!\texttt{cout}}*)
@@ -2040,7 +2040,7 @@ cout << *e << endl;(*\index{Input-output streams!\texttt{cout}}*)
 cout << *e << endl;(*\index{Input-output streams!\texttt{cout}}*)
 
 // random access(*\index{Iterators!random access}*)
-e = v.begin();(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Containers!\texttt{vector}!\texttt{iterator}}*)
+e = v.begin();(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
 // print (*v[3]*)
 cout << e[3] << endl;(*\index{Input-output streams!\texttt{cout}}*)
 
@@ -2048,21 +2048,21 @@ cout << e[3] << endl;(*\index{Input-output streams!\texttt{cout}}*)
 e[3] = 9;
 
 // constant iterator (only read)
-vector<int>::const_iterator c;(*\index{\texttt{const\_iterator}|see{Iterators}}*)(*\index{Iterators!\texttt{const\_iterator}}*)(*\index{Containers!\texttt{vector}!\texttt{const\_iterator}}*)
+vector<int>::const_iterator c;(*\index{\texttt{const\_iterator}|see{Iterators}}*)(*\index{Iterators!\texttt{vector}!\texttt{const\_iterator}}*)
 
 // print out the vector content (read only)
 // (*\texttt{end()}*) points one element beyond the last one!
-for (c = v.begin(); c != v.end(); c++)(*\index{Iterators!\texttt{const\_iterator}!\texttt{end}}*)(*\index{Iterators!\texttt{const\_iterator}!\texttt{begin}}*)
+for (c = v.begin(); c != v.end(); c++)
     cout << *c << endl;(*\index{range-for-loop}*)(*\index{Input-output streams!\texttt{cout}}*)
 
 // not allowed
 // (*c[2] = 2;*)
 
 // reverse iterator
-vector<int>::reverse_iterator r;(*\index{\texttt{reverse\_iterator}|see{Iterators}}*)(*\index{Iterators!\texttt{reverse\_iterator}}*)(*\index{Containers!\texttt{vector}!\texttt{reverse\_iterator}}*)
+vector<int>::reverse_iterator r;(*\index{\texttt{reverse\_iterator}|see{Iterators}}*)(*\index{Iterators!\texttt{vector}!\texttt{reverse\_iterator}}*)
 
 // print out the vector content in reverse order
-for (r = v.rbegin(); r != v.rend(); r++)(*\index{Iterators!\texttt{reverse\_iterator}!\texttt{rbegin}}*)(*\index{Iterators!\texttt{reverse\_iterator}!\texttt{rend}}*)
+for (r = v.rbegin(); r != v.rend(); r++)
     cout << *r << endl;(*\index{range-for-loop}*)(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -2168,8 +2168,7 @@ cout << "data_list = " << data_list << endl;(*\index{Input-output streams!\textt
 cout << "data_list.size() = " << data_list.size() << "\n\n";(*\index{Input-output streams!\texttt{cout}}*)
 
 // applies standard algorithms on the custom linked list
-LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);(*\index{\texttt{find}|see{Algorithms}}*)(*\index{Algorithms!\texttt{find}}*)
-(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}*)
+LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);(*\index{\texttt{find}|see{Algorithms}}*)(*\index{Algorithms!\texttt{find}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}*)
 
 // checks if the element has been found(*\index{Iterators!end of sequence convention}*)
 // standard algorithms return the end of a sequence, 
@@ -2203,17 +2202,17 @@ data.push_back(9.23);(*\index{Containers!\texttt{list}!\texttt{push\_back}}*)
 data.push_front(-3.94);(*\index{Containers!\texttt{list}!\texttt{push\_front}}*)
 
 // bidirectional iterator, no random access    
-list<double>::iterator e;(*\index{Iterators!\texttt{iterator}}*)(*\index{Containers!\texttt{list}}*)(*\index{Containers!\texttt{list}!\texttt{iterator}}*)
+list<double>::iterator e;(*\index{Containers!\texttt{list}}*)(*\index{Iterators!\texttt{list}!\texttt{iterator}}*)
 
 // (*advance*)
-e = data.begin();(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)
-advance(e,2);(*\index{Containers!\texttt{advance}}*)
+e = data.begin();
+advance(e,2);(*\index{Algorithms!\texttt{advance}}*)
 
 // erases element (*5.65*)
 data.erase(e);(*\index{Containers!\texttt{list}!\texttt{erase}}*)
 
 // print out the content    
-for (e = data.begin(); e != data.end(); e++)(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)
+for (e = data.begin(); e != data.end(); e++)
     cout << *e << endl;(*\index{Input-output streams!\texttt{cout}}*)
     
 // range-for-loop
@@ -2261,8 +2260,8 @@ letters.insert('g');
 letters.erase('a');(*\index{Containers!\texttt{set}!\texttt{erase}}*)
 
 // const iterator 
-set<char>::const_iterator c;(*\index{Constants!\textbf{const}}*)(*\index{Iterators!\texttt{const\_iterator}}*)(*\index{Containers!\texttt{set}!\texttt{const\_iterator}}*)
-for (c = letters.begin(); c != letters.end(); c++)(*\index{Iterators!\texttt{const\_iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{const\_iterator}!\texttt{end}}*)
+set<char>::const_iterator c;(*\index{Constants!\textbf{const}}*)(*\index{Iterators!\texttt{set}!\texttt{const\_iterator}}*)
+for (c = letters.begin(); c != letters.end(); c++)
     cout << *c << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -2283,7 +2282,7 @@ dict["four"] = 4;
 dict["five"] = 5;
 
 // iterator    
-map<string,int>::iterator two;(*\index{Iterators!\texttt{iterator}}*)(*\index{Strings!\texttt{string}}*)(*\index{Containers!\texttt{map}!\texttt{iterator}}*)
+map<string,int>::iterator two;(*\index{Strings!\texttt{string}}*)(*\index{Iterators!\texttt{map}!\texttt{iterator}}*)
 
 // find    
 two = dict.find("two");(*\index{Containers!\texttt{map}!\texttt{find}}*)
@@ -2302,8 +2301,9 @@ for (auto n : dict)(*\index{\textbf{auto}}*)
 %
 \section{Algorithms}
 \small
+Provided by the C++ standard template library (STL)\index{STL}.
 \begin{enumerate}
-\item[$\Rightarrow$] Provided by the C++ standard template library (STL)\index{STL}:
+\item[$\Rightarrow$]  \texttt{find}
 \end{enumerate}
 \begin{lstlisting}
 #include <vector>(*\index{\texttt{<vector>}}*)
@@ -2311,19 +2311,27 @@ for (auto n : dict)(*\index{\textbf{auto}}*)
 #include <numeric>(*\index{\texttt{<numeric>}}*)
 #include <functional>(*\index{\texttt{<functional>}}*)
 
-vector<int> v = {6,2,7,13,4,3,1};(*\index{\texttt{vector}|see{Containers}}*)(*\index{\texttt{vector}|see{Vectors}}*)(*\index{Containers!\texttt{vector}}*)
-vector<int>::iterator p;(*\index{Iterators!\texttt{iterator}}*)
+vector<int> v = {6,2,7,13,4,3,1};(*\index{\texttt{vector}|see{Containers}}*)(*\index{Containers!\texttt{vector}}*)
+vector<int>::iterator p;(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
 
 // (*find*)(*\index{Algorithms!\texttt{find}}*)
 // points to the first occurrence of 13 in (*v*)
-p = find(v.begin(),v.end(),13);(*\index{Algorithms!\texttt{find}}*)(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)
-
+p = find(v.begin(),v.end(),13);(*\index{Algorithms!\texttt{find}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$]  \texttt{find\_if}
+\end{enumerate}
+\begin{lstlisting}
 bool test_greater_than_5(int x) { return x>5; }
 // (*find\_if*)(*\index{Algorithms!\texttt{find\_if}}*)(*\index{\texttt{find\_if}|see{Algorithms}}*)
 // general search, stops as soon as the predicate is satisfied
 // points to the first occurrence of an element greater than 5 in (*v*)
-p = find_if(v.begin(),v.end(),test_greater_than_5);(*\index{Algorithms!\texttt{find\_if}}*)(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)
-
+p = find_if(v.begin(),v.end(),test_greater_than_5);(*\index{Algorithms!\texttt{find\_if}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Function object
+\end{enumerate}
+\begin{lstlisting}
 // function object(*\index{function object}*)
 class Test_greater(*\index{Classes!\textbf{class}!\texttt{Test\_greater}}*)
 {
@@ -2337,33 +2345,53 @@ private:
 // (*find\_if*)(*\index{Algorithms!\texttt{find\_if}}*)
 // general search, stops as soon as the predicate is satisfied
 // points to the first occurrence of an element greater than 7 in (*v*)
-p = find_if(v.begin(),v.end(),Test_greater(7));(*\index{Algorithms!\texttt{find\_if}}*)(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)
-
+p = find_if(v.begin(),v.end(),Test_greater(7));(*\index{Algorithms!\texttt{find\_if}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{accumulate}
+\end{enumerate}
+\begin{lstlisting}
 // (*accumulate*)
 // adds the values from a sequence
 // the last parameter is the initial value
 // the return type is the type of the initial value!
-long res = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{accumulate}}*)(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)
+long res = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{accumulate}}*)(*\index{\texttt{accumulate}|see{accumulate}}*)
 
 // generic accumulate performing multiplication instead of sum(*\index{Algorithms!generic \texttt{accumulate}}*)
 // passes a function object (*multiplies<int>()*) defined in (*<functional>*)(*\index{\texttt{multiplies<int>()}}*)
-double res = accumulate(v.begin(),v.end(),1.0,multiplies<int>());(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)
-
+double res = accumulate(v.begin(),v.end(),1.0,multiplies<int>());
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$]  Inner product
+\end{enumerate}
+\begin{lstlisting}
 // (*inner product*)
 vector<int> v1 = {-2,2,4,11,-4,3,1};(*\index{Containers!\texttt{vector}}*)
 vector<int> v2 = {4,2,4,18,5,3,1,7,9,};(*\index{Containers!\texttt{vector}}*)
 
-long res = inner_product(v1.begin(), v1.end(), v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)
-
+long res = inner_product(v1.begin(), v1.end(), v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\texttt{inner\_product}|see{Algorithms}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Merge sort
+\end{enumerate}
+\begin{lstlisting}
 // merge sort
-sort(v.begin(),v.end());(*\index{Algorithms!\texttt{sort}}*)
-
+sort(v.begin(),v.end());(*\index{Algorithms!\texttt{sort}}*)(*\index{\texttt{sort}|see{Algorithms}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Binary search
+\end{enumerate}
+\begin{lstlisting}
 // binary search
 bool found;
-found = binary_search(v.begin(), v.end(), 3);(*\index{Algorithms!\texttt{binary\_search}}*)
-
+found = binary_search(v.begin(), v.end(), 3);(*\index{Algorithms!\texttt{binary\_search}}*)(*\index{\texttt{binary\_search}|see{Algorithms}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{reverse}
+\end{enumerate}
+\begin{lstlisting}
 // reverse
-reverse(v.begin(),v.end());(*\index{Algorithms!\texttt{reverse}}*)(*\index{Iterators!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{iterator}!\texttt{end}}*)
+reverse(v.begin(),v.end());(*\index{Algorithms!\texttt{reverse}}*)(*\index{\texttt{reverse}|see{Algorithms}}*)
 \end{lstlisting}
 %
 % Bibliography

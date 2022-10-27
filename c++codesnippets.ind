@@ -1,6 +1,6 @@
 \begin{theindex}
 
-  \item \textbf{auto}, 5, 15, 37, 38
+  \item \textbf{auto}, 5, 15, 36, 38
   \item \textbf{class}, \see{Classes}{16}
   \item \textbf{constexpr}, \see{Constants}{2}
   \item \textbf{const}, \see{Constants}{2}
@@ -42,10 +42,12 @@
   \item \texttt{= 0}, 22, 24
   \item \texttt{= delete}, 21, 23
   \item \texttt{[ ]}, 4
+  \item \texttt{accumulate}, \see{accumulate}{39}
   \item \texttt{allocator}, 31
   \item \texttt{atof}, 7
   \item \texttt{atoi}, 7
   \item \texttt{atol}, 7
+  \item \texttt{binary\_search}, \see{Algorithms}{39}
   \item \texttt{cerr}, \see{Input-output streams}{7}
   \item \texttt{cin}, \see{Input-output streams}{4}
   \item \texttt{const\_iterator}, \see{Iterators}{33}
@@ -56,6 +58,7 @@
   \item \texttt{fstream}, 10
   \item \texttt{ifstream}, 9, 10
   \item \texttt{initializer\_list}, 16, 17, 19, 29, 31
+  \item \texttt{inner\_product}, \see{Algorithms}{39}
   \item \texttt{istringstream}, 14
   \item \texttt{iterator}, \see{Iterators}{33}
   \item \texttt{list}, \see{Containers}{36}
@@ -72,8 +75,10 @@
   \item \texttt{pair}, 25, 37
   \item \texttt{rand}, 4
   \item \texttt{reverse\_iterator}, \see{Iterators}{34}
+  \item \texttt{reverse}, \see{Algorithms}{39}
   \item \texttt{set}, \see{Containers}{37}
   \item \texttt{size\_t}, 13, 16, 17, 19, 20, 29--32
+  \item \texttt{sort}, \see{Algorithms}{39}
   \item \texttt{srand}, 4
   \item \texttt{stack}, \see{Containers}{37}
   \item \texttt{std}, 1, 4
@@ -87,13 +92,14 @@
   \item \texttt{time}, 4
   \item \texttt{to\_string}, 13
   \item \texttt{unique\_ptr}, \see{Pointers}{6}
-  \item \texttt{vector}, \see{Containers}{38}, \see{Vectors}{38}
+  \item \texttt{vector}, \see{Containers}{38}
   \item \texttt{void $\ast$}, \see{Pointers}{2}
 
   \indexspace
 
   \item Algorithms
     \subitem \texttt{accumulate}, 39
+    \subitem \texttt{advance}, 36
     \subitem \texttt{binary\_search}, 39
     \subitem \texttt{copy}, 17--19, 30
     \subitem \texttt{find\_if}, 38, 39
@@ -162,21 +168,17 @@
   \item Constants
     \subitem \textbf{constexpr}, 2
     \subitem \textbf{const}, 2, 3, 6, 16--18, 20, 21, 23, 25--27, 
-		30--35, 37, 38
+		30--35, 37, 39
   \item Containers
-    \subitem \texttt{advance}, 36
     \subitem \texttt{list}, 36
       \subsubitem \texttt{erase}, 36
-      \subsubitem \texttt{iterator}, 36
       \subsubitem \texttt{push\_back}, 36
       \subsubitem \texttt{push\_front}, 36
     \subitem \texttt{map}, 37
       \subsubitem \texttt{erase}, 38
       \subsubitem \texttt{find}, 38
-      \subsubitem \texttt{insert}, 38
-      \subsubitem \texttt{iterator}, 38
+      \subsubitem \texttt{insert}, 37
     \subitem \texttt{set}, 37
-      \subsubitem \texttt{const\_iterator}, 37
       \subsubitem \texttt{erase}, 37
       \subsubitem \texttt{insert}, 37
     \subitem \texttt{stack}, 37
@@ -187,12 +189,9 @@
     \subitem \texttt{vector}, 14, 15, 33, 38, 39
       \subsubitem \texttt{at}, 14
       \subsubitem \texttt{capacity}, 15
-      \subsubitem \texttt{const\_iterator}, 33
-      \subsubitem \texttt{iterator}, 15, 33
       \subsubitem \texttt{push\_back}, 15
       \subsubitem \texttt{reserve}, 15
       \subsubitem \texttt{resize}, 15
-      \subsubitem \texttt{reverse\_iterator}, 34
       \subsubitem \texttt{size}, 15
     \subitem adapter, \see{\texttt{stack}}{37}
     \subitem associative, \see{\texttt{map}}{37}, 
@@ -336,17 +335,18 @@
   \item Iterators, 33
     \subitem \texttt{LList<T>}
       \subsubitem \texttt{iterator}, 35, 36
-    \subitem \texttt{const\_iterator}, 33, 37
-      \subsubitem \texttt{begin}, 33, 37
-      \subsubitem \texttt{end}, 33, 37
     \subitem \texttt{initializer\_list<T>}
       \subsubitem \texttt{iterator}, 17
-    \subitem \texttt{iterator}, 33, 36, 38
-      \subsubitem \texttt{begin}, 15, 33, 36, 38, 39
-      \subsubitem \texttt{end}, 15, 36, 38, 39
-    \subitem \texttt{reverse\_iterator}, 34
-      \subsubitem \texttt{rbegin}, 34
-      \subsubitem \texttt{rend}, 34
+    \subitem \texttt{list}
+      \subsubitem \texttt{iterator}, 36
+    \subitem \texttt{map}
+      \subsubitem \texttt{iterator}, 38
+    \subitem \texttt{set}
+      \subsubitem \texttt{const\_iterator}, 37
+    \subitem \texttt{vector}
+      \subsubitem \texttt{const\_iterator}, 33
+      \subsubitem \texttt{iterator}, 15, 33, 38
+      \subsubitem \texttt{reverse\_iterator}, 34
     \subitem bidirectional access, 33
     \subitem custom implementation, 34
     \subitem end of sequence convention, 36

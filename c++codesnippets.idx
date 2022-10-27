@@ -290,9 +290,7 @@
 \indexentry{Input-output streams!\texttt{cout}}{15}
 \indexentry{Vectors!loop over elements}{15}
 \indexentry{\textbf{auto}}{15}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{15}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{15}
-\indexentry{Containers!\texttt{vector}!\texttt{iterator}}{15}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{15}
 \indexentry{Input-output streams!\texttt{cout}}{15}
 \indexentry{Vectors!\texttt{size}}{15}
 \indexentry{Input-output streams!\texttt{cout}}{15}
@@ -599,30 +597,21 @@
 \indexentry{Iterators}{33}
 \indexentry{\texttt{<vector>}}{33}
 \indexentry{Containers!\texttt{vector}}{33}
-\indexentry{Iterators!\texttt{iterator}}{33}
 \indexentry{\texttt{iterator}|see{Iterators}}{33}
-\indexentry{Containers!\texttt{vector}!\texttt{iterator}}{33}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{33}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{33}
 \indexentry{Iterators!bidirectional access}{33}
-\indexentry{Containers!\texttt{vector}!\texttt{iterator}}{33}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{33}
 \indexentry{Input-output streams!\texttt{cout}}{33}
 \indexentry{Input-output streams!\texttt{cout}}{33}
 \indexentry{Iterators!random access}{33}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{33}
-\indexentry{Containers!\texttt{vector}!\texttt{iterator}}{33}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{33}
 \indexentry{Input-output streams!\texttt{cout}}{33}
 \indexentry{\texttt{const\_iterator}|see{Iterators}}{33}
-\indexentry{Iterators!\texttt{const\_iterator}}{33}
-\indexentry{Containers!\texttt{vector}!\texttt{const\_iterator}}{33}
-\indexentry{Iterators!\texttt{const\_iterator}!\texttt{end}}{33}
-\indexentry{Iterators!\texttt{const\_iterator}!\texttt{begin}}{33}
+\indexentry{Iterators!\texttt{vector}!\texttt{const\_iterator}}{33}
 \indexentry{range-for-loop}{34}
 \indexentry{Input-output streams!\texttt{cout}}{34}
 \indexentry{\texttt{reverse\_iterator}|see{Iterators}}{34}
-\indexentry{Iterators!\texttt{reverse\_iterator}}{34}
-\indexentry{Containers!\texttt{vector}!\texttt{reverse\_iterator}}{34}
-\indexentry{Iterators!\texttt{reverse\_iterator}!\texttt{rbegin}}{34}
-\indexentry{Iterators!\texttt{reverse\_iterator}!\texttt{rend}}{34}
+\indexentry{Iterators!\texttt{vector}!\texttt{reverse\_iterator}}{34}
 \indexentry{range-for-loop}{34}
 \indexentry{Input-output streams!\texttt{cout}}{34}
 \indexentry{Iterators!custom implementation}{34}
@@ -687,18 +676,14 @@
 \indexentry{Containers!\texttt{list}}{36}
 \indexentry{Containers!\texttt{list}!\texttt{push\_back}}{36}
 \indexentry{Containers!\texttt{list}!\texttt{push\_front}}{36}
-\indexentry{Iterators!\texttt{iterator}}{36}
 \indexentry{Containers!\texttt{list}}{36}
-\indexentry{Containers!\texttt{list}!\texttt{iterator}}{36}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{36}
-\indexentry{Containers!\texttt{advance}}{36}
+\indexentry{Iterators!\texttt{list}!\texttt{iterator}}{36}
+\indexentry{Algorithms!\texttt{advance}}{36}
 \indexentry{Containers!\texttt{list}!\texttt{erase}}{36}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{36}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{36}
 \indexentry{Input-output streams!\texttt{cout}}{36}
 \indexentry{range-for-loop}{36}
-\indexentry{\textbf{auto}}{37}
-\indexentry{Input-output streams!\texttt{cout}}{37}
+\indexentry{\textbf{auto}}{36}
+\indexentry{Input-output streams!\texttt{cout}}{36}
 \indexentry{Containers!adapter|see{\texttt{stack}}}{37}
 \indexentry{\texttt{<stack>}}{37}
 \indexentry{\texttt{stack}|see{Containers}}{37}
@@ -715,10 +700,7 @@
 \indexentry{Containers!\texttt{set}!\texttt{insert}}{37}
 \indexentry{Containers!\texttt{set}!\texttt{erase}}{37}
 \indexentry{Constants!\textbf{const}}{37}
-\indexentry{Iterators!\texttt{const\_iterator}}{37}
-\indexentry{Containers!\texttt{set}!\texttt{const\_iterator}}{37}
-\indexentry{Iterators!\texttt{const\_iterator}!\texttt{begin}}{37}
-\indexentry{Iterators!\texttt{const\_iterator}!\texttt{end}}{37}
+\indexentry{Iterators!\texttt{set}!\texttt{const\_iterator}}{37}
 \indexentry{Input-output streams!\texttt{cout}}{37}
 \indexentry{Containers!associative|see{\texttt{map}}}{37}
 \indexentry{\texttt{<string>}}{37}
@@ -729,10 +711,9 @@
 \indexentry{Strings!\texttt{string}}{37}
 \indexentry{\texttt{pair}}{37}
 \indexentry{Strings!\texttt{string}}{37}
-\indexentry{Containers!\texttt{map}!\texttt{insert}}{38}
-\indexentry{Iterators!\texttt{iterator}}{38}
+\indexentry{Containers!\texttt{map}!\texttt{insert}}{37}
 \indexentry{Strings!\texttt{string}}{38}
-\indexentry{Containers!\texttt{map}!\texttt{iterator}}{38}
+\indexentry{Iterators!\texttt{map}!\texttt{iterator}}{38}
 \indexentry{Containers!\texttt{map}!\texttt{find}}{38}
 \indexentry{Containers!\texttt{map}!\texttt{erase}}{38}
 \indexentry{range-for-loop}{38}
@@ -744,39 +725,29 @@
 \indexentry{\texttt{<numeric>}}{38}
 \indexentry{\texttt{<functional>}}{38}
 \indexentry{\texttt{vector}|see{Containers}}{38}
-\indexentry{\texttt{vector}|see{Vectors}}{38}
 \indexentry{Containers!\texttt{vector}}{38}
-\indexentry{Iterators!\texttt{iterator}}{38}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{38}
 \indexentry{Algorithms!\texttt{find}}{38}
 \indexentry{Algorithms!\texttt{find}}{38}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{38}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{38}
 \indexentry{Algorithms!\texttt{find\_if}}{38}
 \indexentry{\texttt{find\_if}|see{Algorithms}}{38}
 \indexentry{Algorithms!\texttt{find\_if}}{38}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{38}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{38}
 \indexentry{function object}{38}
 \indexentry{Classes!\textbf{class}!\texttt{Test\_greater}}{38}
-\indexentry{Constants!\textbf{const}}{38}
+\indexentry{Constants!\textbf{const}}{39}
 \indexentry{Algorithms!\texttt{find\_if}}{39}
 \indexentry{Algorithms!\texttt{find\_if}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{39}
 \indexentry{Algorithms!\texttt{accumulate}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{39}
+\indexentry{\texttt{accumulate}|see{accumulate}}{39}
 \indexentry{Algorithms!generic \texttt{accumulate}}{39}
 \indexentry{\texttt{multiplies<int>()}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{39}
 \indexentry{Containers!\texttt{vector}}{39}
 \indexentry{Containers!\texttt{vector}}{39}
 \indexentry{Algorithms!\texttt{inner\_product}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{39}
+\indexentry{\texttt{inner\_product}|see{Algorithms}}{39}
 \indexentry{Algorithms!\texttt{sort}}{39}
+\indexentry{\texttt{sort}|see{Algorithms}}{39}
 \indexentry{Algorithms!\texttt{binary\_search}}{39}
+\indexentry{\texttt{binary\_search}|see{Algorithms}}{39}
 \indexentry{Algorithms!\texttt{reverse}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{begin}}{39}
-\indexentry{Iterators!\texttt{iterator}!\texttt{end}}{39}
+\indexentry{\texttt{reverse}|see{Algorithms}}{39}
