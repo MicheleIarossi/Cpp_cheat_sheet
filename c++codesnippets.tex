@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.59~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.60~-~GNU GPL v3.0}
 
 %\layout
 
@@ -2242,7 +2242,7 @@ double d = numbers.top();(*\index{Containers!\texttt{stack}!\texttt{top}}*)
 numbers.pop();(*\index{Containers!\texttt{stack}!\texttt{pop}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \texttt{set}\index{Containers!associative|see{\texttt{set}}}
+\item[$\Rightarrow$] Associative containers: \texttt{set}, ordered according to its keys\index{Containers!associative|see{\texttt{set}}}
 \end{enumerate}
 \begin{lstlisting}
 #include <set>(*\index{\texttt{<set>}}*)
@@ -2265,12 +2265,12 @@ for (c = letters.begin(); c != letters.end(); c++)
     cout << *c << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \texttt{map}\index{Containers!associative|see{\texttt{map}}}
+\item[$\Rightarrow$] Associative containers: \texttt{map}, ordered according to its key in pairs (key,value)\index{Containers!associative|see{\texttt{map}}}
 \end{enumerate}
 \begin{lstlisting}
-#include <string>(*\index{\texttt{<string>}}*)
 #include <map>(*\index{\texttt{<map>}}*)
 #include <utility>(*\index{\texttt{<utility>}}*)
+#include <string>(*\index{\texttt{<string>}}*)
 
 // initialisation
 map<string,int> dict = { {"one",1}, {"two",2} };(*\index{\texttt{map}|see{Containers}}*)(*\index{Containers!\texttt{map}}*)(*\index{Strings!\texttt{string}}*)
@@ -2280,6 +2280,11 @@ pair<string,int> three("three",3);(*\index{\texttt{pair}}*)(*\index{Strings!\tex
 dict.insert(three);(*\index{Containers!\texttt{map}!\texttt{insert}}*)
 dict["four"] = 4;
 dict["five"] = 5;
+
+// (*make\_pair*)
+pair<string,int> six;
+six = make_pair<string,int>("six",6);(*\index{\texttt{make\_pair}}*)
+dict.insert(six);
 
 // iterator    
 map<string,int>::iterator two;(*\index{Strings!\texttt{string}}*)(*\index{Iterators!\texttt{map}!\texttt{iterator}}*)
@@ -2306,10 +2311,8 @@ Provided by the C++ standard template library (STL)\index{STL}.
 \item[$\Rightarrow$]  \texttt{find}
 \end{enumerate}
 \begin{lstlisting}
-#include <vector>(*\index{\texttt{<vector>}}*)
 #include <algorithm>(*\index{\texttt{<algorithm>}}*)
-#include <numeric>(*\index{\texttt{<numeric>}}*)
-#include <functional>(*\index{\texttt{<functional>}}*)
+#include <vector>(*\index{\texttt{<vector>}}*)
 
 vector<int> v = {6,2,7,13,4,3,1};(*\index{\texttt{vector}|see{Containers}}*)(*\index{Containers!\texttt{vector}}*)
 vector<int>::iterator p;(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
@@ -2351,6 +2354,13 @@ p = find_if(v.begin(),v.end(),Test_greater(7));(*\index{Algorithms!\texttt{find\
 \item[$\Rightarrow$] \texttt{accumulate}
 \end{enumerate}
 \begin{lstlisting}
+#include <algorithm>(*\index{\texttt{<algorithm>}}*)
+#include <vector>(*\index{\texttt{<vector>}}*)
+#include <list>(*\index{\texttt{<list>}}*)
+#include <set>(*\index{\texttt{<set>}}*)
+#include <numeric>(*\index{\texttt{<numeric>}}*)
+#include <functional>(*\index{\texttt{<functional>}}*)
+
 // (*accumulate*)
 // adds the values from a sequence
 // the last parameter is the initial value
@@ -2370,6 +2380,32 @@ vector<int> v1 = {-2,2,4,11,-4,3,1};(*\index{Containers!\texttt{vector}}*)
 vector<int> v2 = {4,2,4,18,5,3,1,7,9,};(*\index{Containers!\texttt{vector}}*)
 
 long res = inner_product(v1.begin(), v1.end(), v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\texttt{inner\_product}|see{Algorithms}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$]  \texttt{copy} between different containers
+\end{enumerate}
+\begin{lstlisting}
+list<double> data = {1.32,-2.45,5.65};
+vector<int> int_data(5);
+
+// copy data from the (*list*) of doubles to the (*vector*) of integers
+copy(data.begin(),data.end(),int_data.begin());(*\index{Algorithms!\texttt{copy}!between different containers}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$]  \texttt{copy} between a container and an output stream. A container can be initialised by the elements retrieved via a pair of iterators.
+\end{enumerate}
+\begin{lstlisting}
+// from the input character stream (*cin*) elements are 
+// read as strings and used to populate a set of (*words*)
+
+// a (*set*) doesn't allow any duplicates and keeps
+// elements ordered
+set<string> words{ istream_iterator<string>{cin},
+                             istream_iterator<string>{} };(*\index{Iterators!initialisation with a pair of iterators}*)(*\index{\texttt{istream\_iterator}}*)
+                             
+// copy the words from the set to the output stream (*cout*)
+// and add a new line after each word
+copy(words.begin(),words.end(),ostream_iterator<string>{cout,"\n"});(*\index{Algorithms!\texttt{copy}!between container and stream}*)(*\index{\texttt{ostream\_iterator}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Merge sort

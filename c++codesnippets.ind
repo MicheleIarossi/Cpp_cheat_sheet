@@ -20,25 +20,25 @@
   \item \textbf{typedef}, 3
   \item \textbf{using}, \see{Alias}{4}, \see{Namespaces}{4}
   \item \textbf{virtual}, 16, 21--27, 30, 32, 34
-  \item \texttt{<algorithm>}, 16, 34, 38
+  \item \texttt{<algorithm>}, 16, 34, 38, 39
   \item \texttt{<cstdlib>}, 4, 6
   \item \texttt{<cstring>}, 6
   \item \texttt{<ctime>}, 4
   \item \texttt{<fstream>}, 9, 10
-  \item \texttt{<functional>}, 38
+  \item \texttt{<functional>}, 39
   \item \texttt{<iomanip>}, 7, 8
   \item \texttt{<iostream>}, 1, 34
-  \item \texttt{<list>}, 36
+  \item \texttt{<list>}, 36, 39
   \item \texttt{<map>}, 37
   \item \texttt{<memory>}, 6
-  \item \texttt{<numeric>}, 38
+  \item \texttt{<numeric>}, 39
   \item \texttt{<ostream>}, 34
-  \item \texttt{<set>}, 37
+  \item \texttt{<set>}, 37, 39
   \item \texttt{<sstream>}, 14
   \item \texttt{<stack>}, 37
   \item \texttt{<string>}, 12, 37
   \item \texttt{<utility>}, 37
-  \item \texttt{<vector>}, 14, 33, 38
+  \item \texttt{<vector>}, 14, 33, 38, 39
   \item \texttt{= 0}, 22, 24
   \item \texttt{= delete}, 21, 23
   \item \texttt{[ ]}, 4
@@ -47,7 +47,7 @@
   \item \texttt{atof}, 7
   \item \texttt{atoi}, 7
   \item \texttt{atol}, 7
-  \item \texttt{binary\_search}, \see{Algorithms}{39}
+  \item \texttt{binary\_search}, \see{Algorithms}{40}
   \item \texttt{cerr}, \see{Input-output streams}{7}
   \item \texttt{cin}, \see{Input-output streams}{4}
   \item \texttt{const\_iterator}, \see{Iterators}{33}
@@ -59,9 +59,11 @@
   \item \texttt{ifstream}, 9, 10
   \item \texttt{initializer\_list}, 16, 17, 19, 29, 31
   \item \texttt{inner\_product}, \see{Algorithms}{39}
+  \item \texttt{istream\_iterator}, 40
   \item \texttt{istringstream}, 14
   \item \texttt{iterator}, \see{Iterators}{33}
   \item \texttt{list}, \see{Containers}{36}
+  \item \texttt{make\_pair}, 38
   \item \texttt{map}, \see{Containers}{37}
   \item \texttt{multiplies<int>()}, 39
   \item \texttt{ofstream}, 10
@@ -71,14 +73,15 @@
   \item \texttt{operator<<}, 21, 27, 33--35
   \item \texttt{operator=}, 16, 18, 21, 23, 30, 32--35
   \item \texttt{operator>>}, 21
+  \item \texttt{ostream\_iterator}, 40
   \item \texttt{ostringstream}, 14
   \item \texttt{pair}, 25, 37
   \item \texttt{rand}, 4
   \item \texttt{reverse\_iterator}, \see{Iterators}{34}
-  \item \texttt{reverse}, \see{Algorithms}{39}
+  \item \texttt{reverse}, \see{Algorithms}{40}
   \item \texttt{set}, \see{Containers}{37}
   \item \texttt{size\_t}, 13, 16, 17, 19, 20, 29--32
-  \item \texttt{sort}, \see{Algorithms}{39}
+  \item \texttt{sort}, \see{Algorithms}{40}
   \item \texttt{srand}, 4
   \item \texttt{stack}, \see{Containers}{37}
   \item \texttt{std}, 1, 4
@@ -100,13 +103,15 @@
   \item Algorithms
     \subitem \texttt{accumulate}, 39
     \subitem \texttt{advance}, 36
-    \subitem \texttt{binary\_search}, 39
+    \subitem \texttt{binary\_search}, 40
     \subitem \texttt{copy}, 17--19, 30
+      \subsubitem between container and stream, 40
+      \subsubitem between different containers, 39
     \subitem \texttt{find\_if}, 38, 39
     \subitem \texttt{find}, 36, 38
     \subitem \texttt{inner\_product}, 39
-    \subitem \texttt{reverse}, 39
-    \subitem \texttt{sort}, 39
+    \subitem \texttt{reverse}, 40
+    \subitem \texttt{sort}, 40
     \subitem generic \texttt{accumulate}, 39
   \item Alias
     \subitem {\textbf{using}}, 4
@@ -144,7 +149,7 @@
       \subsubitem \texttt{MyVector}, 16, 29
       \subsubitem \texttt{My\_exception}, 27
       \subsubitem \texttt{Shape}, 21, 23, 24
-      \subsubitem \texttt{Test\_greater}, 38
+      \subsubitem \texttt{Test\_greater}, 39
       \subsubitem \texttt{Wrapper}, 31
     \subitem constant member function, 17
     \subitem constructor invocations, 19
@@ -247,7 +252,7 @@
     \subitem opening explicitly, 10
     \subitem reading a line, 11
     \subitem reading and writing, 11
-  \item function object, 38
+  \item function object, 39
   \item Functions
     \subitem arguments
       \subsubitem copy-by-reference, 3
@@ -350,6 +355,7 @@
     \subitem bidirectional access, 33
     \subitem custom implementation, 34
     \subitem end of sequence convention, 36
+    \subitem initialisation with a pair of iterators, 40
     \subitem random access, 33
 
   \indexspace
