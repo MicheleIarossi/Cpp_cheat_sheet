@@ -633,8 +633,8 @@
 \indexentry{\textbf{this}}{34}
 \indexentry{Constants!\textbf{const}}{34}
 \indexentry{\texttt{operator=}}{34}
-\indexentry{\textbf{virtual}}{34}
-\indexentry{Classes!virtual destructor}{34}
+\indexentry{\textbf{virtual}}{35}
+\indexentry{Classes!virtual destructor}{35}
 \indexentry{Constants!\textbf{const}}{35}
 \indexentry{Constants!\textbf{const}}{35}
 \indexentry{\textbf{nullptr}}{35}
@@ -680,10 +680,10 @@
 \indexentry{Iterators!\texttt{list}!\texttt{iterator}}{36}
 \indexentry{Algorithms!\texttt{advance}}{36}
 \indexentry{Containers!\texttt{list}!\texttt{erase}}{36}
-\indexentry{Input-output streams!\texttt{cout}}{36}
-\indexentry{range-for-loop}{36}
-\indexentry{\textbf{auto}}{36}
-\indexentry{Input-output streams!\texttt{cout}}{36}
+\indexentry{Input-output streams!\texttt{cout}}{37}
+\indexentry{range-for-loop}{37}
+\indexentry{\textbf{auto}}{37}
+\indexentry{Input-output streams!\texttt{cout}}{37}
 \indexentry{Containers!adapter|see{\texttt{stack}}}{37}
 \indexentry{\texttt{<stack>}}{37}
 \indexentry{\texttt{stack}|see{Containers}}{37}
@@ -706,12 +706,12 @@
 \indexentry{\texttt{<map>}}{37}
 \indexentry{\texttt{<utility>}}{37}
 \indexentry{\texttt{<string>}}{37}
-\indexentry{\texttt{map}|see{Containers}}{37}
-\indexentry{Containers!\texttt{map}}{37}
-\indexentry{Strings!\texttt{string}}{37}
-\indexentry{\texttt{pair}}{37}
-\indexentry{Strings!\texttt{string}}{37}
-\indexentry{Containers!\texttt{map}!\texttt{insert}}{37}
+\indexentry{\texttt{map}|see{Containers}}{38}
+\indexentry{Containers!\texttt{map}}{38}
+\indexentry{Strings!\texttt{string}}{38}
+\indexentry{\texttt{pair}}{38}
+\indexentry{Strings!\texttt{string}}{38}
+\indexentry{Containers!\texttt{map}!\texttt{insert}}{38}
 \indexentry{\texttt{make\_pair}}{38}
 \indexentry{Strings!\texttt{string}}{38}
 \indexentry{Iterators!\texttt{map}!\texttt{iterator}}{38}
@@ -720,17 +720,25 @@
 \indexentry{range-for-loop}{38}
 \indexentry{\textbf{auto}}{38}
 \indexentry{Input-output streams!\texttt{cout}}{38}
-\indexentry{STL}{38}
-\indexentry{\texttt{<algorithm>}}{38}
-\indexentry{\texttt{<vector>}}{38}
-\indexentry{\texttt{vector}|see{Containers}}{38}
-\indexentry{Containers!\texttt{vector}}{38}
-\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{38}
-\indexentry{Algorithms!\texttt{find}}{38}
-\indexentry{Algorithms!\texttt{find}}{38}
-\indexentry{Algorithms!\texttt{find\_if}}{38}
-\indexentry{\texttt{find\_if}|see{Algorithms}}{38}
-\indexentry{Algorithms!\texttt{find\_if}}{38}
+\indexentry{Containers!associative|see{\texttt{multimap}}}{38}
+\indexentry{\texttt{<map>}}{38}
+\indexentry{\texttt{<utility>}}{38}
+\indexentry{\texttt{<string>}}{38}
+\indexentry{\texttt{multimap}|see{Containers}}{38}
+\indexentry{Containers!\texttt{multimap}}{38}
+\indexentry{Containers!\texttt{multimap}!\texttt{insert}}{38}
+\indexentry{Containers!\texttt{multimap}!\texttt{equal\_range}}{38}
+\indexentry{STL}{39}
+\indexentry{\texttt{<algorithm>}}{39}
+\indexentry{\texttt{<vector>}}{39}
+\indexentry{\texttt{vector}|see{Containers}}{39}
+\indexentry{Containers!\texttt{vector}}{39}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{39}
+\indexentry{Algorithms!\texttt{find}}{39}
+\indexentry{Algorithms!\texttt{find}}{39}
+\indexentry{Algorithms!\texttt{find\_if}}{39}
+\indexentry{\texttt{find\_if}|see{Algorithms}}{39}
+\indexentry{Algorithms!\texttt{find\_if}}{39}
 \indexentry{function object}{39}
 \indexentry{Classes!\textbf{class}!\texttt{Test\_greater}}{39}
 \indexentry{Constants!\textbf{const}}{39}
@@ -742,15 +750,15 @@
 \indexentry{\texttt{<set>}}{39}
 \indexentry{\texttt{<numeric>}}{39}
 \indexentry{\texttt{<functional>}}{39}
-\indexentry{Algorithms!\texttt{accumulate}}{39}
-\indexentry{\texttt{accumulate}|see{accumulate}}{39}
-\indexentry{Algorithms!generic \texttt{accumulate}}{39}
-\indexentry{\texttt{multiplies<int>()}}{39}
-\indexentry{Containers!\texttt{vector}}{39}
-\indexentry{Containers!\texttt{vector}}{39}
-\indexentry{Algorithms!\texttt{inner\_product}}{39}
-\indexentry{\texttt{inner\_product}|see{Algorithms}}{39}
-\indexentry{Algorithms!\texttt{copy}!between different containers}{39}
+\indexentry{Algorithms!\texttt{accumulate}}{40}
+\indexentry{\texttt{accumulate}|see{accumulate}}{40}
+\indexentry{Algorithms!generic \texttt{accumulate}}{40}
+\indexentry{\texttt{multiplies<int>()}}{40}
+\indexentry{Containers!\texttt{vector}}{40}
+\indexentry{Containers!\texttt{vector}}{40}
+\indexentry{Algorithms!\texttt{inner\_product}}{40}
+\indexentry{\texttt{inner\_product}|see{Algorithms}}{40}
+\indexentry{Algorithms!\texttt{copy}!between different containers}{40}
 \indexentry{Iterators!initialisation with a pair of iterators}{40}
 \indexentry{\texttt{istream\_iterator}}{40}
 \indexentry{Algorithms!\texttt{copy}!between container and stream}{40}

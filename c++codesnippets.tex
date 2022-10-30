@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.60~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.61~-~GNU GPL v3.0}
 
 %\layout
 
@@ -2046,7 +2046,11 @@ cout << e[3] << endl;(*\index{Input-output streams!\texttt{cout}}*)
 
 // change an element
 e[3] = 9;
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Constant iterator
+\end{enumerate}
+\begin{lstlisting}
 // constant iterator (only read)
 vector<int>::const_iterator c;(*\index{\texttt{const\_iterator}|see{Iterators}}*)(*\index{Iterators!\texttt{vector}!\texttt{const\_iterator}}*)
 
@@ -2057,7 +2061,11 @@ for (c = v.begin(); c != v.end(); c++)
 
 // not allowed
 // (*c[2] = 2;*)
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Reverse iterator
+\end{enumerate}
+\begin{lstlisting}
 // reverse iterator
 vector<int>::reverse_iterator r;(*\index{\texttt{reverse\_iterator}|see{Iterators}}*)(*\index{Iterators!\texttt{vector}!\texttt{reverse\_iterator}}*)
 
@@ -2295,11 +2303,35 @@ two = dict.find("two");(*\index{Containers!\texttt{map}!\texttt{find}}*)
 // erase    
 dict.erase(two);(*\index{Containers!\texttt{map}!\texttt{erase}}*)
 
-// rang-for-loop(*\index{range-for-loop}*)
+// range-for-loop(*\index{range-for-loop}*)
 // inside the loop (*n*) is a (*pair*)
 // the key is (*n.first*) and the value is (*n.second*)
 for (auto n : dict)(*\index{\textbf{auto}}*)
     cout << "(" <<  n.first << "," <<  n.second << ")" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Associative containers: \texttt{multimap}, ordered according to its key in pairs (key,value), keys can be repeated\index{Containers!associative|see{\texttt{multimap}}}
+\end{enumerate}
+\begin{lstlisting}
+#include <map>(*\index{\texttt{<map>}}*)
+#include <utility>(*\index{\texttt{<utility>}}*)
+#include <string>(*\index{\texttt{<string>}}*)
+
+multimap<string,int> mm;(*\index{\texttt{multimap}|see{Containers}}*)(*\index{Containers!\texttt{multimap}}*)
+ 
+// insert
+mm.insert(make_pair<string,int>("Mary",1));(*\index{Containers!\texttt{multimap}!\texttt{insert}}*)
+mm.insert(make_pair<string,int>("Dick",6));
+mm.insert(make_pair<string,int>("Mary",7));
+mm.insert(make_pair<string,int>("John",1));
+mm.insert(make_pair<string,int>("Mary",4));
+
+// search for (*Mary*), returns a pair of iterators
+auto pp = mm.equal_range("Mary");(*\index{Containers!\texttt{multimap}!\texttt{equal\_range}}*)
+
+// prints out (*Mary : 1, Mary : 7, Mary : 4*)
+for (auto p = pp.first; p !=pp.second; ++p)
+    cout << p->first << " : " << p->second << ", ";
 \end{lstlisting}
 %
 % Algorithms
