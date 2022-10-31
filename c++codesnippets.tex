@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.61~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.62~-~GNU GPL v3.0}
 
 %\layout
 
@@ -818,11 +818,29 @@ out_stream.close()
 \begin{lstlisting}
 #include <string>(*\index{\texttt{<string>}}*)
 
-// initialization(*\index{Strings!initialisation}*)
+// initialisation(*\index{Strings!initialisation}*)
 string s1 = "Hello";(*\index{Strings!\texttt{string}}*)
 string s2("World");(*\index{Strings!\texttt{string}}*)
 string s3{"World"};(*\index{Strings!\texttt{string}}*)
-string s4{string(5,'*')}; // "*****"(*\index{Strings!\texttt{string}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Fill constructor:
+\end{enumerate}
+\begin{lstlisting}
+string s4{string(5,'*')}; // fill constructor (*"*****"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!fill constructor}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Substring constructor from a certain position and a given optional length:
+\end{enumerate}
+\begin{lstlisting}
+string s5{string(string{"Hello, world!"},0,5)}; // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
+string s6{string(string{"Hello, world!"},7)}; // (*"world!"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Buffer constructor from a character array:
+\end{enumerate}
+\begin{lstlisting}
+string s7{string("Hello, world!",5)}; // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!buffer constructor}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Concatenation:

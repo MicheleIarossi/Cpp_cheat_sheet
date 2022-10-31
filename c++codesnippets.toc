@@ -13,13 +13,13 @@
 \contentsline {section}{Files}{9}{}%
 \contentsline {section}{Strings}{12}{}%
 \contentsline {section}{String streams}{14}{}%
-\contentsline {section}{Vectors}{14}{}%
+\contentsline {section}{Vectors}{15}{}%
 \contentsline {section}{Enumerations}{16}{}%
 \contentsline {section}{Classes}{16}{}%
 \contentsline {section}{Operator overloading}{20}{}%
 \contentsline {section}{Inheritance}{21}{}%
-\contentsline {section}{Polymorphism}{26}{}%
-\contentsline {section}{Exceptions}{27}{}%
+\contentsline {section}{Polymorphism}{27}{}%
+\contentsline {section}{Exceptions}{28}{}%
 \contentsline {section}{Templates}{29}{}%
 \contentsline {section}{Iterators}{33}{}%
 \contentsline {section}{Containers}{36}{}%
