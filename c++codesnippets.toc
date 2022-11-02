@@ -2,25 +2,26 @@
 \contentsline {section}{Type safety}{2}{}%
 \contentsline {section}{Constants}{2}{}%
 \contentsline {section}{Type casting}{2}{}%
+\contentsline {section}{Limits}{3}{}%
 \contentsline {section}{Functions}{3}{}%
 \contentsline {section}{Lambda expressions}{4}{}%
 \contentsline {section}{Namespaces and aliases}{4}{}%
-\contentsline {section}{Random numbers}{4}{}%
+\contentsline {section}{Random numbers}{5}{}%
 \contentsline {section}{Arrays}{5}{}%
 \contentsline {section}{Pointers}{5}{}%
 \contentsline {section}{C-Strings}{6}{}%
 \contentsline {section}{Input-output streams}{7}{}%
-\contentsline {section}{Files}{9}{}%
-\contentsline {section}{Strings}{12}{}%
+\contentsline {section}{Files}{10}{}%
+\contentsline {section}{Strings}{13}{}%
 \contentsline {section}{String streams}{14}{}%
 \contentsline {section}{Vectors}{15}{}%
 \contentsline {section}{Enumerations}{16}{}%
-\contentsline {section}{Classes}{16}{}%
-\contentsline {section}{Operator overloading}{20}{}%
-\contentsline {section}{Inheritance}{21}{}%
+\contentsline {section}{Classes}{17}{}%
+\contentsline {section}{Operator overloading}{21}{}%
+\contentsline {section}{Inheritance}{22}{}%
 \contentsline {section}{Polymorphism}{27}{}%
 \contentsline {section}{Exceptions}{28}{}%
 \contentsline {section}{Templates}{29}{}%
-\contentsline {section}{Iterators}{33}{}%
-\contentsline {section}{Containers}{36}{}%
+\contentsline {section}{Iterators}{34}{}%
+\contentsline {section}{Containers}{37}{}%
 \contentsline {section}{Algorithms}{39}{}%

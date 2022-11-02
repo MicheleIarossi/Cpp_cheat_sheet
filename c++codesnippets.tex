@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.62~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.63~-~GNU GPL v3.0}
 
 %\layout
 
@@ -199,7 +199,28 @@ double *pd = reinterpret_cast<double *>(&n);(*\index{\textbf{reinterpret\_cast}|
 
 // prints out (*2.61855e-322*)
 cout << *pd << endl;(*\index{Input-output streams!\texttt{cout}}*)
+\end{lstlisting}
+%
+% Limits
+%
+\section{Limits}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Use \texttt{numeric\_limits<T>}\index{\texttt{numeric\_limits<T>}} for checking against built-in type limits:
+\end{enumerate}
+\begin{lstlisting}
+#include <limits>(*\index{\texttt{<limits>}}*)
 
+// (*int*) type
+cout << numeric_limits<int>::min() << endl; // (*-2147483648*)
+cout << numeric_limits<int>::max() << endl; // (*2147483647*)
+    
+// (*double*) type
+cout << numeric_limits<double>::min() << endl; // (*2.22507e-308*)
+cout << numeric_limits<double>::max() << endl; // (*1.79769e+308*)
+cout << numeric_limits<double>::lowest() << endl; // (*-1.79769e+308*)
+cout << numeric_limits<double>::epsilon() << endl; // (*2.22045e-16*)
+cout << numeric_limits<double>::round_error() << endl; // (*0.5*)
 \end{lstlisting}
 %
 % Functions
