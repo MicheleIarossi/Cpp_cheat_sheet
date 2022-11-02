@@ -8,20 +8,20 @@
 \contentsline {section}{Namespaces and aliases}{4}{}%
 \contentsline {section}{Random numbers}{5}{}%
 \contentsline {section}{Arrays}{5}{}%
-\contentsline {section}{Pointers}{5}{}%
-\contentsline {section}{C-Strings}{6}{}%
-\contentsline {section}{Input-output streams}{7}{}%
+\contentsline {section}{Pointers}{6}{}%
+\contentsline {section}{C-Strings}{7}{}%
+\contentsline {section}{Input-output streams}{8}{}%
 \contentsline {section}{Files}{10}{}%
 \contentsline {section}{Strings}{13}{}%
-\contentsline {section}{String streams}{14}{}%
+\contentsline {section}{String streams}{15}{}%
 \contentsline {section}{Vectors}{15}{}%
-\contentsline {section}{Enumerations}{16}{}%
+\contentsline {section}{Enumerations}{17}{}%
 \contentsline {section}{Classes}{17}{}%
 \contentsline {section}{Operator overloading}{21}{}%
 \contentsline {section}{Inheritance}{22}{}%
 \contentsline {section}{Polymorphism}{27}{}%
 \contentsline {section}{Exceptions}{28}{}%
-\contentsline {section}{Templates}{29}{}%
+\contentsline {section}{Templates}{30}{}%
 \contentsline {section}{Iterators}{34}{}%
 \contentsline {section}{Containers}{37}{}%
-\contentsline {section}{Algorithms}{39}{}%
+\contentsline {section}{Algorithms}{40}{}%

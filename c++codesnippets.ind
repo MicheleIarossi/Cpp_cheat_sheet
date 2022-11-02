@@ -1,31 +1,31 @@
 \begin{theindex}
 
-  \item \textbf{auto}, 5, 16, 37, 39
+  \item \textbf{auto}, 5, 16, 38, 39
   \item \textbf{class}, \see{Classes}{17}
   \item \textbf{constexpr}, \see{Constants}{2}
   \item \textbf{const}, \see{Constants}{2}
-  \item \textbf{delete}, 5, 6, 17, 19, 29--31
-  \item \textbf{enum class}, 16
+  \item \textbf{delete}, 6, 17, 19, 20, 30, 31
+  \item \textbf{enum class}, 17
   \item \textbf{explicit}, 17, 30, 32
-  \item \textbf{friend}, 21, 28, 33, 35, 36
+  \item \textbf{friend}, 22, 28, 34--36
   \item \textbf{namespace}, \see{Namespaces}{1}
-  \item \textbf{new}, 5, 6, 18, 19, 31
-  \item \textbf{nullptr}, 3, 18, 19, 31, 33, 35, 36
+  \item \textbf{new}, 6, 18--20, 31
+  \item \textbf{nullptr}, 3, 18--20, 31, 33, 35, 36
   \item \textbf{reinterpret\_cast}, \see{Casts}{2}
   \item \textbf{static\_cast}, \see{Casts}{2}
   \item \textbf{template}, \see{Templates}{30}
-  \item \textbf{this}, 19, 31, 35, 36
-  \item \textbf{throw}, 9, 11, 28, 29
+  \item \textbf{this}, 19, 20, 31, 35, 36
+  \item \textbf{throw}, 10, 12, 28--30
   \item \textbf{try-catch}, \see{Exceptions}{9}
   \item \textbf{typedef}, 4
   \item \textbf{using}, \see{Alias}{4}, \see{Namespaces}{4}
-  \item \textbf{virtual}, 17, 22, 24--26, 28, 30, 32, 35
-  \item \texttt{<algorithm>}, 17, 35, 39, 40
-  \item \texttt{<cstdlib>}, 5, 6
-  \item \texttt{<cstring>}, 6
+  \item \textbf{virtual}, 17, 22--28, 31, 33, 36
+  \item \texttt{<algorithm>}, 17, 35, 40
+  \item \texttt{<cstdlib>}, 5, 7
+  \item \texttt{<cstring>}, 7
   \item \texttt{<ctime>}, 5
-  \item \texttt{<fstream>}, 10
-  \item \texttt{<functional>}, 40
+  \item \texttt{<fstream>}, 10, 11
+  \item \texttt{<functional>}, 5, 40
   \item \texttt{<iomanip>}, 8
   \item \texttt{<iostream>}, 1, 35
   \item \texttt{<limits>}, 3
@@ -34,59 +34,64 @@
   \item \texttt{<memory>}, 6
   \item \texttt{<numeric>}, 40
   \item \texttt{<ostream>}, 35
+  \item \texttt{<random>}, 5
   \item \texttt{<set>}, 38, 40
-  \item \texttt{<sstream>}, 14, 15
-  \item \texttt{<stack>}, 37
+  \item \texttt{<sstream>}, 15
+  \item \texttt{<stack>}, 38
   \item \texttt{<string>}, 13, 38, 39
   \item \texttt{<utility>}, 38, 39
-  \item \texttt{<vector>}, 15, 34, 39, 40
-  \item \texttt{= 0}, 22, 24, 25
-  \item \texttt{= delete}, 22, 23
+  \item \texttt{<vector>}, 15, 34, 40
+  \item \texttt{= 0}, 23, 25
+  \item \texttt{= delete}, 22, 24
   \item \texttt{[ ]}, 4
-  \item \texttt{accumulate}, \see{accumulate}{40}
+  \item \texttt{accumulate}, \see{accumulate}{41}
   \item \texttt{allocator}, 32
   \item \texttt{atof}, 7
   \item \texttt{atoi}, 7
   \item \texttt{atol}, 7
   \item \texttt{binary\_search}, \see{Algorithms}{41}
-  \item \texttt{cerr}, \see{Input-output streams}{7}
+  \item \texttt{bind}, 5
+  \item \texttt{cerr}, \see{Input-output streams}{8}
   \item \texttt{cin}, \see{Input-output streams}{4}
   \item \texttt{const\_iterator}, \see{Iterators}{34}
   \item \texttt{copy}, \see{Algorithms}{18}
   \item \texttt{cout}, \see{Input-output streams}{4}
+  \item \texttt{default\_random\_engine}, 5
   \item \texttt{find\_if}, \see{Algorithms}{40}
-  \item \texttt{find}, \see{Algorithms}{36}
+  \item \texttt{find}, \see{Algorithms}{37}
   \item \texttt{fstream}, 10
-  \item \texttt{ifstream}, 10
+  \item \texttt{ifstream}, 10, 11
   \item \texttt{initializer\_list}, 17, 18, 20, 30, 32
-  \item \texttt{inner\_product}, \see{Algorithms}{40}
+  \item \texttt{inner\_product}, \see{Algorithms}{41}
   \item \texttt{istream\_iterator}, 41
-  \item \texttt{istringstream}, 14
+  \item \texttt{istringstream}, 15
   \item \texttt{iterator}, \see{Iterators}{34}
   \item \texttt{list}, \see{Containers}{37}
-  \item \texttt{make\_pair}, 38
-  \item \texttt{map}, \see{Containers}{38}
+  \item \texttt{make\_pair}, 39
+  \item \texttt{map}, \see{Containers}{39}
+  \item \texttt{mt19937\_64}, 5
   \item \texttt{multimap}, \see{Containers}{39}
-  \item \texttt{multiplies<int>()}, 40
+  \item \texttt{multiplies<int>()}, 41
+  \item \texttt{normal\_distribution}, 5
   \item \texttt{numeric\_limits<T>}, 3
-  \item \texttt{ofstream}, 10
+  \item \texttt{ofstream}, 10, 11
   \item \texttt{operator!=}, 36
   \item \texttt{operator++}, 36
-  \item \texttt{operator+}, 21
-  \item \texttt{operator<<}, 21, 28, 33, 35, 36
-  \item \texttt{operator=}, 17, 19, 22, 23, 30--33, 35, 36
-  \item \texttt{operator>>}, 21
+  \item \texttt{operator+}, 21, 22
+  \item \texttt{operator<<}, 22, 28, 34--36
+  \item \texttt{operator=}, 17, 19, 22, 24, 31, 33--36
+  \item \texttt{operator>>}, 22
   \item \texttt{ostream\_iterator}, 41
   \item \texttt{ostringstream}, 15
-  \item \texttt{pair}, 25, 26, 38
+  \item \texttt{pair}, 26, 39
   \item \texttt{rand}, 5
-  \item \texttt{reverse\_iterator}, \see{Iterators}{34}
+  \item \texttt{reverse\_iterator}, \see{Iterators}{35}
   \item \texttt{reverse}, \see{Algorithms}{41}
   \item \texttt{set}, \see{Containers}{38}
-  \item \texttt{size\_t}, 14, 17--20, 30--33
+  \item \texttt{size\_t}, 14, 17, 18, 20, 21, 30--33
   \item \texttt{sort}, \see{Algorithms}{41}
   \item \texttt{srand}, 5
-  \item \texttt{stack}, \see{Containers}{37}
+  \item \texttt{stack}, \see{Containers}{38}
   \item \texttt{std}, 1, 4
   \item \texttt{stod}, 14
   \item \texttt{stoi}, 14
@@ -98,24 +103,24 @@
   \item \texttt{time}, 5
   \item \texttt{to\_string}, 14
   \item \texttt{unique\_ptr}, \see{Pointers}{6}
-  \item \texttt{vector}, \see{Containers}{39}
+  \item \texttt{vector}, \see{Containers}{40}
   \item \texttt{void $\ast$}, \see{Pointers}{2}
 
   \indexspace
 
   \item Algorithms
-    \subitem \texttt{accumulate}, 40
+    \subitem \texttt{accumulate}, 41
     \subitem \texttt{advance}, 37
     \subitem \texttt{binary\_search}, 41
-    \subitem \texttt{copy}, 18, 19, 31
+    \subitem \texttt{copy}, 18--20, 31
       \subsubitem between container and stream, 41
       \subsubitem between different containers, 41
     \subitem \texttt{find\_if}, 40
-    \subitem \texttt{find}, 36, 39
-    \subitem \texttt{inner\_product}, 40
+    \subitem \texttt{find}, 37, 40
+    \subitem \texttt{inner\_product}, 41
     \subitem \texttt{reverse}, 41
     \subitem \texttt{sort}, 41
-    \subitem generic \texttt{accumulate}, 40
+    \subitem generic \texttt{accumulate}, 41
   \item Alias
     \subitem {\textbf{using}}, 4
   \item Arrays
@@ -125,14 +130,14 @@
 
   \indexspace
 
-  \item C-Strings, 6
+  \item C-Strings, 7
     \subitem conversions
       \subsubitem to double, 7
       \subsubitem to integer, 7
       \subsubitem to long integer, 7
     \subitem correct looping, 7
-    \subitem definition, 6
-    \subitem end of string, 6
+    \subitem definition, 7
+    \subitem end of string, 7
     \subitem safe compare, 7
     \subitem safe concatenation, 7
     \subitem safe looping, 7
@@ -141,8 +146,8 @@
     \subitem \textbf{static\_cast}, 2
   \item Classes
     \subitem \textbf{class}
-      \subsubitem \texttt{A\_list}, 33
-      \subsubitem \texttt{Circle}, 26
+      \subsubitem \texttt{A\_list}, 34
+      \subsubitem \texttt{Circle}, 27
       \subsubitem \texttt{Euro}, 21
       \subsubitem \texttt{LList<T>}, 35
       \subsubitem \texttt{LListNode<T>}, 35
@@ -151,60 +156,60 @@
       \subsubitem \texttt{MyVector<T>}, 31
       \subsubitem \texttt{MyVector}, 17, 30
       \subsubitem \texttt{My\_exception}, 28
-      \subsubitem \texttt{Shape}, 22--25
+      \subsubitem \texttt{Shape}, 22, 24, 25
       \subsubitem \texttt{Test\_greater}, 40
-      \subsubitem \texttt{Wrapper}, 31
-    \subitem constant member function, 17
+      \subsubitem \texttt{Wrapper}, 32
+    \subitem constant member function, 18
     \subitem constructor invocations, 20
     \subitem constructors, 18
       \subsubitem initialiser list parameter, 18
       \subsubitem member initialisation list, 18
-      \subsubitem type conversions, 18, 21
+      \subsubitem type conversions, 18, 22
       \subsubitem vector size, 18
     \subitem copy assignment, 19
     \subitem copy constructor, 18
     \subitem example of a vector class, 17
     \subitem getter and setter functions, 26
     \subitem move assignment, 19
-    \subitem move constructor, 18
-    \subitem move invocations, 20
-    \subitem reallocation of resources, 19
-    \subitem subscript operator, 17
-      \subsubitem read, 17
-      \subsubitem write, 17
-    \subitem virtual destructor, 17, 22, 24--26, 28, 30, 32, 35
+    \subitem move constructor, 19
+    \subitem move invocations, 21
+    \subitem reallocation of resources, 20
+    \subitem subscript operator, 18
+      \subsubitem read, 18
+      \subsubitem write, 18
+    \subitem virtual destructor, 17, 22, 24, 26--28, 31, 33, 36
   \item Constants
     \subitem \textbf{constexpr}, 2
-    \subitem \textbf{const}, 2, 3, 6, 17--19, 21--23, 25--28, 30--33, 
-		35, 36, 38, 40
+    \subitem \textbf{const}, 2, 3, 7, 17--19, 21, 22, 24, 26--28, 
+		31--36, 38, 40
   \item Containers
     \subitem \texttt{list}, 37
       \subsubitem \texttt{erase}, 37
       \subsubitem \texttt{push\_back}, 37
       \subsubitem \texttt{push\_front}, 37
-    \subitem \texttt{map}, 38
+    \subitem \texttt{map}, 39
       \subsubitem \texttt{erase}, 39
       \subsubitem \texttt{find}, 39
-      \subsubitem \texttt{insert}, 38
+      \subsubitem \texttt{insert}, 39
     \subitem \texttt{multimap}, 39
       \subsubitem \texttt{equal\_range}, 39
       \subsubitem \texttt{insert}, 39
     \subitem \texttt{set}, 38
       \subsubitem \texttt{erase}, 38
       \subsubitem \texttt{insert}, 38
-    \subitem \texttt{stack}, 37
+    \subitem \texttt{stack}, 38
       \subsubitem \texttt{pop}, 38
-      \subsubitem \texttt{push}, 37
+      \subsubitem \texttt{push}, 38
       \subsubitem \texttt{size}, 38
       \subsubitem \texttt{top}, 38
-    \subitem \texttt{vector}, 15, 16, 34, 39, 40
+    \subitem \texttt{vector}, 15, 16, 34, 40, 41
       \subsubitem \texttt{at}, 15
       \subsubitem \texttt{capacity}, 16
-      \subsubitem \texttt{push\_back}, 15
+      \subsubitem \texttt{push\_back}, 16
       \subsubitem \texttt{reserve}, 16
-      \subsubitem \texttt{resize}, 15
+      \subsubitem \texttt{resize}, 16
       \subsubitem \texttt{size}, 16
-    \subitem adapter, \see{\texttt{stack}}{37}
+    \subitem adapter, \see{\texttt{stack}}{38}
     \subitem associative, \see{\texttt{map}}{38}, 
 		\see{\texttt{set}}{38}, \see{\texttt{multimap}}{39}
     \subitem sequential, \see{\texttt{list}}{37}, 
@@ -217,7 +222,7 @@
 
   \item Default value
     \subitem \textbf{double()}, 18
-  \item Dynamic array, \see{Pointers}{5}
+  \item Dynamic array, \see{Pointers}{6}
   \item Dynamic bidimensional array, \see{Pointers}{6}
 
   \indexspace
@@ -225,12 +230,12 @@
   \item end of line control character, 9
   \item Enumerations
     \subitem conversion function, 17
-    \subitem definition, 16
-    \subitem in \textbf{class} scope, 16
+    \subitem definition, 17
+    \subitem in \textbf{class} scope, 17
     \subitem prohibited conversions, 17
-    \subitem usage, 16
+    \subitem usage, 17
   \item Exceptions
-    \subitem \textbf{try-catch}, 9, 11, 16, 28, 29
+    \subitem \textbf{try-catch}, 9, 11, 16, 29
     \subitem \texttt{DivideByZero}, 29
     \subitem \texttt{OtherException}, 29
     \subitem \texttt{out\_of\_range}, 16
@@ -239,23 +244,23 @@
   \indexspace
 
   \item Files
-    \subitem checking for failure, 10
-      \subsubitem corrupted stream, 10
-      \subsubitem end of file, 10
+    \subitem checking for failure, 11
+      \subsubitem corrupted stream, 11
+      \subsubitem end of file, 11
       \subsubitem format data error, 11
       \subsubitem setting back to good state, 11
     \subitem checking for unexpected input, 11
-    \subitem closing by going out of scope, 12
-    \subitem closing explicitly, 12
+    \subitem closing by going out of scope, 13
+    \subitem closing explicitly, 13
     \subitem ignoring input, 12
-    \subitem loop for reading all the input, 12
+    \subitem loop for reading all the input, 13
     \subitem moving the file pointer
       \subsubitem reading with \texttt{seekg} (seek get), 12
       \subsubitem writing with \texttt{seekp} (seek put), 12
     \subitem opening as input, 10
     \subitem opening as output, 10
     \subitem opening both as input and output, 10
-    \subitem opening explicitly, 10
+    \subitem opening explicitly, 11
     \subitem reading a line, 12
     \subitem reading and writing, 12
   \item function object, 40
@@ -278,89 +283,89 @@
     \subitem base class, 23
     \subitem derived class, 25, 26
     \subitem disabling copy constructors and assignment, 23
-    \subitem function specialisation, 26
+    \subitem function specialisation, 26, 27
     \subitem protected constructor, 24
     \subitem protected member functions, 24
-    \subitem pure virtual functions, 24
-    \subitem virtual destructor, 23
+    \subitem pure virtual functions, 25
+    \subitem virtual destructor, 24
     \subitem virtual functions, 25
-  \item Input-output streams, 7
-    \subitem \texttt{cerr}, 7, 9--11, 14, 28, 29
-    \subitem \texttt{cin}, 4, 7--9, 13
-      \subsubitem \texttt{clear}, 9
-      \subsubitem \texttt{fail}, 9
+  \item Input-output streams, 8
+    \subitem \texttt{cerr}, 8, 10, 12, 14, 29
+    \subitem \texttt{cin}, 4, 8--10, 14
+      \subsubitem \texttt{clear}, 10
+      \subsubitem \texttt{fail}, 10
       \subsubitem \texttt{getline}, 9
-      \subsubitem \texttt{get}, 8, 9
+      \subsubitem \texttt{get}, 9
       \subsubitem \texttt{putback}, 9
-      \subsubitem \texttt{unget}, 9
+      \subsubitem \texttt{unget}, 9, 10
       \subsubitem \texttt{unset}, 8
-    \subitem \texttt{cout}, 2, 4, 5, 7, 8, 12, 14--16, 34, 36--39
+    \subitem \texttt{cout}, 2, 4, 5, 8, 13, 15, 16, 34, 35, 37--39
       \subsubitem \texttt{dec}, 8
       \subsubitem \texttt{defaultfloat}, 8
       \subsubitem \texttt{fixed}, 8
       \subsubitem \texttt{hex}, 8
-      \subsubitem \texttt{left}, 8
+      \subsubitem \texttt{left}, 9
       \subsubitem \texttt{noshowbase}, 8
       \subsubitem \texttt{oct}, 8
       \subsubitem \texttt{put}, 9
-      \subsubitem \texttt{right}, 8
+      \subsubitem \texttt{right}, 9
       \subsubitem \texttt{scientific}, 8
-      \subsubitem \texttt{setprecision}, 8
-      \subsubitem \texttt{setw}, 8
+      \subsubitem \texttt{setprecision}, 9
+      \subsubitem \texttt{setw}, 9
       \subsubitem \texttt{showbase}, 8
-      \subsubitem \texttt{showpoint}, 8
-      \subsubitem \texttt{showpos}, 8
-    \subitem error stream, \see{\texttt{cerr}}{7}
+      \subsubitem \texttt{showpoint}, 9
+      \subsubitem \texttt{showpos}, 9
+    \subitem error stream, \see{\texttt{cerr}}{8}
     \subitem floating point format manipulators, 8
-      \subsubitem  text width, 8
-      \subsubitem always show decimal point, 8
-      \subsubitem always show plus sign, 8
+      \subsubitem  text width, 9
+      \subsubitem always show decimal point, 9
+      \subsubitem always show plus sign, 9
       \subsubitem default float notation, 8
       \subsubitem fixed notation, 8
-      \subsubitem left aligned , 8
-      \subsubitem precision, 8
-      \subsubitem right aligned, 8
+      \subsubitem left aligned , 9
+      \subsubitem precision, 9
+      \subsubitem right aligned, 9
       \subsubitem scientific notation, 8
     \subitem handling of unexpected input, 9
-      \subsubitem clearing the failed state of the input stream, 9
-      \subsubitem setting explicitly the failure bit, 9
-    \subitem input stream, \see{\texttt{cin}}{7}
-    \subitem integer format manipulators, 7
+      \subsubitem clearing the failed state of the input stream, 10
+      \subsubitem setting explicitly the failure bit, 10
+    \subitem input stream, \see{\texttt{cin}}{8}
+    \subitem integer format manipulators, 8
       \subsubitem decimal, 8
       \subsubitem don't show the base, 8
       \subsubitem hexadecimal, 8
       \subsubitem otctal, 8
       \subsubitem reading a value from the keyboard in any notation, 8
       \subsubitem show the base, 8
-    \subitem output stream, \see{\texttt{cout}}{7}
-    \subitem reading and writing characters, 8
+    \subitem output stream, \see{\texttt{cout}}{8}
+    \subitem reading and writing characters, 9
       \subsubitem putting a character back into the input stream, 9
       \subsubitem putting the last character back into the input stream, 
 		9
       \subsubitem read a whole line, 9
-      \subsubitem read any character, 8
+      \subsubitem read any character, 9
       \subsubitem write a single character, 9
-    \subitem reading from the keyboard, 7
-    \subitem writing error message to the screen, 7
-    \subitem writing to the screen, 7
+    \subitem reading from the keyboard, 8
+    \subitem writing error message to the screen, 8
+    \subitem writing to the screen, 8
   \item Iterators, 34
     \subitem \texttt{LList<T>}
-      \subsubitem \texttt{iterator}, 36
+      \subsubitem \texttt{iterator}, 36, 37
     \subitem \texttt{initializer\_list<T>}
       \subsubitem \texttt{iterator}, 18
     \subitem \texttt{list}
       \subsubitem \texttt{iterator}, 37
     \subitem \texttt{map}
-      \subsubitem \texttt{iterator}, 38
+      \subsubitem \texttt{iterator}, 39
     \subitem \texttt{set}
       \subsubitem \texttt{const\_iterator}, 38
     \subitem \texttt{vector}
       \subsubitem \texttt{const\_iterator}, 34
-      \subsubitem \texttt{iterator}, 16, 34, 39
-      \subsubitem \texttt{reverse\_iterator}, 34
+      \subsubitem \texttt{iterator}, 16, 34, 40
+      \subsubitem \texttt{reverse\_iterator}, 35
     \subitem bidirectional access, 34
-    \subitem custom implementation, 34
-    \subitem end of sequence convention, 36
+    \subitem custom implementation, 35
+    \subitem end of sequence convention, 37
     \subitem initialisation with a pair of iterators, 41
     \subitem random access, 34
 
@@ -389,17 +394,17 @@
   \item Pointers
     \subitem \texttt{unique\_ptr}, 6
     \subitem \texttt{void $\ast$}, 2, 29
-    \subitem address of operator \texttt{\&}, 5
-    \subitem dereference operator \textbf{$\ast$}, 5
+    \subitem address of operator \texttt{\&}, 6
+    \subitem dereference operator \textbf{$\ast$}, 6
     \subitem dynamic array
       \subsubitem allocation, 6
       \subsubitem deallocation, 6
     \subitem dynamic matrix
       \subsubitem allocation, 6
       \subsubitem deallocation, 6
-    \subitem free store, 5
+    \subitem free store, 6
     \subitem RAII, 6
-    \subitem simple pointer, 5
+    \subitem simple pointer, 6
     \subitem subscript operator\texttt{[]}, 6
   \item Polymorphism, 27
     \subitem late binding, 28
@@ -407,32 +412,35 @@
   \indexspace
 
   \item Random numbers
+    \subitem default random engine, 5
     \subitem integer random number, 5
+    \subitem Mersenne Twister engine, 5
+    \subitem normal distribution, 5
     \subitem seed the generator, 5
-  \item range-for-loop, 5, 16, 34, 37, 39
+  \item range-for-loop, 5, 16, 35, 38, 39
 
   \indexspace
 
   \item Slicing, 23
-  \item STL, 39
+  \item STL, 40
   \item String streams
-    \subitem input string stream, 14
+    \subitem input string stream, 15
     \subitem output string stream, 15
-    \subitem read numbers from data stream, 14
+    \subitem read numbers from data stream, 15
     \subitem return the string in the stream, 15
   \item Strings
     \subitem \texttt{+}, 13
-    \subitem \texttt{append}, 13
-    \subitem \texttt{at}, 13
+    \subitem \texttt{append}, 14
+    \subitem \texttt{at}, 14
     \subitem \texttt{c\_str}, 14
     \subitem \texttt{find}, 14
     \subitem \texttt{length}, 14
     \subitem \texttt{size}, 14
-    \subitem \texttt{string}, 4, 9, 11--14, 28, 38
+    \subitem \texttt{string}, 4, 10--14, 28, 39
     \subitem \texttt{substr}, 14
     \subitem access to character
-      \subsubitem no illegal index checking, 13
-      \subsubitem with illegal index checking, 13
+      \subsubitem no illegal index checking, 14
+      \subsubitem with illegal index checking, 14
     \subitem buffer constructor, 13
     \subitem concatenation, 13
     \subitem fill constructor, 13
@@ -442,30 +450,30 @@
       \subsubitem integer, 14
       \subsubitem long integer, 14
     \subitem initialisation, 13
-    \subitem reading a line, 13
+    \subitem reading a line, 14
     \subitem substring constructor, 13
 
   \indexspace
 
   \item Templates
-    \subitem \textbf{template}, 30--33, 35, 36
+    \subitem \textbf{template}, 30--36
     \subitem class, 30
     \subitem class parameter, 32
     \subitem friend operator, 33
-    \subitem function, 29
-    \subitem instantiation, 31
-    \subitem integer parameters, 31
+    \subitem function, 30
+    \subitem instantiation, 32
+    \subitem integer parameters, 32
     \subitem method definition, 31
-    \subitem specialisation, 31
+    \subitem specialisation, 32
     \subitem type generator, 30
 
   \indexspace
 
   \item Vectors, 15
     \subitem \texttt{capacity}, 16
-    \subitem \texttt{push\_back}, 15
+    \subitem \texttt{push\_back}, 16
     \subitem \texttt{reserve}, 16
-    \subitem \texttt{resize}, 15
+    \subitem \texttt{resize}, 16
     \subitem \texttt{size}, 16
     \subitem access to an element
       \subsubitem checked, 15

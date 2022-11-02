@@ -355,6 +355,9 @@ using pchar = char*; // (*pchar*) means (*char$\ast$*)(*\index{Alias!{\textbf{us
 %
 \section{Random numbers}
 \small
+\begin{enumerate}
+\item[$\Rightarrow$] C-style:
+\end{enumerate}
 \begin{lstlisting}
 #include <cstdlib>(*\index{\texttt{<cstdlib>}}*)
 #include <ctime>(*\index{\texttt{<ctime>}}*)
@@ -362,8 +365,30 @@ using pchar = char*; // (*pchar*) means (*char$\ast$*)(*\index{Alias!{\textbf{us
 // seed the generator(*\index{Random numbers!seed the generator}*)
 srand( time(0) );(*\index{\texttt{srand}}*)(*\index{\texttt{time}}*)
 
-// integer random number between (*0*) and (*RAND\_MAX*) (*\index{Random numbers!integer random number}*)
+// integer random number between (*0*) and (*RAND\_MAX*)(*\index{Random numbers!integer random number}*)
 int n = rand();(*\index{\texttt{rand}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] C++ style:
+\end{enumerate}
+\begin{lstlisting}
+#include <random>(*\index{\texttt{<random>}}*)
+#include <functional>(*\index{\texttt{<functional>}}*)
+
+// (*bind*) constructs a function object that calls its first argument
+// with its second argument
+
+// normal distribution by using the default random engine
+auto gen_def = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)(*\index{Random numbers!normal distribution}*)
+                    default_random_engine{});(*\index{Random numbers!default random engine}*)(*\index{\texttt{default\_random\_engine}}*)
+                    
+// normal distribution by using the Mersenne Twister engine
+// with seed (*91586*)                  
+auto gen_mt = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)(*\index{Random numbers!normal distribution}*)(*\index{\texttt{normal\_distribution}}*)
+                    mt19937_64{91586});(*\index{Random numbers!Mersenne Twister engine}*)(*\index{\texttt{mt19937\_64}}*)
+
+// call the function objects to get random numbers
+cout << gen_def() << gen_mt() << endl;
 \end{lstlisting}
 %\columnbreak
 %
