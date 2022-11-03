@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.63~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.64~-~GNU GPL v3.0}
 
 %\layout
 
@@ -171,12 +171,12 @@ const int m = n + 1;(*\index{\textbf{const}|see{Constants}}*)(*\index{Constants!
 \section{Type casting}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Use \texttt{static\_cast} for normal casting\index{Casts!\textbf{static\_cast}}, i.e. types that can be converted into each other:
+\item[$\Rightarrow$] Use \texttt{static\_cast} for normal casting\index{Type casting!\textbf{static\_cast}}, i.e. types that can be converted into each other:
 \end{enumerate}
 \begin{lstlisting}
 // (*int 15*) to (*double 15.0*)
 double num;
-num = static_cast<double>(15);(*\index{\textbf{static\_cast}|see{Casts}}*)
+num = static_cast<double>(15);(*\index{\textbf{static\_cast}|see{Type casting}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Use \texttt{static\_cast} for casting a void pointer to the desired pointer type:
@@ -187,10 +187,10 @@ double num;
 void *p = &num;(*\index{\texttt{void $\ast$}|see{Pointers}}*)(*\index{Pointers!\texttt{void $\ast$}}*) 
 
 // back to (*double*) type
-double *pd = static_cast<double*>(p);(*\index{\textbf{static\_cast}|see{Casts}}*)
+double *pd = static_cast<double*>(p);(*\index{\textbf{static\_cast}|see{Type casting}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \texttt{reinterpret\_cast} for casting between unrelated pointer types\index{Casts!\textbf{reinterpret\_cast}}:
+\item[$\Rightarrow$] Use \texttt{reinterpret\_cast} for casting between unrelated pointer types\index{Type casting!\textbf{reinterpret\_cast}}:
 \end{enumerate}
 \begin{lstlisting}
 // reinterprets a (*long*) value as a (*double*) one
@@ -200,6 +200,33 @@ double *pd = reinterpret_cast<double *>(&n);(*\index{\textbf{reinterpret\_cast}|
 // prints out (*2.61855e-322*)
 cout << *pd << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Use user-defined type conversions\index{Type casting!user defined type conversions}:
+\end{enumerate}
+\begin{lstlisting}
+// User defined type
+class MyType
+{
+public:
+    MyType(int y=1) : x{y} {}
+    operator int() const { return x; }(*\index{Type casting!user defined type conversions!\texttt{operator int()}}*)(*\index{\texttt{operator int()}}*)
+    explicit operator double() const { return double(x); }(*\index{Type casting!user defined type conversions!\texttt{explicit operator double()}}*)(*\index{\texttt{operator double()}}*)
+private:
+    int x{0};
+};
+
+MyType a(5);
+MyType b(7);
+
+// (*a*) and (*b*) are converted to (*int*) by (*operator int()*)
+// (*c = 12*)
+int c = a + b;
+
+// (*b*) is converted to (*double*) by (*operator double()*)
+// but requires explicit static cast
+double =   static_cast<double>(b);
+\end{lstlisting}
+
 %
 % Limits
 %
@@ -451,11 +478,11 @@ delete [] dd;(*\index{Pointers!dynamic array!deallocation}*)(*\index{\textbf{del
 \item[$\Rightarrow$] Dynamic matrix:\index{Dynamic bidimensional array|see{Pointers}}
 \end{enumerate}
 \begin{lstlisting}
-// dynamic matrix of (*5 x 5 double*)s memory allocation(*\index{Pointers!dynamic matrix!allocation}*)ggyhutfjhigvirhgkfljfhfjkfmmmffydeguegyeftegdh876567766745#98yt657997880908765e33456bjjkhjkffffffffffhightghtiohgtiorghvrhvgbifbjfhljvnflbhlghbgihbgjhbgbhlgbhgbgrbgkhgjbgbgj
+// dynamic matrix of (*5 x 5 double*)s memory allocation(*\index{Pointers!dynamic matrix!allocation}*)
 double **m = new double*[5];(*\index{\textbf{new}}*)(*\index{\textbf{new}}*)
 for (int i=0; i<5; i++)
     m[i] = new double[5];(*\index{\textbf{new}}*)
-hvhbhvhvvv
+
 // memory initialisation    
 for (int i=0; i<5; i++)
     for (int j=0; j<5; j++)
