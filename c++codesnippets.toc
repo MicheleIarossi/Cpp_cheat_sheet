@@ -8,21 +8,22 @@
 \contentsline {section}{Lambda expressions}{5}{}%
 \contentsline {section}{Namespaces and aliases}{5}{}%
 \contentsline {section}{Random numbers}{5}{}%
-\contentsline {section}{Arrays}{6}{}%
-\contentsline {section}{Pointers}{6}{}%
+\contentsline {section}{Bitsets}{6}{}%
+\contentsline {section}{Arrays}{7}{}%
+\contentsline {section}{Pointers}{7}{}%
 \contentsline {section}{C-Strings}{8}{}%
-\contentsline {section}{Input-output streams}{8}{}%
+\contentsline {section}{Input-output streams}{9}{}%
 \contentsline {section}{Files}{11}{}%
 \contentsline {section}{Strings}{14}{}%
-\contentsline {section}{String streams}{15}{}%
-\contentsline {section}{Vectors}{16}{}%
-\contentsline {section}{Enumerations}{17}{}%
+\contentsline {section}{String streams}{16}{}%
+\contentsline {section}{Vectors}{17}{}%
+\contentsline {section}{Enumerations}{18}{}%
 \contentsline {section}{Classes}{18}{}%
 \contentsline {section}{Operator overloading}{22}{}%
 \contentsline {section}{Inheritance}{23}{}%
-\contentsline {section}{Polymorphism}{28}{}%
-\contentsline {section}{Exceptions}{29}{}%
-\contentsline {section}{Templates}{30}{}%
+\contentsline {section}{Polymorphism}{29}{}%
+\contentsline {section}{Exceptions}{30}{}%
+\contentsline {section}{Templates}{31}{}%
 \contentsline {section}{Iterators}{35}{}%
 \contentsline {section}{Containers}{38}{}%
-\contentsline {section}{Algorithms}{40}{}%
+\contentsline {section}{Algorithms}{41}{}%

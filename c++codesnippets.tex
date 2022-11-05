@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.65~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.66~-~GNU GPL v3.0}
 
 %\layout
 
@@ -428,7 +428,39 @@ auto gen_mt = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)
 // call the function objects to get random numbers
 cout << gen_def() << gen_mt() << endl;
 \end{lstlisting}
-%\columnbreak
+%
+% Bitsets
+%
+\section{Bitsets}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Bits and bit operations\index{Bitsets!bits and bit operations}
+\index{range-for-loop}
+\end{enumerate}
+\begin{lstlisting}
+#include <bitset>(*\index{\texttt{<bitset>}}*)
+
+bitset<8> a{87};   // (*01010111*)(*\index{\texttt{bitset<N>}}*)
+bitset<8> b{0x87}; // (*10000111*)
+    
+cout << a << endl << b << endl;
+    
+// boolean and
+bitset<8> c = a & b;
+    
+cout << c << endl; // (*00000111*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Access to single bits\index{Bitsets!access to single bits}
+\index{range-for-loop}
+\end{enumerate}
+\begin{lstlisting}
+// prints out single bits reverting the order
+// (*11100000*)
+for (auto i=0; i<8; ++i)
+     cout << c[i];
+\end{lstlisting}
+%
 %
 % Arrays
 %
