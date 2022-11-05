@@ -1,6 +1,7 @@
 \babel@toc {british}{}\relax 
-\contentsline {section}{Type safety}{2}{}%
+\contentsline {section}{Assertions}{2}{}%
 \contentsline {section}{Constants}{2}{}%
+\contentsline {section}{Type safety}{2}{}%
 \contentsline {section}{Type casting}{2}{}%
 \contentsline {section}{Limits}{3}{}%
 \contentsline {section}{Functions}{4}{}%

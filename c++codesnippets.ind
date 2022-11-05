@@ -12,6 +12,7 @@
   \item \textbf{new}, 7, 19, 20, 32
   \item \textbf{nullptr}, 4, 19, 20, 32, 34, 36, 37
   \item \textbf{reinterpret\_cast}, \see{Casts}{3}
+  \item \textbf{static\_assert}, 2
   \item \textbf{static\_cast}, \see{Type casting}{2}
   \item \textbf{template}, \see{Templates}{31}
   \item \textbf{this}, 20, 32, 36, 37
@@ -129,6 +130,8 @@
     \subitem declaration and initialisation, 6
     \subitem modifying elements of an array, 6
     \subitem printing elements of an array, 6
+  \item Assertions
+    \subitem \textbf{static\_assert}, 2
 
   \indexspace
 
@@ -466,7 +469,7 @@
     \subitem specialisation, 32
     \subitem type generator, 31
   \item Type casting
-    \subitem \textbf{reinterpret\_cast}, 2
+    \subitem \textbf{reinterpret\_cast}, 3
     \subitem \textbf{static\_cast}, 2
     \subitem user defined type conversions, 3
       \subsubitem \texttt{explicit operator double()}, 3

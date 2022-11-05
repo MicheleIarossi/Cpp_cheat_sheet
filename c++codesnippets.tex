@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.64~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.65~-~GNU GPL v3.0}
 
 %\layout
 
@@ -128,21 +128,15 @@ using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using na
 
 \newpage
 %
-% Type safety
+% assert
 %
-\section{Type safety}
+\section{Assertions}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Universal and uniform initialisation prevents narrowing conversions from happening:
+\item[$\Rightarrow$] The first argument of a \texttt{static\_assert} is a constant expression that must be true:
 \end{enumerate}
 \begin{lstlisting}
-// safe conversions (*\index{Conversions!safe}*)
-double x {54.21};
-int a {2342};
-
-// unsafe conversions (compile error!) (*\index{Conversions!unsafe}*)
-int y {x};
-char b {a};
+static_assert(8<=sizeof(long),"longs are too small");(*\index{Assertions!\textbf{static\_assert}}*)(*\index{\textbf{static\_assert}}*)
 \end{lstlisting}
 %
 % constants
@@ -164,6 +158,23 @@ constexpr int c = max + 2;(*\index{Constants!\textbf{constexpr}}*)
 \begin{lstlisting}
 // the value of (*n*) is not known at compile time
 const int m = n + 1;(*\index{\textbf{const}|see{Constants}}*)(*\index{Constants!\textbf{const}}*)
+\end{lstlisting}
+%
+% Type safety
+%
+\section{Type safety}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Universal and uniform initialisation prevents narrowing conversions from happening:
+\end{enumerate}
+\begin{lstlisting}
+// safe conversions (*\index{Conversions!safe}*)
+double x {54.21};
+int a {2342};
+
+// unsafe conversions (compile error!) (*\index{Conversions!unsafe}*)
+int y {x};
+char b {a};
 \end{lstlisting}
 %
 % Type casting
