@@ -27,3 +27,4 @@
 \contentsline {section}{Iterators}{35}{}%
 \contentsline {section}{Containers}{38}{}%
 \contentsline {section}{Algorithms}{41}{}%
+\contentsline {section}{Chrono}{43}{}%

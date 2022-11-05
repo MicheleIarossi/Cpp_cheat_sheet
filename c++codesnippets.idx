@@ -802,3 +802,8 @@
 \indexentry{\texttt{binary\_search}|see{Algorithms}}{43}
 \indexentry{Algorithms!\texttt{reverse}}{43}
 \indexentry{\texttt{reverse}|see{Algorithms}}{43}
+\indexentry{Run-time measurement}{43}
+\indexentry{\texttt{<chrono>}}{43}
+\indexentry{\texttt{system\_clock::now()}}{43}
+\indexentry{\texttt{system\_clock::now()}}{43}
+\indexentry{\texttt{duration\_cast<milliseconds>}}{43}

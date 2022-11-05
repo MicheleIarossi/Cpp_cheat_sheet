@@ -23,6 +23,7 @@
   \item \textbf{virtual}, 19, 24--28, 30, 32, 34, 37
   \item \texttt{<algorithm>}, 19, 36, 41, 42
   \item \texttt{<bitset>}, 6
+  \item \texttt{<chrono>}, 43
   \item \texttt{<cstdlib>}, 6, 8
   \item \texttt{<cstring>}, 8
   \item \texttt{<ctime>}, 6
@@ -60,6 +61,7 @@
   \item \texttt{copy}, \see{Algorithms}{20}
   \item \texttt{cout}, \see{Input-output streams}{5}
   \item \texttt{default\_random\_engine}, 6
+  \item \texttt{duration\_cast<milliseconds>}, 43
   \item \texttt{find\_if}, \see{Algorithms}{41}
   \item \texttt{find}, \see{Algorithms}{38}
   \item \texttt{fstream}, 12
@@ -105,6 +107,7 @@
   \item \texttt{strncat}, 9
   \item \texttt{strncmp}, 9
   \item \texttt{strncpy}, 8
+  \item \texttt{system\_clock::now()}, 43
   \item \texttt{time}, 6
   \item \texttt{to\_string}, 16
   \item \texttt{unique\_ptr}, \see{Pointers}{8}
@@ -428,6 +431,7 @@
     \subitem normal distribution, 6
     \subitem seed the generator, 6
   \item range-for-loop, 6, 7, 17, 36, 39, 40
+  \item Run-time measurement, 43
 
   \indexspace
 

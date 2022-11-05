@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.66~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.67~-~GNU GPL v3.0}
 
 %\layout
 
@@ -2594,6 +2594,28 @@ found = binary_search(v.begin(), v.end(), 3);(*\index{Algorithms!\texttt{binary\
 \begin{lstlisting}
 // reverse
 reverse(v.begin(),v.end());(*\index{Algorithms!\texttt{reverse}}*)(*\index{\texttt{reverse}|see{Algorithms}}*)
+\end{lstlisting}
+%
+% Chrono
+%
+\section{Chrono}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Run-time measurement in milliseconds\index{Run-time measurement}
+\end{enumerate}
+\begin{lstlisting}
+#include <chrono>(*\index{\texttt{<chrono>}}*)
+
+using namespace std::chrono;
+
+auto t1 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
+
+// ...
+
+auto t2 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
+
+// run-time in milliseconds
+cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)
 \end{lstlisting}
 %
 % Bibliography
