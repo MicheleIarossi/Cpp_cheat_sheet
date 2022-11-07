@@ -88,6 +88,7 @@
 \indexentry{range-for-loop}{7}
 \indexentry{Arrays!declaration and initialisation}{7}
 \indexentry{Arrays!modifying elements of an array}{7}
+\indexentry{range-for-loop}{7}
 \indexentry{\textbf{auto}}{7}
 \indexentry{range-for-loop}{7}
 \indexentry{Arrays!printing elements of an array}{7}
@@ -125,9 +126,9 @@
 \indexentry{Constants!\textbf{const}}{8}
 \indexentry{C-Strings!end of string}{8}
 \indexentry{C-Strings!correct looping}{8}
-\indexentry{C-Strings!safe looping}{8}
-\indexentry{\texttt{strncpy}}{8}
-\indexentry{C-Strings!safe compare}{8}
+\indexentry{C-Strings!safe looping}{9}
+\indexentry{\texttt{strncpy}}{9}
+\indexentry{C-Strings!safe compare}{9}
 \indexentry{\texttt{strncmp}}{9}
 \indexentry{C-Strings!safe concatenation}{9}
 \indexentry{\texttt{strncat}}{9}
@@ -162,10 +163,10 @@
 \indexentry{Input-output streams!integer format manipulators!don't show the base}{9}
 \indexentry{Input-output streams!\texttt{cout}!\texttt{noshowbase}}{9}
 \indexentry{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}{9}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{unset}}{9}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::dec}}{9}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::oct}}{9}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::hex}}{9}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{unset}}{10}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::dec}}{10}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::oct}}{10}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::hex}}{10}
 \indexentry{Input-output streams!\texttt{cin}}{10}
 \indexentry{Input-output streams!floating point format manipulators}{10}
 \indexentry{\texttt{<iomanip>}}{10}
@@ -195,8 +196,8 @@
 \indexentry{Input-output streams!reading and writing characters!write a single character}{10}
 \indexentry{Input-output streams!\texttt{cout}!\texttt{put}}{10}
 \indexentry{Input-output streams!reading and writing characters!read a whole line}{10}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{getline}}{10}
-\indexentry{Input-output streams!reading and writing characters!putting a character back into the input stream}{10}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{getline}}{11}
+\indexentry{Input-output streams!reading and writing characters!putting a character back into the input stream}{11}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{putback}}{11}
 \indexentry{Input-output streams!reading and writing characters!putting the last character back into the input stream}{11}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{unget}}{11}
@@ -215,9 +216,9 @@
 \indexentry{Strings!\texttt{string}}{11}
 \indexentry{Input-output streams!\texttt{cin}}{11}
 \indexentry{Input-output streams!\texttt{cerr}}{11}
-\indexentry{\texttt{<fstream>}}{11}
-\indexentry{Files!opening as input}{11}
-\indexentry{\texttt{ifstream}}{11}
+\indexentry{\texttt{<fstream>}}{12}
+\indexentry{Files!opening as input}{12}
+\indexentry{\texttt{ifstream}}{12}
 \indexentry{Files!opening as output}{12}
 \indexentry{\texttt{ofstream}}{12}
 \indexentry{\texttt{fstream}}{12}
@@ -680,6 +681,7 @@
 \indexentry{\textbf{nullptr}}{37}
 \indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}{37}
 \indexentry{\textbf{nullptr}}{37}
+\indexentry{Iterators!custom implementation}{38}
 \indexentry{Templates!\textbf{template}}{38}
 \indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{38}
 \indexentry{Operator overloading!prefix increment ++}{38}
@@ -702,8 +704,8 @@
 \indexentry{Input-output streams!\texttt{cout}}{38}
 \indexentry{Input-output streams!\texttt{cout}}{38}
 \indexentry{Input-output streams!\texttt{cout}}{38}
-\indexentry{Containers!sequential|see{\texttt{list}}}{38}
-\indexentry{Containers!sequential|see{\texttt{vector}}}{38}
+\indexentry{Containers!sequential|see{\texttt{list}}}{39}
+\indexentry{Containers!sequential|see{\texttt{vector}}}{39}
 \indexentry{\texttt{<list>}}{39}
 \indexentry{\texttt{list}|see{Containers}}{39}
 \indexentry{Containers!\texttt{list}}{39}
@@ -727,9 +729,9 @@
 \indexentry{Containers!\texttt{stack}!\texttt{top}}{39}
 \indexentry{Containers!\texttt{stack}!\texttt{pop}}{39}
 \indexentry{Containers!associative|see{\texttt{set}}}{39}
-\indexentry{\texttt{<set>}}{39}
-\indexentry{\texttt{set}|see{Containers}}{39}
-\indexentry{Containers!\texttt{set}}{39}
+\indexentry{\texttt{<set>}}{40}
+\indexentry{\texttt{set}|see{Containers}}{40}
+\indexentry{Containers!\texttt{set}}{40}
 \indexentry{Containers!\texttt{set}!\texttt{insert}}{40}
 \indexentry{Containers!\texttt{set}!\texttt{erase}}{40}
 \indexentry{Constants!\textbf{const}}{40}
@@ -753,7 +755,7 @@
 \indexentry{range-for-loop}{40}
 \indexentry{\textbf{auto}}{40}
 \indexentry{Input-output streams!\texttt{cout}}{40}
-\indexentry{Containers!associative|see{\texttt{multimap}}}{40}
+\indexentry{Containers!associative|see{\texttt{multimap}}}{41}
 \indexentry{\texttt{<map>}}{41}
 \indexentry{\texttt{<utility>}}{41}
 \indexentry{\texttt{<string>}}{41}
@@ -772,8 +774,8 @@
 \indexentry{Algorithms!\texttt{find\_if}}{41}
 \indexentry{\texttt{find\_if}|see{Algorithms}}{41}
 \indexentry{Algorithms!\texttt{find\_if}}{41}
-\indexentry{function object}{41}
-\indexentry{Classes!\textbf{class}!\texttt{Test\_greater}}{41}
+\indexentry{function object}{42}
+\indexentry{Classes!\textbf{class}!\texttt{Test\_greater}}{42}
 \indexentry{Constants!\textbf{const}}{42}
 \indexentry{Algorithms!\texttt{find\_if}}{42}
 \indexentry{Algorithms!\texttt{find\_if}}{42}

@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.67~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.68~-~GNU GPL v3.0}
 
 %\layout
 
@@ -476,10 +476,12 @@ int arr[] = {2, 4, 6, 8};(*\index{Arrays!declaration and initialisation}*)
 
 for (int& x : arr)
   x++;(*\index{Arrays!modifying elements of an array}*)
-
-// (*auto*) lets the compiler use the type of the 
-// elements in the container because it knows the type
-// already
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{auto} lets the compiler use the type of the elements in the container because it knows the type already
+\index{range-for-loop}
+\end{enumerate}
+\begin{lstlisting}
 for (auto x : arr)(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
   cout << x;(*\index{Arrays!printing elements of an array}*)(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
@@ -2280,7 +2282,11 @@ private:
     // recursive copy list function
     LListNode<T>* recursive_copy(LListNode<T>* rhs);
 };
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Example iterator class for the custom linked list class above\index{Iterators!custom implementation}
+\end{enumerate}
+\begin{lstlisting}
 // iterator class for the linked list
 template <class T>(*\index{Templates!\textbf{template}}*)
 class LList<T>::iterator(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)

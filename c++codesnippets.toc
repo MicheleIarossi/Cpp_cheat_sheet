@@ -25,6 +25,6 @@
 \contentsline {section}{Exceptions}{30}{}%
 \contentsline {section}{Templates}{31}{}%
 \contentsline {section}{Iterators}{35}{}%
-\contentsline {section}{Containers}{38}{}%
+\contentsline {section}{Containers}{39}{}%
 \contentsline {section}{Algorithms}{41}{}%
 \contentsline {section}{Chrono}{43}{}%

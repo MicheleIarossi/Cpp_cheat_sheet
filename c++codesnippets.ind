@@ -27,7 +27,7 @@
   \item \texttt{<cstdlib>}, 6, 8
   \item \texttt{<cstring>}, 8
   \item \texttt{<ctime>}, 6
-  \item \texttt{<fstream>}, 11, 12
+  \item \texttt{<fstream>}, 12
   \item \texttt{<functional>}, 6, 42
   \item \texttt{<iomanip>}, 9, 10
   \item \texttt{<iostream>}, 1, 36
@@ -38,7 +38,7 @@
   \item \texttt{<numeric>}, 42
   \item \texttt{<ostream>}, 36
   \item \texttt{<random>}, 6
-  \item \texttt{<set>}, 39, 42
+  \item \texttt{<set>}, 40, 42
   \item \texttt{<sstream>}, 16
   \item \texttt{<stack>}, 39
   \item \texttt{<string>}, 14, 40, 41
@@ -65,7 +65,7 @@
   \item \texttt{find\_if}, \see{Algorithms}{41}
   \item \texttt{find}, \see{Algorithms}{38}
   \item \texttt{fstream}, 12
-  \item \texttt{ifstream}, 11, 12
+  \item \texttt{ifstream}, 12
   \item \texttt{initializer\_list}, 19, 20, 22, 32, 34
   \item \texttt{inner\_product}, \see{Algorithms}{42}
   \item \texttt{istream\_iterator}, 43
@@ -94,7 +94,7 @@
   \item \texttt{rand}, 6
   \item \texttt{reverse\_iterator}, \see{Iterators}{36}
   \item \texttt{reverse}, \see{Algorithms}{43}
-  \item \texttt{set}, \see{Containers}{39}
+  \item \texttt{set}, \see{Containers}{40}
   \item \texttt{size\_t}, 15, 19, 21, 22, 32--35
   \item \texttt{sort}, \see{Algorithms}{43}
   \item \texttt{srand}, 6
@@ -106,7 +106,7 @@
   \item \texttt{string}, \see{Strings}{5}
   \item \texttt{strncat}, 9
   \item \texttt{strncmp}, 9
-  \item \texttt{strncpy}, 8
+  \item \texttt{strncpy}, 9
   \item \texttt{system\_clock::now()}, 43
   \item \texttt{time}, 6
   \item \texttt{to\_string}, 16
@@ -154,9 +154,9 @@
     \subitem correct looping, 8
     \subitem definition, 8
     \subitem end of string, 8
-    \subitem safe compare, 8
+    \subitem safe compare, 9
     \subitem safe concatenation, 9
-    \subitem safe looping, 8
+    \subitem safe looping, 9
   \item Classes
     \subitem \textbf{class}
       \subsubitem \texttt{A\_list}, 35
@@ -170,7 +170,7 @@
       \subsubitem \texttt{MyVector}, 19, 32
       \subsubitem \texttt{My\_exception}, 30
       \subsubitem \texttt{Shape}, 24--27
-      \subsubitem \texttt{Test\_greater}, 41
+      \subsubitem \texttt{Test\_greater}, 42
       \subsubitem \texttt{Wrapper}, 33
     \subitem constant member function, 19
     \subitem constructor invocations, 22
@@ -207,7 +207,7 @@
     \subitem \texttt{multimap}, 41
       \subsubitem \texttt{equal\_range}, 41
       \subsubitem \texttt{insert}, 41
-    \subitem \texttt{set}, 39
+    \subitem \texttt{set}, 40
       \subsubitem \texttt{erase}, 40
       \subsubitem \texttt{insert}, 40
     \subitem \texttt{stack}, 39
@@ -224,9 +224,9 @@
       \subsubitem \texttt{size}, 17
     \subitem adapter, \see{\texttt{stack}}{39}
     \subitem associative, \see{\texttt{set}}{39}, 
-		\see{\texttt{map}}{40}, \see{\texttt{multimap}}{40}
-    \subitem sequential, \see{\texttt{list}}{38}, 
-		\see{\texttt{vector}}{38}
+		\see{\texttt{map}}{40}, \see{\texttt{multimap}}{41}
+    \subitem sequential, \see{\texttt{list}}{39}, 
+		\see{\texttt{vector}}{39}
   \item Conversions
     \subitem safe, 2
     \subitem unsafe, 2
@@ -270,13 +270,13 @@
     \subitem moving the file pointer
       \subsubitem reading with \texttt{seekg} (seek get), 14
       \subsubitem writing with \texttt{seekp} (seek put), 14
-    \subitem opening as input, 11
+    \subitem opening as input, 12
     \subitem opening as output, 12
     \subitem opening both as input and output, 12
     \subitem opening explicitly, 12
     \subitem reading a line, 13
     \subitem reading and writing, 13
-  \item function object, 41
+  \item function object, 42
   \item Functions
     \subitem arguments
       \subsubitem copy-by-reference, 4
@@ -307,11 +307,11 @@
     \subitem \texttt{cin}, 5, 9--11, 15
       \subsubitem \texttt{clear}, 11
       \subsubitem \texttt{fail}, 11
-      \subsubitem \texttt{getline}, 10
+      \subsubitem \texttt{getline}, 11
       \subsubitem \texttt{get}, 10
       \subsubitem \texttt{putback}, 11
       \subsubitem \texttt{unget}, 11
-      \subsubitem \texttt{unset}, 9
+      \subsubitem \texttt{unset}, 10
     \subitem \texttt{cout}, 3, 5, 7, 9, 14, 16--18, 36, 38--40
       \subsubitem \texttt{dec}, 9
       \subsubitem \texttt{defaultfloat}, 10
@@ -352,7 +352,7 @@
       \subsubitem show the base, 9
     \subitem output stream, \see{\texttt{cout}}{9}
     \subitem reading and writing characters, 10
-      \subsubitem putting a character back into the input stream, 10
+      \subsubitem putting a character back into the input stream, 11
       \subsubitem putting the last character back into the input stream, 
 		11
       \subsubitem read a whole line, 10
@@ -377,7 +377,7 @@
       \subsubitem \texttt{iterator}, 17, 35, 36, 41
       \subsubitem \texttt{reverse\_iterator}, 36
     \subitem bidirectional access, 35
-    \subitem custom implementation, 36
+    \subitem custom implementation, 36, 38
     \subitem end of sequence convention, 38
     \subitem initialisation with a pair of iterators, 43
     \subitem random access, 36
