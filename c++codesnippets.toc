@@ -2,12 +2,12 @@
 \contentsline {section}{Assertions}{2}{}%
 \contentsline {section}{Constants}{2}{}%
 \contentsline {section}{Type safety}{2}{}%
-\contentsline {section}{Type casting}{2}{}%
-\contentsline {section}{Limits}{3}{}%
+\contentsline {section}{Type casting}{3}{}%
+\contentsline {section}{Limits}{4}{}%
 \contentsline {section}{Functions}{4}{}%
 \contentsline {section}{Lambda expressions}{5}{}%
 \contentsline {section}{Namespaces and aliases}{5}{}%
-\contentsline {section}{Random numbers}{5}{}%
+\contentsline {section}{Random numbers}{6}{}%
 \contentsline {section}{Bitsets}{6}{}%
 \contentsline {section}{Arrays}{7}{}%
 \contentsline {section}{Pointers}{7}{}%

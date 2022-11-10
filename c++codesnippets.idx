@@ -7,15 +7,17 @@
 \indexentry{\textbf{constexpr}|see{Constants}}{2}
 \indexentry{Constants!\textbf{constexpr}}{2}
 \indexentry{Constants!\textbf{constexpr}}{2}
+\indexentry{Constants!constant functions}{2}
+\indexentry{Integer literal!single quotes}{2}
 \indexentry{\textbf{const}|see{Constants}}{2}
 \indexentry{Constants!\textbf{const}}{2}
 \indexentry{Conversions!safe}{2}
 \indexentry{Conversions!unsafe}{2}
-\indexentry{Type casting!\textbf{static\_cast}}{2}
-\indexentry{\textbf{static\_cast}|see{Type casting}}{2}
-\indexentry{\texttt{void $\ast$}|see{Pointers}}{2}
-\indexentry{Pointers!\texttt{void $\ast$}}{2}
-\indexentry{\textbf{static\_cast}|see{Type casting}}{2}
+\indexentry{Type casting!\textbf{static\_cast}}{3}
+\indexentry{\textbf{static\_cast}|see{Type casting}}{3}
+\indexentry{\texttt{void $\ast$}|see{Pointers}}{3}
+\indexentry{Pointers!\texttt{void $\ast$}}{3}
+\indexentry{\textbf{static\_cast}|see{Type casting}}{3}
 \indexentry{Type casting!\textbf{reinterpret\_cast}}{3}
 \indexentry{\textbf{reinterpret\_cast}|see{Casts}}{3}
 \indexentry{Input-output streams!\texttt{cout}}{3}
@@ -24,8 +26,8 @@
 \indexentry{\texttt{operator int()}}{3}
 \indexentry{Type casting!user defined type conversions!\texttt{explicit operator double()}}{3}
 \indexentry{\texttt{operator double()}}{3}
-\indexentry{\texttt{numeric\_limits<T>}}{3}
-\indexentry{\texttt{<limits>}}{3}
+\indexentry{\texttt{numeric\_limits<T>}}{4}
+\indexentry{\texttt{<limits>}}{4}
 \indexentry{Functions!arguments!default}{4}
 \indexentry{Functions!arguments!omitted}{4}
 \indexentry{Functions!arguments!read-only}{4}
@@ -38,8 +40,8 @@
 \indexentry{Constants!\textbf{const}}{4}
 \indexentry{Functions!arguments!rule of thumb}{4}
 \indexentry{\textbf{nullptr}}{4}
-\indexentry{Functions!pointer to function}{4}
-\indexentry{\textbf{typedef}}{4}
+\indexentry{Functions!pointer to function}{5}
+\indexentry{\textbf{typedef}}{5}
 \indexentry{Lambda expressions!lambda introducers}{5}
 \indexentry{Lambda expressions!without access to local variables}{5}
 \indexentry{\texttt{[ ]}}{5}
@@ -106,10 +108,10 @@
 \indexentry{Pointers!dynamic array!deallocation}{7}
 \indexentry{\textbf{delete}}{7}
 \indexentry{Dynamic bidimensional array|see{Pointers}}{7}
-\indexentry{Pointers!dynamic matrix!allocation}{7}
-\indexentry{\textbf{new}}{7}
-\indexentry{\textbf{new}}{7}
-\indexentry{\textbf{new}}{7}
+\indexentry{Pointers!dynamic matrix!allocation}{8}
+\indexentry{\textbf{new}}{8}
+\indexentry{\textbf{new}}{8}
+\indexentry{\textbf{new}}{8}
 \indexentry{Pointers!subscript operator\texttt{[]}}{8}
 \indexentry{Pointers!dynamic matrix!deallocation}{8}
 \indexentry{\textbf{delete}}{8}
@@ -195,7 +197,7 @@
 \indexentry{Input-output streams!\texttt{cin}!\texttt{get}}{10}
 \indexentry{Input-output streams!reading and writing characters!write a single character}{10}
 \indexentry{Input-output streams!\texttt{cout}!\texttt{put}}{10}
-\indexentry{Input-output streams!reading and writing characters!read a whole line}{10}
+\indexentry{Input-output streams!reading and writing characters!read a whole line}{11}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{getline}}{11}
 \indexentry{Input-output streams!reading and writing characters!putting a character back into the input stream}{11}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{putback}}{11}

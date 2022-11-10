@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.68~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.69~-~GNU GPL v3.0}
 
 %\layout
 
@@ -150,6 +150,20 @@ There are two options:
 \begin{lstlisting}
 constexpr int max = 200;(*\index{\textbf{constexpr}|see{Constants}} *)(*\index{Constants!\textbf{constexpr}}*)
 constexpr int c = max + 2;(*\index{Constants!\textbf{constexpr}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{constexpr} applied to functions instructs the compiler to try to evaluate the function at compile time:\index{Constants!constant functions}
+\end{enumerate}
+\begin{lstlisting}
+constexpr int func(int n) { return n*2+5; }
+constexpr int c = func(122);  // (*149*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Integer literal with single quotes for readability:\index{Integer literal!single quotes}
+\end{enumerate}
+\begin{lstlisting}
+// (*1000000*)
+constexpr int k = 1'000'000;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{const} variables don't change at runtime. They cannot be declared as

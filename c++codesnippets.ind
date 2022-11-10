@@ -13,12 +13,12 @@
   \item \textbf{nullptr}, 4, 19--21, 32, 34, 36--38
   \item \textbf{reinterpret\_cast}, \see{Casts}{3}
   \item \textbf{static\_assert}, 2
-  \item \textbf{static\_cast}, \see{Type casting}{2}
+  \item \textbf{static\_cast}, \see{Type casting}{3}
   \item \textbf{template}, \see{Templates}{31}
   \item \textbf{this}, 20, 21, 33, 37, 38
   \item \textbf{throw}, 11, 13, 30, 31
   \item \textbf{try-catch}, \see{Exceptions}{11}
-  \item \textbf{typedef}, 4
+  \item \textbf{typedef}, 5
   \item \textbf{using}, \see{Alias}{5}, \see{Namespaces}{5}
   \item \textbf{virtual}, 19, 24--28, 30, 32, 34, 37
   \item \texttt{<algorithm>}, 19, 36, 41, 42
@@ -31,7 +31,7 @@
   \item \texttt{<functional>}, 6, 42
   \item \texttt{<iomanip>}, 9, 10
   \item \texttt{<iostream>}, 1, 36
-  \item \texttt{<limits>}, 3
+  \item \texttt{<limits>}, 4
   \item \texttt{<list>}, 39, 42
   \item \texttt{<map>}, 40, 41
   \item \texttt{<memory>}, 8
@@ -78,7 +78,7 @@
   \item \texttt{multimap}, \see{Containers}{41}
   \item \texttt{multiplies<int>()}, 42
   \item \texttt{normal\_distribution}, 6
-  \item \texttt{numeric\_limits<T>}, 3
+  \item \texttt{numeric\_limits<T>}, 4
   \item \texttt{ofstream}, 12
   \item \texttt{operator double()}, 3
   \item \texttt{operator int()}, 3
@@ -112,7 +112,7 @@
   \item \texttt{to\_string}, 16
   \item \texttt{unique\_ptr}, \see{Pointers}{8}
   \item \texttt{vector}, \see{Containers}{41}
-  \item \texttt{void $\ast$}, \see{Pointers}{2}
+  \item \texttt{void $\ast$}, \see{Pointers}{3}
 
   \indexspace
 
@@ -195,6 +195,7 @@
     \subitem \textbf{constexpr}, 2
     \subitem \textbf{const}, 2, 4, 8, 19, 20, 23--25, 27, 28, 30, 
 		32--35, 37, 38, 40, 42
+    \subitem constant functions, 2
   \item Containers
     \subitem \texttt{list}, 39
       \subsubitem \texttt{erase}, 39
@@ -287,7 +288,7 @@
       \subsubitem read-write, 4
       \subsubitem rule of thumb, 4
     \subitem object initialisation, 4
-    \subitem pointer to function, 4
+    \subitem pointer to function, 5
 
   \indexspace
 
@@ -355,12 +356,14 @@
       \subsubitem putting a character back into the input stream, 11
       \subsubitem putting the last character back into the input stream, 
 		11
-      \subsubitem read a whole line, 10
+      \subsubitem read a whole line, 11
       \subsubitem read any character, 10
       \subsubitem write a single character, 10
     \subitem reading from the keyboard, 9
     \subitem writing error message to the screen, 9
     \subitem writing to the screen, 9
+  \item Integer literal
+    \subitem single quotes, 2
   \item Iterators, 35
     \subitem \texttt{LList<T>}
       \subsubitem \texttt{iterator}, 37, 38
@@ -406,14 +409,14 @@
 
   \item Pointers
     \subitem \texttt{unique\_ptr}, 8
-    \subitem \texttt{void $\ast$}, 2, 31
+    \subitem \texttt{void $\ast$}, 3, 31
     \subitem address of operator \texttt{\&}, 7
     \subitem dereference operator \textbf{$\ast$}, 7
     \subitem dynamic array
       \subsubitem allocation, 7
       \subsubitem deallocation, 7
     \subitem dynamic matrix
-      \subsubitem allocation, 7
+      \subsubitem allocation, 8
       \subsubitem deallocation, 8
     \subitem free store, 7
     \subitem RAII, 8
@@ -482,7 +485,7 @@
     \subitem type generator, 32
   \item Type casting
     \subitem \textbf{reinterpret\_cast}, 3
-    \subitem \textbf{static\_cast}, 2
+    \subitem \textbf{static\_cast}, 3
     \subitem user defined type conversions, 3
       \subsubitem \texttt{explicit operator double()}, 3
       \subsubitem \texttt{operator int()}, 3
