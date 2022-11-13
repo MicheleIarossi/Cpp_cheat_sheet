@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.69~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.70~-~GNU GPL v3.0}
 
 %\layout
 
@@ -179,7 +179,7 @@ const int m = n + 1;(*\index{\textbf{const}|see{Constants}}*)(*\index{Constants!
 \section{Type safety}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Universal and uniform initialisation prevents narrowing conversions from happening:
+\item[$\Rightarrow$] Universal and uniform initialization\index{Uniform initialization}\index{Braced initialization|see{Uniform initialization}} prevents narrowing conversions from happening:
 \end{enumerate}
 \begin{lstlisting}
 // safe conversions (*\index{Conversions!safe}*)
@@ -240,8 +240,8 @@ private:
     int x{0};
 };
 
-MyType a(5);
-MyType b(7);
+MyType a{5};
+MyType b{7};
 
 // (*a*) and (*b*) are converted to (*int*) by (*operator int()*)
 // (*c = 12*)
@@ -310,14 +310,14 @@ void set_birthday(int day, int month, int) { ...}
 void set_birthday(const int& day, int& month, int year);(*\index{Constants!\textbf{const}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use a function for initialising an object with a complicated initialiser (we might not
-know exactly when the object gets initialised):
-\index{Functions!object initialisation}
+\item[$\Rightarrow$] Use a function for initializing an object with a complicated initializer (we might not
+know exactly when the object gets initialized):
+\index{Functions!object initialization}
 \end{enumerate}
 \begin{lstlisting}
 const Object& default_value()(*\index{Constants!\textbf{const}}*)
 {
-  static const Object default(1,2,3);(*\index{Constants!\textbf{const}}*)
+  static const Object default{1,2,3};(*\index{Constants!\textbf{const}}*)
   return default;
 }
 \end{lstlisting}
@@ -481,12 +481,22 @@ for (auto i=0; i<8; ++i)
 \section{Arrays}
 \small
 \begin{enumerate}
+\item[$\Rightarrow$] Declaration and initialization:
+\end{enumerate}
+\begin{lstlisting}
+// array of length (*4*) initialized to all zeros
+int arr[4]{};(*\index{Arrays!declaration and initialization}*)
+
+// array of length (*4*) initialized to (*2,4,6,8*)
+int arr[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
+\end{lstlisting}
+\begin{enumerate}
 \item[$\Rightarrow$] Range-based \texttt{for} statement:
 \index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
 // changes the values and outputs (*3579*)
-int arr[] = {2, 4, 6, 8};(*\index{Arrays!declaration and initialisation}*)
+int arr[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
 
 for (int& x : arr)
   x++;(*\index{Arrays!modifying elements of an array}*)
@@ -542,7 +552,7 @@ double **m = new double*[5];(*\index{\textbf{new}}*)(*\index{\textbf{new}}*)
 for (int i=0; i<5; i++)
     m[i] = new double[5];(*\index{\textbf{new}}*)
 
-// memory initialisation    
+// memory initialization    
 for (int i=0; i<5; i++)
     for (int j=0; j<5; j++)
         m[i][j] = i*j;(*\index{Pointers!subscript operator\texttt{[]}}*)
@@ -554,7 +564,7 @@ delete[] m;(*\index{\textbf{delete}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{unique\_ptr}:
-Holds ownership of a dynamic object according to RAII, i.e. resource acquisition is initialisation\index{Pointers!RAII}. It will 
+Holds ownership of a dynamic object according to RAII, i.e. resource acquisition is initialization\index{Pointers!RAII}. It will 
 automatically destroy the object if needed.
 \end{enumerate}
 \begin{lstlisting}
@@ -950,7 +960,7 @@ out_stream.close()
 \begin{lstlisting}
 #include <string>(*\index{\texttt{<string>}}*)
 
-// initialisation(*\index{Strings!initialisation}*)
+// initialization(*\index{Strings!initialization}*)
 string s1 = "Hello";(*\index{Strings!\texttt{string}}*)
 string s2("World");(*\index{Strings!\texttt{string}}*)
 string s3{"World"};(*\index{Strings!\texttt{string}}*)
@@ -1103,10 +1113,10 @@ cout << data_stream.str();(*\index{Input-output streams!\texttt{cout}}*)
 #include <vector>(*\index{\texttt{<vector>}}*)
 
 // vector with base type (*int*)
-vector<int> v = {2, 4, 6, 8};(*\index{Vectors!initialised with initialiser list}*)(*\index{Containers!\texttt{vector}}*)
+vector<int> v = {2, 4, 6, 8};(*\index{Vectors!initialized with initializer list}*)(*\index{Containers!\texttt{vector}}*)
 
-// vector with 10 elements all initialised to 0
-vector<int> v(10);(*\index{Vectors!initialised with all elements to 0}*)(*\index{Containers!\texttt{vector}}*)
+// vector with 10 elements all initialized to 0
+vector<int> v(10);(*\index{Vectors!initialized with all elements to 0}*)(*\index{Containers!\texttt{vector}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Access:
@@ -1130,7 +1140,7 @@ v.push_back(10);(*\index{Vectors!\texttt{push\_back}}*)(*\index{Containers!\text
 \end{enumerate}
 \begin{lstlisting}
 // resize to 20 elements
-// new elements are initialised to 0
+// new elements are initialized to 0
 v.resize(20);(*\index{Vectors!\texttt{resize}}*)(*\index{Containers!\texttt{vector}!\texttt{resize}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -1232,7 +1242,7 @@ public:
     explicit MyVector();(*\index{\textbf{explicit}}*)
     // explicit constructor (avoids type conversions)
     explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
-    // constructor with initialiser list
+    // constructor with initializer list
     explicit MyVector(initializer_list<double>);(*\index{\texttt{initializer\_list}}*)(*\index{\textbf{explicit}}*)
     // copy constructor (pass by
     // reference, no copying!)
@@ -1269,16 +1279,16 @@ private:
 \begin{enumerate}
 \item[$\Rightarrow$] Constructors definitions\\ \\ By using the \texttt{explicit} qualifier, undesired type conversions are avoided\index{Classes!constructors!type conversions}. If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}. Notice the use of \texttt{double()} as the default value (0.0)
-when initialising the vector.\index{Default value!\textbf{double()}}
+when initializing the vector.\index{Default value!\textbf{double()}}
 \end{enumerate}
 \begin{lstlisting}
-// constructor with member initialisation list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialisation list}*)
+// constructor with member initialization list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialization list}*)
 MyVector::MyVector(size_t s) : n{s}, m{s}, e{new double[n]}(*\index{\textbf{new}}*)(*\index{\texttt{size\_t}}*)
 {
      for (int i=0; i<n; i++) e[i] = double();
 }
 
-// constructor with initialiser list parameter(*\index{Classes!constructors!initialiser list parameter}*)
+// constructor with initializer list parameter(*\index{Classes!constructors!initializer list parameter}*)
 MyVector::MyVector(initializer_list<double> l)(*\index{\texttt{initializer\_list}}*)
 {
     n = m = l.size();
@@ -1404,7 +1414,7 @@ void MyVector::push_back(double d)
 // constructor with size
 MyVector v1(4); 
 
-// constructor with initialiser list
+// constructor with initializer list
 MyVector v2{1,2,3,4};(*\index{\texttt{initializer\_list}}*)
 
 // copy constructor
@@ -1974,7 +1984,7 @@ public:
     explicit MyVector();(*\index{\textbf{explicit}}*)
     // constructor with size
     explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
-    // constructor with initialiser list
+    // constructor with initializer list
     explicit MyVector(initializer_list<T>);(*\index{\textbf{explicit}}*)(*\index{\texttt{initializer\_list}}*)
     // copy constructor (pass by
     // reference, no copying!)
@@ -2084,7 +2094,7 @@ public:
     explicit MyVector();(*\index{\textbf{explicit}}*)
     // constructor with size and default value
     explicit MyVector(size_t,T def = T());(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
-    // constructor with initialiser list
+    // constructor with initializer list
     explicit MyVector(initializer_list<T>);(*\index{\textbf{explicit}}*)(*\index{\texttt{initializer\_list}}*)
     // copy constructor (pass by
     // reference, no copying!)
@@ -2434,7 +2444,7 @@ for (c = letters.begin(); c != letters.end(); c++)
 #include <utility>(*\index{\texttt{<utility>}}*)
 #include <string>(*\index{\texttt{<string>}}*)
 
-// initialisation
+// initialization
 map<string,int> dict = { {"one",1}, {"two",2} };(*\index{\texttt{map}|see{Containers}}*)(*\index{Containers!\texttt{map}}*)(*\index{Strings!\texttt{string}}*)
 pair<string,int> three("three",3);(*\index{\texttt{pair}}*)(*\index{Strings!\texttt{string}}*)
 
@@ -2578,7 +2588,7 @@ vector<int> int_data(5);
 copy(data.begin(),data.end(),int_data.begin());(*\index{Algorithms!\texttt{copy}!between different containers}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$]  \texttt{copy} between a container and an output stream. A container can be initialised by the elements retrieved via a pair of iterators.
+\item[$\Rightarrow$]  \texttt{copy} between a container and an output stream. A container can be initialized by the elements retrieved via a pair of iterators.
 \end{enumerate}
 \begin{lstlisting}
 // from the input character stream (*cin*) elements are 
@@ -2587,7 +2597,7 @@ copy(data.begin(),data.end(),int_data.begin());(*\index{Algorithms!\texttt{copy}
 // a (*set*) doesn't allow any duplicates and keeps
 // elements ordered
 set<string> words{ istream_iterator<string>{cin},
-                             istream_iterator<string>{} };(*\index{Iterators!initialisation with a pair of iterators}*)(*\index{\texttt{istream\_iterator}}*)
+                             istream_iterator<string>{} };(*\index{Iterators!initialization with a pair of iterators}*)(*\index{\texttt{istream\_iterator}}*)
                              
 // copy the words from the set to the output stream (*cout*)
 // and add a new line after each word

@@ -13,18 +13,18 @@
 \contentsline {section}{Pointers}{7}{}%
 \contentsline {section}{C-Strings}{8}{}%
 \contentsline {section}{Input-output streams}{9}{}%
-\contentsline {section}{Files}{11}{}%
-\contentsline {section}{Strings}{14}{}%
+\contentsline {section}{Files}{12}{}%
+\contentsline {section}{Strings}{15}{}%
 \contentsline {section}{String streams}{16}{}%
 \contentsline {section}{Vectors}{17}{}%
 \contentsline {section}{Enumerations}{18}{}%
-\contentsline {section}{Classes}{18}{}%
-\contentsline {section}{Operator overloading}{22}{}%
-\contentsline {section}{Inheritance}{23}{}%
+\contentsline {section}{Classes}{19}{}%
+\contentsline {section}{Operator overloading}{23}{}%
+\contentsline {section}{Inheritance}{24}{}%
 \contentsline {section}{Polymorphism}{29}{}%
 \contentsline {section}{Exceptions}{30}{}%
 \contentsline {section}{Templates}{31}{}%
-\contentsline {section}{Iterators}{35}{}%
+\contentsline {section}{Iterators}{36}{}%
 \contentsline {section}{Containers}{39}{}%
 \contentsline {section}{Algorithms}{41}{}%
 \contentsline {section}{Chrono}{43}{}%
