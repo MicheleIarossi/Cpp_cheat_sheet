@@ -4,7 +4,7 @@
   \item \textbf{class}, \see{Classes}{19}
   \item \textbf{constexpr}, \see{Constants}{2}
   \item \textbf{const}, \see{Constants}{2}
-  \item \textbf{delete}, 7, 8, 19, 21, 31--33
+  \item \textbf{delete}, 8, 19, 21, 31--33
   \item \textbf{enum class}, 18
   \item \textbf{explicit}, 19, 32, 34
   \item \textbf{friend}, 23, 30, 35, 37, 38
@@ -12,6 +12,7 @@
   \item \textbf{new}, 7, 8, 20, 21, 33
   \item \textbf{nullptr}, 4, 20, 21, 33, 35, 37, 38
   \item \textbf{reinterpret\_cast}, \see{Casts}{3}
+  \item \textbf{sizeof}, 7
   \item \textbf{static\_assert}, 2
   \item \textbf{static\_cast}, \see{Type casting}{3}
   \item \textbf{template}, \see{Templates}{32}
@@ -24,8 +25,8 @@
   \item \texttt{<algorithm>}, 19, 37, 41, 42
   \item \texttt{<bitset>}, 6
   \item \texttt{<chrono>}, 43
-  \item \texttt{<cstdlib>}, 6, 8
-  \item \texttt{<cstring>}, 8
+  \item \texttt{<cstdlib>}, 6, 9
+  \item \texttt{<cstring>}, 9
   \item \texttt{<ctime>}, 6
   \item \texttt{<fstream>}, 12
   \item \texttt{<functional>}, 6, 42
@@ -95,7 +96,7 @@
   \item \texttt{reverse\_iterator}, \see{Iterators}{36}
   \item \texttt{reverse}, \see{Algorithms}{43}
   \item \texttt{set}, \see{Containers}{40}
-  \item \texttt{size\_t}, 16, 19--22, 32--35
+  \item \texttt{size\_t}, 7, 16, 19--22, 32--35
   \item \texttt{sort}, \see{Algorithms}{43}
   \item \texttt{srand}, 6
   \item \texttt{stack}, \see{Containers}{39}
@@ -133,6 +134,7 @@
     \subitem {\textbf{using}}, 5
   \item Arrays
     \subitem declaration and initialization, 7
+    \subitem length calculation using \textbf{sizeof}, 7
     \subitem modifying elements of an array, 7
     \subitem printing elements of an array, 7
   \item Assertions
@@ -153,8 +155,8 @@
       \subsubitem to integer, 9
       \subsubitem to long integer, 9
     \subitem correct looping, 9
-    \subitem definition, 8
-    \subitem end of string, 8
+    \subitem definition, 9
+    \subitem end of string, 9
     \subitem safe compare, 9
     \subitem safe concatenation, 9
     \subitem safe looping, 9
@@ -194,7 +196,7 @@
     \subitem virtual destructor, 19, 24, 26--28, 30, 32, 34, 37
   \item Constants
     \subitem \textbf{constexpr}, 2
-    \subitem \textbf{const}, 2, 4, 8, 19--21, 23--25, 27--30, 32--35, 
+    \subitem \textbf{const}, 2, 4, 9, 19--21, 23--25, 27--30, 32--35, 
 		37, 38, 40, 42
     \subitem constant functions, 2
   \item Containers
@@ -237,7 +239,7 @@
 
   \item Default value
     \subitem \textbf{double()}, 20
-  \item Dynamic array, \see{Pointers}{7}
+  \item Dynamic array, \see{Pointers}{8}
   \item Dynamic bidimensional array, \see{Pointers}{8}
 
   \indexspace
@@ -261,7 +263,7 @@
   \item Files
     \subitem checking for failure, 12
       \subsubitem corrupted stream, 12
-      \subsubitem end of file, 12
+      \subsubitem end of file, 13
       \subsubitem format data error, 13
       \subsubitem setting back to good state, 13
     \subitem checking for unexpected input, 13
@@ -305,12 +307,12 @@
     \subitem virtual destructor, 25
     \subitem virtual functions, 27
   \item Input-output streams, 9
-    \subitem \texttt{cerr}, 9, 11--13, 16, 30, 31
-    \subitem \texttt{cin}, 5, 9--11, 15
+    \subitem \texttt{cerr}, 9, 11--14, 16, 30, 31
+    \subitem \texttt{cin}, 5, 9--12, 15
       \subsubitem \texttt{clear}, 11
       \subsubitem \texttt{fail}, 11
       \subsubitem \texttt{getline}, 11
-      \subsubitem \texttt{get}, 10, 11
+      \subsubitem \texttt{get}, 11
       \subsubitem \texttt{putback}, 11
       \subsubitem \texttt{unget}, 11
       \subsubitem \texttt{unset}, 10
@@ -345,7 +347,7 @@
       \subsubitem clearing the failed state of the input stream, 11
       \subsubitem setting explicitly the failure bit, 11
     \subitem input stream, \see{\texttt{cin}}{9}
-    \subitem integer format manipulators, 9
+    \subitem integer format manipulators, 10
       \subsubitem decimal, 10
       \subsubitem don't show the base, 10
       \subsubitem hexadecimal, 10
@@ -358,7 +360,7 @@
       \subsubitem putting the last character back into the input stream, 
 		11
       \subsubitem read a whole line, 11
-      \subsubitem read any character, 10
+      \subsubitem read any character, 11
       \subsubitem write a single character, 11
     \subitem reading from the keyboard, 9
     \subitem writing error message to the screen, 9
@@ -411,7 +413,7 @@
   \item Pointers
     \subitem \texttt{unique\_ptr}, 8
     \subitem \texttt{void $\ast$}, 3, 31
-    \subitem address of operator \texttt{\&}, 7
+    \subitem address of operator \texttt{\&}, 8
     \subitem dereference operator \textbf{$\ast$}, 7
     \subitem dynamic array
       \subsubitem allocation, 8
@@ -454,7 +456,7 @@
     \subitem \texttt{find}, 16
     \subitem \texttt{length}, 16
     \subitem \texttt{size}, 16
-    \subitem \texttt{string}, 5, 11, 13--16, 30, 40
+    \subitem \texttt{string}, 5, 12--16, 30, 40
     \subitem \texttt{substr}, 16
     \subitem access to character
       \subsubitem no illegal index checking, 15

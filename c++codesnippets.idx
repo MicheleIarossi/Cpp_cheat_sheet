@@ -28,6 +28,7 @@
 \indexentry{\texttt{operator int()}}{3}
 \indexentry{Type casting!user defined type conversions!\texttt{explicit operator double()}}{3}
 \indexentry{\texttt{operator double()}}{3}
+\indexentry{\textbf{static\_cast}|see{Type casting}}{3}
 \indexentry{\texttt{numeric\_limits<T>}}{4}
 \indexentry{\texttt{<limits>}}{4}
 \indexentry{Functions!arguments!default}{4}
@@ -91,6 +92,9 @@
 \indexentry{range-for-loop}{6}
 \indexentry{Arrays!declaration and initialization}{7}
 \indexentry{Arrays!declaration and initialization}{7}
+\indexentry{\textbf{sizeof}}{7}
+\indexentry{\texttt{size\_t}}{7}
+\indexentry{Arrays!length calculation using \textbf{sizeof}}{7}
 \indexentry{range-for-loop}{7}
 \indexentry{Arrays!declaration and initialization}{7}
 \indexentry{Arrays!modifying elements of an array}{7}
@@ -103,9 +107,9 @@
 \indexentry{\textbf{new}}{7}
 \indexentry{Pointers!dereference operator \textbf{$\ast$}}{7}
 \indexentry{Pointers!free store}{7}
-\indexentry{\textbf{delete}}{7}
-\indexentry{Pointers!address of operator \texttt{\&}}{7}
-\indexentry{Dynamic array|see{Pointers}}{7}
+\indexentry{\textbf{delete}}{8}
+\indexentry{Pointers!address of operator \texttt{\&}}{8}
+\indexentry{Dynamic array|see{Pointers}}{8}
 \indexentry{Pointers!dynamic array!allocation}{8}
 \indexentry{\textbf{new}}{8}
 \indexentry{\textbf{new}}{8}
@@ -126,11 +130,11 @@
 \indexentry{\texttt{unique\_ptr}|see{Pointers}}{8}
 \indexentry{Pointers!\texttt{unique\_ptr}}{8}
 \indexentry{C-Strings}{8}
-\indexentry{\texttt{<cstring>}}{8}
-\indexentry{\texttt{<cstdlib>}}{8}
-\indexentry{C-Strings!definition}{8}
-\indexentry{Constants!\textbf{const}}{8}
-\indexentry{C-Strings!end of string}{8}
+\indexentry{\texttt{<cstring>}}{9}
+\indexentry{\texttt{<cstdlib>}}{9}
+\indexentry{C-Strings!definition}{9}
+\indexentry{Constants!\textbf{const}}{9}
+\indexentry{C-Strings!end of string}{9}
 \indexentry{C-Strings!correct looping}{9}
 \indexentry{C-Strings!safe looping}{9}
 \indexentry{\texttt{strncpy}}{9}
@@ -155,7 +159,7 @@
 \indexentry{Input-output streams!writing error message to the screen}{9}
 \indexentry{Input-output streams!\texttt{cerr}}{9}
 \indexentry{\texttt{cerr}|see{Input-output streams}}{9}
-\indexentry{Input-output streams!integer format manipulators}{9}
+\indexentry{Input-output streams!integer format manipulators}{10}
 \indexentry{\texttt{<iomanip>}}{10}
 \indexentry{Input-output streams!integer format manipulators!show the base}{10}
 \indexentry{Input-output streams!\texttt{cout}}{10}
@@ -195,8 +199,8 @@
 \indexentry{Input-output streams!floating point format manipulators!always show plus sign}{10}
 \indexentry{Input-output streams!\texttt{cout}!\texttt{showpos}}{10}
 \indexentry{Input-output streams!reading and writing characters}{10}
-\indexentry{Input-output streams!reading and writing characters!read any character}{10}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{get}}{10}
+\indexentry{Input-output streams!reading and writing characters!read any character}{11}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{get}}{11}
 \indexentry{end of line control character}{11}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{get}}{11}
 \indexentry{Input-output streams!reading and writing characters!write a single character}{11}
@@ -219,8 +223,8 @@
 \indexentry{Input-output streams!\texttt{cin}!\texttt{fail}}{11}
 \indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}{11}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{clear}}{11}
-\indexentry{Strings!\texttt{string}}{11}
-\indexentry{Input-output streams!\texttt{cin}}{11}
+\indexentry{Strings!\texttt{string}}{12}
+\indexentry{Input-output streams!\texttt{cin}}{12}
 \indexentry{Input-output streams!\texttt{cerr}}{12}
 \indexentry{\texttt{<fstream>}}{12}
 \indexentry{Files!opening as input}{12}
@@ -237,7 +241,7 @@
 \indexentry{Files!opening explicitly}{12}
 \indexentry{Files!checking for failure}{12}
 \indexentry{Files!checking for failure!corrupted stream}{12}
-\indexentry{Files!checking for failure!end of file}{12}
+\indexentry{Files!checking for failure!end of file}{13}
 \indexentry{Files!checking for failure!format data error}{13}
 \indexentry{Files!checking for failure!setting back to good state}{13}
 \indexentry{Strings!\texttt{string}}{13}
@@ -246,7 +250,7 @@
 \indexentry{\textbf{throw}}{13}
 \indexentry{Input-output streams!\texttt{cerr}}{13}
 \indexentry{Strings!\texttt{string}}{13}
-\indexentry{Input-output streams!\texttt{cerr}}{13}
+\indexentry{Input-output streams!\texttt{cerr}}{14}
 \indexentry{Files!reading and writing}{14}
 \indexentry{Strings!\texttt{string}}{14}
 \indexentry{Files!reading a line}{14}

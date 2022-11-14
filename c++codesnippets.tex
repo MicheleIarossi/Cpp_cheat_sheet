@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.70~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.71~-~GNU GPL v3.0}
 
 %\layout
 
@@ -133,7 +133,7 @@ using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using na
 \section{Assertions}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] The first argument of a \texttt{static\_assert} is a constant expression that must be true:
+\item[$\Rightarrow$] The first argument of a \textbf{static\_assert} is a constant expression that must be true:
 \end{enumerate}
 \begin{lstlisting}
 static_assert(8<=sizeof(long),"longs are too small");(*\index{Assertions!\textbf{static\_assert}}*)(*\index{\textbf{static\_assert}}*)
@@ -145,14 +145,14 @@ static_assert(8<=sizeof(long),"longs are too small");(*\index{Assertions!\textbf
 \small
 There are two options:
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{constexpr} must be known at compile time:
+\item[$\Rightarrow$] \textbf{constexpr} must be known at compile time:
 \end{enumerate}
 \begin{lstlisting}
 constexpr int max = 200;(*\index{\textbf{constexpr}|see{Constants}} *)(*\index{Constants!\textbf{constexpr}}*)
 constexpr int c = max + 2;(*\index{Constants!\textbf{constexpr}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{constexpr} applied to functions instructs the compiler to try to evaluate the function at compile time:\index{Constants!constant functions}
+\item[$\Rightarrow$] \textbf{constexpr} applied to functions instructs the compiler to try to evaluate the function at compile time:\index{Constants!constant functions}
 \end{enumerate}
 \begin{lstlisting}
 constexpr int func(int n) { return n*2+5; }
@@ -166,8 +166,8 @@ constexpr int c = func(122);  // (*149*)
 constexpr int k = 1'000'000;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{const} variables don't change at runtime. They cannot be declared as
-\texttt{constexpr} because their value is not known at compile time:
+\item[$\Rightarrow$] \textbf{const} variables don't change at runtime. They cannot be declared as
+\textbf{constexpr} because their value is not known at compile time:
 \end{enumerate}
 \begin{lstlisting}
 // the value of (*n*) is not known at compile time
@@ -196,7 +196,7 @@ char b {a};
 \section{Type casting}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Use \texttt{static\_cast} for normal casting\index{Type casting!\textbf{static\_cast}}, i.e. types that can be converted into each other:
+\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Type casting!\textbf{static\_cast}}, i.e. types that can be converted into each other:
 \end{enumerate}
 \begin{lstlisting}
 // (*int 15*) to (*double 15.0*)
@@ -204,7 +204,7 @@ double num;
 num = static_cast<double>(15);(*\index{\textbf{static\_cast}|see{Type casting}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \texttt{static\_cast} for casting a void pointer to the desired pointer type:
+\item[$\Rightarrow$] Use \textbf{static\_cast} for casting a void pointer to the desired pointer type:
 \end{enumerate}
 \begin{lstlisting}
 // (*void **) pointer can point to anything
@@ -215,7 +215,7 @@ void *p = &num;(*\index{\texttt{void $\ast$}|see{Pointers}}*)(*\index{Pointers!\
 double *pd = static_cast<double*>(p);(*\index{\textbf{static\_cast}|see{Type casting}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \texttt{reinterpret\_cast} for casting between unrelated pointer types\index{Type casting!\textbf{reinterpret\_cast}}:
+\item[$\Rightarrow$] Use \textbf{reinterpret\_cast} for casting between unrelated pointer types\index{Type casting!\textbf{reinterpret\_cast}}:
 \end{enumerate}
 \begin{lstlisting}
 // reinterprets a (*long*) value as a (*double*) one
@@ -249,7 +249,7 @@ int c = a + b;
 
 // (*b*) is converted to (*double*) by (*operator double()*)
 // but requires explicit static cast
-double =   static_cast<double>(b);
+double =   static_cast<double>(b);(*\index{\textbf{static\_cast}|see{Type casting}}*)
 \end{lstlisting}
 
 %
@@ -326,7 +326,7 @@ const Object& default_value()(*\index{Constants!\textbf{const}}*)
 \index{Functions!arguments!rule of thumb}
 \begin{itemize}
 \item Pass-by-value for small objects
-\item Pointer parameter type if \texttt{nullptr} means no object given\index{\textbf{nullptr}}
+\item Pointer parameter type if \textbf{nullptr} means no object given\index{\textbf{nullptr}}
 \item Pass-by-const-reference for large objects that are not changed
 \item Pass-by-reference for large objects that are changed (output parameters)
 \item Return error conditions of the function as return values
@@ -378,7 +378,7 @@ Function ee_gr{[n](double x){return expe(x,n);},{-8.0,8.0},0.001,
 \section{Namespaces and aliases}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{using} declarations for avoiding fully qualified names:
+\item[$\Rightarrow$] \textbf{using} declarations for avoiding fully qualified names:
 \index{Namespaces!\textbf{using} declarations}
 \end{enumerate}
 \begin{lstlisting}
@@ -390,7 +390,7 @@ using std::cin;(*\index{Input-output streams!\texttt{cin}}*)(*\index{\texttt{std
 using std::cout;(*\index{Input-output streams!\texttt{cout}}*)(*\index{\texttt{std}}*)(*\index{\texttt{cout}|see{Input-output streams}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{using namespace} directives for including the whole namespace:
+\item[$\Rightarrow$] \textbf{using namespace} directives for including the whole namespace:
 \end{enumerate}
 \begin{lstlisting}
 using namespace std;(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\texttt{std}}*)(*\index{\textbf{using}|see{Namespaces}}*)
@@ -485,20 +485,28 @@ for (auto i=0; i<8; ++i)
 \end{enumerate}
 \begin{lstlisting}
 // array of length (*4*) initialized to all zeros
-int arr[4]{};(*\index{Arrays!declaration and initialization}*)
+int array[4]{};(*\index{Arrays!declaration and initialization}*)
 
 // array of length (*4*) initialized to (*2,4,6,8*)
-int arr[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
+int array[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Range-based \texttt{for} statement:
+\item[$\Rightarrow$] Length of an array using \textbf{sizeof}:
+\end{enumerate}
+\begin{lstlisting}
+// array of length (*4*) initialized to (*2,4,6,8*)
+int array[]{2, 4, 6, 8};
+size_t array_size = sizeof(array) / sizeof(int);(*\index{\textbf{sizeof}}*)(*\index{\texttt{size\_t}}*)(*\index{Arrays!length calculation using \textbf{sizeof}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Range-based \textbf{for} statement:
 \index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
 // changes the values and outputs (*3579*)
-int arr[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
+int array[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
 
-for (int& x : arr)
+for (int& x : array)
   x++;(*\index{Arrays!modifying elements of an array}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -1196,7 +1204,7 @@ try(*\index{Exceptions!\textbf{try-catch}}*)
 \section{Enumerations}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{enum class} defines symbolic constants in the scope of the class:\index{Enumerations!in \textbf{class} scope}
+\item[$\Rightarrow$] \textbf{enum class} defines symbolic constants in the scope of the class:\index{Enumerations!in \textbf{class} scope}
 \end{enumerate}
 \begin{lstlisting}
 // enum definition(*\index{Enumerations!definition}*)
@@ -1209,7 +1217,7 @@ enum class Weekdays(*\index{\textbf{enum class}}*)
 Weekdays day = Weekdays::tue;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{int}s cannot be assigned to \texttt{enum class} and vice versa:
+\item[$\Rightarrow$] \textbf{int}s cannot be assigned to \textbf{enum class} and vice versa:
 \end{enumerate}
 \begin{lstlisting}
 // errors!(*\index{Enumerations!prohibited conversions}*)
@@ -1277,7 +1285,7 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Constructors definitions\\ \\ By using the \texttt{explicit} qualifier, undesired type conversions are avoided\index{Classes!constructors!type conversions}. If you give no constructor, the compiler will generate a default constructor that does nothing.
+\item[$\Rightarrow$] Constructors definitions\\ \\ By using the \textbf{explicit} qualifier, undesired type conversions are avoided\index{Classes!constructors!type conversions}. If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}. Notice the use of \texttt{double()} as the default value (0.0)
 when initializing the vector.\index{Default value!\textbf{double()}}
 \end{enumerate}
@@ -1496,7 +1504,7 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] The definition above works for every combination because \texttt{int} arguments are converted by the constructor to \texttt{Euro} objects:
+\item[$\Rightarrow$] The definition above works for every combination because \textbf{int} arguments are converted by the constructor to \texttt{Euro} objects:
 \index{Classes!constructors!type conversions}
 \end{enumerate}
 \begin{lstlisting}
@@ -1588,7 +1596,7 @@ class Line : public Shape(*\index{Classes!\textbf{class}!\texttt{Line}}*)
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \texttt{= delete} syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \texttt{sizeof(Shape) <= sizeof(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
+\item[$\Rightarrow$] Disabling copy constructors and assignment\\ \\ Notice the \texttt{= delete} syntax for disabling them. If they were allowed, slicing\index{Slicing} might occur when derived objects are copied into base objects. Usually, \textbf{sizeof}\texttt{(Shape) <= }\textbf{sizeof}\texttt{(derived classes from Shape)}. By allowing copying, some attributes are not be copied, which might lead to crashes when member functions of the derived classes are called! Note that slicing is the class object equivalent of integer truncation.
 \index{Inheritance!disabling copy constructors and assignment}
 \end{enumerate}
 \begin{lstlisting}
@@ -1603,8 +1611,8 @@ public:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Virtual destructor\\ \\ Destructors should be declared \texttt{virtual}. When derived
-objects are referenced by base class pointers, the destructor of the derived class is called if it is declared \texttt{virtual}.
+\item[$\Rightarrow$] Virtual destructor\\ \\ Destructors should be declared \textbf{virtual}. When derived
+objects are referenced by base class pointers, the destructor of the derived class is called if it is declared \textbf{virtual}.
 \index{Inheritance!virtual destructor}
 \end{enumerate}
 \begin{lstlisting}
@@ -1618,7 +1626,7 @@ public:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Protected constructor\\ \\ By declaring the constructor as \texttt{protected}, no instances of this class can be created by a user. Since \texttt{Shape} is an abstract class, it should be used only as a base class for derived classes.
+\item[$\Rightarrow$] Protected constructor\\ \\ By declaring the constructor as \textbf{protected}, no instances of this class can be created by a user. Since \texttt{Shape} is an abstract class, it should be used only as a base class for derived classes.
 \index{Inheritance!protected constructor}
 \end{enumerate}
 \begin{lstlisting}
@@ -1834,7 +1842,7 @@ void Line::draw_shape() {
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Polymorphism is allowed by the \texttt{virtual} keyword which guarantees late binding: the call \texttt{w.draw()} inside \texttt{Windows::draw()} binds to the \texttt{draw\_shape()} function of the actual object referenced, either to a \texttt{Line} or \texttt{Circle} instance.
+\item[$\Rightarrow$] Polymorphism is allowed by the \textbf{virtual} keyword which guarantees late binding: the call \texttt{w.draw()} inside \texttt{Windows::draw()} binds to the \texttt{draw\_shape()} function of the actual object referenced, either to a \texttt{Line} or \texttt{Circle} instance.
 \index{Polymorphism!late binding}
 \end{enumerate}
 \begin{lstlisting}
@@ -1852,7 +1860,7 @@ win.draw(c1); // calls (*Circle::draw\_shape()*)
 \small
 \begin{enumerate}
 \item[$\Rightarrow$] The value thrown by
-\texttt{throw} can be of any type.
+\textbf{throw} can be of any type.
 \end{enumerate}
 \begin{lstlisting}
 // exception class
