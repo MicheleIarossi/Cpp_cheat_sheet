@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.71~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.72~-~GNU GPL v3.0}
 
 %\layout
 
@@ -586,6 +586,57 @@ MyVector<int>* my_function()
    /* ... */   
     return p.release(); // returns the pointer
 }
+\end{lstlisting}
+%
+% References
+%
+\section{References}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] A variable reference must be initialized with a variable being referred to:
+\end{enumerate}
+\begin{lstlisting}
+// an integer amount
+int amount = 12;
+
+// reference to (*amount*)
+int& ref_amount = amount;(*\index{Reference}*)
+
+// outputs (*12*)
+cout << "amount = " << amount << endl;
+cout << "ref_amount = " << ref_amount << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] A variable reference cannot be made referring to another variable at runtime:
+\end{enumerate}
+\begin{lstlisting}
+// a new integer amount
+int new_amount = 24;
+
+// (*ref\_amount*) still refers to (*amount*)
+ref_amount = new_amount;
+
+// outputs (*24*)
+cout << "amount = " << amount << endl;
+cout << "ref_amount = " << ref_amount << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] A variable reference can be used as input and output parameter of a function:
+\end{enumerate}
+\begin{lstlisting}
+// function definition taking a reference
+void do_something(int& in_out_var)
+{
+    in_out_var *= 2;
+}
+
+int a_variable = 24;
+
+do_something(a_variable);
+
+// outputs (*48*)
+cout << "a_variable = " << a_variable << endl;
+
 \end{lstlisting}
 %
 % C-Strings
