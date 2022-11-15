@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.72~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.73~-~GNU GPL v3.0}
 
 %\layout
 
@@ -636,8 +636,145 @@ do_something(a_variable);
 
 // outputs (*48*)
 cout << "a_variable = " << a_variable << endl;
-
 \end{lstlisting}
+%
+% Storage classes
+%
+\section{Storage classes}
+\small
+The storage class\index{Storage class} defines the memory type where an object is stored. The lifetime\index{Lifetime} of an object is from the time it is first initialized until it is destroyed.
+\begin{enumerate}
+\item[$\Rightarrow$] A simple class for objects:
+\end{enumerate}
+\begin{lstlisting}
+class Object(*\index{Classes!\textbf{class}!\texttt{Object}}*)
+{
+public:
+    Object(string obj_name) : name{obj_name} {
+        cout << "Created object: " << obj_name << endl;
+    }
+    ~Object() { cout << "Destroyed object: " << name << endl; }
+private:
+    string name{};
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Static storage with global scope, external or internal linkage: storage is allocated before the program starts and deallocated when the program ends
+\end{enumerate}
+\begin{lstlisting}
+// static storage, external linkage
+Object a{"a"};(*\index{Storage class!static!external linkage}*)
+
+// static storage, internal linkage
+static Object b{"b"};(*\index{Storage class!static!internal linkage}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Static storage with local scope: storage is allocated the first time the function is called and deallocated when the program ends
+\end{enumerate}
+\begin{lstlisting}
+void func(void)
+{
+    // static storage, local variable
+    static Object c{"c"};(*\index{Storage class!static!local variable}*)
+}
+
+int main()
+{
+    // Object (*c*) is allocated
+    func();
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Automatic storage with local scope: storage is allocated on the stack when the local scope is entered and deallocated after execution leaves the scope
+\end{enumerate}
+\begin{lstlisting}
+int main()
+{
+     // automatic storage object
+    {
+        Object d{"d"};(*\index{Storage class!automatic}*)
+    }   
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Dynamic storage: storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}
+\end{enumerate}
+\begin{lstlisting}
+int main()
+{
+    // dynamic storage object
+    Object* e = new Object{"e"};(*\index{Storage class!dynamic}*)(*\index{\textbf{new}}*)
+    delete(e);(*\index{\textbf{delete}}*)
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Example of object declarations:
+\end{enumerate}
+\begin{lstlisting}
+// static storage object, external linkage
+Object a{"a"};
+
+// static storage object, internal linkage
+static Object b{"b"};
+
+void func(void)
+{
+    cout<< "Start of func()" << endl;
+    
+    // static storage, local variable
+    static Object c{"c"};
+    
+    cout<< "End of func()" << endl;
+}
+
+int main()
+{
+    cout<< "Start of main()" << endl;
+    
+    func();
+    
+    // local scope
+    {
+        cout<< "Start of local scope" << endl;
+        
+        // automatic storage object
+        Object d{"d"};
+        
+        cout<< "End of local scope" << endl;
+    }
+    
+    // dynamic storage object
+    Object* e = new Object{"e"};
+    delete(e);
+    
+    cout<< "End of main()" << endl;
+    return 0;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Example result of the order of allocation and deallocation:
+\end{enumerate}
+\begin{lstlisting}
+// Output printed
+Created object: a
+Created object: b
+Start of main()
+Start of func()
+Created object: c
+End of func()
+Start of local scope
+Created object: d
+End of local scope
+Destroyed object: d
+Created object: e
+Destroyed object: e
+End of main()
+Destroyed object: c
+Destroyed object: b
+Destroyed object: a
+Program ended with exit code: 0
+\end{lstlisting}
+
 %
 % C-Strings
 %
@@ -1338,7 +1475,7 @@ private:
 \begin{enumerate}
 \item[$\Rightarrow$] Constructors definitions\\ \\ By using the \textbf{explicit} qualifier, undesired type conversions are avoided\index{Classes!constructors!type conversions}. If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}. Notice the use of \texttt{double()} as the default value (0.0)
-when initializing the vector.\index{Default value!\textbf{double()}}
+when initializing the vector.\index{Default value!\texttt{double()}}
 \end{enumerate}
 \begin{lstlisting}
 // constructor with member initialization list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialization list}*)
