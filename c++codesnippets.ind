@@ -257,6 +257,8 @@
     \subitem \texttt{DivideByZero}, 34
     \subitem \texttt{OtherException}, 34
     \subitem \texttt{out\_of\_range}, 21
+    \subitem \texttt{runtime\_error}, 15, 17, 34
+      \subsubitem \texttt{what}, 15, 17, 34
     \subitem Basic guarantee, 34
 
   \indexspace

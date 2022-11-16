@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.73~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.74~-~GNU GPL v3.0}
 
 %\layout
 
@@ -955,12 +955,12 @@ try(*\index{\textbf{try-catch}|see{Exceptions}}*)(*\index{Exceptions!\textbf{try
         cin.clear(ios_base::failbit);(*\index{Input-output streams!\texttt{cin}!\texttt{clear}}*)
     
         // throw an exception or deal with failed stream
-        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)
+        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)(*\index{Exceptions!\texttt{runtime\_error}}*)
     }
 }
 catch (runtime_error e)
 {
-    cerr << "Error! " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)
+    cerr << "Error! " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)(*\index{Exceptions!\texttt{runtime\_error}!\texttt{what}}*)
             
     // check for failure
     if (cin.fail())(*\index{Input-output streams!\texttt{cin}!\texttt{fail}}*)
@@ -1068,12 +1068,12 @@ try(*\index{Exceptions!\textbf{try-catch}}*)
         in_stream.clear(ios_base::failbit);
     
         // throw an exception or deal with failed stream
-        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)
+        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)(*\index{Exceptions!\texttt{runtime\_error}}*)
     }
 }
 catch (runtime_error e)
 {
-    cerr << "Error! " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)
+    cerr << "Error! " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)(*\index{Exceptions!\texttt{runtime\_error}!\texttt{what}}*)
             
     // check for failure
     if (in_stream.fail())
@@ -2084,12 +2084,12 @@ thrown when runtime errors occur:
 \begin{lstlisting}
 try(*\index{Exceptions!\textbf{try-catch}}*)
 {
-    throw runtime_error("unexpected result!");(*\index{\textbf{throw}}*)
+    throw runtime_error("unexpected result!");(*\index{\textbf{throw}}*)(*\index{Exceptions!\texttt{runtime\_error}}*)
 }
 catch (runtime_error& e)
 {
     // error stream
-    cerr << "runtime error: " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)
+    cerr << "runtime error: " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)(*\index{Exceptions!\texttt{runtime\_error}!\texttt{what}}*)
     return 1;
 }
 \end{lstlisting}

@@ -230,7 +230,9 @@
 \indexentry{Input-output streams!handling of unexpected input!setting explicitly the failure bit}{15}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{clear}}{15}
 \indexentry{\textbf{throw}}{15}
+\indexentry{Exceptions!\texttt{runtime\_error}}{15}
 \indexentry{Input-output streams!\texttt{cerr}}{15}
+\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{15}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{fail}}{15}
 \indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}{15}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{clear}}{15}
@@ -259,7 +261,9 @@
 \indexentry{Exceptions!\textbf{try-catch}}{16}
 \indexentry{Files!checking for unexpected input}{16}
 \indexentry{\textbf{throw}}{17}
+\indexentry{Exceptions!\texttt{runtime\_error}}{17}
 \indexentry{Input-output streams!\texttt{cerr}}{17}
+\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{17}
 \indexentry{Strings!\texttt{string}}{17}
 \indexentry{Input-output streams!\texttt{cerr}}{17}
 \indexentry{Files!reading and writing}{17}
@@ -550,7 +554,9 @@
 \indexentry{Input-output streams!\texttt{cerr}}{34}
 \indexentry{Exceptions!\textbf{try-catch}}{34}
 \indexentry{\textbf{throw}}{34}
+\indexentry{Exceptions!\texttt{runtime\_error}}{34}
 \indexentry{Input-output streams!\texttt{cerr}}{34}
+\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{34}
 \indexentry{Exceptions!\texttt{DivideByZero}}{34}
 \indexentry{Exceptions!\texttt{OtherException}}{34}
 \indexentry{\textbf{throw}}{34}
