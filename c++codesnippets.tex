@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.74~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.75~-~GNU GPL v3.0}
 
 %\layout
 
@@ -448,7 +448,7 @@ cout << gen_def() << gen_mt() << endl;
 \section{Bitsets}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Bits and bit operations\index{Bitsets!bits and bit operations}
+\item[$\Rightarrow$] Bits and bit operations:\index{Bitsets!bits and bit operations}
 \index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
@@ -465,7 +465,7 @@ bitset<8> c = a & b;
 cout << c << endl; // (*00000111*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Access to single bits\index{Bitsets!access to single bits}
+\item[$\Rightarrow$] Access to single bits:\index{Bitsets!access to single bits}
 \index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
@@ -510,8 +510,7 @@ for (int& x : array)
   x++;(*\index{Arrays!modifying elements of an array}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{auto} lets the compiler use the type of the elements in the container because it knows the type already
-\index{range-for-loop}
+\item[$\Rightarrow$] \textbf{auto} lets the compiler use the type of the elements in the container because it knows the type already:\index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
 for (auto x : arr)(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
@@ -659,7 +658,7 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Static storage with global scope, external or internal linkage: storage is allocated before the program starts and deallocated when the program ends
+\item[$\Rightarrow$] Static storage with global scope, external or internal linkage, i.e. storage is allocated before the program starts and deallocated when the program ends:
 \end{enumerate}
 \begin{lstlisting}
 // static storage, external linkage
@@ -669,7 +668,7 @@ Object a{"a"};(*\index{Storage class!static!external linkage}*)
 static Object b{"b"};(*\index{Storage class!static!internal linkage}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Static storage with local scope: storage is allocated the first time the function is called and deallocated when the program ends
+\item[$\Rightarrow$] Static storage with local scope, i.e. storage is allocated the first time the function is called and deallocated when the program ends:
 \end{enumerate}
 \begin{lstlisting}
 void func(void)
@@ -685,7 +684,7 @@ int main()
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Automatic storage with local scope: storage is allocated on the stack when the local scope is entered and deallocated after execution leaves the scope
+\item[$\Rightarrow$] Automatic storage with local scope, i.e. storage is allocated on the stack when the local scope is entered and deallocated after execution leaves the scope:
 \end{enumerate}
 \begin{lstlisting}
 int main()
@@ -697,7 +696,7 @@ int main()
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Dynamic storage: storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}
+\item[$\Rightarrow$] Dynamic storage, i.e. storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}:
 \end{enumerate}
 \begin{lstlisting}
 int main()
@@ -854,7 +853,7 @@ cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to th
 cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)(*\index{Input-output streams!\texttt{cerr}}*)(*\index{\texttt{cerr}|see{Input-output streams}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Integer format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
+\item[$\Rightarrow$] Integer format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}:
 \index{Input-output streams!integer format manipulators}
 \end{enumerate}
 \begin{lstlisting}
@@ -879,7 +878,7 @@ cin.unsetf(ios::hex);(*\index{Input-output streams!\texttt{cin}!\texttt{unset}!\
 cin >> val;(*\index{Input-output streams!\texttt{cin}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Floating point format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}.
+\item[$\Rightarrow$] Floating point format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}:
 \index{Input-output streams!floating point format manipulators}
 \end{enumerate}
 \begin{lstlisting}
@@ -984,8 +983,7 @@ catch (runtime_error e)
 \section{Files}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Accessed by means of \texttt{ifstream} (input) or
-\texttt{ofstream} (output) objects:
+\item[$\Rightarrow$] Accessed by means of \texttt{ifstream} (input) or \texttt{ofstream} (output) objects:
 \end{enumerate}
 \begin{lstlisting}
 #include <fstream>(*\index{\texttt{<fstream>}}*)
@@ -1020,8 +1018,7 @@ in_stream.open("infile.dat");
 out_stream.open("outfile.dat");
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] When checking for failure, the status flag needs to be cleared
-in order to continue working with the file:\index{Files!checking for failure}
+\item[$\Rightarrow$] When checking for failure, the status flag needs to be cleared in order to continue working with the file:\index{Files!checking for failure}
 \end{enumerate}
 \begin{lstlisting}
 // check for failure on input file
@@ -1051,8 +1048,7 @@ if ( !in_stream )
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] As for the standard input, if the input pattern is unexpected, it is possible to set the state of the file to failed
-and try to recover somewhere else, e.g. by throwing an exception:
+\item[$\Rightarrow$] As for the standard input, if the input pattern is unexpected, it is possible to set the state of the file to failed and try to recover somewhere else, e.g. by throwing an exception:
 \end{enumerate}
 \begin{lstlisting}
 try(*\index{Exceptions!\textbf{try-catch}}*)
@@ -1351,8 +1347,6 @@ for (auto x : v)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)
 // hand side of the assignment, in this case a (*vector::iterator*)
 for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
   cout << *x << endl;(*\index{Input-output streams!\texttt{cout}}*)
-
-
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Size and capacity:
@@ -1434,11 +1428,11 @@ int d = int(Weekdays::fri);
 class MyVector(*\index{\textbf{class}|see{Classes}}*)(*\index{Classes!\textbf{class}!\texttt{MyVector}}*)
 {
 public:
-    // constructor
-    explicit MyVector();(*\index{\textbf{explicit}}*)
     // explicit constructor (avoids type conversions)
+    explicit MyVector();(*\index{\textbf{explicit}}*)
+    // explicit constructor with size parameter
     explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
-    // constructor with initializer list
+    // explicit constructor with initializer list
     explicit MyVector(initializer_list<double>);(*\index{\texttt{initializer\_list}}*)(*\index{\textbf{explicit}}*)
     // copy constructor (pass by
     // reference, no copying!)
@@ -1475,7 +1469,7 @@ private:
 \begin{enumerate}
 \item[$\Rightarrow$] Constructors definitions\\ \\ By using the \textbf{explicit} qualifier, undesired type conversions are avoided\index{Classes!constructors!type conversions}. If you give no constructor, the compiler will generate a default constructor that does nothing.
 If you give at least one constructor, then the compiler will generate no other constructors\index{Classes!constructors}. Notice the use of \texttt{double()} as the default value (0.0)
-when initializing the vector.\index{Default value!\texttt{double()}}
+when initializing the vector:\index{Default value!\texttt{double()}}
 \end{enumerate}
 \begin{lstlisting}
 // constructor with member initialization list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialization list}*)
@@ -1493,9 +1487,8 @@ MyVector::MyVector(initializer_list<double> l)(*\index{\texttt{initializer\_list
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Copy constructor\\ \\ The argument is passed by const reference, i.e. no copies and no changes. If not defined, C++ automatically adds the default copy
-constructor. This might not be correct if dynamic variables are used,
-because class members are simply copied\index{Classes!copy constructor}
+\item[$\Rightarrow$] Copy constructor\\ \\ The argument is passed by \textbf{const} reference, i.e. no copies and no changes. If not defined, C++ automatically adds the default copy
+constructor. This might not be correct if dynamic variables are used, because class members are simply copied:\index{Classes!copy constructor}
 \end{enumerate}
 \begin{lstlisting}
 // copy constructor
@@ -1508,7 +1501,7 @@ MyVector::MyVector(const MyVector& v)(*\index{Constants!\textbf{const}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Move constructor\index{Classes!move constructor}
+\item[$\Rightarrow$] Move constructor:\index{Classes!move constructor}
 \end{enumerate}
 \begin{lstlisting}
 // move constructor
@@ -1524,8 +1517,7 @@ MyVector::MyVector(MyVector&& v)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Copy assignment\\ \\ If not defined, C++ automatically adds  the default assignment operator.
-It might not be correct if dynamic variables are used,
-because class members are simply copied\index{Classes!copy assignment}
+It might not be correct if dynamic variables are used, because class members are simply copied:\index{Classes!copy assignment}
 \end{enumerate}
 \begin{lstlisting}
 // copy assignment
@@ -1548,7 +1540,7 @@ MyVector& MyVector::operator=(const MyVector& rv)(*\index{Constants!\textbf{cons
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Move assignment\index{Classes!move assignment}
+\item[$\Rightarrow$] Move assignment:\index{Classes!move assignment}
 \end{enumerate}
 \begin{lstlisting}
 // move assignment
@@ -1565,7 +1557,7 @@ MyVector& MyVector::operator=(MyVector&& rv)(*\index{\texttt{operator=}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Reserve (reallocation), resize and push back\index{Classes!reallocation of resources}
+\item[$\Rightarrow$] Reserve (reallocation), resize and push back:\index{Classes!reallocation of resources}
 \end{enumerate}
 \begin{lstlisting}
 // reserve
@@ -1604,7 +1596,7 @@ void MyVector::push_back(double d)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Constructor invocations\index{Classes!constructor invocations}
+\item[$\Rightarrow$] Constructor invocations:\index{Classes!constructor invocations}
 \end{enumerate}
 \begin{lstlisting}
 // constructor with size
@@ -1615,6 +1607,13 @@ MyVector v2{1,2,3,4};(*\index{\texttt{initializer\_list}}*)
 
 // copy constructor
 MyVector v3{v2}; 
+
+// pass by value with copy constructor
+// (prefer const reference!)
+void func(MyVector v4)
+{
+    // do something
+}
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Move invocations\\ \\ Avoids copying when moving is sufficient, e.g. when returning an object from a function:\index{Classes!move invocations}
@@ -1634,13 +1633,53 @@ MyVector v5 = func();
 // move assignment
 v4 = func();       
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Compiler generated methods \\ \\ If not implemented or deleted, a compiler will generate default implementations for these methods (\emph{rule of five}):\index{Classes!compiler generated methods}\index{Classes!\emph{rule of five}}
+\end{enumerate}
+\begin{lstlisting}
+// basic class with default copy and move semantics
+// the compiler generates the default implementation
+class Basic(*\index{Classes!\textbf{class}!\texttt{Basic}}*)
+{
+public:
+    // default constructor and destructor
+    Basic() = default;
+    ~Basic() = default;
+    // default copy constructor
+    Basic(const Basic& b) = default;
+    // default copy assignment
+    Basic& operator=(const Basic& b) = default;
+     // default move constructor
+    Basic(const Basic&& b) = default;
+     // default move assignment
+    Basic& operator=(const Basic&& b) = default;  
+}
+
+// fancy class with deleted copy and move semantics
+// the compiler generates no default implementation
+class Fancy(*\index{Classes!\textbf{class}!\texttt{Fancy}}*)
+{
+public:
+    // no constructor and destructor
+    Basic() = delete;
+    ~Basic() = delete;
+    // no copy constructor
+    Basic(const Basic& b) = delete;
+    // no copy assignment
+    Basic& operator=(const Basic& b) = delete;
+     // no move constructor
+    Basic(const Basic&& b) = delete;
+     // no move assignment
+    Basic& operator=(const Basic&& b) = delete;  
+}
+\end{lstlisting}
+
 %
 % Operator overloading
 %
 \section{Operator overloading}
 \small
-The behaviour is different if an operator is overloaded as  a class member or 
-friend function.
+The behaviour is different if an operator is overloaded as  a class member or friend function.
 \begin{enumerate}
 \item[$\Rightarrow$] As class members\index{Operator overloading!as class member}
 \end{enumerate}

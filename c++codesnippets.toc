@@ -21,12 +21,12 @@
 \contentsline {section}{Vectors}{20}{}%
 \contentsline {section}{Enumerations}{22}{}%
 \contentsline {section}{Classes}{22}{}%
-\contentsline {section}{Operator overloading}{26}{}%
-\contentsline {section}{Inheritance}{27}{}%
-\contentsline {section}{Polymorphism}{32}{}%
-\contentsline {section}{Exceptions}{33}{}%
-\contentsline {section}{Templates}{35}{}%
-\contentsline {section}{Iterators}{39}{}%
-\contentsline {section}{Containers}{42}{}%
+\contentsline {section}{Operator overloading}{27}{}%
+\contentsline {section}{Inheritance}{28}{}%
+\contentsline {section}{Polymorphism}{33}{}%
+\contentsline {section}{Exceptions}{34}{}%
+\contentsline {section}{Templates}{36}{}%
+\contentsline {section}{Iterators}{40}{}%
+\contentsline {section}{Containers}{43}{}%
 \contentsline {section}{Algorithms}{45}{}%
-\contentsline {section}{Chrono}{47}{}%
+\contentsline {section}{Chrono}{48}{}%
