@@ -6,13 +6,13 @@
 \contentsline {section}{Limits}{4}{}%
 \contentsline {section}{Functions}{4}{}%
 \contentsline {section}{Lambda expressions}{5}{}%
-\contentsline {section}{Namespaces and aliases}{5}{}%
+\contentsline {section}{Namespaces and aliases}{6}{}%
 \contentsline {section}{Random numbers}{6}{}%
-\contentsline {section}{Bitsets}{6}{}%
+\contentsline {section}{Bitsets}{7}{}%
 \contentsline {section}{Arrays}{7}{}%
-\contentsline {section}{Pointers}{7}{}%
-\contentsline {section}{References}{8}{}%
-\contentsline {section}{Storage classes}{9}{}%
+\contentsline {section}{Pointers}{8}{}%
+\contentsline {section}{References}{9}{}%
+\contentsline {section}{Storage classes}{10}{}%
 \contentsline {section}{C-Strings}{12}{}%
 \contentsline {section}{Input-output streams}{13}{}%
 \contentsline {section}{Files}{15}{}%
@@ -28,5 +28,5 @@
 \contentsline {section}{Templates}{36}{}%
 \contentsline {section}{Iterators}{40}{}%
 \contentsline {section}{Containers}{43}{}%
-\contentsline {section}{Algorithms}{45}{}%
+\contentsline {section}{Algorithms}{46}{}%
 \contentsline {section}{Chrono}{48}{}%

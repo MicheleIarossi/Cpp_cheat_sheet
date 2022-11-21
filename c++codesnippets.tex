@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.75~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.76~-~GNU GPL v3.0}
 
 %\layout
 
@@ -220,10 +220,30 @@ double *pd = static_cast<double*>(p);(*\index{\textbf{static\_cast}|see{Type cas
 \begin{lstlisting}
 // reinterprets a (*long*) value as a (*double*) one
 long n = 53;
-double *pd = reinterpret_cast<double *>(&n);(*\index{\textbf{reinterpret\_cast}|see{Casts}}*)
+double *pd = reinterpret_cast<double *>(&n);(*\index{\textbf{reinterpret\_cast}|see{Type casting}}*)
 
 // prints out (*2.61855e-322*)
 cout << *pd << endl;(*\index{Input-output streams!\texttt{cout}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Use \textbf{const\_cast} for removing the \textbf{const} attribute from a reference variable pointing to a non-const variable!\index{Type casting!\textbf{const\_cast}}
+\end{enumerate}
+\begin{lstlisting}
+// a non-const variable
+int a_variable = 23;
+
+// a const reference
+const int& ref_constant = a_variable;
+
+// remove the const attribute
+int& not_constant = const_cast<int&>(ref_constant);(*\index{\textbf{const\_cast}|see{Type casting}}*)
+
+// change the non-constant variable
+not_constant++;
+
+// outputs (*24*) for both
+cout << a_variable << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << ref_constant << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Use user-defined type conversions\index{Type casting!user defined type conversions}:
@@ -1643,16 +1663,16 @@ class Basic(*\index{Classes!\textbf{class}!\texttt{Basic}}*)
 {
 public:
     // default constructor and destructor
-    Basic() = default;
-    ~Basic() = default;
+    Basic() = default;(*\index{\texttt{= default}}*)
+    ~Basic() = default;(*\index{\texttt{= default}}*)
     // default copy constructor
-    Basic(const Basic& b) = default;
+    Basic(const Basic& b) = default;(*\index{\texttt{= default}}*)
     // default copy assignment
-    Basic& operator=(const Basic& b) = default;
+    Basic& operator=(const Basic& b) = default;(*\index{\texttt{= default}}*)
      // default move constructor
-    Basic(const Basic&& b) = default;
+    Basic(const Basic&& b) = default;(*\index{\texttt{= default}}*)
      // default move assignment
-    Basic& operator=(const Basic&& b) = default;  
+    Basic& operator=(const Basic&& b) = default;(*\index{\texttt{= default}}*) 
 }
 
 // fancy class with deleted copy and move semantics
@@ -1661,16 +1681,16 @@ class Fancy(*\index{Classes!\textbf{class}!\texttt{Fancy}}*)
 {
 public:
     // no constructor and destructor
-    Basic() = delete;
-    ~Basic() = delete;
+    Basic() = delete;(*\index{\texttt{= delete}}*)
+    ~Basic() = delete;(*\index{\texttt{= delete}}*)
     // no copy constructor
-    Basic(const Basic& b) = delete;
+    Basic(const Basic& b) = delete;(*\index{\texttt{= delete}}*)
     // no copy assignment
-    Basic& operator=(const Basic& b) = delete;
+    Basic& operator=(const Basic& b) = delete;(*\index{\texttt{= delete}}*)
      // no move constructor
-    Basic(const Basic&& b) = delete;
+    Basic(const Basic&& b) = delete;(*\index{\texttt{= delete}}*)
      // no move assignment
-    Basic& operator=(const Basic&& b) = delete;  
+    Basic& operator=(const Basic&& b) = delete; (*\index{\texttt{= delete}}*)
 }
 \end{lstlisting}
 
@@ -2201,10 +2221,10 @@ int a, b;
 char c, d;
 
 // swaps two (*int*)s
-swap(a, b);
+swap<int>(a, b);
 
 // swaps two (*char*)s
-swap(c, d);
+swap<char>(c, d);
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Class templates: extending \texttt{MyVector} with templates. Class templates are also called \emph{type generators}.
@@ -2315,7 +2335,7 @@ Wrapper<double,5> array;
 Wrapper<char,3> array;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Class template parameter\index{Templates!class parameter}
+\item[$\Rightarrow$] Allocator as a class template parameter\index{Templates!allocator}
 \end{enumerate}
 \begin{lstlisting}
 // Usage of an allocator as a class template parameter
