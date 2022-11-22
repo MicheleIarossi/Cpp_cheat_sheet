@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.76~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.77~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1654,7 +1654,7 @@ MyVector v5 = func();
 v4 = func();       
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Compiler generated methods \\ \\ If not implemented or deleted, a compiler will generate default implementations for these methods (\emph{rule of five}):\index{Classes!compiler generated methods}\index{Classes!\emph{rule of five}}
+\item[$\Rightarrow$] Compiler generated methods \\ \\ If not implemented or deleted, a compiler will generate default implementations for the destructor, copy constructor, copy assignment, move constructor, move assignment (\emph{rule of five}):\index{Classes!compiler generated methods}\index{Classes!\emph{rule of five}}
 \end{enumerate}
 \begin{lstlisting}
 // basic class with default copy and move semantics
@@ -2209,7 +2209,7 @@ template definition in the header file directly!
 \begin{lstlisting}
 // generic swap function
 template<class T>(*\index{\textbf{template}|see{Templates}}*)(*\index{Templates!\textbf{template}}*)
-void swap(T& a, T& b)
+void generic_swap(T& a, T& b)
 {
     T temp = a;
     
@@ -2221,13 +2221,23 @@ int a, b;
 char c, d;
 
 // swaps two (*int*)s
-swap<int>(a, b);
+generic_swap<int>(a, b);
 
 // swaps two (*char*)s
-swap<char>(c, d);
+generic_swap<char>(c, d);
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Class templates: extending \texttt{MyVector} with templates. Class templates are also called \emph{type generators}.
+\item[$\Rightarrow$] Template type deduction\\ \\ The compiler infers the template parameter from the usage:\index{Templates!template type deduction}
+\end{enumerate}
+\begin{lstlisting}
+double e, f;
+
+// swaps two (*double*)s
+// compiler infers the template parameter from usage
+generic_swap(a, b);
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Class templates\\ \\ Extending \texttt{MyVector} with templates. Class templates are also called \emph{type generators}:
 \index{Templates!class}\index{Templates!type generator}
 \end{enumerate}
 \begin{lstlisting}

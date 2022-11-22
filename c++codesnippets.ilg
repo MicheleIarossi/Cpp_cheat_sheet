@@ -17,27 +17,27 @@ Scanning input file c++codesnippets.idx....
 !! Input index error (file = c++codesnippets.idx, line = 426):
    -- Extra `!' at position 58 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 727):
+!! Input index error (file = c++codesnippets.idx, line = 728):
    -- Extra `!' at position 46 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 729):
+!! Input index error (file = c++codesnippets.idx, line = 730):
    -- Extra `!' at position 46 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 748):
-   -- Extra `!' at position 46 of first argument.
 !! Input index error (file = c++codesnippets.idx, line = 749):
    -- Extra `!' at position 46 of first argument.
-done (847 entries accepted, 11 rejected).
-Sorting entries.........done (8984 comparisons).
+!! Input index error (file = c++codesnippets.idx, line = 750):
+   -- Extra `!' at position 46 of first argument.
+done (848 entries accepted, 11 rejected).
+Sorting entries..........done (9636 comparisons).
 Generating output file c++codesnippets.ind....
-## Warning (input = c++codesnippets.idx, line = 60; output = c++codesnippets.ind, line = 24):
+## Warning (input = c++codesnippets.idx, line = 69; output = c++codesnippets.ind, line = 24):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 778; output = c++codesnippets.ind, line = 237):
+## Warning (input = c++codesnippets.idx, line = 806; output = c++codesnippets.ind, line = 238):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 755; output = c++codesnippets.ind, line = 239):
+## Warning (input = c++codesnippets.idx, line = 756; output = c++codesnippets.ind, line = 239):
    -- Conflicting entries: multiple encaps for the same page under same key.
-done (535 lines written, 3 warnings).
+done (536 lines written, 3 warnings).
 Output written in c++codesnippets.ind.
 Transcript written in c++codesnippets.ilg.

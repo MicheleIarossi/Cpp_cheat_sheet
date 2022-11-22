@@ -589,11 +589,12 @@
 \indexentry{Templates!function}{36}
 \indexentry{\textbf{template}|see{Templates}}{36}
 \indexentry{Templates!\textbf{template}}{36}
-\indexentry{Templates!class}{36}
-\indexentry{Templates!type generator}{36}
-\indexentry{Templates!\textbf{template}}{36}
-\indexentry{Classes!\textbf{class}!\texttt{MyVector}}{36}
-\indexentry{\textbf{explicit}}{36}
+\indexentry{Templates!template type deduction}{36}
+\indexentry{Templates!class}{37}
+\indexentry{Templates!type generator}{37}
+\indexentry{Templates!\textbf{template}}{37}
+\indexentry{Classes!\textbf{class}!\texttt{MyVector}}{37}
+\indexentry{\textbf{explicit}}{37}
 \indexentry{\textbf{explicit}}{37}
 \indexentry{\texttt{size\_t}}{37}
 \indexentry{\textbf{explicit}}{37}
@@ -622,11 +623,11 @@
 \indexentry{Classes!\textbf{class}!\texttt{MyVector<T>}}{37}
 \indexentry{Constants!\textbf{const}}{37}
 \indexentry{\texttt{operator=}}{37}
-\indexentry{\textbf{this}}{37}
-\indexentry{\textbf{this}}{37}
-\indexentry{\textbf{delete}}{37}
-\indexentry{\textbf{new}}{37}
-\indexentry{Algorithms!\texttt{copy}}{37}
+\indexentry{\textbf{this}}{38}
+\indexentry{\textbf{this}}{38}
+\indexentry{\textbf{delete}}{38}
+\indexentry{\textbf{new}}{38}
+\indexentry{Algorithms!\texttt{copy}}{38}
 \indexentry{\textbf{this}}{38}
 \indexentry{Templates!specialisation}{38}
 \indexentry{Templates!instantiation}{38}
@@ -638,14 +639,14 @@
 \indexentry{Constants!\textbf{const}}{38}
 \indexentry{\texttt{size\_t}}{38}
 \indexentry{Templates!allocator}{38}
-\indexentry{\texttt{allocator}}{38}
-\indexentry{Templates!\textbf{template}}{38}
-\indexentry{Classes!\textbf{class}!\texttt{MyVector<T,A>}}{38}
-\indexentry{\textbf{explicit}}{38}
-\indexentry{\textbf{explicit}}{38}
-\indexentry{\texttt{size\_t}}{38}
-\indexentry{\textbf{explicit}}{38}
-\indexentry{\texttt{initializer\_list}}{38}
+\indexentry{\texttt{allocator}}{39}
+\indexentry{Templates!\textbf{template}}{39}
+\indexentry{Classes!\textbf{class}!\texttt{MyVector<T,A>}}{39}
+\indexentry{\textbf{explicit}}{39}
+\indexentry{\textbf{explicit}}{39}
+\indexentry{\texttt{size\_t}}{39}
+\indexentry{\textbf{explicit}}{39}
+\indexentry{\texttt{initializer\_list}}{39}
 \indexentry{Constants!\textbf{const}}{39}
 \indexentry{Constants!\textbf{const}}{39}
 \indexentry{\texttt{operator=}}{39}
@@ -664,8 +665,8 @@
 \indexentry{\textbf{nullptr}}{39}
 \indexentry{Templates!\textbf{template}}{39}
 \indexentry{\texttt{size\_t}}{39}
-\indexentry{\texttt{size\_t}}{39}
-\indexentry{\texttt{size\_t}}{39}
+\indexentry{\texttt{size\_t}}{40}
+\indexentry{\texttt{size\_t}}{40}
 \indexentry{Templates!friend operator}{40}
 \indexentry{Templates!\textbf{template}}{40}
 \indexentry{Classes!\textbf{class}!\texttt{A\_list}}{40}
@@ -683,10 +684,10 @@
 \indexentry{Iterators!bidirectional access}{40}
 \indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{40}
 \indexentry{Input-output streams!\texttt{cout}}{40}
-\indexentry{Input-output streams!\texttt{cout}}{40}
-\indexentry{Iterators!random access}{40}
-\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{40}
-\indexentry{Input-output streams!\texttt{cout}}{40}
+\indexentry{Input-output streams!\texttt{cout}}{41}
+\indexentry{Iterators!random access}{41}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{41}
+\indexentry{Input-output streams!\texttt{cout}}{41}
 \indexentry{\texttt{const\_iterator}|see{Iterators}}{41}
 \indexentry{Iterators!\texttt{vector}!\texttt{const\_iterator}}{41}
 \indexentry{range-for-loop}{41}
@@ -707,10 +708,10 @@
 \indexentry{Constants!\textbf{const}}{41}
 \indexentry{\textbf{friend}}{41}
 \indexentry{\texttt{operator<<}}{41}
-\indexentry{\textbf{nullptr}}{41}
-\indexentry{Templates!\textbf{template}}{41}
-\indexentry{Classes!\textbf{class}!\texttt{LList<T>}}{41}
-\indexentry{\textbf{nullptr}}{41}
+\indexentry{\textbf{nullptr}}{42}
+\indexentry{Templates!\textbf{template}}{42}
+\indexentry{Classes!\textbf{class}!\texttt{LList<T>}}{42}
+\indexentry{\textbf{nullptr}}{42}
 \indexentry{\textbf{this}}{42}
 \indexentry{Constants!\textbf{const}}{42}
 \indexentry{\texttt{operator=}}{42}
@@ -728,17 +729,17 @@
 \indexentry{\textbf{nullptr}}{42}
 \indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}{42}
 \indexentry{\textbf{nullptr}}{42}
-\indexentry{Iterators!custom implementation}{42}
-\indexentry{Templates!\textbf{template}}{42}
-\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{42}
-\indexentry{Operator overloading!prefix increment ++}{42}
-\indexentry{\textbf{this}}{42}
-\indexentry{\texttt{operator++}}{42}
-\indexentry{Constants!\textbf{const}}{42}
-\indexentry{Constants!\textbf{const}}{42}
-\indexentry{\texttt{operator=}}{42}
-\indexentry{Constants!\textbf{const}}{42}
-\indexentry{\texttt{operator"!=}}{42}
+\indexentry{Iterators!custom implementation}{43}
+\indexentry{Templates!\textbf{template}}{43}
+\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{43}
+\indexentry{Operator overloading!prefix increment ++}{43}
+\indexentry{\textbf{this}}{43}
+\indexentry{\texttt{operator++}}{43}
+\indexentry{Constants!\textbf{const}}{43}
+\indexentry{Constants!\textbf{const}}{43}
+\indexentry{\texttt{operator=}}{43}
+\indexentry{Constants!\textbf{const}}{43}
+\indexentry{\texttt{operator"!=}}{43}
 \indexentry{\textbf{nullptr}}{43}
 \indexentry{Input-output streams!\texttt{cout}}{43}
 \indexentry{Input-output streams!\texttt{cout}}{43}
@@ -753,14 +754,14 @@
 \indexentry{Input-output streams!\texttt{cout}}{43}
 \indexentry{Containers!sequential|see{\texttt{list}}}{43}
 \indexentry{Containers!sequential|see{\texttt{vector}}}{43}
-\indexentry{\texttt{<list>}}{43}
-\indexentry{\texttt{list}|see{Containers}}{43}
-\indexentry{Containers!\texttt{list}}{43}
-\indexentry{Containers!\texttt{list}!\texttt{push\_back}}{43}
-\indexentry{Containers!\texttt{list}!\texttt{push\_front}}{43}
-\indexentry{Containers!\texttt{list}}{43}
-\indexentry{Iterators!\texttt{list}!\texttt{iterator}}{43}
-\indexentry{Algorithms!\texttt{advance}}{43}
+\indexentry{\texttt{<list>}}{44}
+\indexentry{\texttt{list}|see{Containers}}{44}
+\indexentry{Containers!\texttt{list}}{44}
+\indexentry{Containers!\texttt{list}!\texttt{push\_back}}{44}
+\indexentry{Containers!\texttt{list}!\texttt{push\_front}}{44}
+\indexentry{Containers!\texttt{list}}{44}
+\indexentry{Iterators!\texttt{list}!\texttt{iterator}}{44}
+\indexentry{Algorithms!\texttt{advance}}{44}
 \indexentry{Containers!\texttt{list}!\texttt{erase}}{44}
 \indexentry{Input-output streams!\texttt{cout}}{44}
 \indexentry{range-for-loop}{44}
@@ -779,12 +780,12 @@
 \indexentry{\texttt{<set>}}{44}
 \indexentry{\texttt{set}|see{Containers}}{44}
 \indexentry{Containers!\texttt{set}}{44}
-\indexentry{Containers!\texttt{set}!\texttt{insert}}{44}
-\indexentry{Containers!\texttt{set}!\texttt{erase}}{44}
-\indexentry{Constants!\textbf{const}}{44}
-\indexentry{Iterators!\texttt{set}!\texttt{const\_iterator}}{44}
-\indexentry{Input-output streams!\texttt{cout}}{44}
-\indexentry{Containers!associative|see{\texttt{map}}}{44}
+\indexentry{Containers!\texttt{set}!\texttt{insert}}{45}
+\indexentry{Containers!\texttt{set}!\texttt{erase}}{45}
+\indexentry{Constants!\textbf{const}}{45}
+\indexentry{Iterators!\texttt{set}!\texttt{const\_iterator}}{45}
+\indexentry{Input-output streams!\texttt{cout}}{45}
+\indexentry{Containers!associative|see{\texttt{map}}}{45}
 \indexentry{\texttt{<map>}}{45}
 \indexentry{\texttt{<utility>}}{45}
 \indexentry{\texttt{<string>}}{45}
@@ -803,13 +804,13 @@
 \indexentry{\textbf{auto}}{45}
 \indexentry{Input-output streams!\texttt{cout}}{45}
 \indexentry{Containers!associative|see{\texttt{multimap}}}{45}
-\indexentry{\texttt{<map>}}{45}
-\indexentry{\texttt{<utility>}}{45}
-\indexentry{\texttt{<string>}}{45}
-\indexentry{\texttt{multimap}|see{Containers}}{45}
-\indexentry{Containers!\texttt{multimap}}{45}
-\indexentry{Containers!\texttt{multimap}!\texttt{insert}}{45}
-\indexentry{Containers!\texttt{multimap}!\texttt{equal\_range}}{45}
+\indexentry{\texttt{<map>}}{46}
+\indexentry{\texttt{<utility>}}{46}
+\indexentry{\texttt{<string>}}{46}
+\indexentry{\texttt{multimap}|see{Containers}}{46}
+\indexentry{Containers!\texttt{multimap}}{46}
+\indexentry{Containers!\texttt{multimap}!\texttt{insert}}{46}
+\indexentry{Containers!\texttt{multimap}!\texttt{equal\_range}}{46}
 \indexentry{STL}{46}
 \indexentry{\texttt{<algorithm>}}{46}
 \indexentry{\texttt{<vector>}}{46}
@@ -823,14 +824,14 @@
 \indexentry{Algorithms!\texttt{find\_if}}{46}
 \indexentry{function object}{46}
 \indexentry{Classes!\textbf{class}!\texttt{Test\_greater}}{46}
-\indexentry{Constants!\textbf{const}}{46}
-\indexentry{Algorithms!\texttt{find\_if}}{46}
-\indexentry{Algorithms!\texttt{find\_if}}{46}
-\indexentry{\texttt{<algorithm>}}{46}
-\indexentry{\texttt{<vector>}}{46}
-\indexentry{\texttt{<list>}}{46}
-\indexentry{\texttt{<set>}}{46}
-\indexentry{\texttt{<numeric>}}{46}
+\indexentry{Constants!\textbf{const}}{47}
+\indexentry{Algorithms!\texttt{find\_if}}{47}
+\indexentry{Algorithms!\texttt{find\_if}}{47}
+\indexentry{\texttt{<algorithm>}}{47}
+\indexentry{\texttt{<vector>}}{47}
+\indexentry{\texttt{<list>}}{47}
+\indexentry{\texttt{<set>}}{47}
+\indexentry{\texttt{<numeric>}}{47}
 \indexentry{\texttt{<functional>}}{47}
 \indexentry{Algorithms!\texttt{accumulate}}{47}
 \indexentry{\texttt{accumulate}|see{accumulate}}{47}
@@ -841,12 +842,12 @@
 \indexentry{Algorithms!\texttt{inner\_product}}{47}
 \indexentry{\texttt{inner\_product}|see{Algorithms}}{47}
 \indexentry{Algorithms!\texttt{copy}!between different containers}{47}
-\indexentry{Iterators!initialization with a pair of iterators}{47}
-\indexentry{\texttt{istream\_iterator}}{47}
-\indexentry{Algorithms!\texttt{copy}!between container and stream}{47}
-\indexentry{\texttt{ostream\_iterator}}{47}
-\indexentry{Algorithms!\texttt{sort}}{47}
-\indexentry{\texttt{sort}|see{Algorithms}}{47}
+\indexentry{Iterators!initialization with a pair of iterators}{48}
+\indexentry{\texttt{istream\_iterator}}{48}
+\indexentry{Algorithms!\texttt{copy}!between container and stream}{48}
+\indexentry{\texttt{ostream\_iterator}}{48}
+\indexentry{Algorithms!\texttt{sort}}{48}
+\indexentry{\texttt{sort}|see{Algorithms}}{48}
 \indexentry{Algorithms!\texttt{binary\_search}}{48}
 \indexentry{\texttt{binary\_search}|see{Algorithms}}{48}
 \indexentry{Algorithms!\texttt{reverse}}{48}
