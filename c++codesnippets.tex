@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.77~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.78~-~GNU GPL v3.0}
 
 %\layout
 
@@ -128,7 +128,7 @@ using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using na
 
 \newpage
 %
-% assert
+% Assert
 %
 \section{Assertions}
 \small
@@ -139,7 +139,7 @@ using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using na
 static_assert(8<=sizeof(long),"longs are too small");(*\index{Assertions!\textbf{static\_assert}}*)(*\index{\textbf{static\_assert}}*)
 \end{lstlisting}
 %
-% constants
+% Constants
 %
 \section{Constants}
 \small
@@ -173,6 +173,21 @@ constexpr int k = 1'000'000;
 // the value of (*n*) is not known at compile time
 const int m = n + 1;(*\index{\textbf{const}|see{Constants}}*)(*\index{Constants!\textbf{const}}*)
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Immutable class\\ \\ A \textbf{const} attribute is set during construction and cannot be changed afterwards!
+\end{enumerate}
+\begin{lstlisting}
+class ConstInt(*\index{Classes!\textbf{class}!\texttt{ConstInt}}*)(*\index{Classes!immutable}*)
+{
+public:
+    ConstInt() : myint{0} {}
+    ConstInt(int n) : myint{n} {}
+    int get() const { return myint; }
+private:
+    const int myint;
+};
+\end{lstlisting}
+
 %
 % Type safety
 %
@@ -250,7 +265,7 @@ cout << ref_constant << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{enumerate}
 \begin{lstlisting}
 // User defined type
-class MyType
+class MyType(*\index{Classes!\textbf{class}!\texttt{MyType}}*)
 {
 public:
     MyType(int y=1) : x{y} {}
@@ -363,6 +378,50 @@ typedef void ( *Callback_type )( Fl_Widget*, void* ); (*\index{\textbf{typedef}}
 
 // (*cb*) is a callback defined as above
 Callback_type cb;
+\end{lstlisting}
+%
+% Operators
+%
+\section{Operators}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Unary arithmetic operators promote their operands to \textbf{int}:\index{Operators!unary arithmetic}
+\end{enumerate}
+\begin{lstlisting}
+// a variable
+short x = 10;
+
+// expression promotes to (*int*)!
++x;
+
+// expression promotes to (*int*)!
+-x;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Increment and decrement operators\\ \\ The value of the resulting expression depends whether prefix or postfix is used\index{Operators!increment}:\index{Operators!decrement}
+\end{enumerate}
+\begin{lstlisting}
+int x = 5;
+
+// prefix increment:
+// expression evaluates to 6
+// (*x*) evaluates to 6
+++x; (*\index{Operators!increment!prefix}*)
+
+// postfix increment:
+// expression evaluates to 6
+// (*x*) evaluates to 7
+x++; (*\index{Operators!increment!postfix}*)
+
+// postfix decrement:
+// expression evaluates to 7
+// (*x*) evaluates to 6
+x--; (*\index{Operators!decrement!postfix}*)
+
+// prefix decrement:
+// expression evaluates to 5
+// (*x*) evaluates to 5
+--x; (*\index{Operators!decrement!prefix}*)
 \end{lstlisting}
 %
 % Lambda expressions
@@ -2323,7 +2382,7 @@ MyVector<double> func()
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Integer template parameters\index{Templates!integer parameters}
+\item[$\Rightarrow$] Non-type template parameters\index{Templates!non-type parameters}
 \end{enumerate}
 \begin{lstlisting}
 // Wrapper class for an array 
