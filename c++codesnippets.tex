@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.78~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.79~-~GNU GPL v3.0}
 
 %\layout
 
@@ -120,7 +120,7 @@
 \end{frame}
 
 \noindent
-In the following code snippets, the standard I/O library and namespace are always used:
+In the following code snippets, the standard I/O library and namespace are used:
 \begin{lstlisting}
 #include <iostream>(*\index{\texttt{<iostream>}}*)
 using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
@@ -194,7 +194,7 @@ private:
 \section{Type safety}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Universal and uniform initialization\index{Uniform initialization}\index{Braced initialization|see{Uniform initialization}} prevents narrowing conversions from happening:
+\item[$\Rightarrow$] Universal and uniform initialization, also known as \emph{braced initialization},\index{Uniform initialization}\index{Braced initialization|see{Uniform initialization}} prevents narrowing conversions from happening:
 \end{enumerate}
 \begin{lstlisting}
 // safe conversions (*\index{Conversions!safe}*)
@@ -210,6 +210,7 @@ char b {a};
 %
 \section{Type casting}
 \small
+These are called \emph{named conversions}.\index{Type casting!named conversions}
 \begin{enumerate}
 \item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Type casting!\textbf{static\_cast}}, i.e. types that can be converted into each other:
 \end{enumerate}
@@ -261,7 +262,7 @@ cout << a_variable << endl;(*\index{Input-output streams!\texttt{cout}}*)
 cout << ref_constant << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use user-defined type conversions\index{Type casting!user defined type conversions}:
+\item[$\Rightarrow$] Use user-defined type conversions\\ \\ Conversions can be implicit or require an explicit cast:\index{Type casting!user defined type conversions}
 \end{enumerate}
 \begin{lstlisting}
 // User defined type
@@ -269,8 +270,10 @@ class MyType(*\index{Classes!\textbf{class}!\texttt{MyType}}*)
 {
 public:
     MyType(int y=1) : x{y} {}
+    // implicit conversions
     operator int() const { return x; }(*\index{Type casting!user defined type conversions!\texttt{operator int()}}*)(*\index{\texttt{operator int()}}*)
-    explicit operator double() const { return double(x); }(*\index{Type casting!user defined type conversions!\texttt{explicit operator double()}}*)(*\index{\texttt{operator double()}}*)
+    // requires an explicit static cast
+    explicit operator double() const { return double{x}; }(*\index{Type casting!user defined type conversions!\texttt{explicit operator double()}}*)(*\index{\texttt{operator double()}}*)
 private:
     int x{0};
 };
@@ -278,15 +281,37 @@ private:
 MyType a{5};
 MyType b{7};
 
-// (*a*) and (*b*) are converted to (*int*) by (*operator int()*)
+// (*a*) and (*b*) are converted implicitely to (*int*) by (*operator int()*)
 // (*c = 12*)
-int c = a + b;
+int c = a + b;(*\index{Type casting!user defined type conversions!implicit}*)
 
 // (*b*) is converted to (*double*) by (*operator double()*)
 // but requires explicit static cast
-double =   static_cast<double>(b);(*\index{\textbf{static\_cast}|see{Type casting}}*)
+double =   static_cast<double>(b);(*\index{\textbf{static\_cast}|see{Type casting}}*)(*\index{Type casting!user defined type conversions!explicit}*)
 \end{lstlisting}
+%
+% Integer types
+%
+\section{Integer types}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Integer types having specified widths:
+\end{enumerate}
+\begin{lstlisting}
+#include <cstdint>(*\index{\texttt{<cstdint>}}*)
 
+// signed integers(*\index{Integer types!signed}*)
+int8_t a;(*\index{\texttt{int8\_t}}*)
+int16_t b;(*\index{\texttt{int16\_t}}*)
+int32_t c;(*\index{\texttt{int32\_t}}*)
+int64_t d;(*\index{\texttt{int64\_t}}*)
+
+// unsigned integers(*\index{Integer types!unsigned}*)
+uint8_t a;(*\index{\texttt{uint8\_t}}*)
+uint16_t b;(*\index{\texttt{uint16\_t}}*)
+uint32_t c;(*\index{\texttt{uint32\_t}}*)
+uint64_t d;(*\index{\texttt{uint64\_t}}*)
+\end{lstlisting}
 %
 % Limits
 %
@@ -346,8 +371,7 @@ void set_birthday(const int& day, int& month, int year);(*\index{Constants!\text
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Use a function for initializing an object with a complicated initializer (we might not
-know exactly when the object gets initialized):
-\index{Functions!object initialization}
+know exactly when the object gets initialized):\index{Functions!object initialization}
 \end{enumerate}
 \begin{lstlisting}
 const Object& default_value()(*\index{Constants!\textbf{const}}*)
@@ -357,8 +381,7 @@ const Object& default_value()(*\index{Constants!\textbf{const}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Rule of thumb for passing arguments to functions:
-\index{Functions!arguments!rule of thumb}
+\item[$\Rightarrow$] Rule of thumb for passing arguments to functions:\index{Functions!arguments!rule of thumb}
 \begin{itemize}
 \item Pass-by-value for small objects
 \item Pointer parameter type if \textbf{nullptr} means no object given\index{\textbf{nullptr}}
@@ -368,8 +391,7 @@ const Object& default_value()(*\index{Constants!\textbf{const}}*)
 \end{itemize}
 \end{enumerate}
 \begin{enumerate}
-\item[$\Rightarrow$] Function pointer type definition:
-\index{Functions!pointer to function}
+\item[$\Rightarrow$] Function pointer type definition:\index{Functions!pointer to function}
 \end{enumerate}
 \begin{lstlisting}
 // pointer to a function returning a (*void*) and
@@ -378,6 +400,23 @@ typedef void ( *Callback_type )( Fl_Widget*, void* ); (*\index{\textbf{typedef}}
 
 // (*cb*) is a callback defined as above
 Callback_type cb;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] C-style linkage:\index{Functions!C-style linkage}
+\end{enumerate}
+\begin{lstlisting}
+// to be put in the header file to be
+// shared between C and C++
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+// legacy C-function to be shared
+void legacy_function(int p);
+
+#ifdef __cplusplus
+}
+#endif
 \end{lstlisting}
 %
 % Operators
@@ -554,6 +593,28 @@ for (auto i=0; i<8; ++i)
      cout << c[i];
 \end{lstlisting}
 %
+% Chrono
+%
+\section{Chrono}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Run-time measurement in milliseconds\index{Run-time measurement}
+\end{enumerate}
+\begin{lstlisting}
+#include <chrono>(*\index{\texttt{<chrono>}}*)
+
+using namespace std::chrono;
+
+auto t1 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
+
+// ...
+
+auto t2 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
+
+// run-time in milliseconds
+cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)
+\end{lstlisting}
+%
 %
 % Arrays
 %
@@ -649,9 +710,9 @@ for (int i=0; i<5; i++)
 delete[] m;(*\index{\textbf{delete}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{unique\_ptr}:
+\item[$\Rightarrow$] \texttt{unique\_ptr}\\ \\
 Holds ownership of a dynamic object according to RAII, i.e. resource acquisition is initialization\index{Pointers!RAII}. It will 
-automatically destroy the object if needed.
+automatically destroy the object if needed:
 \end{enumerate}
 \begin{lstlisting}
 #include <memory>(*\index{\texttt{<memory>}}*)
@@ -737,7 +798,7 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Static storage with global scope, external or internal linkage, i.e. storage is allocated before the program starts and deallocated when the program ends:
+\item[$\Rightarrow$] Static storage with global scope, external or internal linkage\\ \\ Storage is allocated before the program starts and deallocated when the program ends:
 \end{enumerate}
 \begin{lstlisting}
 // static storage, external linkage
@@ -747,7 +808,7 @@ Object a{"a"};(*\index{Storage class!static!external linkage}*)
 static Object b{"b"};(*\index{Storage class!static!internal linkage}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Static storage with local scope, i.e. storage is allocated the first time the function is called and deallocated when the program ends:
+\item[$\Rightarrow$] Static storage with local scope\\ \\ Storage is allocated the first time the function is called and deallocated when the program ends:
 \end{enumerate}
 \begin{lstlisting}
 void func(void)
@@ -763,7 +824,7 @@ int main()
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Automatic storage with local scope, i.e. storage is allocated on the stack when the local scope is entered and deallocated after execution leaves the scope:
+\item[$\Rightarrow$] Automatic storage with local scope\\ \\ Storage is allocated on the stack when the local scope is entered and deallocated after execution leaves the scope:
 \end{enumerate}
 \begin{lstlisting}
 int main()
@@ -775,7 +836,7 @@ int main()
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Dynamic storage, i.e. storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}:
+\item[$\Rightarrow$] Dynamic storage\\ \\ Storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}:
 \end{enumerate}
 \begin{lstlisting}
 int main()
@@ -2165,26 +2226,25 @@ win.draw(c1); // calls (*Circle::draw\_shape()*)
 \section{Exceptions}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] The value thrown by
-\textbf{throw} can be of any type.
+\item[$\Rightarrow$] The value thrown by \textbf{throw} can be of any type:
 \end{enumerate}
 \begin{lstlisting}
 // exception class
-class My_exception(*\index{Classes!\textbf{class}!\texttt{My\_exception}}*)
+class MyException(*\index{Classes!\textbf{class}!\texttt{MyException}}*)
 {
 public:
-    My_exception(string s);(*\index{Strings!\texttt{string}}*)
-    virtual ~My_exception();(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
-    friend ostream& operator<<(ostream& os, const My_exception& e);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    MyException(string s);(*\index{Strings!\texttt{string}}*)
+    virtual ~MyException();(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
+    friend ostream& operator<<(ostream& os, const MyException& e);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 protected:
     string msg;(*\index{Strings!\texttt{string}}*)
 };
 
 try
 {
-    throw My_exception("error");(*\index{\textbf{throw}}*)
+    throw MyException("error");(*\index{\textbf{throw}}*)
 }
-catch (My_exception& e)
+catch (MyException& e)
 {
     // error stream
     cerr << e;(*\index{Input-output streams!\texttt{cerr}}*)
@@ -2196,8 +2256,7 @@ catch (...)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions.  For example \texttt{runtime\_error} can be 
-thrown when runtime errors occur:
+\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions.  For example \texttt{runtime\_error} can be thrown when runtime errors occur:
 \end{enumerate}
 \begin{lstlisting}
 try(*\index{Exceptions!\textbf{try-catch}}*)
@@ -2213,8 +2272,7 @@ catch (runtime_error& e)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Functions throwing exceptions should list the exceptions thrown in
-the exception specification list. These exceptions are not 
-caught by the function itself!
+the exception specification list. These exceptions are not caught by the function itself!
 \end{enumerate}
 \begin{lstlisting}
 // exceptions of type (*DivideByZero*) or (*OtherException*) are(*\index{Exceptions!\texttt{DivideByZero}}\index{Exceptions!\texttt{OtherException}}*)
@@ -2230,7 +2288,7 @@ void my_function( ) throw ( );(*\index{\textbf{throw}}*)
 void my_function( );
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \emph{Basic guarantee}\index{Exceptions!Basic guarantee}: Any part of your code should either succeed or throw an exception without leaking any resource.
+\item[$\Rightarrow$] \emph{Basic guarantee}\index{Exceptions!Basic guarantee}\\ \\ Any part of your code should either succeed or throw an exception without leaking any resource:
 \end{enumerate}
 \begin{lstlisting}
 // Does local cleanup avoiding leaking of resources
@@ -2480,19 +2538,19 @@ void MyVector<T,A>::reserve(size_t new_m)(*\index{\texttt{size\_t}}*)
 \begin{lstlisting}
 // Note the declaration of the template friend operator.
 template<class T>(*\index{Templates!\textbf{template}}*)
-class A_list(*\index{Classes!\textbf{class}!\texttt{A\_list}}*)
+class SimpleNode(*\index{Classes!\textbf{class}!\texttt{SimpleNode<T>}}*)
 {
     // constructor with size of the list
-    A_list(int size);
+    SimpleNode(int size);
     // destructor
-    ~A_list();
+    ~SimpleNode();
     // copy constructor
-    A_list(A_list<T>& b);
+    SimpleNode(ListNode<T>& b);
     // assignment operator
-    A_list<T>& operator=(const A_list<T>& b);(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator=}}*)
+    SimpleNode<T>& operator=(const SimpleNode<T>& b);(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator=}}*)
     // friend insertion operator
     template <class TT>(*\index{Templates!\textbf{template}}*)
-    friend ostream& operator<<(ostream& outs, const A_list<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& outs, const SimpleNode<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 private:
     T *p;
     int size;
@@ -2856,10 +2914,10 @@ p = find_if(v.begin(),v.end(),test_greater_than_5);(*\index{Algorithms!\texttt{f
 \end{enumerate}
 \begin{lstlisting}
 // function object(*\index{function object}*)
-class Test_greater(*\index{Classes!\textbf{class}!\texttt{Test\_greater}}*)
+class TestGreater(*\index{Classes!\textbf{class}!\texttt{TestGreater}}*)
 {
 public:
-    Test_greater(int x) : n{x} {}
+    TestGreater(int x) : n{x} {}
     bool operator() (const int x) const { return x>n; }(*\index{Constants!\textbf{const}}*)
 private:
     int n{0};
@@ -2868,7 +2926,7 @@ private:
 // (*find\_if*)(*\index{Algorithms!\texttt{find\_if}}*)
 // general search, stops as soon as the predicate is satisfied
 // points to the first occurrence of an element greater than 7 in (*v*)
-p = find_if(v.begin(),v.end(),Test_greater(7));(*\index{Algorithms!\texttt{find\_if}}*)
+p = find_if(v.begin(),v.end(),TestGreater(7));(*\index{Algorithms!\texttt{find\_if}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{accumulate}
@@ -2948,28 +3006,6 @@ found = binary_search(v.begin(), v.end(), 3);(*\index{Algorithms!\texttt{binary\
 \begin{lstlisting}
 // reverse
 reverse(v.begin(),v.end());(*\index{Algorithms!\texttt{reverse}}*)(*\index{\texttt{reverse}|see{Algorithms}}*)
-\end{lstlisting}
-%
-% Chrono
-%
-\section{Chrono}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] Run-time measurement in milliseconds\index{Run-time measurement}
-\end{enumerate}
-\begin{lstlisting}
-#include <chrono>(*\index{\texttt{<chrono>}}*)
-
-using namespace std::chrono;
-
-auto t1 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
-
-// ...
-
-auto t2 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
-
-// run-time in milliseconds
-cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)
 \end{lstlisting}
 %
 % Bibliography
