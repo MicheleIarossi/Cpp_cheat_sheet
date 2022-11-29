@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.80~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.81~-~GNU GPL v3.0}
 
 %\layout
 
@@ -118,14 +118,13 @@
 \tableofcontents
 \end{multicols}
 \end{frame}
-
+\newpage
 \noindent
 In the following code snippets, the standard I/O library and namespace are used:
 \begin{lstlisting}
 #include <iostream>(*\index{\texttt{<iostream>}}*)
 using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
 \end{lstlisting}
-\newpage
 %
 % Assert
 %
@@ -287,6 +286,22 @@ int c = a + b;(*\index{Type casting!user defined type conversions!implicit}*)
 // (*b*) is converted to (*double*) by (*operator double()*)
 // but requires explicit static cast
 double =   static_cast<double>(b);(*\index{\textbf{static\_cast}|see{Type casting}}*)(*\index{Type casting!user defined type conversions!explicit}*)
+\end{lstlisting}
+%
+% Type traits
+%
+\section{Type traits}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Utilities for inspecting type properties \\ \\A type trait\index{Type traits} is a template class having a single parameter. The boolean \texttt{value} member is \texttt{true} if the type verifies the property, else it is \texttt{false}:
+\end{enumerate}
+\begin{lstlisting}
+#include <type_traits>(*\index{\texttt{<type\_traits>}}*)
+
+// example usage
+cout << is_integral<int>::value; // (*true*)(*\index{\texttt{is\_integral<T>::value}}*)
+cout << is_integral<float>::value; // (*false*)
+cout << is_floating_point<double>::value; // (*true*)(*\index{\texttt{is\_floating<T>::value}}*)
 \end{lstlisting}
 %
 % Integer types

@@ -9,7 +9,7 @@
   \item \textbf{enum class}, 25
   \item \textbf{explicit}, 26, 40, 42
   \item \textbf{friend}, 31, 38, 43, 45, 46
-  \item \textbf{namespace}, \see{Namespaces}{1}
+  \item \textbf{namespace}, \see{Namespaces}{2}
   \item \textbf{new}, 11, 12, 14, 26--28, 41
   \item \textbf{nullptr}, 6, 26--28, 41, 43, 45, 46
   \item \textbf{reinterpret\_cast}, \see{Type casting}{3}
@@ -26,14 +26,14 @@
   \item \texttt{<algorithm>}, 26, 45, 49, 50
   \item \texttt{<bitset>}, 9
   \item \texttt{<chrono>}, 10
-  \item \texttt{<cstdint>}, 4
-  \item \texttt{<cstdlib>}, 8, 15
+  \item \texttt{<cstdint>}, 5
+  \item \texttt{<cstdlib>}, 9, 15
   \item \texttt{<cstring>}, 15
-  \item \texttt{<ctime>}, 8
+  \item \texttt{<ctime>}, 9
   \item \texttt{<fstream>}, 19
   \item \texttt{<functional>}, 9, 50
   \item \texttt{<iomanip>}, 16, 17
-  \item \texttt{<iostream>}, 1, 45
+  \item \texttt{<iostream>}, 2, 45
   \item \texttt{<limits>}, 5
   \item \texttt{<list>}, 47, 50
   \item \texttt{<map>}, 48, 49
@@ -45,6 +45,7 @@
   \item \texttt{<sstream>}, 23
   \item \texttt{<stack>}, 47
   \item \texttt{<string>}, 21, 48, 49
+  \item \texttt{<type\_traits>}, 4
   \item \texttt{<utility>}, 48, 49
   \item \texttt{<vector>}, 24, 44, 49, 50
   \item \texttt{= 0}, 32, 34
@@ -72,10 +73,12 @@
   \item \texttt{ifstream}, 19
   \item \texttt{initializer\_list}, 26, 27, 29, 40, 42
   \item \texttt{inner\_product}, \see{Algorithms}{50}
-  \item \texttt{int16\_t}, 4
-  \item \texttt{int32\_t}, 4
-  \item \texttt{int64\_t}, 4
-  \item \texttt{int8\_t}, 4
+  \item \texttt{int16\_t}, 5
+  \item \texttt{int32\_t}, 5
+  \item \texttt{int64\_t}, 5
+  \item \texttt{int8\_t}, 5
+  \item \texttt{is\_floating<T>::value}, 4
+  \item \texttt{is\_integral<T>::value}, 4
   \item \texttt{istream\_iterator}, 51
   \item \texttt{istringstream}, 23
   \item \texttt{iterator}, \see{Iterators}{44}
@@ -107,7 +110,7 @@
   \item \texttt{sort}, \see{Algorithms}{51}
   \item \texttt{srand}, 9
   \item \texttt{stack}, \see{Containers}{47}
-  \item \texttt{std}, 1, 8
+  \item \texttt{std}, 2, 8
   \item \texttt{stod}, 23
   \item \texttt{stoi}, 23
   \item \texttt{stol}, 23
@@ -121,7 +124,7 @@
   \item \texttt{uint16\_t}, 5
   \item \texttt{uint32\_t}, 5
   \item \texttt{uint64\_t}, 5
-  \item \texttt{uint8\_t}, 4
+  \item \texttt{uint8\_t}, 5
   \item \texttt{unique\_ptr}, \see{Pointers}{12}
   \item \texttt{vector}, \see{Containers}{49}
   \item \texttt{void $\ast$}, \see{Pointers}{3}
@@ -216,7 +219,7 @@
     \subitem virtual destructor, 26, 32, 33, 35, 36, 38, 40, 42, 45
   \item Constants
     \subitem \textbf{constexpr}, 2
-    \subitem \textbf{const}, 2, 5, 15, 26, 27, 30--33, 35, 36, 38, 
+    \subitem \textbf{const}, 2, 6, 15, 26, 27, 30--33, 35, 36, 38, 
 		40--43, 45, 46, 48, 50
     \subitem constant functions, 2
   \item Containers
@@ -313,7 +316,7 @@
       \subsubitem read-write, 5
       \subsubitem rule of thumb, 6
     \subitem C-style linkage, 6
-    \subitem object initialization, 5
+    \subitem object initialization, 6
     \subitem pointer to function, 6
 
   \indexspace
@@ -391,8 +394,8 @@
   \item Integer literal
     \subitem single quotes, 2
   \item Integer types
-    \subitem signed, 4
-    \subitem unsigned, 4
+    \subitem signed, 5
+    \subitem unsigned, 5
   \item Iterators, 44
     \subitem \texttt{LList<T>}
       \subsubitem \texttt{iterator}, 46
@@ -418,15 +421,15 @@
 
   \item Lambda expressions
     \subitem lambda introducers, 7
-    \subitem with access to local variables, 7
+    \subitem with access to local variables, 8
     \subitem without access to local variables, 7
   \item Lifetime, 13
 
   \indexspace
 
   \item Namespaces
-    \subitem \textbf{using namespace} directives, 1, 8
-    \subitem \textbf{using} declarations, 7
+    \subitem \textbf{using namespace} directives, 2, 8
+    \subitem \textbf{using} declarations, 8
 
   \indexspace
 
@@ -435,13 +438,13 @@
     \subitem as class member, 30
     \subitem prefix increment ++, 46
   \item Operators
-    \subitem decrement, 6
+    \subitem decrement, 7
       \subsubitem postfix, 7
       \subsubitem prefix, 7
-    \subitem increment, 6
+    \subitem increment, 7
       \subsubitem postfix, 7
       \subsubitem prefix, 7
-    \subitem unary arithmetic, 6
+    \subitem unary arithmetic, 7
 
   \indexspace
 
@@ -470,7 +473,7 @@
     \subitem integer random number, 9
     \subitem Mersenne Twister engine, 9
     \subitem normal distribution, 9
-    \subitem seed the generator, 8
+    \subitem seed the generator, 9
   \item range-for-loop, 9, 10, 24, 44, 47, 49
   \item Reference, 12
   \item Run-time measurement, 10
@@ -540,6 +543,7 @@
       \subsubitem \texttt{operator int()}, 4
       \subsubitem explicit, 4
       \subsubitem implicit, 4
+  \item Type traits, 4
 
   \indexspace
 

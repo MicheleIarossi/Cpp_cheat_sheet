@@ -3,13 +3,14 @@
 \contentsline {section}{Constants}{2}{}%
 \contentsline {section}{Type safety}{3}{}%
 \contentsline {section}{Type casting}{3}{}%
-\contentsline {section}{Integer types}{4}{}%
+\contentsline {section}{Type traits}{4}{}%
+\contentsline {section}{Integer types}{5}{}%
 \contentsline {section}{Limits}{5}{}%
 \contentsline {section}{Functions}{5}{}%
-\contentsline {section}{Operators}{6}{}%
+\contentsline {section}{Operators}{7}{}%
 \contentsline {section}{Lambda expressions}{7}{}%
-\contentsline {section}{Namespaces and aliases}{7}{}%
-\contentsline {section}{Random numbers}{8}{}%
+\contentsline {section}{Namespaces and aliases}{8}{}%
+\contentsline {section}{Random numbers}{9}{}%
 \contentsline {section}{Bitsets}{9}{}%
 \contentsline {section}{Chrono}{10}{}%
 \contentsline {section}{Arrays}{10}{}%

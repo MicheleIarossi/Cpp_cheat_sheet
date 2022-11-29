@@ -1,7 +1,7 @@
-\indexentry{\texttt{<iostream>}}{1}
-\indexentry{\texttt{std}}{1}
-\indexentry{Namespaces!\textbf{using namespace} directives}{1}
-\indexentry{\textbf{namespace}|see{Namespaces}}{1}
+\indexentry{\texttt{<iostream>}}{2}
+\indexentry{\texttt{std}}{2}
+\indexentry{Namespaces!\textbf{using namespace} directives}{2}
+\indexentry{\textbf{namespace}|see{Namespaces}}{2}
 \indexentry{Assertions!\textbf{static\_assert}}{2}
 \indexentry{\textbf{static\_assert}}{2}
 \indexentry{\textbf{constexpr}|see{Constants}}{2}
@@ -39,14 +39,18 @@
 \indexentry{Type casting!user defined type conversions!implicit}{4}
 \indexentry{\textbf{static\_cast}|see{Type casting}}{4}
 \indexentry{Type casting!user defined type conversions!explicit}{4}
-\indexentry{\texttt{<cstdint>}}{4}
-\indexentry{Integer types!signed}{4}
-\indexentry{\texttt{int8\_t}}{4}
-\indexentry{\texttt{int16\_t}}{4}
-\indexentry{\texttt{int32\_t}}{4}
-\indexentry{\texttt{int64\_t}}{4}
-\indexentry{Integer types!unsigned}{4}
-\indexentry{\texttt{uint8\_t}}{4}
+\indexentry{Type traits}{4}
+\indexentry{\texttt{<type\_traits>}}{4}
+\indexentry{\texttt{is\_integral<T>::value}}{4}
+\indexentry{\texttt{is\_floating<T>::value}}{4}
+\indexentry{\texttt{<cstdint>}}{5}
+\indexentry{Integer types!signed}{5}
+\indexentry{\texttt{int8\_t}}{5}
+\indexentry{\texttt{int16\_t}}{5}
+\indexentry{\texttt{int32\_t}}{5}
+\indexentry{\texttt{int64\_t}}{5}
+\indexentry{Integer types!unsigned}{5}
+\indexentry{\texttt{uint8\_t}}{5}
 \indexentry{\texttt{uint16\_t}}{5}
 \indexentry{\texttt{uint32\_t}}{5}
 \indexentry{\texttt{uint64\_t}}{5}
@@ -58,18 +62,18 @@
 \indexentry{Functions!arguments!read-write}{5}
 \indexentry{Functions!arguments!copy-by-value}{5}
 \indexentry{Functions!arguments!copy-by-reference}{5}
-\indexentry{Constants!\textbf{const}}{5}
-\indexentry{Functions!object initialization}{5}
-\indexentry{Constants!\textbf{const}}{5}
-\indexentry{Constants!\textbf{const}}{5}
+\indexentry{Constants!\textbf{const}}{6}
+\indexentry{Functions!object initialization}{6}
+\indexentry{Constants!\textbf{const}}{6}
+\indexentry{Constants!\textbf{const}}{6}
 \indexentry{Functions!arguments!rule of thumb}{6}
 \indexentry{\textbf{nullptr}}{6}
 \indexentry{Functions!pointer to function}{6}
 \indexentry{\textbf{typedef}}{6}
 \indexentry{Functions!C-style linkage}{6}
-\indexentry{Operators!unary arithmetic}{6}
-\indexentry{Operators!increment}{6}
-\indexentry{Operators!decrement}{6}
+\indexentry{Operators!unary arithmetic}{7}
+\indexentry{Operators!increment}{7}
+\indexentry{Operators!decrement}{7}
 \indexentry{Operators!increment!prefix}{7}
 \indexentry{Operators!increment!postfix}{7}
 \indexentry{Operators!decrement!postfix}{7}
@@ -77,8 +81,8 @@
 \indexentry{Lambda expressions!lambda introducers}{7}
 \indexentry{Lambda expressions!without access to local variables}{7}
 \indexentry{\texttt{[ ]}}{7}
-\indexentry{Lambda expressions!with access to local variables}{7}
-\indexentry{Namespaces!\textbf{using} declarations}{7}
+\indexentry{Lambda expressions!with access to local variables}{8}
+\indexentry{Namespaces!\textbf{using} declarations}{8}
 \indexentry{\texttt{std}}{8}
 \indexentry{Strings!\texttt{string}}{8}
 \indexentry{\texttt{string}|see{Strings}}{8}
@@ -96,9 +100,9 @@
 \indexentry{\textbf{using}|see{Alias}}{8}
 \indexentry{Alias!{\textbf{using}}}{8}
 \indexentry{Alias!{\emph{partial application}}}{8}
-\indexentry{\texttt{<cstdlib>}}{8}
-\indexentry{\texttt{<ctime>}}{8}
-\indexentry{Random numbers!seed the generator}{8}
+\indexentry{\texttt{<cstdlib>}}{9}
+\indexentry{\texttt{<ctime>}}{9}
+\indexentry{Random numbers!seed the generator}{9}
 \indexentry{\texttt{srand}}{9}
 \indexentry{\texttt{time}}{9}
 \indexentry{Random numbers!integer random number}{9}
