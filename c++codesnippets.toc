@@ -11,24 +11,24 @@
 \contentsline {section}{Namespaces and aliases}{7}{}%
 \contentsline {section}{Random numbers}{8}{}%
 \contentsline {section}{Bitsets}{9}{}%
-\contentsline {section}{Chrono}{9}{}%
-\contentsline {section}{Arrays}{9}{}%
-\contentsline {section}{Pointers}{10}{}%
-\contentsline {section}{References}{11}{}%
-\contentsline {section}{Storage classes}{12}{}%
-\contentsline {section}{C-Strings}{14}{}%
-\contentsline {section}{Input-output streams}{15}{}%
+\contentsline {section}{Chrono}{10}{}%
+\contentsline {section}{Arrays}{10}{}%
+\contentsline {section}{Pointers}{11}{}%
+\contentsline {section}{References}{12}{}%
+\contentsline {section}{Storage classes}{13}{}%
+\contentsline {section}{C-Strings}{15}{}%
+\contentsline {section}{Input-output streams}{16}{}%
 \contentsline {section}{Files}{18}{}%
 \contentsline {section}{Strings}{21}{}%
-\contentsline {section}{String streams}{22}{}%
-\contentsline {section}{Vectors}{23}{}%
-\contentsline {section}{Enumerations}{24}{}%
+\contentsline {section}{String streams}{23}{}%
+\contentsline {section}{Vectors}{24}{}%
+\contentsline {section}{Enumerations}{25}{}%
 \contentsline {section}{Classes}{25}{}%
-\contentsline {section}{Operator overloading}{29}{}%
+\contentsline {section}{Operator overloading}{30}{}%
 \contentsline {section}{Inheritance}{31}{}%
-\contentsline {section}{Polymorphism}{36}{}%
-\contentsline {section}{Exceptions}{37}{}%
-\contentsline {section}{Templates}{38}{}%
-\contentsline {section}{Iterators}{43}{}%
-\contentsline {section}{Containers}{46}{}%
-\contentsline {section}{Algorithms}{48}{}%
+\contentsline {section}{Polymorphism}{37}{}%
+\contentsline {section}{Exceptions}{38}{}%
+\contentsline {section}{Templates}{39}{}%
+\contentsline {section}{Iterators}{44}{}%
+\contentsline {section}{Containers}{47}{}%
+\contentsline {section}{Algorithms}{49}{}%
