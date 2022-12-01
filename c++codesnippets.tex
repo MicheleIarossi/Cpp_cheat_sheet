@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.81~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.82~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1620,9 +1620,9 @@ public:
     // move constructor
     MyVector(MyVector&&);
     // copy assignment
-    MyVector& operator=(const MyVector&);(*\index{\texttt{operator=}}*)(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator=}}*)
+    MyVector& operator=(const MyVector&);(*\index{\texttt{operator=}}*)(*\index{Constants!\textbf{const}}*)
     // move assignment
-    MyVector& operator=(MyVector&&);(*\index{\texttt{operator=}}*)(*\index{\texttt{operator=}}*)
+    MyVector& operator=(MyVector&&);(*\index{\texttt{operator=}}*)
     // virtual destructor
     virtual ~MyVector() { if (e) delete[] e; }(*\index{Classes!virtual destructor}*)(*\index{\textbf{delete}}*)(*\index{\textbf{virtual}}*)
     // subscript operators(*\index{Classes!subscript operator}*)
@@ -1828,11 +1828,11 @@ public:
     // default copy constructor
     Basic(const Basic& b) = default;(*\index{\texttt{= default}}*)
     // default copy assignment
-    Basic& operator=(const Basic& b) = default;(*\index{\texttt{= default}}*)
+    Basic& operator=(const Basic& b) = default;(*\index{\texttt{= default}}*)(*\index{\texttt{operator=}}*)
      // default move constructor
     Basic(const Basic&& b) = default;(*\index{\texttt{= default}}*)
      // default move assignment
-    Basic& operator=(const Basic&& b) = default;(*\index{\texttt{= default}}*) 
+    Basic& operator=(const Basic&& b) = default;(*\index{\texttt{= default}}*)(*\index{\texttt{operator=}}*)
 }
 
 // fancy class with deleted copy and move semantics
@@ -1846,11 +1846,11 @@ public:
     // no copy constructor
     Basic(const Basic& b) = delete;(*\index{\texttt{= delete}}*)
     // no copy assignment
-    Basic& operator=(const Basic& b) = delete;(*\index{\texttt{= delete}}*)
+    Basic& operator=(const Basic& b) = delete;(*\index{\texttt{= delete}}*)(*\index{\texttt{operator=}}*)
      // no move constructor
     Basic(const Basic&& b) = delete;(*\index{\texttt{= delete}}*)
      // no move assignment
-    Basic& operator=(const Basic&& b) = delete; (*\index{\texttt{= delete}}*)
+    Basic& operator=(const Basic&& b) = delete; (*\index{\texttt{= delete}}*)(*\index{\texttt{operator=}}*)
 }
 \end{lstlisting}
 
@@ -2656,7 +2656,68 @@ for (r = v.rbegin(); r != v.rend(); r++)
     cout << *r << endl;(*\index{range-for-loop}*)(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Example implementation of an iterator for a custom linked list class\index{Iterators!custom implementation}
+\item[$\Rightarrow$] Example iterator class for a power range:\index{Iterators!custom implementation}
+\end{enumerate}
+\begin{lstlisting}
+#include <cstdint>(*\index{\texttt(<cstdint>)}*)
+
+// power range class
+class PowerRange(*\index{Classes!\textbf{class}!\texttt{PowerRange}}*)
+{
+public:
+    PowerRange(uint32_t m) : max{m} {
+        for (auto n=0; n<max; n++) v.push_back(n*n);
+    }
+    ~PowerRange() {}
+    class iterator;
+    iterator begin();
+    iterator end();
+private:
+    uint32_t max{0};
+    vector<uint32_t> v;
+};
+
+// iterator class
+class PowerRange::iterator
+{
+public:
+    iterator(uint32_t *p) : curr{p} { }
+    // postfix
+    iterator operator++(int) { ++curr; return iterator{curr-1}; }(*\index{Operator overloading!postfix increment ++}*)(*\index{\texttt{operator++(int)}}*)
+    // prefix
+    iterator& operator++() { ++curr; return *this; }(*\index{Operator overloading!prefix increment ++}*)(*\index{\texttt{operator++}}*)
+    uint32_t operator*() { return *curr; }(*\index{\texttt{operator$\ast$}}*)
+    bool operator!=(const iterator& e) {return curr != e.curr; }(*\index{\texttt{operator"!=}}*)
+    bool operator==(const iterator& e) {return curr == e.curr; }(*\index{\texttt{operator==}}*)
+private:
+    uint32_t *curr{nullptr};
+};
+
+// returns the first element
+PowerRange::iterator PowerRange::begin()
+{
+    return PowerRange::iterator(&v[0]);
+}
+
+// returns one element beyond the end
+PowerRange::iterator PowerRange::end()
+{
+    return PowerRange::iterator{&v[max]};
+}
+
+// example usage
+PowerRange r{10};
+    
+// normal (*for*) loop
+for (auto x = r.begin(); x != r.end(); x++)
+    cout << *x << endl;
+
+// range-based (*for*) loop
+for (auto x:r)(*\index{range-for-loop}*)
+    cout << x << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] A linked list class:
 \end{enumerate}
 \begin{lstlisting}
 #include <iostream>(*\index{\texttt{<iostream>}}*)
@@ -2741,8 +2802,8 @@ public:
     iterator(LListNode<T>* p) : curr{p} {}
     // prefix increment, returns a reference!(*\index{Operator overloading!prefix increment ++}*)
     iterator& operator++() { curr = curr->next; return *this; }(*\index{\textbf{this}}*)(*\index{\texttt{operator++}}*)
-    T& operator*() const { return curr->data; }(*\index{Constants!\textbf{const}}*)
-    bool operator==(const iterator& b) const { return curr == b.curr; }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator=}}*)
+    T& operator*() const { return curr->data; }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator$\ast$}}*)
+    bool operator==(const iterator& b) const { return curr == b.curr; }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator==}}*)
     bool operator!=(const iterator& b) const { return curr != b.curr; }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator"!=}}*)
 private:
     LListNode<T>* curr{nullptr};(*\index{\textbf{nullptr}}*)

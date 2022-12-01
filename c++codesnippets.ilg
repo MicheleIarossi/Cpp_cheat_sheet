@@ -12,32 +12,32 @@ Scanning input file c++codesnippets.idx....
 !! Input index error (file = c++codesnippets.idx, line = 367):
    -- Extra `!' at position 53 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 460):
+!! Input index error (file = c++codesnippets.idx, line = 458):
    -- Extra `!' at position 58 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 461):
+!! Input index error (file = c++codesnippets.idx, line = 459):
    -- Extra `!' at position 58 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 763):
+!! Input index error (file = c++codesnippets.idx, line = 775):
    -- Extra `!' at position 46 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 765):
+!! Input index error (file = c++codesnippets.idx, line = 777):
    -- Extra `!' at position 46 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 784):
+!! Input index error (file = c++codesnippets.idx, line = 797):
    -- Extra `!' at position 46 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 785):
+!! Input index error (file = c++codesnippets.idx, line = 798):
    -- Extra `!' at position 46 of first argument.
-done (878 entries accepted, 11 rejected).
-Sorting entries..........done (9822 comparisons).
+done (891 entries accepted, 11 rejected).
+Sorting entries..........done (9413 comparisons).
 Generating output file c++codesnippets.ind....
 ## Warning (input = c++codesnippets.idx, line = 89; output = c++codesnippets.ind, line = 24):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 814; output = c++codesnippets.ind, line = 253):
+## Warning (input = c++codesnippets.idx, line = 827; output = c++codesnippets.ind, line = 258):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 791; output = c++codesnippets.ind, line = 255):
+## Warning (input = c++codesnippets.idx, line = 804; output = c++codesnippets.ind, line = 260):
    -- Conflicting entries: multiple encaps for the same page under same key.
-done (568 lines written, 3 warnings).
+done (574 lines written, 3 warnings).
 Output written in c++codesnippets.ind.
 Transcript written in c++codesnippets.ilg.

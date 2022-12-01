@@ -422,8 +422,6 @@
 \indexentry{\texttt{operator=}}{26}
 \indexentry{Constants!\textbf{const}}{26}
 \indexentry{\texttt{operator=}}{26}
-\indexentry{\texttt{operator=}}{26}
-\indexentry{\texttt{operator=}}{26}
 \indexentry{Classes!virtual destructor}{26}
 \indexentry{\textbf{delete}}{26}
 \indexentry{\textbf{virtual}}{26}
@@ -497,15 +495,19 @@
 \indexentry{\texttt{= default}}{30}
 \indexentry{\texttt{= default}}{30}
 \indexentry{\texttt{= default}}{30}
+\indexentry{\texttt{operator=}}{30}
 \indexentry{\texttt{= default}}{30}
 \indexentry{\texttt{= default}}{30}
+\indexentry{\texttt{operator=}}{30}
 \indexentry{Classes!\textbf{class}!\texttt{Fancy}}{30}
 \indexentry{\texttt{= delete}}{30}
 \indexentry{\texttt{= delete}}{30}
 \indexentry{\texttt{= delete}}{30}
 \indexentry{\texttt{= delete}}{30}
+\indexentry{\texttt{operator=}}{30}
 \indexentry{\texttt{= delete}}{30}
 \indexentry{\texttt{= delete}}{30}
+\indexentry{\texttt{operator=}}{30}
 \indexentry{Operator overloading!as class member}{30}
 \indexentry{Classes!\textbf{class}!\texttt{Euro}}{30}
 \indexentry{\texttt{operator+}}{30}
@@ -732,158 +734,169 @@
 \indexentry{range-for-loop}{44}
 \indexentry{Input-output streams!\texttt{cout}}{44}
 \indexentry{Iterators!custom implementation}{44}
-\indexentry{\texttt{<iostream>}}{45}
-\indexentry{\texttt{<ostream>}}{45}
-\indexentry{\texttt{<algorithm>}}{45}
-\indexentry{Templates!\textbf{template}}{45}
-\indexentry{Classes!\textbf{class}!\texttt{LListNode<T>}}{45}
-\indexentry{\textbf{nullptr}}{45}
-\indexentry{\textbf{friend}}{45}
-\indexentry{Templates!\textbf{template}}{45}
-\indexentry{Constants!\textbf{const}}{45}
-\indexentry{\textbf{friend}}{45}
-\indexentry{\texttt{operator<<}}{45}
-\indexentry{\textbf{nullptr}}{45}
-\indexentry{Templates!\textbf{template}}{45}
-\indexentry{Classes!\textbf{class}!\texttt{LList<T>}}{45}
-\indexentry{\textbf{nullptr}}{45}
-\indexentry{\textbf{this}}{45}
-\indexentry{Constants!\textbf{const}}{45}
-\indexentry{\texttt{operator=}}{45}
-\indexentry{\textbf{virtual}}{45}
-\indexentry{Classes!virtual destructor}{45}
-\indexentry{Constants!\textbf{const}}{45}
-\indexentry{Constants!\textbf{const}}{45}
-\indexentry{\textbf{nullptr}}{45}
+\indexentry{\texttt(<cstdint>)}{45}
+\indexentry{Classes!\textbf{class}!\texttt{PowerRange}}{45}
+\indexentry{Operator overloading!postfix increment ++}{45}
+\indexentry{\texttt{operator++(int)}}{45}
+\indexentry{Operator overloading!prefix increment ++}{45}
+\indexentry{\texttt{operator++}}{45}
+\indexentry{\texttt{operator$\ast$}}{45}
+\indexentry{\texttt{operator"!=}}{45}
+\indexentry{\texttt{operator==}}{45}
+\indexentry{range-for-loop}{46}
+\indexentry{\texttt{<iostream>}}{46}
+\indexentry{\texttt{<ostream>}}{46}
+\indexentry{\texttt{<algorithm>}}{46}
+\indexentry{Templates!\textbf{template}}{46}
+\indexentry{Classes!\textbf{class}!\texttt{LListNode<T>}}{46}
+\indexentry{\textbf{nullptr}}{46}
+\indexentry{\textbf{friend}}{46}
 \indexentry{Templates!\textbf{template}}{46}
 \indexentry{Constants!\textbf{const}}{46}
 \indexentry{\textbf{friend}}{46}
 \indexentry{\texttt{operator<<}}{46}
-\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{46}
-\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}{46}
 \indexentry{\textbf{nullptr}}{46}
-\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}{46}
-\indexentry{\textbf{nullptr}}{46}
-\indexentry{Iterators!custom implementation}{46}
 \indexentry{Templates!\textbf{template}}{46}
-\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{46}
-\indexentry{Operator overloading!prefix increment ++}{46}
+\indexentry{Classes!\textbf{class}!\texttt{LList<T>}}{46}
+\indexentry{\textbf{nullptr}}{46}
 \indexentry{\textbf{this}}{46}
-\indexentry{\texttt{operator++}}{46}
-\indexentry{Constants!\textbf{const}}{46}
 \indexentry{Constants!\textbf{const}}{46}
 \indexentry{\texttt{operator=}}{46}
+\indexentry{\textbf{virtual}}{46}
+\indexentry{Classes!virtual destructor}{46}
 \indexentry{Constants!\textbf{const}}{46}
-\indexentry{\texttt{operator"!=}}{46}
-\indexentry{\textbf{nullptr}}{46}
-\indexentry{Input-output streams!\texttt{cout}}{46}
-\indexentry{Input-output streams!\texttt{cout}}{46}
-\indexentry{\texttt{find}|see{Algorithms}}{46}
-\indexentry{Algorithms!\texttt{find}}{46}
-\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{46}
-\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}{46}
-\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}{46}
-\indexentry{Iterators!end of sequence convention}{46}
+\indexentry{Constants!\textbf{const}}{47}
+\indexentry{\textbf{nullptr}}{47}
+\indexentry{Templates!\textbf{template}}{47}
+\indexentry{Constants!\textbf{const}}{47}
+\indexentry{\textbf{friend}}{47}
+\indexentry{\texttt{operator<<}}{47}
+\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{47}
+\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}{47}
+\indexentry{\textbf{nullptr}}{47}
+\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}{47}
+\indexentry{\textbf{nullptr}}{47}
+\indexentry{Iterators!custom implementation}{47}
+\indexentry{Templates!\textbf{template}}{47}
+\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{47}
+\indexentry{Operator overloading!prefix increment ++}{47}
+\indexentry{\textbf{this}}{47}
+\indexentry{\texttt{operator++}}{47}
+\indexentry{Constants!\textbf{const}}{47}
+\indexentry{\texttt{operator$\ast$}}{47}
+\indexentry{Constants!\textbf{const}}{47}
+\indexentry{\texttt{operator==}}{47}
+\indexentry{Constants!\textbf{const}}{47}
+\indexentry{\texttt{operator"!=}}{47}
+\indexentry{\textbf{nullptr}}{47}
 \indexentry{Input-output streams!\texttt{cout}}{47}
 \indexentry{Input-output streams!\texttt{cout}}{47}
-\indexentry{Input-output streams!\texttt{cout}}{47}
-\indexentry{Containers!sequential|see{\texttt{list}}}{47}
-\indexentry{Containers!sequential|see{\texttt{vector}}}{47}
-\indexentry{\texttt{<list>}}{47}
-\indexentry{\texttt{list}|see{Containers}}{47}
-\indexentry{Containers!\texttt{list}}{47}
-\indexentry{Containers!\texttt{list}!\texttt{push\_back}}{47}
-\indexentry{Containers!\texttt{list}!\texttt{push\_front}}{47}
-\indexentry{Containers!\texttt{list}}{47}
-\indexentry{Iterators!\texttt{list}!\texttt{iterator}}{47}
-\indexentry{Algorithms!\texttt{advance}}{47}
-\indexentry{Containers!\texttt{list}!\texttt{erase}}{47}
-\indexentry{Input-output streams!\texttt{cout}}{47}
-\indexentry{range-for-loop}{47}
-\indexentry{\textbf{auto}}{47}
-\indexentry{Input-output streams!\texttt{cout}}{47}
-\indexentry{Containers!adapter|see{\texttt{stack}}}{47}
-\indexentry{\texttt{<stack>}}{47}
-\indexentry{\texttt{stack}|see{Containers}}{47}
-\indexentry{Containers!\texttt{stack}}{47}
-\indexentry{Containers!\texttt{stack}!\texttt{push}}{47}
-\indexentry{Containers!\texttt{stack}!\texttt{size}}{48}
+\indexentry{\texttt{find}|see{Algorithms}}{48}
+\indexentry{Algorithms!\texttt{find}}{48}
+\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{48}
+\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}{48}
+\indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}{48}
+\indexentry{Iterators!end of sequence convention}{48}
 \indexentry{Input-output streams!\texttt{cout}}{48}
-\indexentry{Containers!\texttt{stack}!\texttt{top}}{48}
-\indexentry{Containers!\texttt{stack}!\texttt{pop}}{48}
-\indexentry{Containers!associative|see{\texttt{set}}}{48}
-\indexentry{\texttt{<set>}}{48}
-\indexentry{\texttt{set}|see{Containers}}{48}
-\indexentry{Containers!\texttt{set}}{48}
-\indexentry{Containers!\texttt{set}!\texttt{insert}}{48}
-\indexentry{Containers!\texttt{set}!\texttt{erase}}{48}
-\indexentry{Constants!\textbf{const}}{48}
-\indexentry{Iterators!\texttt{set}!\texttt{const\_iterator}}{48}
 \indexentry{Input-output streams!\texttt{cout}}{48}
-\indexentry{Containers!associative|see{\texttt{map}}}{48}
-\indexentry{\texttt{<map>}}{48}
-\indexentry{\texttt{<utility>}}{48}
-\indexentry{\texttt{<string>}}{48}
-\indexentry{\texttt{map}|see{Containers}}{48}
-\indexentry{Containers!\texttt{map}}{48}
-\indexentry{Strings!\texttt{string}}{48}
-\indexentry{\texttt{pair}}{48}
-\indexentry{Strings!\texttt{string}}{48}
-\indexentry{Containers!\texttt{map}!\texttt{insert}}{48}
-\indexentry{\texttt{make\_pair}}{48}
-\indexentry{Strings!\texttt{string}}{48}
-\indexentry{Iterators!\texttt{map}!\texttt{iterator}}{48}
-\indexentry{Containers!\texttt{map}!\texttt{find}}{49}
-\indexentry{Containers!\texttt{map}!\texttt{erase}}{49}
-\indexentry{range-for-loop}{49}
-\indexentry{\textbf{auto}}{49}
+\indexentry{Input-output streams!\texttt{cout}}{48}
+\indexentry{Containers!sequential|see{\texttt{list}}}{48}
+\indexentry{Containers!sequential|see{\texttt{vector}}}{48}
+\indexentry{\texttt{<list>}}{48}
+\indexentry{\texttt{list}|see{Containers}}{48}
+\indexentry{Containers!\texttt{list}}{48}
+\indexentry{Containers!\texttt{list}!\texttt{push\_back}}{48}
+\indexentry{Containers!\texttt{list}!\texttt{push\_front}}{48}
+\indexentry{Containers!\texttt{list}}{48}
+\indexentry{Iterators!\texttt{list}!\texttt{iterator}}{48}
+\indexentry{Algorithms!\texttt{advance}}{48}
+\indexentry{Containers!\texttt{list}!\texttt{erase}}{48}
+\indexentry{Input-output streams!\texttt{cout}}{48}
+\indexentry{range-for-loop}{48}
+\indexentry{\textbf{auto}}{48}
+\indexentry{Input-output streams!\texttt{cout}}{48}
+\indexentry{Containers!adapter|see{\texttt{stack}}}{48}
+\indexentry{\texttt{<stack>}}{48}
+\indexentry{\texttt{stack}|see{Containers}}{49}
+\indexentry{Containers!\texttt{stack}}{49}
+\indexentry{Containers!\texttt{stack}!\texttt{push}}{49}
+\indexentry{Containers!\texttt{stack}!\texttt{size}}{49}
 \indexentry{Input-output streams!\texttt{cout}}{49}
-\indexentry{Containers!associative|see{\texttt{multimap}}}{49}
+\indexentry{Containers!\texttt{stack}!\texttt{top}}{49}
+\indexentry{Containers!\texttt{stack}!\texttt{pop}}{49}
+\indexentry{Containers!associative|see{\texttt{set}}}{49}
+\indexentry{\texttt{<set>}}{49}
+\indexentry{\texttt{set}|see{Containers}}{49}
+\indexentry{Containers!\texttt{set}}{49}
+\indexentry{Containers!\texttt{set}!\texttt{insert}}{49}
+\indexentry{Containers!\texttt{set}!\texttt{erase}}{49}
+\indexentry{Constants!\textbf{const}}{49}
+\indexentry{Iterators!\texttt{set}!\texttt{const\_iterator}}{49}
+\indexentry{Input-output streams!\texttt{cout}}{49}
+\indexentry{Containers!associative|see{\texttt{map}}}{49}
 \indexentry{\texttt{<map>}}{49}
 \indexentry{\texttt{<utility>}}{49}
 \indexentry{\texttt{<string>}}{49}
-\indexentry{\texttt{multimap}|see{Containers}}{49}
-\indexentry{Containers!\texttt{multimap}}{49}
-\indexentry{Containers!\texttt{multimap}!\texttt{insert}}{49}
-\indexentry{Containers!\texttt{multimap}!\texttt{equal\_range}}{49}
-\indexentry{STL}{49}
-\indexentry{\texttt{<algorithm>}}{49}
-\indexentry{\texttt{<vector>}}{49}
-\indexentry{\texttt{vector}|see{Containers}}{49}
-\indexentry{Containers!\texttt{vector}}{49}
-\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{49}
-\indexentry{Algorithms!\texttt{find}}{49}
-\indexentry{Algorithms!\texttt{find}}{49}
-\indexentry{Algorithms!\texttt{find\_if}}{50}
-\indexentry{\texttt{find\_if}|see{Algorithms}}{50}
-\indexentry{Algorithms!\texttt{find\_if}}{50}
-\indexentry{function object}{50}
-\indexentry{Classes!\textbf{class}!\texttt{TestGreater}}{50}
-\indexentry{Constants!\textbf{const}}{50}
-\indexentry{Algorithms!\texttt{find\_if}}{50}
-\indexentry{Algorithms!\texttt{find\_if}}{50}
+\indexentry{\texttt{map}|see{Containers}}{49}
+\indexentry{Containers!\texttt{map}}{49}
+\indexentry{Strings!\texttt{string}}{49}
+\indexentry{\texttt{pair}}{49}
+\indexentry{Strings!\texttt{string}}{49}
+\indexentry{Containers!\texttt{map}!\texttt{insert}}{49}
+\indexentry{\texttt{make\_pair}}{50}
+\indexentry{Strings!\texttt{string}}{50}
+\indexentry{Iterators!\texttt{map}!\texttt{iterator}}{50}
+\indexentry{Containers!\texttt{map}!\texttt{find}}{50}
+\indexentry{Containers!\texttt{map}!\texttt{erase}}{50}
+\indexentry{range-for-loop}{50}
+\indexentry{\textbf{auto}}{50}
+\indexentry{Input-output streams!\texttt{cout}}{50}
+\indexentry{Containers!associative|see{\texttt{multimap}}}{50}
+\indexentry{\texttt{<map>}}{50}
+\indexentry{\texttt{<utility>}}{50}
+\indexentry{\texttt{<string>}}{50}
+\indexentry{\texttt{multimap}|see{Containers}}{50}
+\indexentry{Containers!\texttt{multimap}}{50}
+\indexentry{Containers!\texttt{multimap}!\texttt{insert}}{50}
+\indexentry{Containers!\texttt{multimap}!\texttt{equal\_range}}{50}
+\indexentry{STL}{50}
 \indexentry{\texttt{<algorithm>}}{50}
 \indexentry{\texttt{<vector>}}{50}
-\indexentry{\texttt{<list>}}{50}
-\indexentry{\texttt{<set>}}{50}
-\indexentry{\texttt{<numeric>}}{50}
-\indexentry{\texttt{<functional>}}{50}
-\indexentry{Algorithms!\texttt{accumulate}}{50}
-\indexentry{\texttt{accumulate}|see{accumulate}}{50}
-\indexentry{Algorithms!generic \texttt{accumulate}}{50}
-\indexentry{\texttt{multiplies<int>()}}{50}
+\indexentry{\texttt{vector}|see{Containers}}{50}
 \indexentry{Containers!\texttt{vector}}{50}
-\indexentry{Containers!\texttt{vector}}{50}
-\indexentry{Algorithms!\texttt{inner\_product}}{50}
-\indexentry{\texttt{inner\_product}|see{Algorithms}}{50}
-\indexentry{Algorithms!\texttt{copy}!between different containers}{51}
-\indexentry{Iterators!initialization with a pair of iterators}{51}
-\indexentry{\texttt{istream\_iterator}}{51}
-\indexentry{Algorithms!\texttt{copy}!between container and stream}{51}
-\indexentry{\texttt{ostream\_iterator}}{51}
-\indexentry{Algorithms!\texttt{sort}}{51}
-\indexentry{\texttt{sort}|see{Algorithms}}{51}
-\indexentry{Algorithms!\texttt{binary\_search}}{51}
-\indexentry{\texttt{binary\_search}|see{Algorithms}}{51}
-\indexentry{Algorithms!\texttt{reverse}}{51}
-\indexentry{\texttt{reverse}|see{Algorithms}}{51}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{51}
+\indexentry{Algorithms!\texttt{find}}{51}
+\indexentry{Algorithms!\texttt{find}}{51}
+\indexentry{Algorithms!\texttt{find\_if}}{51}
+\indexentry{\texttt{find\_if}|see{Algorithms}}{51}
+\indexentry{Algorithms!\texttt{find\_if}}{51}
+\indexentry{function object}{51}
+\indexentry{Classes!\textbf{class}!\texttt{TestGreater}}{51}
+\indexentry{Constants!\textbf{const}}{51}
+\indexentry{Algorithms!\texttt{find\_if}}{51}
+\indexentry{Algorithms!\texttt{find\_if}}{51}
+\indexentry{\texttt{<algorithm>}}{51}
+\indexentry{\texttt{<vector>}}{51}
+\indexentry{\texttt{<list>}}{51}
+\indexentry{\texttt{<set>}}{51}
+\indexentry{\texttt{<numeric>}}{51}
+\indexentry{\texttt{<functional>}}{51}
+\indexentry{Algorithms!\texttt{accumulate}}{51}
+\indexentry{\texttt{accumulate}|see{accumulate}}{51}
+\indexentry{Algorithms!generic \texttt{accumulate}}{51}
+\indexentry{\texttt{multiplies<int>()}}{51}
+\indexentry{Containers!\texttt{vector}}{52}
+\indexentry{Containers!\texttt{vector}}{52}
+\indexentry{Algorithms!\texttt{inner\_product}}{52}
+\indexentry{\texttt{inner\_product}|see{Algorithms}}{52}
+\indexentry{Algorithms!\texttt{copy}!between different containers}{52}
+\indexentry{Iterators!initialization with a pair of iterators}{52}
+\indexentry{\texttt{istream\_iterator}}{52}
+\indexentry{Algorithms!\texttt{copy}!between container and stream}{52}
+\indexentry{\texttt{ostream\_iterator}}{52}
+\indexentry{Algorithms!\texttt{sort}}{52}
+\indexentry{\texttt{sort}|see{Algorithms}}{52}
+\indexentry{Algorithms!\texttt{binary\_search}}{52}
+\indexentry{\texttt{binary\_search}|see{Algorithms}}{52}
+\indexentry{Algorithms!\texttt{reverse}}{52}
+\indexentry{\texttt{reverse}|see{Algorithms}}{52}

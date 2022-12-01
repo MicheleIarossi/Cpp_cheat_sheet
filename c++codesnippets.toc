@@ -31,5 +31,5 @@
 \contentsline {section}{Exceptions}{38}{}%
 \contentsline {section}{Templates}{39}{}%
 \contentsline {section}{Iterators}{44}{}%
-\contentsline {section}{Containers}{47}{}%
-\contentsline {section}{Algorithms}{49}{}%
+\contentsline {section}{Containers}{48}{}%
+\contentsline {section}{Algorithms}{50}{}%
