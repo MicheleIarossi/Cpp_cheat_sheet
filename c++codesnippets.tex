@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.82~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.83~-~GNU GPL v3.0}
 
 %\layout
 
@@ -153,15 +153,15 @@ constexpr int c = max + 2;(*\index{Constants!\textbf{constexpr}}*)
 \item[$\Rightarrow$] \textbf{constexpr} applied to functions instructs the compiler to try to evaluate the function at compile time:\index{Constants!constant functions}
 \end{enumerate}
 \begin{lstlisting}
-constexpr int func(int n) { return n*2+5; }
-constexpr int c = func(122);  // (*149*)
+constexpr int func(int n) { return n*2+5; }(*\index{Constants!\textbf{constexpr}}*)
+constexpr int c = func(122);  // (*149*)(*\index{Constants!\textbf{constexpr}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Integer literal with single quotes for readability:\index{Integer literal!single quotes}
 \end{enumerate}
 \begin{lstlisting}
 // (*1000000*)
-constexpr int k = 1'000'000;
+constexpr int k = 1'000'000;*\index{Constants!\textbf{constexpr}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \textbf{const} variables don't change at runtime. They cannot be declared as
@@ -431,6 +431,61 @@ void legacy_function(int p);
 #ifdef __cplusplus
 }
 #endif
+\end{lstlisting}
+%
+% Modifiers
+%
+\section{Modifiers}
+\small
+Modifiers declare specific aspects of functions. This information can be used by compilers to optimize the code. There are prefix and suffix modifiers.
+\begin{enumerate}
+\item[$\Rightarrow$]  Prefix: \textbf{static}, \textbf{inline}, \textbf{constexpr}\index{Modifiers!prefix}
+\end{enumerate}
+\begin{lstlisting}
+// internal linkage
+static void sum(void);(*\index{\textbf{static}|see{Modifiers}}*)
+
+// inserting the content of the function
+// in the execution path directly
+inline int sum(int a, int b) { return a+b; }
+
+// the value of the function shall be evaluated
+// at compile time if possible
+constexpr int sum(int a, int b) { return a+b; }(*\index{\textbf{constexpr}|see{Modifiers}} *)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$]  Suffix: \texttt{final}, \texttt{override}, \textbf{noexcept}\index{Modifiers!suffix}
+\end{enumerate}
+\begin{lstlisting}
+
+class Fruit
+{
+public:
+    // a (*final*) method cannot be overridden anymore
+    virtual int price(void) final {(*\index{\texttt{final}}*)
+       // ...
+    }
+};
+
+class Apple : public Fruit
+{
+public:
+    // (*override*)  explicitly tells the compiler you are overriding
+    // a virtual function
+    int price(void) override {} // compiler error!{(*\index{\texttt{override}}*)
+};
+
+// a (*final*) class doesn't allow derived classes
+class Fruit final{(*\index{\texttt{final}}*)
+{
+public:
+    virtual int price(void) final {
+       // ...
+    }
+};
+
+// this function doesn't throw exceptions
+int sum(int a, int b) noexcept { return a+b; }(*\index{ \textbf{noexcept}}*)
 \end{lstlisting}
 %
 % Operators
@@ -2659,7 +2714,7 @@ for (r = v.rbegin(); r != v.rend(); r++)
 \item[$\Rightarrow$] Example iterator class for a power range:\index{Iterators!custom implementation}
 \end{enumerate}
 \begin{lstlisting}
-#include <cstdint>(*\index{\texttt(<cstdint>)}*)
+#include <cstdint>(*\index{\texttt{<cstdint>}}*)
 
 // power range class
 class PowerRange(*\index{Classes!\textbf{class}!\texttt{PowerRange}}*)
