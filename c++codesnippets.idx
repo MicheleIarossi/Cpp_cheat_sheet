@@ -75,12 +75,20 @@
 \indexentry{Functions!C-style linkage}{6}
 \indexentry{Modifiers!prefix}{7}
 \indexentry{\textbf{static}|see{Modifiers}}{7}
+\indexentry{Modifiers!prefix!\textbf{static}}{7}
+\indexentry{\textbf{static}|see{Storage classes}}{7}
+\indexentry{Modifiers!prefix!\textbf{inline}}{7}
 \indexentry{\textbf{constexpr}|see{Modifiers}}{7}
+\indexentry{Modifiers!prefix!\textbf{constexpr}}{7}
 \indexentry{Modifiers!suffix}{7}
 \indexentry{\texttt{final}}{7}
+\indexentry{Modifiers!suffix!\texttt{final}}{7}
 \indexentry{\texttt{override}}{7}
+\indexentry{Modifiers!suffix!\texttt{override}}{7}
 \indexentry{\texttt{final}}{7}
-\indexentry{ \textbf{noexcept}}{7}
+\indexentry{Modifiers!suffix!\texttt{final}}{7}
+\indexentry{\textbf{noexcept}|see{Modifiers}}{7}
+\indexentry{Modifiers!suffix!\textbf{noexcept}}{7}
 \indexentry{Operators!unary arithmetic}{7}
 \indexentry{Operators!increment}{8}
 \indexentry{Operators!decrement}{8}

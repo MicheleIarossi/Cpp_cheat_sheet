@@ -11,12 +11,13 @@
   \item \textbf{friend}, 32, 39, 44, 47, 48
   \item \textbf{namespace}, \see{Namespaces}{2}
   \item \textbf{new}, 12, 13, 15, 27--29, 42
+  \item \textbf{noexcept}, \see{Modifiers}{7}
   \item \textbf{nullptr}, 6, 27--29, 42, 44, 47, 48
   \item \textbf{reinterpret\_cast}, \see{Type casting}{3}
   \item \textbf{sizeof}, 11
   \item \textbf{static\_assert}, 2
   \item \textbf{static\_cast}, \see{Type casting}{3, 4}
-  \item \textbf{static}, \see{Modifiers}{7}
+  \item \textbf{static}, \see{Modifiers}{7}, \see{Storage classes}{7}
   \item \textbf{template}, \see{Templates}{40}
   \item \textbf{this}, 28, 29, 42, 47, 48
   \item \textbf{throw}, 19, 21, 39, 40
@@ -134,10 +135,6 @@
   \item \texttt{unique\_ptr}, \see{Pointers}{13}
   \item \texttt{vector}, \see{Containers}{51}
   \item \texttt{void $\ast$}, \see{Pointers}{3}
-
-  \indexspace
-
-  \item  \textbf{noexcept}, 7
 
   \indexspace
 
@@ -440,7 +437,13 @@
 
   \item Modifiers
     \subitem prefix, 7
+      \subsubitem \textbf{constexpr}, 7
+      \subsubitem \textbf{inline}, 7
+      \subsubitem \textbf{static}, 7
     \subitem suffix, 7
+      \subsubitem \textbf{noexcept}, 7
+      \subsubitem \texttt{final}, 7
+      \subsubitem \texttt{override}, 7
 
   \indexspace
 

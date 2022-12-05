@@ -443,15 +443,15 @@ Modifiers declare specific aspects of functions. This information can be used by
 \end{enumerate}
 \begin{lstlisting}
 // internal linkage
-static void sum(void);(*\index{\textbf{static}|see{Modifiers}}*)
+static void sum(void);(*\index{\textbf{static}|see{Modifiers}}*)(*\index{Modifiers!prefix!\textbf{static}}*)(*\index{\textbf{static}|see{Storage classes}}*)
 
 // inserting the content of the function
 // in the execution path directly
-inline int sum(int a, int b) { return a+b; }
+inline int sum(int a, int b) { return a+b; }(*\index{Modifiers!prefix!\textbf{inline}}*)
 
 // the value of the function shall be evaluated
 // at compile time if possible
-constexpr int sum(int a, int b) { return a+b; }(*\index{\textbf{constexpr}|see{Modifiers}} *)
+constexpr int sum(int a, int b) { return a+b; }(*\index{\textbf{constexpr}|see{Modifiers}} *)(*\index{Modifiers!prefix!\textbf{constexpr}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$]  Suffix: \texttt{final}, \texttt{override}, \textbf{noexcept}\index{Modifiers!suffix}
@@ -462,7 +462,7 @@ class Fruit
 {
 public:
     // a (*final*) method cannot be overridden anymore
-    virtual int price(void) final {(*\index{\texttt{final}}*)
+    virtual int price(void) final {(*\index{\texttt{final}}*)(*\index{Modifiers!suffix!\texttt{final}}*)
        // ...
     }
 };
@@ -472,11 +472,11 @@ class Apple : public Fruit
 public:
     // (*override*)  explicitly tells the compiler you are overriding
     // a virtual function
-    int price(void) override {} // compiler error!{(*\index{\texttt{override}}*)
+    int price(void) override {} // compiler error!{(*\index{\texttt{override}}*)(*\index{Modifiers!suffix!\texttt{override}}*)
 };
 
 // a (*final*) class doesn't allow derived classes
-class Fruit final{(*\index{\texttt{final}}*)
+class Fruit final{(*\index{\texttt{final}}*)(*\index{Modifiers!suffix!\texttt{final}}*)
 {
 public:
     virtual int price(void) final {
@@ -485,7 +485,7 @@ public:
 };
 
 // this function doesn't throw exceptions
-int sum(int a, int b) noexcept { return a+b; }(*\index{ \textbf{noexcept}}*)
+int sum(int a, int b) noexcept { return a+b; }(*\index{\textbf{noexcept}|see{Modifiers}}*)(*\index{Modifiers!suffix!\textbf{noexcept}}*)
 \end{lstlisting}
 %
 % Operators
