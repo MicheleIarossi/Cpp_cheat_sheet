@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.83~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.84~-~GNU GPL v3.0}
 
 %\layout
 
@@ -185,7 +185,6 @@ private:
     const int myint;
 };
 \end{lstlisting}
-
 %
 % Type safety
 %
@@ -302,6 +301,143 @@ double =   static_cast<double>(b);(*\index{\textbf{static\_cast}|see{Type castin
 cout << is_integral<int>::value; // (*true*)(*\index{\texttt{is\_integral<T>::value}}*)
 cout << is_integral<float>::value; // (*false*)
 cout << is_floating_point<double>::value; // (*true*)(*\index{\texttt{is\_floating<T>::value}}*)
+\end{lstlisting}
+%
+% Storage classes
+%
+\section{Storage classes}
+\small
+The storage class\index{Storage class} defines the memory type where an object is stored. The lifetime\index{Lifetime} of an object is from the time it is first initialized until it is destroyed.
+\begin{enumerate}
+\item[$\Rightarrow$] A simple class for objects:
+\end{enumerate}
+\begin{lstlisting}
+class Object(*\index{Classes!\textbf{class}!\texttt{Object}}*)
+{
+public:
+    Object(string obj_name) : name{obj_name} {
+        cout << "Created object: " << obj_name << endl;
+    }
+    ~Object() { cout << "Destroyed object: " << name << endl; }
+private:
+    string name{};
+};
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Static storage with global scope, external or internal linkage\\ \\ Storage is allocated before the program starts and deallocated when the program ends:
+\end{enumerate}
+\begin{lstlisting}
+// static storage, external linkage
+Object a{"a"};(*\index{Storage class!static!external linkage}*)
+
+// static storage, internal linkage
+static Object b{"b"};(*\index{Storage class!static!internal linkage}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Static storage with local scope\\ \\ Storage is allocated the first time the function is called and deallocated when the program ends:
+\end{enumerate}
+\begin{lstlisting}
+void func(void)
+{
+    // static storage, local variable
+    static Object c{"c"};(*\index{Storage class!static!local variable}*)
+}
+
+int main()
+{
+    // Object (*c*) is allocated
+    func();
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Automatic storage with local scope\\ \\ Storage is allocated on the stack when the local scope is entered and deallocated after execution leaves the scope:
+\end{enumerate}
+\begin{lstlisting}
+int main()
+{
+     // automatic storage object
+    {
+        Object d{"d"};(*\index{Storage class!automatic}*)
+    }   
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Dynamic storage\\ \\ Storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}:
+\end{enumerate}
+\begin{lstlisting}
+int main()
+{
+    // dynamic storage object
+    Object* e = new Object{"e"};(*\index{Storage class!dynamic}*)(*\index{\textbf{new}}*)
+    delete(e);(*\index{\textbf{delete}}*)
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Example of object declarations:
+\end{enumerate}
+\begin{lstlisting}
+// static storage object, external linkage
+Object a{"a"};
+
+// static storage object, internal linkage
+static Object b{"b"};
+
+void func(void)
+{
+    cout<< "Start of func()" << endl;
+    
+    // static storage, local variable
+    static Object c{"c"};
+    
+    cout<< "End of func()" << endl;
+}
+
+int main()
+{
+    cout<< "Start of main()" << endl;
+    
+    func();
+    
+    // local scope
+    {
+        cout<< "Start of local scope" << endl;
+        
+        // automatic storage object
+        Object d{"d"};
+        
+        cout<< "End of local scope" << endl;
+    }
+    
+    // dynamic storage object
+    Object* e = new Object{"e"};
+    delete(e);
+    
+    cout<< "End of main()" << endl;
+    return 0;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Example result of the order of allocation and deallocation:
+\end{enumerate}
+\begin{lstlisting}
+// Output printed
+Created object: a
+Created object: b
+Start of main()
+Start of func()
+Created object: c
+End of func()
+Start of local scope
+Created object: d
+End of local scope
+Destroyed object: d
+Created object: e
+Destroyed object: e
+End of main()
+Destroyed object: c
+Destroyed object: b
+Destroyed object: a
+Program ended with exit code: 0
 \end{lstlisting}
 %
 % Integer types
@@ -550,14 +686,51 @@ Function e_gr{[](double x){return exp(x);},{-8.0,8.0},0.001,(*\index{\texttt{[ ]
         {-8.0,8.0},{320,240},400};
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] With access to local variables:\index{Lambda expressions!with access to local variables}
+\item[$\Rightarrow$] With access to local variables (copy by value):\index{Lambda expressions!with access to local variables!copy by value}
 \end{enumerate}
 \begin{lstlisting}
 // Same as above, but the variable (*n*) inside the lambda introducer
 // is available for the function to be used
 int n = 5;
-Function ee_gr{[n](double x){return expe(x,n);},{-8.0,8.0},0.001,
+Function ee_gr{[n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
         {-8.0,8.0},{320,240},400};
+// now (*n*) is still 5
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] With access to local variables (copy by reference):\index{Lambda expressions!with access to local variables!copy by reference}
+\end{enumerate}
+\begin{lstlisting}
+// Same as above, but the variable (*n*) inside the lambda introducer
+// is available for the function to be used and modified
+int n = 5;
+Function ee_gr{[&n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
+        {-8.0,8.0},{320,240},400};
+// now (*n*) is 6
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] With access to all local variables (default copy by value):\index{Lambda expressions!with access to local variables!default copy by value}
+\end{enumerate}
+\begin{lstlisting}
+// Same as above, but all local variables
+// are available for the function to be used
+int n = 5;
+int m = 6;
+Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,
+        {-8.0,8.0},{320,240},400};
+// now (*n*) stays 5 and (*m*) stays 6 
+ \end{lstlisting}
+
+\begin{enumerate}
+\item[$\Rightarrow$] With access to all local variables (default copy by reference):\index{Lambda expressions!with access to local variables!default copy by reference}
+\end{enumerate}
+\begin{lstlisting}
+// Same as above, but all local variables
+// are available for the function to be used and modified
+int n = 5;
+int m = 6;
+Function ee_gr{[& ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,
+        {-8.0,8.0},{320,240},400};
+// now (*n*) is 6 and (*m*) is 7
  \end{lstlisting}
 %
 % Namespaces
@@ -871,144 +1044,6 @@ do_something(a_variable);
 // outputs (*48*)
 cout << "a_variable = " << a_variable << endl;
 \end{lstlisting}
-%
-% Storage classes
-%
-\section{Storage classes}
-\small
-The storage class\index{Storage class} defines the memory type where an object is stored. The lifetime\index{Lifetime} of an object is from the time it is first initialized until it is destroyed.
-\begin{enumerate}
-\item[$\Rightarrow$] A simple class for objects:
-\end{enumerate}
-\begin{lstlisting}
-class Object(*\index{Classes!\textbf{class}!\texttt{Object}}*)
-{
-public:
-    Object(string obj_name) : name{obj_name} {
-        cout << "Created object: " << obj_name << endl;
-    }
-    ~Object() { cout << "Destroyed object: " << name << endl; }
-private:
-    string name{};
-};
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Static storage with global scope, external or internal linkage\\ \\ Storage is allocated before the program starts and deallocated when the program ends:
-\end{enumerate}
-\begin{lstlisting}
-// static storage, external linkage
-Object a{"a"};(*\index{Storage class!static!external linkage}*)
-
-// static storage, internal linkage
-static Object b{"b"};(*\index{Storage class!static!internal linkage}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Static storage with local scope\\ \\ Storage is allocated the first time the function is called and deallocated when the program ends:
-\end{enumerate}
-\begin{lstlisting}
-void func(void)
-{
-    // static storage, local variable
-    static Object c{"c"};(*\index{Storage class!static!local variable}*)
-}
-
-int main()
-{
-    // Object (*c*) is allocated
-    func();
-}
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Automatic storage with local scope\\ \\ Storage is allocated on the stack when the local scope is entered and deallocated after execution leaves the scope:
-\end{enumerate}
-\begin{lstlisting}
-int main()
-{
-     // automatic storage object
-    {
-        Object d{"d"};(*\index{Storage class!automatic}*)
-    }   
-}
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Dynamic storage\\ \\ Storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}:
-\end{enumerate}
-\begin{lstlisting}
-int main()
-{
-    // dynamic storage object
-    Object* e = new Object{"e"};(*\index{Storage class!dynamic}*)(*\index{\textbf{new}}*)
-    delete(e);(*\index{\textbf{delete}}*)
-}
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Example of object declarations:
-\end{enumerate}
-\begin{lstlisting}
-// static storage object, external linkage
-Object a{"a"};
-
-// static storage object, internal linkage
-static Object b{"b"};
-
-void func(void)
-{
-    cout<< "Start of func()" << endl;
-    
-    // static storage, local variable
-    static Object c{"c"};
-    
-    cout<< "End of func()" << endl;
-}
-
-int main()
-{
-    cout<< "Start of main()" << endl;
-    
-    func();
-    
-    // local scope
-    {
-        cout<< "Start of local scope" << endl;
-        
-        // automatic storage object
-        Object d{"d"};
-        
-        cout<< "End of local scope" << endl;
-    }
-    
-    // dynamic storage object
-    Object* e = new Object{"e"};
-    delete(e);
-    
-    cout<< "End of main()" << endl;
-    return 0;
-}
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Example result of the order of allocation and deallocation:
-\end{enumerate}
-\begin{lstlisting}
-// Output printed
-Created object: a
-Created object: b
-Start of main()
-Start of func()
-Created object: c
-End of func()
-Start of local scope
-Created object: d
-End of local scope
-Destroyed object: d
-Created object: e
-Destroyed object: e
-End of main()
-Destroyed object: c
-Destroyed object: b
-Destroyed object: a
-Program ended with exit code: 0
-\end{lstlisting}
-
 %
 % C-Strings
 %

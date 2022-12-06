@@ -45,165 +45,168 @@
 \indexentry{\texttt{<type\_traits>}}{4}
 \indexentry{\texttt{is\_integral<T>::value}}{4}
 \indexentry{\texttt{is\_floating<T>::value}}{4}
-\indexentry{\texttt{<cstdint>}}{5}
-\indexentry{Integer types!signed}{5}
-\indexentry{\texttt{int8\_t}}{5}
-\indexentry{\texttt{int16\_t}}{5}
-\indexentry{\texttt{int32\_t}}{5}
-\indexentry{\texttt{int64\_t}}{5}
-\indexentry{Integer types!unsigned}{5}
-\indexentry{\texttt{uint8\_t}}{5}
-\indexentry{\texttt{uint16\_t}}{5}
-\indexentry{\texttt{uint32\_t}}{5}
-\indexentry{\texttt{uint64\_t}}{5}
-\indexentry{\texttt{numeric\_limits<T>}}{5}
-\indexentry{\texttt{<limits>}}{5}
-\indexentry{Functions!arguments!default}{5}
-\indexentry{Functions!arguments!omitted}{5}
-\indexentry{Functions!arguments!read-only}{5}
-\indexentry{Functions!arguments!read-write}{5}
-\indexentry{Functions!arguments!copy-by-value}{5}
-\indexentry{Functions!arguments!copy-by-reference}{5}
-\indexentry{Constants!\textbf{const}}{6}
-\indexentry{Functions!object initialization}{6}
-\indexentry{Constants!\textbf{const}}{6}
-\indexentry{Constants!\textbf{const}}{6}
-\indexentry{Functions!arguments!rule of thumb}{6}
-\indexentry{\textbf{nullptr}}{6}
-\indexentry{Functions!pointer to function}{6}
-\indexentry{\textbf{typedef}}{6}
-\indexentry{Functions!C-style linkage}{6}
-\indexentry{Modifiers!prefix}{7}
-\indexentry{\textbf{static}|see{Modifiers}}{7}
-\indexentry{Modifiers!prefix!\textbf{static}}{7}
-\indexentry{\textbf{static}|see{Storage classes}}{7}
-\indexentry{Modifiers!prefix!\textbf{inline}}{7}
-\indexentry{\textbf{constexpr}|see{Modifiers}}{7}
-\indexentry{Modifiers!prefix!\textbf{constexpr}}{7}
-\indexentry{Modifiers!suffix}{7}
-\indexentry{\texttt{final}}{7}
-\indexentry{Modifiers!suffix!\texttt{final}}{7}
-\indexentry{\texttt{override}}{7}
-\indexentry{Modifiers!suffix!\texttt{override}}{7}
-\indexentry{\texttt{final}}{7}
-\indexentry{Modifiers!suffix!\texttt{final}}{7}
-\indexentry{\textbf{noexcept}|see{Modifiers}}{7}
-\indexentry{Modifiers!suffix!\textbf{noexcept}}{7}
-\indexentry{Operators!unary arithmetic}{7}
-\indexentry{Operators!increment}{8}
-\indexentry{Operators!decrement}{8}
-\indexentry{Operators!increment!prefix}{8}
-\indexentry{Operators!increment!postfix}{8}
-\indexentry{Operators!decrement!postfix}{8}
-\indexentry{Operators!decrement!prefix}{8}
-\indexentry{Lambda expressions!lambda introducers}{8}
-\indexentry{Lambda expressions!without access to local variables}{8}
-\indexentry{\texttt{[ ]}}{8}
-\indexentry{Lambda expressions!with access to local variables}{8}
-\indexentry{Namespaces!\textbf{using} declarations}{9}
-\indexentry{\texttt{std}}{9}
-\indexentry{Strings!\texttt{string}}{9}
-\indexentry{\texttt{string}|see{Strings}}{9}
-\indexentry{\textbf{using}|see{Namespaces}}{9}
-\indexentry{Input-output streams!\texttt{cin}}{9}
-\indexentry{\texttt{std}}{9}
-\indexentry{\texttt{cin}|see{Input-output streams}}{9}
-\indexentry{Input-output streams!\texttt{cout}}{9}
-\indexentry{\texttt{std}}{9}
-\indexentry{\texttt{cout}|see{Input-output streams}}{9}
-\indexentry{Namespaces!\textbf{using namespace} directives}{9}
-\indexentry{\texttt{std}}{9}
-\indexentry{\textbf{using}|see{Namespaces}}{9}
-\indexentry{Alias!{\textbf{using}}}{9}
-\indexentry{\textbf{using}|see{Alias}}{9}
-\indexentry{Alias!{\textbf{using}}}{9}
-\indexentry{Alias!{\emph{partial application}}}{9}
-\indexentry{\texttt{<cstdlib>}}{10}
-\indexentry{\texttt{<ctime>}}{10}
-\indexentry{Random numbers!seed the generator}{10}
-\indexentry{\texttt{srand}}{10}
-\indexentry{\texttt{time}}{10}
-\indexentry{Random numbers!integer random number}{10}
-\indexentry{\texttt{rand}}{10}
-\indexentry{\texttt{<random>}}{10}
-\indexentry{\texttt{<functional>}}{10}
-\indexentry{\texttt{bind}}{10}
-\indexentry{Random numbers!normal distribution}{10}
-\indexentry{Random numbers!default random engine}{10}
-\indexentry{\texttt{default\_random\_engine}}{10}
-\indexentry{\texttt{bind}}{10}
-\indexentry{Random numbers!normal distribution}{10}
-\indexentry{\texttt{normal\_distribution}}{10}
-\indexentry{Random numbers!Mersenne Twister engine}{10}
-\indexentry{\texttt{mt19937\_64}}{10}
-\indexentry{Bitsets!bits and bit operations}{10}
-\indexentry{range-for-loop}{10}
-\indexentry{\texttt{<bitset>}}{10}
-\indexentry{\texttt{bitset<N>}}{10}
-\indexentry{Bitsets!access to single bits}{10}
-\indexentry{range-for-loop}{10}
-\indexentry{Run-time measurement}{11}
-\indexentry{\texttt{<chrono>}}{11}
-\indexentry{\texttt{system\_clock::now()}}{11}
-\indexentry{\texttt{system\_clock::now()}}{11}
-\indexentry{\texttt{duration\_cast<milliseconds>}}{11}
-\indexentry{Arrays!declaration and initialization}{11}
-\indexentry{Arrays!declaration and initialization}{11}
-\indexentry{\textbf{sizeof}}{11}
-\indexentry{\texttt{size\_t}}{11}
-\indexentry{Arrays!length calculation using \textbf{sizeof}}{11}
-\indexentry{range-for-loop}{11}
-\indexentry{Arrays!declaration and initialization}{11}
-\indexentry{Arrays!modifying elements of an array}{11}
-\indexentry{range-for-loop}{11}
-\indexentry{\textbf{auto}}{11}
-\indexentry{range-for-loop}{11}
-\indexentry{Arrays!printing elements of an array}{11}
-\indexentry{Input-output streams!\texttt{cout}}{11}
-\indexentry{Pointers!simple pointer}{12}
-\indexentry{\textbf{new}}{12}
-\indexentry{Pointers!dereference operator \textbf{$\ast$}}{12}
-\indexentry{Pointers!free store}{12}
-\indexentry{\textbf{delete}}{12}
-\indexentry{Pointers!address of operator \texttt{\&}}{12}
-\indexentry{Dynamic array|see{Pointers}}{12}
-\indexentry{Pointers!dynamic array!allocation}{12}
-\indexentry{\textbf{new}}{12}
-\indexentry{\textbf{new}}{12}
-\indexentry{Pointers!dynamic array!deallocation}{12}
-\indexentry{\textbf{delete}}{12}
-\indexentry{Dynamic bidimensional array|see{Pointers}}{12}
-\indexentry{Pointers!dynamic matrix!allocation}{12}
-\indexentry{\textbf{new}}{12}
-\indexentry{\textbf{new}}{12}
-\indexentry{\textbf{new}}{12}
-\indexentry{Pointers!subscript operator\texttt{[]}}{12}
-\indexentry{Pointers!dynamic matrix!deallocation}{12}
-\indexentry{\textbf{delete}}{12}
-\indexentry{\textbf{delete}}{12}
-\indexentry{Pointers!RAII}{12}
-\indexentry{\texttt{<memory>}}{12}
-\indexentry{\textbf{new}}{13}
-\indexentry{\texttt{unique\_ptr}|see{Pointers}}{13}
-\indexentry{Pointers!\texttt{unique\_ptr}}{13}
-\indexentry{Reference}{13}
-\indexentry{Storage class}{14}
-\indexentry{Lifetime}{14}
-\indexentry{Classes!\textbf{class}!\texttt{Object}}{14}
-\indexentry{Storage class!static!external linkage}{14}
-\indexentry{Storage class!static!internal linkage}{14}
-\indexentry{Storage class!static!local variable}{14}
-\indexentry{Storage class!automatic}{15}
-\indexentry{Storage class!dynamic}{15}
+\indexentry{Storage class}{5}
+\indexentry{Lifetime}{5}
+\indexentry{Classes!\textbf{class}!\texttt{Object}}{5}
+\indexentry{Storage class!static!external linkage}{5}
+\indexentry{Storage class!static!internal linkage}{5}
+\indexentry{Storage class!static!local variable}{5}
+\indexentry{Storage class!automatic}{6}
+\indexentry{Storage class!dynamic}{6}
+\indexentry{\textbf{new}}{6}
+\indexentry{\textbf{delete}}{6}
+\indexentry{\texttt{<cstdint>}}{7}
+\indexentry{Integer types!signed}{7}
+\indexentry{\texttt{int8\_t}}{7}
+\indexentry{\texttt{int16\_t}}{7}
+\indexentry{\texttt{int32\_t}}{7}
+\indexentry{\texttt{int64\_t}}{7}
+\indexentry{Integer types!unsigned}{7}
+\indexentry{\texttt{uint8\_t}}{7}
+\indexentry{\texttt{uint16\_t}}{7}
+\indexentry{\texttt{uint32\_t}}{7}
+\indexentry{\texttt{uint64\_t}}{7}
+\indexentry{\texttt{numeric\_limits<T>}}{7}
+\indexentry{\texttt{<limits>}}{8}
+\indexentry{Functions!arguments!default}{8}
+\indexentry{Functions!arguments!omitted}{8}
+\indexentry{Functions!arguments!read-only}{8}
+\indexentry{Functions!arguments!read-write}{8}
+\indexentry{Functions!arguments!copy-by-value}{8}
+\indexentry{Functions!arguments!copy-by-reference}{8}
+\indexentry{Constants!\textbf{const}}{8}
+\indexentry{Functions!object initialization}{8}
+\indexentry{Constants!\textbf{const}}{8}
+\indexentry{Constants!\textbf{const}}{8}
+\indexentry{Functions!arguments!rule of thumb}{8}
+\indexentry{\textbf{nullptr}}{8}
+\indexentry{Functions!pointer to function}{9}
+\indexentry{\textbf{typedef}}{9}
+\indexentry{Functions!C-style linkage}{9}
+\indexentry{Modifiers!prefix}{9}
+\indexentry{\textbf{static}|see{Modifiers}}{9}
+\indexentry{Modifiers!prefix!\textbf{static}}{9}
+\indexentry{\textbf{static}|see{Storage classes}}{9}
+\indexentry{Modifiers!prefix!\textbf{inline}}{9}
+\indexentry{\textbf{constexpr}|see{Modifiers}}{9}
+\indexentry{Modifiers!prefix!\textbf{constexpr}}{9}
+\indexentry{Modifiers!suffix}{9}
+\indexentry{\texttt{final}}{9}
+\indexentry{Modifiers!suffix!\texttt{final}}{9}
+\indexentry{\texttt{override}}{10}
+\indexentry{Modifiers!suffix!\texttt{override}}{10}
+\indexentry{\texttt{final}}{10}
+\indexentry{Modifiers!suffix!\texttt{final}}{10}
+\indexentry{\textbf{noexcept}|see{Modifiers}}{10}
+\indexentry{Modifiers!suffix!\textbf{noexcept}}{10}
+\indexentry{Operators!unary arithmetic}{10}
+\indexentry{Operators!increment}{10}
+\indexentry{Operators!decrement}{10}
+\indexentry{Operators!increment!prefix}{10}
+\indexentry{Operators!increment!postfix}{10}
+\indexentry{Operators!decrement!postfix}{11}
+\indexentry{Operators!decrement!prefix}{11}
+\indexentry{Lambda expressions!lambda introducers}{11}
+\indexentry{Lambda expressions!without access to local variables}{11}
+\indexentry{\texttt{[ ]}}{11}
+\indexentry{Lambda expressions!with access to local variables!copy by value}{11}
+\indexentry{Lambda expressions!with access to local variables!copy by reference}{11}
+\indexentry{Lambda expressions!with access to local variables!default copy by value}{11}
+\indexentry{Lambda expressions!with access to local variables!default copy by reference}{12}
+\indexentry{Namespaces!\textbf{using} declarations}{12}
+\indexentry{\texttt{std}}{12}
+\indexentry{Strings!\texttt{string}}{12}
+\indexentry{\texttt{string}|see{Strings}}{12}
+\indexentry{\textbf{using}|see{Namespaces}}{12}
+\indexentry{Input-output streams!\texttt{cin}}{12}
+\indexentry{\texttt{std}}{12}
+\indexentry{\texttt{cin}|see{Input-output streams}}{12}
+\indexentry{Input-output streams!\texttt{cout}}{12}
+\indexentry{\texttt{std}}{12}
+\indexentry{\texttt{cout}|see{Input-output streams}}{12}
+\indexentry{Namespaces!\textbf{using namespace} directives}{12}
+\indexentry{\texttt{std}}{12}
+\indexentry{\textbf{using}|see{Namespaces}}{12}
+\indexentry{Alias!{\textbf{using}}}{12}
+\indexentry{\textbf{using}|see{Alias}}{12}
+\indexentry{Alias!{\textbf{using}}}{12}
+\indexentry{Alias!{\emph{partial application}}}{13}
+\indexentry{\texttt{<cstdlib>}}{13}
+\indexentry{\texttt{<ctime>}}{13}
+\indexentry{Random numbers!seed the generator}{13}
+\indexentry{\texttt{srand}}{13}
+\indexentry{\texttt{time}}{13}
+\indexentry{Random numbers!integer random number}{13}
+\indexentry{\texttt{rand}}{13}
+\indexentry{\texttt{<random>}}{13}
+\indexentry{\texttt{<functional>}}{13}
+\indexentry{\texttt{bind}}{13}
+\indexentry{Random numbers!normal distribution}{13}
+\indexentry{Random numbers!default random engine}{13}
+\indexentry{\texttt{default\_random\_engine}}{13}
+\indexentry{\texttt{bind}}{13}
+\indexentry{Random numbers!normal distribution}{13}
+\indexentry{\texttt{normal\_distribution}}{13}
+\indexentry{Random numbers!Mersenne Twister engine}{13}
+\indexentry{\texttt{mt19937\_64}}{13}
+\indexentry{Bitsets!bits and bit operations}{13}
+\indexentry{range-for-loop}{13}
+\indexentry{\texttt{<bitset>}}{13}
+\indexentry{\texttt{bitset<N>}}{13}
+\indexentry{Bitsets!access to single bits}{14}
+\indexentry{range-for-loop}{14}
+\indexentry{Run-time measurement}{14}
+\indexentry{\texttt{<chrono>}}{14}
+\indexentry{\texttt{system\_clock::now()}}{14}
+\indexentry{\texttt{system\_clock::now()}}{14}
+\indexentry{\texttt{duration\_cast<milliseconds>}}{14}
+\indexentry{Arrays!declaration and initialization}{14}
+\indexentry{Arrays!declaration and initialization}{14}
+\indexentry{\textbf{sizeof}}{14}
+\indexentry{\texttt{size\_t}}{14}
+\indexentry{Arrays!length calculation using \textbf{sizeof}}{14}
+\indexentry{range-for-loop}{14}
+\indexentry{Arrays!declaration and initialization}{15}
+\indexentry{Arrays!modifying elements of an array}{15}
+\indexentry{range-for-loop}{15}
+\indexentry{\textbf{auto}}{15}
+\indexentry{range-for-loop}{15}
+\indexentry{Arrays!printing elements of an array}{15}
+\indexentry{Input-output streams!\texttt{cout}}{15}
+\indexentry{Pointers!simple pointer}{15}
 \indexentry{\textbf{new}}{15}
+\indexentry{Pointers!dereference operator \textbf{$\ast$}}{15}
+\indexentry{Pointers!free store}{15}
 \indexentry{\textbf{delete}}{15}
-\indexentry{C-Strings}{16}
-\indexentry{\texttt{<cstring>}}{16}
-\indexentry{\texttt{<cstdlib>}}{16}
-\indexentry{C-Strings!definition}{16}
-\indexentry{Constants!\textbf{const}}{16}
-\indexentry{C-Strings!end of string}{16}
-\indexentry{C-Strings!correct looping}{16}
+\indexentry{Pointers!address of operator \texttt{\&}}{15}
+\indexentry{Dynamic array|see{Pointers}}{15}
+\indexentry{Pointers!dynamic array!allocation}{15}
+\indexentry{\textbf{new}}{15}
+\indexentry{\textbf{new}}{15}
+\indexentry{Pointers!dynamic array!deallocation}{15}
+\indexentry{\textbf{delete}}{15}
+\indexentry{Dynamic bidimensional array|see{Pointers}}{15}
+\indexentry{Pointers!dynamic matrix!allocation}{15}
+\indexentry{\textbf{new}}{15}
+\indexentry{\textbf{new}}{15}
+\indexentry{\textbf{new}}{15}
+\indexentry{Pointers!subscript operator\texttt{[]}}{15}
+\indexentry{Pointers!dynamic matrix!deallocation}{16}
+\indexentry{\textbf{delete}}{16}
+\indexentry{\textbf{delete}}{16}
+\indexentry{Pointers!RAII}{16}
+\indexentry{\texttt{<memory>}}{16}
+\indexentry{\textbf{new}}{16}
+\indexentry{\texttt{unique\_ptr}|see{Pointers}}{16}
+\indexentry{Pointers!\texttt{unique\_ptr}}{16}
+\indexentry{Reference}{16}
+\indexentry{C-Strings}{17}
+\indexentry{\texttt{<cstring>}}{17}
+\indexentry{\texttt{<cstdlib>}}{17}
+\indexentry{C-Strings!definition}{17}
+\indexentry{Constants!\textbf{const}}{17}
+\indexentry{C-Strings!end of string}{17}
+\indexentry{C-Strings!correct looping}{17}
 \indexentry{C-Strings!safe looping}{17}
 \indexentry{\texttt{strncpy}}{17}
 \indexentry{C-Strings!safe compare}{17}
@@ -216,31 +219,31 @@
 \indexentry{\texttt{atol}}{17}
 \indexentry{C-Strings!conversions!to double}{17}
 \indexentry{\texttt{atof}}{17}
-\indexentry{Input-output streams}{17}
-\indexentry{Input-output streams!input stream|see{\texttt{cin}}}{17}
-\indexentry{Input-output streams!output stream|see{\texttt{cout}}}{17}
-\indexentry{Input-output streams!error stream|see{\texttt{cerr}}}{17}
-\indexentry{Input-output streams!reading from the keyboard}{17}
-\indexentry{Input-output streams!\texttt{cin}}{17}
-\indexentry{Input-output streams!writing to the screen}{17}
-\indexentry{Input-output streams!\texttt{cout}}{17}
-\indexentry{Input-output streams!writing error message to the screen}{17}
-\indexentry{Input-output streams!\texttt{cerr}}{17}
-\indexentry{\texttt{cerr}|see{Input-output streams}}{17}
-\indexentry{Input-output streams!integer format manipulators}{17}
-\indexentry{\texttt{<iomanip>}}{17}
-\indexentry{Input-output streams!integer format manipulators!show the base}{17}
-\indexentry{Input-output streams!\texttt{cout}}{17}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{showbase}}{17}
-\indexentry{Input-output streams!integer format manipulators!decimal}{17}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{dec}}{17}
-\indexentry{Input-output streams!integer format manipulators!otctal}{17}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{oct}}{17}
-\indexentry{Input-output streams!integer format manipulators!hexadecimal}{17}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{hex}}{17}
-\indexentry{Input-output streams!integer format manipulators!don't show the base}{17}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{noshowbase}}{17}
-\indexentry{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}{17}
+\indexentry{Input-output streams}{18}
+\indexentry{Input-output streams!input stream|see{\texttt{cin}}}{18}
+\indexentry{Input-output streams!output stream|see{\texttt{cout}}}{18}
+\indexentry{Input-output streams!error stream|see{\texttt{cerr}}}{18}
+\indexentry{Input-output streams!reading from the keyboard}{18}
+\indexentry{Input-output streams!\texttt{cin}}{18}
+\indexentry{Input-output streams!writing to the screen}{18}
+\indexentry{Input-output streams!\texttt{cout}}{18}
+\indexentry{Input-output streams!writing error message to the screen}{18}
+\indexentry{Input-output streams!\texttt{cerr}}{18}
+\indexentry{\texttt{cerr}|see{Input-output streams}}{18}
+\indexentry{Input-output streams!integer format manipulators}{18}
+\indexentry{\texttt{<iomanip>}}{18}
+\indexentry{Input-output streams!integer format manipulators!show the base}{18}
+\indexentry{Input-output streams!\texttt{cout}}{18}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{showbase}}{18}
+\indexentry{Input-output streams!integer format manipulators!decimal}{18}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{dec}}{18}
+\indexentry{Input-output streams!integer format manipulators!otctal}{18}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{oct}}{18}
+\indexentry{Input-output streams!integer format manipulators!hexadecimal}{18}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{hex}}{18}
+\indexentry{Input-output streams!integer format manipulators!don't show the base}{18}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{noshowbase}}{18}
+\indexentry{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}{18}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{unset}}{18}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::dec}}{18}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::oct}}{18}
@@ -254,26 +257,26 @@
 \indexentry{Input-output streams!\texttt{cout}!\texttt{fixed}}{18}
 \indexentry{Input-output streams!floating point format manipulators!scientific notation}{18}
 \indexentry{Input-output streams!\texttt{cout}!\texttt{scientific}}{18}
-\indexentry{Input-output streams!floating point format manipulators!precision}{18}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{setprecision}}{18}
-\indexentry{Input-output streams!floating point format manipulators! text width}{18}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{setw}}{18}
-\indexentry{Input-output streams!floating point format manipulators!left aligned }{18}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{left}}{18}
-\indexentry{Input-output streams!floating point format manipulators!right aligned}{18}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{right}}{18}
-\indexentry{Input-output streams!floating point format manipulators!always show decimal point}{18}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{showpoint}}{18}
-\indexentry{Input-output streams!floating point format manipulators!always show plus sign}{18}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{showpos}}{18}
-\indexentry{Input-output streams!reading and writing characters}{18}
-\indexentry{Input-output streams!reading and writing characters!read any character}{18}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{get}}{18}
-\indexentry{end of line control character}{18}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{get}}{18}
-\indexentry{Input-output streams!reading and writing characters!write a single character}{18}
-\indexentry{Input-output streams!\texttt{cout}!\texttt{put}}{18}
-\indexentry{Input-output streams!reading and writing characters!read a whole line}{18}
+\indexentry{Input-output streams!floating point format manipulators!precision}{19}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{setprecision}}{19}
+\indexentry{Input-output streams!floating point format manipulators! text width}{19}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{setw}}{19}
+\indexentry{Input-output streams!floating point format manipulators!left aligned }{19}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{left}}{19}
+\indexentry{Input-output streams!floating point format manipulators!right aligned}{19}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{right}}{19}
+\indexentry{Input-output streams!floating point format manipulators!always show decimal point}{19}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{showpoint}}{19}
+\indexentry{Input-output streams!floating point format manipulators!always show plus sign}{19}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{showpos}}{19}
+\indexentry{Input-output streams!reading and writing characters}{19}
+\indexentry{Input-output streams!reading and writing characters!read any character}{19}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{get}}{19}
+\indexentry{end of line control character}{19}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{get}}{19}
+\indexentry{Input-output streams!reading and writing characters!write a single character}{19}
+\indexentry{Input-output streams!\texttt{cout}!\texttt{put}}{19}
+\indexentry{Input-output streams!reading and writing characters!read a whole line}{19}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{getline}}{19}
 \indexentry{Input-output streams!reading and writing characters!putting a character back into the input stream}{19}
 \indexentry{Input-output streams!\texttt{cin}!\texttt{putback}}{19}
@@ -283,19 +286,19 @@
 \indexentry{\textbf{try-catch}|see{Exceptions}}{19}
 \indexentry{Exceptions!\textbf{try-catch}}{19}
 \indexentry{Input-output streams!\texttt{cin}}{19}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{unget}}{19}
-\indexentry{Input-output streams!handling of unexpected input!setting explicitly the failure bit}{19}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{clear}}{19}
-\indexentry{\textbf{throw}}{19}
-\indexentry{Exceptions!\texttt{runtime\_error}}{19}
-\indexentry{Input-output streams!\texttt{cerr}}{19}
-\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{19}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{fail}}{19}
-\indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}{19}
-\indexentry{Input-output streams!\texttt{cin}!\texttt{clear}}{19}
-\indexentry{Strings!\texttt{string}}{19}
-\indexentry{Input-output streams!\texttt{cin}}{19}
-\indexentry{Input-output streams!\texttt{cerr}}{19}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{unget}}{20}
+\indexentry{Input-output streams!handling of unexpected input!setting explicitly the failure bit}{20}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{clear}}{20}
+\indexentry{\textbf{throw}}{20}
+\indexentry{Exceptions!\texttt{runtime\_error}}{20}
+\indexentry{Input-output streams!\texttt{cerr}}{20}
+\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{20}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{fail}}{20}
+\indexentry{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}{20}
+\indexentry{Input-output streams!\texttt{cin}!\texttt{clear}}{20}
+\indexentry{Strings!\texttt{string}}{20}
+\indexentry{Input-output streams!\texttt{cin}}{20}
+\indexentry{Input-output streams!\texttt{cerr}}{20}
 \indexentry{\texttt{<fstream>}}{20}
 \indexentry{Files!opening as input}{20}
 \indexentry{\texttt{ifstream}}{20}
@@ -305,64 +308,64 @@
 \indexentry{\texttt{<fstream>}}{20}
 \indexentry{Files!opening both as input and output}{20}
 \indexentry{\texttt{fstream}}{20}
-\indexentry{\texttt{<fstream>}}{20}
-\indexentry{\texttt{ifstream}}{20}
-\indexentry{\texttt{ofstream}}{20}
-\indexentry{Files!opening explicitly}{20}
-\indexentry{Files!checking for failure}{20}
-\indexentry{Files!checking for failure!corrupted stream}{20}
-\indexentry{Files!checking for failure!end of file}{20}
-\indexentry{Files!checking for failure!format data error}{20}
-\indexentry{Files!checking for failure!setting back to good state}{20}
-\indexentry{Strings!\texttt{string}}{20}
+\indexentry{\texttt{<fstream>}}{21}
+\indexentry{\texttt{ifstream}}{21}
+\indexentry{\texttt{ofstream}}{21}
+\indexentry{Files!opening explicitly}{21}
+\indexentry{Files!checking for failure}{21}
+\indexentry{Files!checking for failure!corrupted stream}{21}
+\indexentry{Files!checking for failure!end of file}{21}
+\indexentry{Files!checking for failure!format data error}{21}
+\indexentry{Files!checking for failure!setting back to good state}{21}
+\indexentry{Strings!\texttt{string}}{21}
 \indexentry{Exceptions!\textbf{try-catch}}{21}
 \indexentry{Files!checking for unexpected input}{21}
-\indexentry{\textbf{throw}}{21}
-\indexentry{Exceptions!\texttt{runtime\_error}}{21}
-\indexentry{Input-output streams!\texttt{cerr}}{21}
-\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{21}
-\indexentry{Strings!\texttt{string}}{21}
-\indexentry{Input-output streams!\texttt{cerr}}{21}
-\indexentry{Files!reading and writing}{21}
-\indexentry{Strings!\texttt{string}}{21}
-\indexentry{Files!reading a line}{21}
+\indexentry{\textbf{throw}}{22}
+\indexentry{Exceptions!\texttt{runtime\_error}}{22}
+\indexentry{Input-output streams!\texttt{cerr}}{22}
+\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{22}
+\indexentry{Strings!\texttt{string}}{22}
+\indexentry{Input-output streams!\texttt{cerr}}{22}
+\indexentry{Files!reading and writing}{22}
+\indexentry{Strings!\texttt{string}}{22}
+\indexentry{Files!reading a line}{22}
 \indexentry{Files!ignoring input}{22}
 \indexentry{Files!moving the file pointer!reading with \texttt{seekg} (seek get)}{22}
 \indexentry{Files!moving the file pointer!writing with \texttt{seekp} (seek put)}{22}
-\indexentry{Files!loop for reading all the input}{22}
-\indexentry{Input-output streams!\texttt{cout}}{22}
-\indexentry{Files!closing by going out of scope}{22}
-\indexentry{Files!closing explicitly}{22}
-\indexentry{\texttt{<string>}}{22}
-\indexentry{Strings!initialization}{22}
-\indexentry{Strings!\texttt{string}}{22}
-\indexentry{Strings!\texttt{string}}{22}
-\indexentry{Strings!\texttt{string}}{22}
-\indexentry{Strings!\texttt{string}}{22}
-\indexentry{Strings!fill constructor}{22}
-\indexentry{Strings!\texttt{string}}{22}
-\indexentry{Strings!substring constructor}{22}
-\indexentry{Strings!\texttt{string}}{22}
-\indexentry{Strings!substring constructor}{22}
+\indexentry{Files!loop for reading all the input}{23}
+\indexentry{Input-output streams!\texttt{cout}}{23}
+\indexentry{Files!closing by going out of scope}{23}
+\indexentry{Files!closing explicitly}{23}
+\indexentry{\texttt{<string>}}{23}
+\indexentry{Strings!initialization}{23}
+\indexentry{Strings!\texttt{string}}{23}
+\indexentry{Strings!\texttt{string}}{23}
+\indexentry{Strings!\texttt{string}}{23}
+\indexentry{Strings!\texttt{string}}{23}
+\indexentry{Strings!fill constructor}{23}
+\indexentry{Strings!\texttt{string}}{23}
+\indexentry{Strings!substring constructor}{23}
+\indexentry{Strings!\texttt{string}}{23}
+\indexentry{Strings!substring constructor}{23}
 \indexentry{Strings!\texttt{string}}{23}
 \indexentry{Strings!buffer constructor}{23}
 \indexentry{Strings!concatenation}{23}
 \indexentry{Strings!\texttt{string}}{23}
 \indexentry{Strings!\texttt{+}}{23}
-\indexentry{Strings!reading a line}{23}
-\indexentry{Strings!\texttt{string}}{23}
-\indexentry{Input-output streams!\texttt{cin}}{23}
-\indexentry{Strings!access to character!no illegal index checking}{23}
-\indexentry{Strings!access to character!with illegal index checking}{23}
-\indexentry{Strings!\texttt{at}}{23}
-\indexentry{Strings!\texttt{append}}{23}
-\indexentry{Strings!\texttt{size}}{23}
-\indexentry{Strings!\texttt{length}}{23}
-\indexentry{Strings!\texttt{substr}}{23}
-\indexentry{\texttt{size\_t}}{23}
-\indexentry{Strings!\texttt{find}}{23}
-\indexentry{Input-output streams!\texttt{cerr}}{23}
-\indexentry{Strings!\texttt{find}}{23}
+\indexentry{Strings!reading a line}{24}
+\indexentry{Strings!\texttt{string}}{24}
+\indexentry{Input-output streams!\texttt{cin}}{24}
+\indexentry{Strings!access to character!no illegal index checking}{24}
+\indexentry{Strings!access to character!with illegal index checking}{24}
+\indexentry{Strings!\texttt{at}}{24}
+\indexentry{Strings!\texttt{append}}{24}
+\indexentry{Strings!\texttt{size}}{24}
+\indexentry{Strings!\texttt{length}}{24}
+\indexentry{Strings!\texttt{substr}}{24}
+\indexentry{\texttt{size\_t}}{24}
+\indexentry{Strings!\texttt{find}}{24}
+\indexentry{Input-output streams!\texttt{cerr}}{24}
+\indexentry{Strings!\texttt{find}}{24}
 \indexentry{Strings!\texttt{c\_str}}{24}
 \indexentry{Strings!from string to!integer}{24}
 \indexentry{\texttt{stoi}}{24}
@@ -373,18 +376,18 @@
 \indexentry{Strings!from numeric type to string}{24}
 \indexentry{\texttt{to\_string}}{24}
 \indexentry{Strings!\texttt{string}}{24}
-\indexentry{\texttt{<sstream>}}{24}
-\indexentry{String streams!input string stream}{24}
-\indexentry{\texttt{istringstream}}{24}
-\indexentry{String streams!read numbers from data stream}{24}
-\indexentry{Input-output streams!\texttt{cout}}{24}
-\indexentry{\texttt{<sstream>}}{24}
-\indexentry{String streams!output string stream}{24}
-\indexentry{\texttt{ostringstream}}{24}
-\indexentry{String streams!manipulators|see{Input-output streams!integer format manipulators}}{24}
-\indexentry{String streams!manipulators|see{Input-output streams!floating format manipulators}}{24}
-\indexentry{String streams!return the string in the stream}{24}
-\indexentry{Input-output streams!\texttt{cout}}{24}
+\indexentry{\texttt{<sstream>}}{25}
+\indexentry{String streams!input string stream}{25}
+\indexentry{\texttt{istringstream}}{25}
+\indexentry{String streams!read numbers from data stream}{25}
+\indexentry{Input-output streams!\texttt{cout}}{25}
+\indexentry{\texttt{<sstream>}}{25}
+\indexentry{String streams!output string stream}{25}
+\indexentry{\texttt{ostringstream}}{25}
+\indexentry{String streams!manipulators|see{Input-output streams!integer format manipulators}}{25}
+\indexentry{String streams!manipulators|see{Input-output streams!floating format manipulators}}{25}
+\indexentry{String streams!return the string in the stream}{25}
+\indexentry{Input-output streams!\texttt{cout}}{25}
 \indexentry{Vectors}{25}
 \indexentry{\texttt{<vector>}}{25}
 \indexentry{Vectors!initialized with initializer list}{25}
@@ -396,24 +399,24 @@
 \indexentry{Vectors!access to an element!checked}{25}
 \indexentry{Input-output streams!\texttt{cout}}{25}
 \indexentry{Containers!\texttt{vector}!\texttt{at}}{25}
-\indexentry{Vectors!\texttt{push\_back}}{25}
-\indexentry{Containers!\texttt{vector}!\texttt{push\_back}}{25}
-\indexentry{Vectors!\texttt{resize}}{25}
-\indexentry{Containers!\texttt{vector}!\texttt{resize}}{25}
-\indexentry{range-for-loop}{25}
-\indexentry{Vectors!loop over elements}{25}
-\indexentry{\textbf{auto}}{25}
-\indexentry{Input-output streams!\texttt{cout}}{25}
-\indexentry{Vectors!loop over elements}{25}
-\indexentry{\textbf{auto}}{25}
-\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{25}
-\indexentry{Input-output streams!\texttt{cout}}{25}
-\indexentry{Vectors!\texttt{size}}{25}
-\indexentry{Input-output streams!\texttt{cout}}{25}
-\indexentry{Containers!\texttt{vector}!\texttt{size}}{25}
-\indexentry{Vectors!\texttt{capacity}}{25}
-\indexentry{Input-output streams!\texttt{cout}}{25}
-\indexentry{Containers!\texttt{vector}!\texttt{capacity}}{25}
+\indexentry{Vectors!\texttt{push\_back}}{26}
+\indexentry{Containers!\texttt{vector}!\texttt{push\_back}}{26}
+\indexentry{Vectors!\texttt{resize}}{26}
+\indexentry{Containers!\texttt{vector}!\texttt{resize}}{26}
+\indexentry{range-for-loop}{26}
+\indexentry{Vectors!loop over elements}{26}
+\indexentry{\textbf{auto}}{26}
+\indexentry{Input-output streams!\texttt{cout}}{26}
+\indexentry{Vectors!loop over elements}{26}
+\indexentry{\textbf{auto}}{26}
+\indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{26}
+\indexentry{Input-output streams!\texttt{cout}}{26}
+\indexentry{Vectors!\texttt{size}}{26}
+\indexentry{Input-output streams!\texttt{cout}}{26}
+\indexentry{Containers!\texttt{vector}!\texttt{size}}{26}
+\indexentry{Vectors!\texttt{capacity}}{26}
+\indexentry{Input-output streams!\texttt{cout}}{26}
+\indexentry{Containers!\texttt{vector}!\texttt{capacity}}{26}
 \indexentry{Vectors!\texttt{reserve}}{26}
 \indexentry{Containers!\texttt{vector}!\texttt{reserve}}{26}
 \indexentry{Exceptions!\texttt{out\_of\_range}}{26}
@@ -421,13 +424,13 @@
 \indexentry{Exceptions!\textbf{try-catch}}{26}
 \indexentry{Input-output streams!\texttt{cout}}{26}
 \indexentry{Vectors!out of range exception}{26}
-\indexentry{Enumerations!in \textbf{class} scope}{26}
-\indexentry{Enumerations!definition}{26}
-\indexentry{\textbf{enum class}}{26}
-\indexentry{Enumerations!usage}{26}
-\indexentry{Enumerations!prohibited conversions}{26}
-\indexentry{Enumerations!conversion function}{26}
-\indexentry{Classes!example of a vector class}{26}
+\indexentry{Enumerations!in \textbf{class} scope}{27}
+\indexentry{Enumerations!definition}{27}
+\indexentry{\textbf{enum class}}{27}
+\indexentry{Enumerations!usage}{27}
+\indexentry{Enumerations!prohibited conversions}{27}
+\indexentry{Enumerations!conversion function}{27}
+\indexentry{Classes!example of a vector class}{27}
 \indexentry{\texttt{<algorithm>}}{27}
 \indexentry{\textbf{class}|see{Classes}}{27}
 \indexentry{Classes!\textbf{class}!\texttt{MyVector}}{27}
@@ -443,30 +446,30 @@
 \indexentry{Classes!virtual destructor}{27}
 \indexentry{\textbf{delete}}{27}
 \indexentry{\textbf{virtual}}{27}
-\indexentry{Classes!subscript operator}{27}
-\indexentry{Classes!subscript operator!write}{27}
-\indexentry{\texttt{size\_t}}{27}
-\indexentry{Classes!subscript operator!read}{27}
-\indexentry{Constants!\textbf{const}}{27}
-\indexentry{\texttt{size\_t}}{27}
-\indexentry{Classes!constant member function}{27}
-\indexentry{Constants!\textbf{const}}{27}
-\indexentry{\texttt{size\_t}}{27}
-\indexentry{Classes!constant member function}{27}
-\indexentry{Constants!\textbf{const}}{27}
-\indexentry{\texttt{size\_t}}{27}
-\indexentry{\texttt{size\_t}}{27}
-\indexentry{\texttt{size\_t}}{27}
-\indexentry{\texttt{size\_t}}{27}
-\indexentry{\texttt{size\_t}}{27}
-\indexentry{\textbf{nullptr}}{27}
-\indexentry{Classes!constructors!type conversions}{27}
-\indexentry{Classes!constructors}{27}
-\indexentry{Default value!\texttt{double()}}{27}
-\indexentry{Classes!constructors!vector size}{27}
-\indexentry{Classes!constructors!member initialization list}{27}
-\indexentry{\textbf{new}}{27}
-\indexentry{\texttt{size\_t}}{27}
+\indexentry{Classes!subscript operator}{28}
+\indexentry{Classes!subscript operator!write}{28}
+\indexentry{\texttt{size\_t}}{28}
+\indexentry{Classes!subscript operator!read}{28}
+\indexentry{Constants!\textbf{const}}{28}
+\indexentry{\texttt{size\_t}}{28}
+\indexentry{Classes!constant member function}{28}
+\indexentry{Constants!\textbf{const}}{28}
+\indexentry{\texttt{size\_t}}{28}
+\indexentry{Classes!constant member function}{28}
+\indexentry{Constants!\textbf{const}}{28}
+\indexentry{\texttt{size\_t}}{28}
+\indexentry{\texttt{size\_t}}{28}
+\indexentry{\texttt{size\_t}}{28}
+\indexentry{\texttt{size\_t}}{28}
+\indexentry{\texttt{size\_t}}{28}
+\indexentry{\textbf{nullptr}}{28}
+\indexentry{Classes!constructors!type conversions}{28}
+\indexentry{Classes!constructors}{28}
+\indexentry{Default value!\texttt{double()}}{28}
+\indexentry{Classes!constructors!vector size}{28}
+\indexentry{Classes!constructors!member initialization list}{28}
+\indexentry{\textbf{new}}{28}
+\indexentry{\texttt{size\_t}}{28}
 \indexentry{Classes!constructors!initializer list parameter}{28}
 \indexentry{\texttt{initializer\_list}}{28}
 \indexentry{\textbf{new}}{28}
@@ -477,15 +480,15 @@
 \indexentry{Iterators!\texttt{initializer\_list<T>}!\texttt{iterator}!\texttt{end}}{28}
 \indexentry{Classes!copy constructor}{28}
 \indexentry{Constants!\textbf{const}}{28}
-\indexentry{\textbf{new}}{28}
-\indexentry{Algorithms!\texttt{copy}}{28}
-\indexentry{Classes!move constructor}{28}
-\indexentry{\textbf{nullptr}}{28}
-\indexentry{Classes!copy assignment}{28}
-\indexentry{Constants!\textbf{const}}{28}
-\indexentry{\texttt{operator=}}{28}
-\indexentry{\textbf{this}}{28}
-\indexentry{\textbf{this}}{28}
+\indexentry{\textbf{new}}{29}
+\indexentry{Algorithms!\texttt{copy}}{29}
+\indexentry{Classes!move constructor}{29}
+\indexentry{\textbf{nullptr}}{29}
+\indexentry{Classes!copy assignment}{29}
+\indexentry{Constants!\textbf{const}}{29}
+\indexentry{\texttt{operator=}}{29}
+\indexentry{\textbf{this}}{29}
+\indexentry{\textbf{this}}{29}
 \indexentry{\textbf{delete}}{29}
 \indexentry{\textbf{new}}{29}
 \indexentry{Algorithms!\texttt{copy}}{29}
@@ -493,21 +496,21 @@
 \indexentry{Classes!move assignment}{29}
 \indexentry{\texttt{operator=}}{29}
 \indexentry{\textbf{delete}}{29}
-\indexentry{\textbf{nullptr}}{29}
-\indexentry{\textbf{this}}{29}
-\indexentry{Classes!reallocation of resources}{29}
-\indexentry{\texttt{size\_t}}{29}
-\indexentry{\textbf{new}}{29}
-\indexentry{Algorithms!\texttt{copy}}{29}
-\indexentry{\textbf{delete}}{29}
-\indexentry{\texttt{size\_t}}{29}
-\indexentry{\texttt{size\_t}}{29}
+\indexentry{\textbf{nullptr}}{30}
+\indexentry{\textbf{this}}{30}
+\indexentry{Classes!reallocation of resources}{30}
+\indexentry{\texttt{size\_t}}{30}
+\indexentry{\textbf{new}}{30}
+\indexentry{Algorithms!\texttt{copy}}{30}
+\indexentry{\textbf{delete}}{30}
+\indexentry{\texttt{size\_t}}{30}
+\indexentry{\texttt{size\_t}}{30}
 \indexentry{Classes!constructor invocations}{30}
 \indexentry{\texttt{initializer\_list}}{30}
-\indexentry{Classes!move invocations}{30}
-\indexentry{\texttt{size\_t}}{30}
-\indexentry{Classes!compiler generated methods}{30}
-\indexentry{Classes!\emph{rule of five}}{30}
+\indexentry{Classes!move invocations}{31}
+\indexentry{\texttt{size\_t}}{31}
+\indexentry{Classes!compiler generated methods}{31}
+\indexentry{Classes!\emph{rule of five}}{31}
 \indexentry{Classes!\textbf{class}!\texttt{Basic}}{31}
 \indexentry{\texttt{= default}}{31}
 \indexentry{\texttt{= default}}{31}
@@ -518,34 +521,34 @@
 \indexentry{\texttt{= default}}{31}
 \indexentry{\texttt{operator=}}{31}
 \indexentry{Classes!\textbf{class}!\texttt{Fancy}}{31}
-\indexentry{\texttt{= delete}}{31}
-\indexentry{\texttt{= delete}}{31}
-\indexentry{\texttt{= delete}}{31}
-\indexentry{\texttt{= delete}}{31}
-\indexentry{\texttt{operator=}}{31}
-\indexentry{\texttt{= delete}}{31}
-\indexentry{\texttt{= delete}}{31}
-\indexentry{\texttt{operator=}}{31}
-\indexentry{Operator overloading!as class member}{31}
-\indexentry{Classes!\textbf{class}!\texttt{Euro}}{31}
-\indexentry{\texttt{operator+}}{31}
-\indexentry{Constants!\textbf{const}}{31}
+\indexentry{\texttt{= delete}}{32}
+\indexentry{\texttt{= delete}}{32}
+\indexentry{\texttt{= delete}}{32}
+\indexentry{\texttt{= delete}}{32}
+\indexentry{\texttt{operator=}}{32}
+\indexentry{\texttt{= delete}}{32}
+\indexentry{\texttt{= delete}}{32}
+\indexentry{\texttt{operator=}}{32}
+\indexentry{Operator overloading!as class member}{32}
+\indexentry{Classes!\textbf{class}!\texttt{Euro}}{32}
+\indexentry{\texttt{operator+}}{32}
+\indexentry{Constants!\textbf{const}}{32}
 \indexentry{Operator overloading!as \textbf{friend} member}{32}
 \indexentry{Classes!\textbf{class}!\texttt{Euro}}{32}
-\indexentry{Constants!\textbf{const}}{32}
-\indexentry{\textbf{friend}}{32}
-\indexentry{\texttt{operator+}}{32}
-\indexentry{\texttt{operator<<}}{32}
-\indexentry{\textbf{friend}}{32}
-\indexentry{Constants!\textbf{const}}{32}
-\indexentry{\textbf{friend}}{32}
-\indexentry{\texttt{operator>>}}{32}
-\indexentry{\textbf{friend}}{32}
-\indexentry{Classes!constructors!type conversions}{32}
-\indexentry{Inheritance!abstract base class}{32}
-\indexentry{Classes!\textbf{class}!\texttt{Shape}}{32}
-\indexentry{Constants!\textbf{const}}{32}
-\indexentry{\texttt{= delete}}{32}
+\indexentry{Constants!\textbf{const}}{33}
+\indexentry{\textbf{friend}}{33}
+\indexentry{\texttt{operator+}}{33}
+\indexentry{\texttt{operator<<}}{33}
+\indexentry{\textbf{friend}}{33}
+\indexentry{Constants!\textbf{const}}{33}
+\indexentry{\textbf{friend}}{33}
+\indexentry{\texttt{operator>>}}{33}
+\indexentry{\textbf{friend}}{33}
+\indexentry{Classes!constructors!type conversions}{33}
+\indexentry{Inheritance!abstract base class}{33}
+\indexentry{Classes!\textbf{class}!\texttt{Shape}}{33}
+\indexentry{Constants!\textbf{const}}{33}
+\indexentry{\texttt{= delete}}{33}
 \indexentry{Constants!\textbf{const}}{33}
 \indexentry{\texttt{= delete}}{33}
 \indexentry{\texttt{operator=}}{33}
@@ -553,14 +556,14 @@
 \indexentry{Classes!virtual destructor}{33}
 \indexentry{Constants!\textbf{const}}{33}
 \indexentry{Constants!\textbf{const}}{33}
-\indexentry{\textbf{virtual}}{33}
-\indexentry{\texttt{= 0}}{33}
-\indexentry{\textbf{virtual}}{33}
-\indexentry{\texttt{= 0}}{33}
-\indexentry{\textbf{virtual}}{33}
-\indexentry{\textbf{virtual}}{33}
-\indexentry{\textbf{virtual}}{33}
-\indexentry{\textbf{virtual}}{33}
+\indexentry{\textbf{virtual}}{34}
+\indexentry{\texttt{= 0}}{34}
+\indexentry{\textbf{virtual}}{34}
+\indexentry{\texttt{= 0}}{34}
+\indexentry{\textbf{virtual}}{34}
+\indexentry{\textbf{virtual}}{34}
+\indexentry{\textbf{virtual}}{34}
+\indexentry{\textbf{virtual}}{34}
 \indexentry{Inheritance!base class}{34}
 \indexentry{Classes!\textbf{class}!\texttt{Line}}{34}
 \indexentry{Slicing}{34}
@@ -568,26 +571,26 @@
 \indexentry{Classes!\textbf{class}!\texttt{Shape}}{34}
 \indexentry{Constants!\textbf{const}}{34}
 \indexentry{\texttt{= delete}}{34}
-\indexentry{Constants!\textbf{const}}{34}
-\indexentry{\texttt{= delete}}{34}
-\indexentry{\texttt{operator=}}{34}
-\indexentry{Inheritance!virtual destructor}{34}
-\indexentry{Classes!\textbf{class}!\texttt{Shape}}{34}
-\indexentry{\textbf{virtual}}{34}
-\indexentry{Classes!virtual destructor}{34}
-\indexentry{Inheritance!protected constructor}{34}
-\indexentry{Classes!\textbf{class}!\texttt{Shape}}{34}
+\indexentry{Constants!\textbf{const}}{35}
+\indexentry{\texttt{= delete}}{35}
+\indexentry{\texttt{operator=}}{35}
+\indexentry{Inheritance!virtual destructor}{35}
+\indexentry{Classes!\textbf{class}!\texttt{Shape}}{35}
+\indexentry{\textbf{virtual}}{35}
+\indexentry{Classes!virtual destructor}{35}
+\indexentry{Inheritance!protected constructor}{35}
+\indexentry{Classes!\textbf{class}!\texttt{Shape}}{35}
 \indexentry{Inheritance!protected member functions}{35}
 \indexentry{Classes!\textbf{class}!\texttt{Shape}}{35}
-\indexentry{\texttt{= 0}}{35}
-\indexentry{Inheritance!pure virtual functions}{35}
-\indexentry{Classes!\textbf{class}!\texttt{Shape}}{35}
-\indexentry{\texttt{= 0}}{35}
-\indexentry{\textbf{virtual}}{35}
-\indexentry{\texttt{= 0}}{35}
-\indexentry{\textbf{virtual}}{35}
-\indexentry{Inheritance!virtual functions}{35}
-\indexentry{Classes!\textbf{class}!\texttt{Shape}}{35}
+\indexentry{\texttt{= 0}}{36}
+\indexentry{Inheritance!pure virtual functions}{36}
+\indexentry{Classes!\textbf{class}!\texttt{Shape}}{36}
+\indexentry{\texttt{= 0}}{36}
+\indexentry{\textbf{virtual}}{36}
+\indexentry{\texttt{= 0}}{36}
+\indexentry{\textbf{virtual}}{36}
+\indexentry{Inheritance!virtual functions}{36}
+\indexentry{Classes!\textbf{class}!\texttt{Shape}}{36}
 \indexentry{\textbf{virtual}}{36}
 \indexentry{\textbf{virtual}}{36}
 \indexentry{Inheritance!derived class}{36}
@@ -598,25 +601,25 @@
 \indexentry{Constants!\textbf{const}}{36}
 \indexentry{\texttt{pair}}{36}
 \indexentry{\texttt{pair}}{36}
-\indexentry{\texttt{pair}}{36}
-\indexentry{Inheritance!derived class}{36}
-\indexentry{Classes!\textbf{class}!\texttt{Line}}{36}
-\indexentry{Classes!getter and setter functions}{36}
-\indexentry{Classes!\textbf{class}!\texttt{Line}}{36}
-\indexentry{Constants!\textbf{const}}{36}
-\indexentry{\texttt{pair}}{36}
+\indexentry{\texttt{pair}}{37}
+\indexentry{Inheritance!derived class}{37}
+\indexentry{Classes!\textbf{class}!\texttt{Line}}{37}
+\indexentry{Classes!getter and setter functions}{37}
+\indexentry{Classes!\textbf{class}!\texttt{Line}}{37}
+\indexentry{Constants!\textbf{const}}{37}
+\indexentry{\texttt{pair}}{37}
 \indexentry{\texttt{pair}}{37}
 \indexentry{\texttt{pair}}{37}
 \indexentry{Inheritance!function specialisation}{37}
 \indexentry{Classes!\textbf{class}!\texttt{Line}}{37}
-\indexentry{Inheritance!function specialisation}{37}
-\indexentry{Classes!\textbf{class}!\texttt{Circle}}{37}
-\indexentry{\textbf{virtual}}{37}
-\indexentry{Classes!virtual destructor}{37}
-\indexentry{Constants!\textbf{const}}{37}
-\indexentry{Constants!\textbf{const}}{37}
+\indexentry{Inheritance!function specialisation}{38}
+\indexentry{Classes!\textbf{class}!\texttt{Circle}}{38}
+\indexentry{\textbf{virtual}}{38}
+\indexentry{Classes!virtual destructor}{38}
+\indexentry{Constants!\textbf{const}}{38}
+\indexentry{Constants!\textbf{const}}{38}
 \indexentry{Polymorphism}{38}
-\indexentry{Polymorphism!late binding}{38}
+\indexentry{Polymorphism!late binding}{39}
 \indexentry{Classes!\textbf{class}!\texttt{MyException}}{39}
 \indexentry{Strings!\texttt{string}}{39}
 \indexentry{\textbf{virtual}}{39}
@@ -627,23 +630,23 @@
 \indexentry{Strings!\texttt{string}}{39}
 \indexentry{\textbf{throw}}{39}
 \indexentry{Input-output streams!\texttt{cerr}}{39}
-\indexentry{Exceptions!\textbf{try-catch}}{39}
-\indexentry{\textbf{throw}}{39}
-\indexentry{Exceptions!\texttt{runtime\_error}}{39}
-\indexentry{Input-output streams!\texttt{cerr}}{39}
-\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{39}
-\indexentry{Exceptions!\texttt{DivideByZero}}{39}
-\indexentry{Exceptions!\texttt{OtherException}}{39}
-\indexentry{\textbf{throw}}{39}
+\indexentry{Exceptions!\textbf{try-catch}}{40}
+\indexentry{\textbf{throw}}{40}
+\indexentry{Exceptions!\texttt{runtime\_error}}{40}
+\indexentry{Input-output streams!\texttt{cerr}}{40}
+\indexentry{Exceptions!\texttt{runtime\_error}!\texttt{what}}{40}
+\indexentry{Exceptions!\texttt{DivideByZero}}{40}
+\indexentry{Exceptions!\texttt{OtherException}}{40}
+\indexentry{\textbf{throw}}{40}
 \indexentry{\textbf{throw}}{40}
 \indexentry{Exceptions!Basic guarantee}{40}
 \indexentry{Pointers!\texttt{void $\ast$}}{40}
 \indexentry{Exceptions!\textbf{try-catch}}{40}
 \indexentry{\textbf{delete}}{40}
 \indexentry{\textbf{throw}}{40}
-\indexentry{Templates!function}{40}
-\indexentry{\textbf{template}|see{Templates}}{40}
-\indexentry{Templates!\textbf{template}}{40}
+\indexentry{Templates!function}{41}
+\indexentry{\textbf{template}|see{Templates}}{41}
+\indexentry{Templates!\textbf{template}}{41}
 \indexentry{Templates!template type deduction}{41}
 \indexentry{Templates!class}{41}
 \indexentry{Templates!type generator}{41}
@@ -655,20 +658,20 @@
 \indexentry{\textbf{explicit}}{41}
 \indexentry{\texttt{initializer\_list}}{41}
 \indexentry{Constants!\textbf{const}}{41}
-\indexentry{Constants!\textbf{const}}{41}
-\indexentry{\texttt{operator=}}{41}
-\indexentry{\texttt{operator=}}{41}
-\indexentry{\textbf{delete}}{41}
-\indexentry{\textbf{virtual}}{41}
-\indexentry{Classes!virtual destructor}{41}
-\indexentry{\texttt{size\_t}}{41}
-\indexentry{Constants!\textbf{const}}{41}
-\indexentry{\texttt{size\_t}}{41}
-\indexentry{Constants!\textbf{const}}{41}
-\indexentry{\texttt{size\_t}}{41}
-\indexentry{Constants!\textbf{const}}{41}
-\indexentry{\texttt{size\_t}}{41}
-\indexentry{\texttt{size\_t}}{41}
+\indexentry{Constants!\textbf{const}}{42}
+\indexentry{\texttt{operator=}}{42}
+\indexentry{\texttt{operator=}}{42}
+\indexentry{\textbf{delete}}{42}
+\indexentry{\textbf{virtual}}{42}
+\indexentry{Classes!virtual destructor}{42}
+\indexentry{\texttt{size\_t}}{42}
+\indexentry{Constants!\textbf{const}}{42}
+\indexentry{\texttt{size\_t}}{42}
+\indexentry{Constants!\textbf{const}}{42}
+\indexentry{\texttt{size\_t}}{42}
+\indexentry{Constants!\textbf{const}}{42}
+\indexentry{\texttt{size\_t}}{42}
+\indexentry{\texttt{size\_t}}{42}
 \indexentry{\texttt{size\_t}}{42}
 \indexentry{\texttt{size\_t}}{42}
 \indexentry{\texttt{size\_t}}{42}
@@ -686,10 +689,10 @@
 \indexentry{\textbf{this}}{42}
 \indexentry{Templates!specialisation}{42}
 \indexentry{Templates!instantiation}{42}
-\indexentry{\texttt{size\_t}}{42}
-\indexentry{Templates!non-type parameters}{42}
-\indexentry{Templates!\textbf{template}}{42}
-\indexentry{Classes!\textbf{class}!\texttt{Wrapper}}{42}
+\indexentry{\texttt{size\_t}}{43}
+\indexentry{Templates!non-type parameters}{43}
+\indexentry{Templates!\textbf{template}}{43}
+\indexentry{Classes!\textbf{class}!\texttt{Wrapper}}{43}
 \indexentry{Constants!\textbf{const}}{43}
 \indexentry{Constants!\textbf{const}}{43}
 \indexentry{\texttt{size\_t}}{43}
@@ -705,16 +708,16 @@
 \indexentry{Constants!\textbf{const}}{43}
 \indexentry{Constants!\textbf{const}}{43}
 \indexentry{\texttt{operator=}}{43}
-\indexentry{\texttt{operator=}}{43}
-\indexentry{\textbf{virtual}}{43}
-\indexentry{Classes!virtual destructor}{43}
-\indexentry{Constants!\textbf{const}}{43}
-\indexentry{Constants!\textbf{const}}{43}
-\indexentry{\texttt{size\_t}}{43}
-\indexentry{Constants!\textbf{const}}{43}
-\indexentry{\texttt{size\_t}}{43}
-\indexentry{\texttt{size\_t}}{43}
-\indexentry{\texttt{size\_t}}{43}
+\indexentry{\texttt{operator=}}{44}
+\indexentry{\textbf{virtual}}{44}
+\indexentry{Classes!virtual destructor}{44}
+\indexentry{Constants!\textbf{const}}{44}
+\indexentry{Constants!\textbf{const}}{44}
+\indexentry{\texttt{size\_t}}{44}
+\indexentry{Constants!\textbf{const}}{44}
+\indexentry{\texttt{size\_t}}{44}
+\indexentry{\texttt{size\_t}}{44}
+\indexentry{\texttt{size\_t}}{44}
 \indexentry{\texttt{size\_t}}{44}
 \indexentry{\texttt{size\_t}}{44}
 \indexentry{\textbf{nullptr}}{44}
@@ -725,12 +728,12 @@
 \indexentry{Templates!friend operator}{44}
 \indexentry{Templates!\textbf{template}}{44}
 \indexentry{Classes!\textbf{class}!\texttt{SimpleNode<T>}}{44}
-\indexentry{Constants!\textbf{const}}{44}
-\indexentry{\texttt{operator=}}{44}
-\indexentry{Templates!\textbf{template}}{44}
-\indexentry{Constants!\textbf{const}}{44}
-\indexentry{\textbf{friend}}{44}
-\indexentry{\texttt{operator<<}}{44}
+\indexentry{Constants!\textbf{const}}{45}
+\indexentry{\texttt{operator=}}{45}
+\indexentry{Templates!\textbf{template}}{45}
+\indexentry{Constants!\textbf{const}}{45}
+\indexentry{\textbf{friend}}{45}
+\indexentry{\texttt{operator<<}}{45}
 \indexentry{Iterators}{45}
 \indexentry{\texttt{<vector>}}{45}
 \indexentry{Containers!\texttt{vector}}{45}
@@ -745,13 +748,13 @@
 \indexentry{Input-output streams!\texttt{cout}}{45}
 \indexentry{\texttt{const\_iterator}|see{Iterators}}{45}
 \indexentry{Iterators!\texttt{vector}!\texttt{const\_iterator}}{45}
-\indexentry{range-for-loop}{45}
-\indexentry{Input-output streams!\texttt{cout}}{45}
-\indexentry{\texttt{reverse\_iterator}|see{Iterators}}{45}
-\indexentry{Iterators!\texttt{vector}!\texttt{reverse\_iterator}}{45}
-\indexentry{range-for-loop}{45}
-\indexentry{Input-output streams!\texttt{cout}}{45}
-\indexentry{Iterators!custom implementation}{45}
+\indexentry{range-for-loop}{46}
+\indexentry{Input-output streams!\texttt{cout}}{46}
+\indexentry{\texttt{reverse\_iterator}|see{Iterators}}{46}
+\indexentry{Iterators!\texttt{vector}!\texttt{reverse\_iterator}}{46}
+\indexentry{range-for-loop}{46}
+\indexentry{Input-output streams!\texttt{cout}}{46}
+\indexentry{Iterators!custom implementation}{46}
 \indexentry{\texttt{<cstdint>}}{46}
 \indexentry{Classes!\textbf{class}!\texttt{PowerRange}}{46}
 \indexentry{Operator overloading!postfix increment ++}{46}
@@ -777,12 +780,12 @@
 \indexentry{Templates!\textbf{template}}{47}
 \indexentry{Classes!\textbf{class}!\texttt{LList<T>}}{47}
 \indexentry{\textbf{nullptr}}{47}
-\indexentry{\textbf{this}}{47}
-\indexentry{Constants!\textbf{const}}{47}
-\indexentry{\texttt{operator=}}{47}
-\indexentry{\textbf{virtual}}{47}
-\indexentry{Classes!virtual destructor}{47}
-\indexentry{Constants!\textbf{const}}{47}
+\indexentry{\textbf{this}}{48}
+\indexentry{Constants!\textbf{const}}{48}
+\indexentry{\texttt{operator=}}{48}
+\indexentry{\textbf{virtual}}{48}
+\indexentry{Classes!virtual destructor}{48}
+\indexentry{Constants!\textbf{const}}{48}
 \indexentry{Constants!\textbf{const}}{48}
 \indexentry{\textbf{nullptr}}{48}
 \indexentry{Templates!\textbf{template}}{48}
@@ -806,9 +809,9 @@
 \indexentry{\texttt{operator==}}{48}
 \indexentry{Constants!\textbf{const}}{48}
 \indexentry{\texttt{operator"!=}}{48}
-\indexentry{\textbf{nullptr}}{48}
-\indexentry{Input-output streams!\texttt{cout}}{48}
-\indexentry{Input-output streams!\texttt{cout}}{48}
+\indexentry{\textbf{nullptr}}{49}
+\indexentry{Input-output streams!\texttt{cout}}{49}
+\indexentry{Input-output streams!\texttt{cout}}{49}
 \indexentry{\texttt{find}|see{Algorithms}}{49}
 \indexentry{Algorithms!\texttt{find}}{49}
 \indexentry{Iterators!\texttt{LList<T>}!\texttt{iterator}}{49}
@@ -828,13 +831,13 @@
 \indexentry{Containers!\texttt{list}}{49}
 \indexentry{Iterators!\texttt{list}!\texttt{iterator}}{49}
 \indexentry{Algorithms!\texttt{advance}}{49}
-\indexentry{Containers!\texttt{list}!\texttt{erase}}{49}
-\indexentry{Input-output streams!\texttt{cout}}{49}
-\indexentry{range-for-loop}{49}
-\indexentry{\textbf{auto}}{49}
-\indexentry{Input-output streams!\texttt{cout}}{49}
-\indexentry{Containers!adapter|see{\texttt{stack}}}{49}
-\indexentry{\texttt{<stack>}}{49}
+\indexentry{Containers!\texttt{list}!\texttt{erase}}{50}
+\indexentry{Input-output streams!\texttt{cout}}{50}
+\indexentry{range-for-loop}{50}
+\indexentry{\textbf{auto}}{50}
+\indexentry{Input-output streams!\texttt{cout}}{50}
+\indexentry{Containers!adapter|see{\texttt{stack}}}{50}
+\indexentry{\texttt{<stack>}}{50}
 \indexentry{\texttt{stack}|see{Containers}}{50}
 \indexentry{Containers!\texttt{stack}}{50}
 \indexentry{Containers!\texttt{stack}!\texttt{push}}{50}
@@ -851,16 +854,16 @@
 \indexentry{Constants!\textbf{const}}{50}
 \indexentry{Iterators!\texttt{set}!\texttt{const\_iterator}}{50}
 \indexentry{Input-output streams!\texttt{cout}}{50}
-\indexentry{Containers!associative|see{\texttt{map}}}{50}
-\indexentry{\texttt{<map>}}{50}
-\indexentry{\texttt{<utility>}}{50}
-\indexentry{\texttt{<string>}}{50}
-\indexentry{\texttt{map}|see{Containers}}{50}
-\indexentry{Containers!\texttt{map}}{50}
-\indexentry{Strings!\texttt{string}}{50}
-\indexentry{\texttt{pair}}{50}
-\indexentry{Strings!\texttt{string}}{50}
-\indexentry{Containers!\texttt{map}!\texttt{insert}}{50}
+\indexentry{Containers!associative|see{\texttt{map}}}{51}
+\indexentry{\texttt{<map>}}{51}
+\indexentry{\texttt{<utility>}}{51}
+\indexentry{\texttt{<string>}}{51}
+\indexentry{\texttt{map}|see{Containers}}{51}
+\indexentry{Containers!\texttt{map}}{51}
+\indexentry{Strings!\texttt{string}}{51}
+\indexentry{\texttt{pair}}{51}
+\indexentry{Strings!\texttt{string}}{51}
+\indexentry{Containers!\texttt{map}!\texttt{insert}}{51}
 \indexentry{\texttt{make\_pair}}{51}
 \indexentry{Strings!\texttt{string}}{51}
 \indexentry{Iterators!\texttt{map}!\texttt{iterator}}{51}
@@ -877,11 +880,11 @@
 \indexentry{Containers!\texttt{multimap}}{51}
 \indexentry{Containers!\texttt{multimap}!\texttt{insert}}{51}
 \indexentry{Containers!\texttt{multimap}!\texttt{equal\_range}}{51}
-\indexentry{STL}{51}
-\indexentry{\texttt{<algorithm>}}{51}
-\indexentry{\texttt{<vector>}}{51}
-\indexentry{\texttt{vector}|see{Containers}}{51}
-\indexentry{Containers!\texttt{vector}}{51}
+\indexentry{STL}{52}
+\indexentry{\texttt{<algorithm>}}{52}
+\indexentry{\texttt{<vector>}}{52}
+\indexentry{\texttt{vector}|see{Containers}}{52}
+\indexentry{Containers!\texttt{vector}}{52}
 \indexentry{Iterators!\texttt{vector}!\texttt{iterator}}{52}
 \indexentry{Algorithms!\texttt{find}}{52}
 \indexentry{Algorithms!\texttt{find}}{52}
@@ -893,16 +896,16 @@
 \indexentry{Constants!\textbf{const}}{52}
 \indexentry{Algorithms!\texttt{find\_if}}{52}
 \indexentry{Algorithms!\texttt{find\_if}}{52}
-\indexentry{\texttt{<algorithm>}}{52}
-\indexentry{\texttt{<vector>}}{52}
-\indexentry{\texttt{<list>}}{52}
-\indexentry{\texttt{<set>}}{52}
-\indexentry{\texttt{<numeric>}}{52}
-\indexentry{\texttt{<functional>}}{52}
-\indexentry{Algorithms!\texttt{accumulate}}{52}
-\indexentry{\texttt{accumulate}|see{accumulate}}{52}
-\indexentry{Algorithms!generic \texttt{accumulate}}{52}
-\indexentry{\texttt{multiplies<int>()}}{52}
+\indexentry{\texttt{<algorithm>}}{53}
+\indexentry{\texttt{<vector>}}{53}
+\indexentry{\texttt{<list>}}{53}
+\indexentry{\texttt{<set>}}{53}
+\indexentry{\texttt{<numeric>}}{53}
+\indexentry{\texttt{<functional>}}{53}
+\indexentry{Algorithms!\texttt{accumulate}}{53}
+\indexentry{\texttt{accumulate}|see{accumulate}}{53}
+\indexentry{Algorithms!generic \texttt{accumulate}}{53}
+\indexentry{\texttt{multiplies<int>()}}{53}
 \indexentry{Containers!\texttt{vector}}{53}
 \indexentry{Containers!\texttt{vector}}{53}
 \indexentry{Algorithms!\texttt{inner\_product}}{53}
@@ -914,7 +917,7 @@
 \indexentry{\texttt{ostream\_iterator}}{53}
 \indexentry{Algorithms!\texttt{sort}}{53}
 \indexentry{\texttt{sort}|see{Algorithms}}{53}
-\indexentry{Algorithms!\texttt{binary\_search}}{53}
-\indexentry{\texttt{binary\_search}|see{Algorithms}}{53}
-\indexentry{Algorithms!\texttt{reverse}}{53}
-\indexentry{\texttt{reverse}|see{Algorithms}}{53}
+\indexentry{Algorithms!\texttt{binary\_search}}{54}
+\indexentry{\texttt{binary\_search}|see{Algorithms}}{54}
+\indexentry{Algorithms!\texttt{reverse}}{54}
+\indexentry{\texttt{reverse}|see{Algorithms}}{54}
