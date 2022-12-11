@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.84~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.85~-~GNU GPL v3.0}
 
 %\layout
 
@@ -298,9 +298,9 @@ double =   static_cast<double>(b);(*\index{\textbf{static\_cast}|see{Type castin
 #include <type_traits>(*\index{\texttt{<type\_traits>}}*)
 
 // example usage
-cout << is_integral<int>::value; // (*true*)(*\index{\texttt{is\_integral<T>::value}}*)
-cout << is_integral<float>::value; // (*false*)
-cout << is_floating_point<double>::value; // (*true*)(*\index{\texttt{is\_floating<T>::value}}*)
+cout << is_integral<int>::value; // (*true*)(*\index{\texttt{is\_integral<T>::value}}*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << is_integral<float>::value; // (*false*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << is_floating_point<double>::value; // (*true*)(*\index{\texttt{is\_floating<T>::value}}*)(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 %
 % Storage classes
@@ -316,9 +316,9 @@ class Object(*\index{Classes!\textbf{class}!\texttt{Object}}*)
 {
 public:
     Object(string obj_name) : name{obj_name} {
-        cout << "Created object: " << obj_name << endl;
+        cout << "Created object: " << obj_name << endl;(*\index{Input-output streams!\texttt{cout}}*)
     }
-    ~Object() { cout << "Destroyed object: " << name << endl; }
+    ~Object() { cout << "Destroyed object: " << name << endl; }(*\index{Input-output streams!\texttt{cout}}*)
 private:
     string name{};
 };
@@ -384,35 +384,35 @@ static Object b{"b"};
 
 void func(void)
 {
-    cout<< "Start of func()" << endl;
+    cout<< "Start of func()" << endl;(*\index{Input-output streams!\texttt{cout}}*)
     
     // static storage, local variable
     static Object c{"c"};
     
-    cout<< "End of func()" << endl;
+    cout<< "End of func()" << endl;(*\index{Input-output streams!\texttt{cout}}*)
 }
 
 int main()
 {
-    cout<< "Start of main()" << endl;
+    cout<< "Start of main()" << endl;(*\index{Input-output streams!\texttt{cout}}*)
     
     func();
     
     // local scope
     {
-        cout<< "Start of local scope" << endl;
+        cout<< "Start of local scope" << endl;(*\index{Input-output streams!\texttt{cout}}*)
         
         // automatic storage object
         Object d{"d"};
         
-        cout<< "End of local scope" << endl;
+        cout<< "End of local scope" << endl;(*\index{Input-output streams!\texttt{cout}}*)
     }
     
     // dynamic storage object
     Object* e = new Object{"e"};
     delete(e);
     
-    cout<< "End of main()" << endl;
+    cout<< "End of main()" << endl;(*\index{Input-output streams!\texttt{cout}}*)
     return 0;
 }
 \end{lstlisting}
@@ -474,15 +474,15 @@ uint64_t d;(*\index{\texttt{uint64\_t}}*)
 #include <limits>(*\index{\texttt{<limits>}}*)
 
 // (*int*) type
-cout << numeric_limits<int>::min() << endl; // (*-2147483648*)
-cout << numeric_limits<int>::max() << endl; // (*2147483647*)
+cout << numeric_limits<int>::min() << endl; // (*-2147483648*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << numeric_limits<int>::max() << endl; // (*2147483647*)(*\index{Input-output streams!\texttt{cout}}*)
     
 // (*double*) type
-cout << numeric_limits<double>::min() << endl; // (*2.22507e-308*)
-cout << numeric_limits<double>::max() << endl; // (*1.79769e+308*)
-cout << numeric_limits<double>::lowest() << endl; // (*-1.79769e+308*)
-cout << numeric_limits<double>::epsilon() << endl; // (*2.22045e-16*)
-cout << numeric_limits<double>::round_error() << endl; // (*0.5*)
+cout << numeric_limits<double>::min() << endl; // (*2.22507e-308*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << numeric_limits<double>::max() << endl; // (*1.79769e+308*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << numeric_limits<double>::lowest() << endl; // (*-1.79769e+308*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << numeric_limits<double>::epsilon() << endl; // (*2.22045e-16*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << numeric_limits<double>::round_error() << endl; // (*0.5*)(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 %
 % Functions
@@ -568,6 +568,36 @@ void legacy_function(int p);
 }
 #endif
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Uniform container for callable objects:\index{Functions!uniform container}
+\end{enumerate}
+\begin{lstlisting}
+#include <function>(*\index{\texttt{<function>}}*)
+
+// empty function
+function<void()> func;
+
+// this causes an exception because (*func*) 
+// doesn't point to anything
+try {(*\index{Exceptions!\textbf{try-catch}}*)
+    func();
+} catch (const bad_function_call& e) {(*\index{Exceptions!\texttt{bad\_function\_call}}*)
+    cout << "Exception: " << e.what() << endl;(*\index{Exceptions!\texttt{bad\_function\_call}!\texttt{what}}*)(*\index{Input-output streams!\texttt{cout}}*)
+}
+
+// example function
+void print_sthg() { cout << "Hello" << endl; }(*\index{Input-output streams!\texttt{cout}}*)
+
+// assignment and call
+func = print_sthg;
+func();
+
+// works also with lambdas
+function<void()> func2 { []() { cout << "Hello" << endl; } };(*\index{Input-output streams!\texttt{cout}}*)
+
+func2();
+\end{lstlisting}
+
 %
 % Modifiers
 %
@@ -705,7 +735,7 @@ Function ee_gr{[n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
 int n = 5;
 Function ee_gr{[&n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
         {-8.0,8.0},{320,240},400};
-// now (*n*) is 6
+// now (*n*) is 6!
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] With access to all local variables (default copy by value):\index{Lambda expressions!with access to local variables!default copy by value}
@@ -715,11 +745,10 @@ Function ee_gr{[&n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
 // are available for the function to be used
 int n = 5;
 int m = 6;
-Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,
+Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,(*\index{\texttt{[= ]}}*)
         {-8.0,8.0},{320,240},400};
-// now (*n*) stays 5 and (*m*) stays 6 
+// (*n*) stays 5 and (*m*) stays 6 
  \end{lstlisting}
-
 \begin{enumerate}
 \item[$\Rightarrow$] With access to all local variables (default copy by reference):\index{Lambda expressions!with access to local variables!default copy by reference}
 \end{enumerate}
@@ -728,9 +757,9 @@ Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,
 // are available for the function to be used and modified
 int n = 5;
 int m = 6;
-Function ee_gr{[& ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,
+Function ee_gr{[& ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,(*\index{\texttt{[\& ]}}*)
         {-8.0,8.0},{320,240},400};
-// now (*n*) is 6 and (*m*) is 7
+// now (*n*) is 6 and (*m*) is 7!
  \end{lstlisting}
 %
 % Namespaces
@@ -826,7 +855,7 @@ auto gen_mt = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)
                     mt19937_64{91586});(*\index{Random numbers!Mersenne Twister engine}*)(*\index{\texttt{mt19937\_64}}*)
 
 // call the function objects to get random numbers
-cout << gen_def() << gen_mt() << endl;
+cout << gen_def() << gen_mt() << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 %
 % Bitsets
@@ -843,12 +872,12 @@ cout << gen_def() << gen_mt() << endl;
 bitset<8> a{87};   // (*01010111*)(*\index{\texttt{bitset<N>}}*)
 bitset<8> b{0x87}; // (*10000111*)
     
-cout << a << endl << b << endl;
+cout << a << endl << b << endl;(*\index{Input-output streams!\texttt{cout}}*)
     
 // boolean and
 bitset<8> c = a & b;
     
-cout << c << endl; // (*00000111*)
+cout << c << endl; // (*00000111*)(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Access to single bits:\index{Bitsets!access to single bits}
@@ -858,7 +887,7 @@ cout << c << endl; // (*00000111*)
 // prints out single bits reverting the order
 // (*11100000*)
 for (auto i=0; i<8; ++i)
-     cout << c[i];
+     cout << c[i];(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 %
 % Chrono
@@ -880,7 +909,7 @@ auto t1 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
 auto t2 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
 
 // run-time in milliseconds
-cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)
+cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 %
 %
@@ -1010,8 +1039,8 @@ int amount = 12;
 int& ref_amount = amount;(*\index{Reference}*)
 
 // outputs (*12*)
-cout << "amount = " << amount << endl;
-cout << "ref_amount = " << ref_amount << endl;
+cout << "amount = " << amount << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << "ref_amount = " << ref_amount << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] A variable reference cannot be made referring to another variable at runtime:
@@ -1024,8 +1053,8 @@ int new_amount = 24;
 ref_amount = new_amount;
 
 // outputs (*24*)
-cout << "amount = " << amount << endl;
-cout << "ref_amount = " << ref_amount << endl;
+cout << "amount = " << amount << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << "ref_amount = " << ref_amount << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] A variable reference can be used as input and output parameter of a function:
@@ -1042,7 +1071,7 @@ int a_variable = 24;
 do_something(a_variable);
 
 // outputs (*48*)
-cout << "a_variable = " << a_variable << endl;
+cout << "a_variable = " << a_variable << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 %
 % C-Strings
@@ -3134,7 +3163,7 @@ p = find_if(v.begin(),v.end(),TestGreater(7));(*\index{Algorithms!\texttt{find\_
 // adds the values from a sequence
 // the last parameter is the initial value
 // the return type is the type of the initial value!
-long res = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{accumulate}}*)(*\index{\texttt{accumulate}|see{accumulate}}*)
+long res = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{accumulate}}*)(*\index{\texttt{accumulate}|see{Algorithms}}*)
 
 // generic accumulate performing multiplication instead of sum(*\index{Algorithms!generic \texttt{accumulate}}*)
 // passes a function object (*multiplies<int>()*) defined in (*<functional>*)(*\index{\texttt{multiplies<int>()}}*)

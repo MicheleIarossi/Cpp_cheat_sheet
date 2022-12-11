@@ -8,14 +8,14 @@
 \contentsline {section}{Integer types}{7}{}%
 \contentsline {section}{Limits}{7}{}%
 \contentsline {section}{Functions}{8}{}%
-\contentsline {section}{Modifiers}{9}{}%
+\contentsline {section}{Modifiers}{10}{}%
 \contentsline {section}{Operators}{10}{}%
 \contentsline {section}{Lambda expressions}{11}{}%
 \contentsline {section}{Namespaces and aliases}{12}{}%
 \contentsline {section}{Random numbers}{13}{}%
-\contentsline {section}{Bitsets}{13}{}%
+\contentsline {section}{Bitsets}{14}{}%
 \contentsline {section}{Chrono}{14}{}%
-\contentsline {section}{Arrays}{14}{}%
+\contentsline {section}{Arrays}{15}{}%
 \contentsline {section}{Pointers}{15}{}%
 \contentsline {section}{References}{16}{}%
 \contentsline {section}{C-Strings}{17}{}%
@@ -23,14 +23,14 @@
 \contentsline {section}{Files}{20}{}%
 \contentsline {section}{Strings}{23}{}%
 \contentsline {section}{String streams}{25}{}%
-\contentsline {section}{Vectors}{25}{}%
+\contentsline {section}{Vectors}{26}{}%
 \contentsline {section}{Enumerations}{27}{}%
 \contentsline {section}{Classes}{27}{}%
 \contentsline {section}{Operator overloading}{32}{}%
 \contentsline {section}{Inheritance}{33}{}%
-\contentsline {section}{Polymorphism}{38}{}%
-\contentsline {section}{Exceptions}{39}{}%
+\contentsline {section}{Polymorphism}{39}{}%
+\contentsline {section}{Exceptions}{40}{}%
 \contentsline {section}{Templates}{41}{}%
-\contentsline {section}{Iterators}{45}{}%
-\contentsline {section}{Containers}{49}{}%
+\contentsline {section}{Iterators}{46}{}%
+\contentsline {section}{Containers}{50}{}%
 \contentsline {section}{Algorithms}{52}{}%
