@@ -569,7 +569,7 @@ void legacy_function(int p);
 #endif
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Uniform container for callable objects:\index{Functions!uniform container}
+\item[$\Rightarrow$] Uniform container for callable objects\index{Functions!uniform container!empty function}\\ \\ Empty function and exception:
 \end{enumerate}
 \begin{lstlisting}
 #include <function>(*\index{\texttt{<function>}}*)
@@ -584,20 +584,26 @@ try {(*\index{Exceptions!\textbf{try-catch}}*)
 } catch (const bad_function_call& e) {(*\index{Exceptions!\texttt{bad\_function\_call}}*)
     cout << "Exception: " << e.what() << endl;(*\index{Exceptions!\texttt{bad\_function\_call}!\texttt{what}}*)(*\index{Input-output streams!\texttt{cout}}*)
 }
-
+\end{lstlisting}
+\begin{enumerate}
+\item[] Assignment and initialization:\index{Functions!uniform container!assignment and initialization}
+\end{enumerate}
+\begin{lstlisting}
 // example function
 void print_sthg() { cout << "Hello" << endl; }(*\index{Input-output streams!\texttt{cout}}*)
 
 // assignment and call
 func = print_sthg;
+
+// call
 func();
 
 // works also with lambdas
 function<void()> func2 { []() { cout << "Hello" << endl; } };(*\index{Input-output streams!\texttt{cout}}*)
 
+// call
 func2();
 \end{lstlisting}
-
 %
 % Modifiers
 %
