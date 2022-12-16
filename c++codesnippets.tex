@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.85~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.86~-~GNU GPL v3.0}
 
 %\layout
 
@@ -161,7 +161,7 @@ constexpr int c = func(122);  // (*149*)(*\index{Constants!\textbf{constexpr}}*)
 \end{enumerate}
 \begin{lstlisting}
 // (*1000000*)
-constexpr int k = 1'000'000;*\index{Constants!\textbf{constexpr}}*)
+constexpr int k = 1'000'000;(*\index{Constants!\textbf{constexpr}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \textbf{const} variables don't change at runtime. They cannot be declared as
@@ -751,8 +751,8 @@ Function ee_gr{[&n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
 // are available for the function to be used
 int n = 5;
 int m = 6;
-Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,(*\index{\texttt{[= ]}}*)
-        {-8.0,8.0},{320,240},400};
+Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},
+                          {-8.0,8.0}, 0.001, {-8.0,8.0},{320,240},400};(*\index{\texttt{[= ]}}*)
 // (*n*) stays 5 and (*m*) stays 6 
  \end{lstlisting}
 \begin{enumerate}
@@ -763,8 +763,8 @@ Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,(*
 // are available for the function to be used and modified
 int n = 5;
 int m = 6;
-Function ee_gr{[& ](double x){n++; m++; return expe(x,n+m);},{-8.0,8.0},0.001,(*\index{\texttt{[\& ]}}*)
-        {-8.0,8.0},{320,240},400};
+Function ee_gr{[& ](double x){n++; m++; return expe(x,n+m);},
+                          {-8.0,8.0},0.001, {-8.0,8.0},{320,240},400};(*\index{\texttt{[\& ]}}*)
 // now (*n*) is 6 and (*m*) is 7!
  \end{lstlisting}
 %
@@ -1012,22 +1012,99 @@ for (int i=0; i<5; i++)
     delete[] m[i];(*\index{\textbf{delete}}*)
 delete[] m;(*\index{\textbf{delete}}*)
 \end{lstlisting}
+%
+% Smart pointers
+%
+\section{Smart pointers}
+\small
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{unique\_ptr}\\ \\
-Holds ownership of a dynamic object according to RAII, i.e. resource acquisition is initialization\index{Pointers!RAII}. It will 
-automatically destroy the object if needed:
+Holds exclusive ownership (cannot be copied!) of a dynamic object according to RAII, i.e. resource acquisition is initialization\index{Smart pointers!RAII}. It will 
+automatically destroy the object if needed. Ownership can be transferred, i.e. move is supported but copy not. 
 \end{enumerate}
 \begin{lstlisting}
 #include <memory>(*\index{\texttt{<memory>}}*)
 
-MyVector<int>* my_function()
-{
-    unique_ptr<MyVector<int>*> p { new MyVector<int>};(*\index{\textbf{new}}*)(*\index{\texttt{unique\_ptr}|see{Pointers}}*)(*\index{Pointers!\texttt{unique\_ptr}}*)
-    /* ... */
-    /* if something goes wrong, deletes the object */
-   /* ... */   
-    return p.release(); // returns the pointer
-}
+// unique pointer to an (*int*) having value (*5*)
+unique_ptr<int> p_int{ new int{5} };(*\index{Smart pointers!\texttt{unique\_ptr}}*)
+
+// evaluates to (*false*)
+bool empty = ( p_int ) ? false : true;
+
+// empty pointer
+unique_ptr<int> p_int{};
+
+// evaluate to (*true*)
+bool empty = ( p_int ) ? false : true;
+bool empty = ( p_int == nullptr );
+bool empty = ( p_int.get() == nullptr );(*\index{Smart pointers!\texttt{get}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Supports pointer semantics, i.e. \texttt{*} or \texttt{->}:
+\end{enumerate}
+\begin{lstlisting}
+// unique pointer to an (*int*) having value (*5*)
+unique_ptr<int> p_int{ new int{5} };
+
+// prints (*5*)
+cout << *p_out << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[] Supports swapping:
+\end{enumerate}
+\begin{lstlisting}
+unique_ptr<int> p_int{ new int{5} };
+unique_ptr<int> q_int{ new int{7} };
+    
+p_int.swap(q_int);(*\index{Smart pointers!\texttt{swap}}*)
+
+// prints (*7*) and (*5*)
+cout << *p_int << endl;
+cout << *q_int << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[] Supports reset:
+\end{enumerate}
+\begin{lstlisting}
+unique_ptr<int> p_int{ new int{5} };
+
+// destroys (*p\_int*)    
+p_int.reset();(*\index{Smart pointers!\texttt{reset}}*)
+
+// evaluates to (*true*)
+bool empty = ( p_int == nullptr );
+
+unique_ptr<int> p_int{ new int{5} };
+
+p_int.reset( new int{7} );
+\end{lstlisting}
+\begin{enumerate}
+\item[] Supports replacement:
+\end{enumerate}
+\begin{lstlisting}
+unique_ptr<int> p_int{ new int{5} };
+
+// replacement
+p_int.reset( new int{7} );(*\index{Smart pointers!replacement}*)
+
+// prints (*7*)
+cout << *p_int << endl;
+
+// evaluates to (*true*)
+bool empty = ( q_int == nullptr );
+\end{lstlisting}
+\begin{enumerate}
+\item[] Supports move transferability:
+\end{enumerate}
+\begin{lstlisting}
+unique_ptr<int> p_int{ new int{5} };
+unique_ptr<int> q_int{ new int{7} };
+
+// move
+p_int = move(q_int);(*\index{Smart pointers!move}*)
+
+// prints (*7*)
+cout << *p_int << endl;
 \end{lstlisting}
 %
 % References

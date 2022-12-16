@@ -17,20 +17,21 @@
 \contentsline {section}{Chrono}{15}{}%
 \contentsline {section}{Arrays}{15}{}%
 \contentsline {section}{Pointers}{16}{}%
-\contentsline {section}{References}{17}{}%
-\contentsline {section}{C-Strings}{18}{}%
-\contentsline {section}{Input-output streams}{18}{}%
-\contentsline {section}{Files}{21}{}%
-\contentsline {section}{Strings}{24}{}%
-\contentsline {section}{String streams}{25}{}%
-\contentsline {section}{Vectors}{26}{}%
-\contentsline {section}{Enumerations}{27}{}%
-\contentsline {section}{Classes}{28}{}%
-\contentsline {section}{Operator overloading}{32}{}%
-\contentsline {section}{Inheritance}{34}{}%
-\contentsline {section}{Polymorphism}{39}{}%
-\contentsline {section}{Exceptions}{40}{}%
-\contentsline {section}{Templates}{41}{}%
-\contentsline {section}{Iterators}{46}{}%
-\contentsline {section}{Containers}{50}{}%
-\contentsline {section}{Algorithms}{52}{}%
+\contentsline {section}{Smart pointers}{16}{}%
+\contentsline {section}{References}{18}{}%
+\contentsline {section}{C-Strings}{19}{}%
+\contentsline {section}{Input-output streams}{20}{}%
+\contentsline {section}{Files}{22}{}%
+\contentsline {section}{Strings}{25}{}%
+\contentsline {section}{String streams}{27}{}%
+\contentsline {section}{Vectors}{27}{}%
+\contentsline {section}{Enumerations}{29}{}%
+\contentsline {section}{Classes}{29}{}%
+\contentsline {section}{Operator overloading}{34}{}%
+\contentsline {section}{Inheritance}{35}{}%
+\contentsline {section}{Polymorphism}{40}{}%
+\contentsline {section}{Exceptions}{41}{}%
+\contentsline {section}{Templates}{43}{}%
+\contentsline {section}{Iterators}{47}{}%
+\contentsline {section}{Containers}{51}{}%
+\contentsline {section}{Algorithms}{54}{}%
