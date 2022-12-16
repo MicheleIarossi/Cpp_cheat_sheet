@@ -1,46 +1,46 @@
 This is makeindex, version 2.16 [TeX Live 2022] (kpathsea + Thai support).
 Scanning input file c++codesnippets.idx....
-!! Input index error (file = c++codesnippets.idx, line = 291):
+!! Input index error (file = c++codesnippets.idx, line = 310):
    -- Extra `!' at position 49 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 292):
+!! Input index error (file = c++codesnippets.idx, line = 311):
    -- Extra `!' at position 49 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 293):
+!! Input index error (file = c++codesnippets.idx, line = 312):
    -- Extra `!' at position 49 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 430):
+!! Input index error (file = c++codesnippets.idx, line = 449):
    -- Extra `!' at position 53 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 431):
+!! Input index error (file = c++codesnippets.idx, line = 450):
    -- Extra `!' at position 53 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 522):
+!! Input index error (file = c++codesnippets.idx, line = 541):
    -- Extra `!' at position 58 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 523):
+!! Input index error (file = c++codesnippets.idx, line = 542):
    -- Extra `!' at position 58 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 839):
+!! Input index error (file = c++codesnippets.idx, line = 858):
    -- Extra `!' at position 46 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 841):
+!! Input index error (file = c++codesnippets.idx, line = 860):
    -- Extra `!' at position 46 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 861):
+!! Input index error (file = c++codesnippets.idx, line = 880):
    -- Extra `!' at position 46 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 862):
+!! Input index error (file = c++codesnippets.idx, line = 881):
    -- Extra `!' at position 46 of first argument.
-done (955 entries accepted, 11 rejected).
-Sorting entries...........done (10790 comparisons).
+done (974 entries accepted, 11 rejected).
+Sorting entries..........done (10375 comparisons).
 Generating output file c++codesnippets.ind....
-## Warning (input = c++codesnippets.idx, line = 117; output = c++codesnippets.ind, line = 20):
+## Warning (input = c++codesnippets.idx, line = 117; output = c++codesnippets.ind, line = 21):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 159; output = c++codesnippets.ind, line = 26):
+## Warning (input = c++codesnippets.idx, line = 159; output = c++codesnippets.ind, line = 27):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 918; output = c++codesnippets.ind, line = 264):
+## Warning (input = c++codesnippets.idx, line = 910; output = c++codesnippets.ind, line = 267):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 868; output = c++codesnippets.ind, line = 265):
+## Warning (input = c++codesnippets.idx, line = 887; output = c++codesnippets.ind, line = 269):
    -- Conflicting entries: multiple encaps for the same page under same key.
-done (607 lines written, 4 warnings).
+done (619 lines written, 4 warnings).
 Output written in c++codesnippets.ind.
 Transcript written in c++codesnippets.ilg.

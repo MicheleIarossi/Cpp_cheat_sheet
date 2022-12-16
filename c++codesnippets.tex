@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.86~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.87~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1028,14 +1028,17 @@ automatically destroy the object if needed. Ownership can be transferred, i.e. m
 // unique pointer to an (*int*) having value (*5*)
 unique_ptr<int> p_int{ new int{5} };(*\index{Smart pointers!\texttt{unique\_ptr}}*)
 
+// alternative declaration
+auto p_int = make_unique<int>(5);(*\index{Smart pointers!\texttt{unique\_ptr}!\texttt{make\_unique}}*)(*\index{\texttt{make\_unique<T>}}*)
+
 // evaluates to (*false*)
-bool empty = ( p_int ) ? false : true;
+bool empty = ( p_int ) ? false : true;(*\index{\texttt{?}}*)
 
 // empty pointer
 unique_ptr<int> p_int{};
 
 // evaluate to (*true*)
-bool empty = ( p_int ) ? false : true;
+bool empty = ( p_int ) ? false : true;(*\index{\texttt{?}}*)
 bool empty = ( p_int == nullptr );
 bool empty = ( p_int.get() == nullptr );(*\index{Smart pointers!\texttt{get}}*)
 \end{lstlisting}
@@ -1089,9 +1092,6 @@ p_int.reset( new int{7} );(*\index{Smart pointers!replacement}*)
 
 // prints (*7*)
 cout << *p_int << endl;
-
-// evaluates to (*true*)
-bool empty = ( q_int == nullptr );
 \end{lstlisting}
 \begin{enumerate}
 \item[] Supports move transferability:
@@ -1105,6 +1105,86 @@ p_int = move(q_int);(*\index{Smart pointers!move}*)
 
 // prints (*7*)
 cout << *p_int << endl;
+
+// evaluates to (*true*)
+bool empty = ( q_int == nullptr );
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{shared\_ptr}\\ \\
+Has transferable non exclusive ownership (can be copied!) of a dynamic object according to RAII, i.e. resource acquisition is initialization\index{Smart pointers!RAII}. It will 
+automatically destroy the object if needed. Ownership can be transferred, i.e. move and copy are supported. 
+\end{enumerate}
+\begin{lstlisting}
+#include <memory>(*\index{\texttt{<memory>}}*)
+
+// shared pointer to an (*int*) having value (*5*)
+shared_ptr<int> p_int{ new int{5} };(*\index{Smart pointers!\texttt{shared\_ptr}}*)
+
+// alternative declaration
+auto p_int = make_shared<int>(5);(*\index{Smart pointers!\texttt{shared\_ptr}!\texttt{make\_shared}}*)(*\index{\texttt{make\_shared<T>}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Supports copying:
+\end{enumerate}
+\begin{lstlisting}
+// shared pointer to an (*int*) having value (*5*)
+shared_ptr<int> p_int{ new int{5} };(*\index{Smart pointers!\texttt{shared\_ptr}}*)
+
+// copy
+shared_ptr<int> q_int{ p_int };(*\index{Smart pointers!\texttt{shared\_ptr}!copying}*)
+
+// assignment
+q_int = p_int;(*\index{Smart pointers!\texttt{shared\_ptr}!assignment}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{weak\_ptr}\\ \\
+Has no ownership of the object pointed to. Tracks an existing object, allows conversion to a shared pointer only if the tracked object still exists. They are movable and copyable. 
+\end{enumerate}
+\begin{lstlisting}
+#include <memory>(*\index{\texttt{<memory>}}*)
+
+// shared pointer to an (*int*) having value (*5*)
+shared_ptr<int> p_int{ new int{5} };(*\index{Smart pointers!\texttt{shared\_ptr}}*)
+
+// tracks the shared object
+weak_ptr<int> wp_int { p_int };
+
+// lock returns a shared pointer owning the object now
+auto sh_ptr = wp_int.lock();(*\index{Smart pointers!\texttt{weak\_ptr}!\texttt{lock}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] If the tracked object doesn't exist, lock returns an empty pointer:
+\end{enumerate}
+\begin{lstlisting}
+// creates an empty weak pointer
+weak_ptr<int> wp_int {};
+
+{
+    // shared pointer to an (*int*) having value (*5*)
+    shared_ptr<int> p_int{ new int{6} };(*\index{Smart pointers!\texttt{shared\_ptr}}*)
+
+    // tracks the shared object
+    wp_int = p_int;
+    
+    // (*p\_int*) expires here
+}
+
+// attempt to own an expired object returns a null pointer
+auto sh_ptr = wp_int.lock();(*\index{Smart pointers!\texttt{weak\_ptr}!\texttt{lock}}*)
+
+// evaluates to (*true*)
+bool empty = ( sh_int == nullptr );
+\end{lstlisting}
+
+\begin{enumerate}
+\item[$\Rightarrow$] Optional deleter parameter:
+\end{enumerate}
+\begin{lstlisting}
+// deleter function object for a pointer to an (*int*)
+auto int_deleter = [](int *n) { delete n; };
+
+// unique pointer with deleter
+unique_ptr<int, decltype(int_deleter)> p_int{ new int{5}, int_deleter };(*\index{Smart pointers!deleter}*)(*\index{\textbf{decltype}}*)
 \end{lstlisting}
 %
 % References
