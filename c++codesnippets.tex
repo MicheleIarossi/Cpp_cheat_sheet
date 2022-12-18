@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.87~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.88~-~GNU GPL v3.0}
 
 %\layout
 
@@ -236,7 +236,7 @@ long n = 53;
 double *pd = reinterpret_cast<double *>(&n);(*\index{\textbf{reinterpret\_cast}|see{Type casting}}*)
 
 // prints out (*2.61855e-322*)
-cout << *pd << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << *pd << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Use \textbf{const\_cast} for removing the \textbf{const} attribute from a reference variable pointing to a non-const variable!\index{Type casting!\textbf{const\_cast}}
@@ -255,8 +255,8 @@ int& not_constant = const_cast<int&>(ref_constant);(*\index{\textbf{const\_cast}
 not_constant++;
 
 // outputs (*24*) for both
-cout << a_variable << endl;(*\index{Input-output streams!\texttt{cout}}*)
-cout << ref_constant << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << a_variable << endl;
+cout << ref_constant << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Use user-defined type conversions\\ \\ Conversions can be implicit or require an explicit cast:\index{Type casting!user defined type conversions}
@@ -298,9 +298,9 @@ double =   static_cast<double>(b);(*\index{\textbf{static\_cast}|see{Type castin
 #include <type_traits>(*\index{\texttt{<type\_traits>}}*)
 
 // example usage
-cout << is_integral<int>::value; // (*true*)(*\index{\texttt{is\_integral<T>::value}}*)(*\index{Input-output streams!\texttt{cout}}*)
-cout << is_integral<float>::value; // (*false*)(*\index{Input-output streams!\texttt{cout}}*)
-cout << is_floating_point<double>::value; // (*true*)(*\index{\texttt{is\_floating<T>::value}}*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << is_integral<int>::value; // (*true*)(*\index{\texttt{is\_integral<T>::value}}*)
+cout << is_integral<float>::value; // (*false*)
+cout << is_floating_point<double>::value; // (*true*)(*\index{\texttt{is\_floating<T>::value}}*)
 \end{lstlisting}
 %
 % Storage classes
@@ -316,9 +316,9 @@ class Object(*\index{Classes!\textbf{class}!\texttt{Object}}*)
 {
 public:
     Object(string obj_name) : name{obj_name} {
-        cout << "Created object: " << obj_name << endl;(*\index{Input-output streams!\texttt{cout}}*)
+        cout << "Created object: " << obj_name << endl;
     }
-    ~Object() { cout << "Destroyed object: " << name << endl; }(*\index{Input-output streams!\texttt{cout}}*)
+    ~Object() { cout << "Destroyed object: " << name << endl; }
 private:
     string name{};
 };
@@ -384,35 +384,35 @@ static Object b{"b"};
 
 void func(void)
 {
-    cout<< "Start of func()" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout<< "Start of func()" << endl;
     
     // static storage, local variable
     static Object c{"c"};
     
-    cout<< "End of func()" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout<< "End of func()" << endl;
 }
 
 int main()
 {
-    cout<< "Start of main()" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout<< "Start of main()" << endl;
     
     func();
     
     // local scope
     {
-        cout<< "Start of local scope" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+        cout<< "Start of local scope" << endl;
         
         // automatic storage object
         Object d{"d"};
         
-        cout<< "End of local scope" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+        cout<< "End of local scope" << endl;
     }
     
     // dynamic storage object
     Object* e = new Object{"e"};
     delete(e);
     
-    cout<< "End of main()" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout<< "End of main()" << endl;
     return 0;
 }
 \end{lstlisting}
@@ -474,15 +474,15 @@ uint64_t d;(*\index{\texttt{uint64\_t}}*)
 #include <limits>(*\index{\texttt{<limits>}}*)
 
 // (*int*) type
-cout << numeric_limits<int>::min() << endl; // (*-2147483648*)(*\index{Input-output streams!\texttt{cout}}*)
-cout << numeric_limits<int>::max() << endl; // (*2147483647*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << numeric_limits<int>::min() << endl; // (*-2147483648*)
+cout << numeric_limits<int>::max() << endl; // (*2147483647*)
     
 // (*double*) type
-cout << numeric_limits<double>::min() << endl; // (*2.22507e-308*)(*\index{Input-output streams!\texttt{cout}}*)
-cout << numeric_limits<double>::max() << endl; // (*1.79769e+308*)(*\index{Input-output streams!\texttt{cout}}*)
-cout << numeric_limits<double>::lowest() << endl; // (*-1.79769e+308*)(*\index{Input-output streams!\texttt{cout}}*)
-cout << numeric_limits<double>::epsilon() << endl; // (*2.22045e-16*)(*\index{Input-output streams!\texttt{cout}}*)
-cout << numeric_limits<double>::round_error() << endl; // (*0.5*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << numeric_limits<double>::min() << endl; // (*2.22507e-308*)
+cout << numeric_limits<double>::max() << endl; // (*1.79769e+308*)
+cout << numeric_limits<double>::lowest() << endl; // (*-1.79769e+308*)
+cout << numeric_limits<double>::epsilon() << endl; // (*2.22045e-16*)
+cout << numeric_limits<double>::round_error() << endl; // (*0.5*)
 \end{lstlisting}
 %
 % Functions
@@ -582,7 +582,7 @@ function<void()> func;
 try {(*\index{Exceptions!\textbf{try-catch}}*)
     func();
 } catch (const bad_function_call& e) {(*\index{Exceptions!\texttt{bad\_function\_call}}*)
-    cout << "Exception: " << e.what() << endl;(*\index{Exceptions!\texttt{bad\_function\_call}!\texttt{what}}*)(*\index{Input-output streams!\texttt{cout}}*)
+    cout << "Exception: " << e.what() << endl;(*\index{Exceptions!\texttt{bad\_function\_call}!\texttt{what}}*)
 }
 \end{lstlisting}
 \begin{enumerate}
@@ -590,7 +590,7 @@ try {(*\index{Exceptions!\textbf{try-catch}}*)
 \end{enumerate}
 \begin{lstlisting}
 // example function
-void print_sthg() { cout << "Hello" << endl; }(*\index{Input-output streams!\texttt{cout}}*)
+void print_sthg() { cout << "Hello" << endl; }
 
 // assignment and call
 func = print_sthg;
@@ -599,7 +599,7 @@ func = print_sthg;
 func();
 
 // works also with lambdas
-function<void()> func2 { []() { cout << "Hello" << endl; } };(*\index{Input-output streams!\texttt{cout}}*)
+function<void()> func2 { []() { cout << "Hello" << endl; } };
 
 // call
 func2();
@@ -824,101 +824,6 @@ using OneObject = TwoObjects<char,T>;(*\index{Alias!{\emph{partial application}}
 OneObject<float> one('b',6.7);
 \end{lstlisting}
 %
-% Random numbers
-%
-\section{Random numbers}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] C-style:
-\end{enumerate}
-\begin{lstlisting}
-#include <cstdlib>(*\index{\texttt{<cstdlib>}}*)
-#include <ctime>(*\index{\texttt{<ctime>}}*)
-
-// seed the generator(*\index{Random numbers!seed the generator}*)
-srand( time(0) );(*\index{\texttt{srand}}*)(*\index{\texttt{time}}*)
-
-// integer random number between (*0*) and (*RAND\_MAX*)(*\index{Random numbers!integer random number}*)
-int n = rand();(*\index{\texttt{rand}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] C++ style:
-\end{enumerate}
-\begin{lstlisting}
-#include <random>(*\index{\texttt{<random>}}*)
-#include <functional>(*\index{\texttt{<functional>}}*)
-
-// (*bind*) constructs a function object that calls its first argument
-// with its second argument
-
-// normal distribution by using the default random engine
-auto gen_def = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)(*\index{Random numbers!normal distribution}*)
-                    default_random_engine{});(*\index{Random numbers!default random engine}*)(*\index{\texttt{default\_random\_engine}}*)
-                    
-// normal distribution by using the Mersenne Twister engine
-// with seed (*91586*)                  
-auto gen_mt = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)(*\index{Random numbers!normal distribution}*)(*\index{\texttt{normal\_distribution}}*)
-                    mt19937_64{91586});(*\index{Random numbers!Mersenne Twister engine}*)(*\index{\texttt{mt19937\_64}}*)
-
-// call the function objects to get random numbers
-cout << gen_def() << gen_mt() << endl;(*\index{Input-output streams!\texttt{cout}}*)
-\end{lstlisting}
-%
-% Bitsets
-%
-\section{Bitsets}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] Bits and bit operations:\index{Bitsets!bits and bit operations}
-\index{range-for-loop}
-\end{enumerate}
-\begin{lstlisting}
-#include <bitset>(*\index{\texttt{<bitset>}}*)
-
-bitset<8> a{87};   // (*01010111*)(*\index{\texttt{bitset<N>}}*)
-bitset<8> b{0x87}; // (*10000111*)
-    
-cout << a << endl << b << endl;(*\index{Input-output streams!\texttt{cout}}*)
-    
-// boolean and
-bitset<8> c = a & b;
-    
-cout << c << endl; // (*00000111*)(*\index{Input-output streams!\texttt{cout}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Access to single bits:\index{Bitsets!access to single bits}
-\index{range-for-loop}
-\end{enumerate}
-\begin{lstlisting}
-// prints out single bits reverting the order
-// (*11100000*)
-for (auto i=0; i<8; ++i)
-     cout << c[i];(*\index{Input-output streams!\texttt{cout}}*)
-\end{lstlisting}
-%
-% Chrono
-%
-\section{Chrono}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] Run-time measurement in milliseconds\index{Run-time measurement}
-\end{enumerate}
-\begin{lstlisting}
-#include <chrono>(*\index{\texttt{<chrono>}}*)
-
-using namespace std::chrono;
-
-auto t1 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
-
-// ...
-
-auto t2 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
-
-// run-time in milliseconds
-cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)(*\index{Input-output streams!\texttt{cout}}*)
-\end{lstlisting}
-%
-%
 % Arrays
 %
 \section{Arrays}
@@ -957,7 +862,7 @@ for (int& x : array)
 \end{enumerate}
 \begin{lstlisting}
 for (auto x : arr)(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
-  cout << x;(*\index{Arrays!printing elements of an array}*)(*\index{Input-output streams!\texttt{cout}}*)
+  cout << x;(*\index{Arrays!printing elements of an array}*)
 \end{lstlisting}
 %
 % Pointers
@@ -1202,8 +1107,8 @@ int amount = 12;
 int& ref_amount = amount;(*\index{Reference}*)
 
 // outputs (*12*)
-cout << "amount = " << amount << endl;(*\index{Input-output streams!\texttt{cout}}*)
-cout << "ref_amount = " << ref_amount << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << "amount = " << amount << endl;
+cout << "ref_amount = " << ref_amount << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] A variable reference cannot be made referring to another variable at runtime:
@@ -1216,8 +1121,8 @@ int new_amount = 24;
 ref_amount = new_amount;
 
 // outputs (*24*)
-cout << "amount = " << amount << endl;(*\index{Input-output streams!\texttt{cout}}*)
-cout << "ref_amount = " << ref_amount << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << "amount = " << amount << endl;
+cout << "ref_amount = " << ref_amount << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] A variable reference can be used as input and output parameter of a function:
@@ -1234,7 +1139,7 @@ int a_variable = 24;
 do_something(a_variable);
 
 // outputs (*48*)
-cout << "a_variable = " << a_variable << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << "a_variable = " << a_variable << endl;
 \end{lstlisting}
 %
 % C-Strings
@@ -1592,7 +1497,7 @@ while ( in_stream >> next )(*\index{Files!loop for reading all the input}*)
 
 // check the EOF flag
 if ( in_stream.eof() )
-    cout << "EOF reached!" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout << "EOF reached!" << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] When a file object gets out of scope, the file is closed automatically, but explicit
@@ -1736,7 +1641,7 @@ istringstream data_stream{"1.234 -5643.32"};(*\index{\texttt{istringstream}}*)
 // read numbers from data stream(*\index{String streams!read numbers from data stream}*)
 double val;
 while ( is >> val )
-    cout << val << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout << val << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Output string stream: \texttt{ostringstream}
@@ -1753,7 +1658,7 @@ data_stream << fixed << setprecision(2) << showpos;
 data_stream << 6.432 << " " << -313.2134 << "\n";
 
 // the (*str()*) method returns the string in the stream(*\index{String streams!return the string in the stream}*)
-cout << data_stream.str();(*\index{Input-output streams!\texttt{cout}}*)
+cout << data_stream.str();
 \end{lstlisting}
 %
 % Vectors
@@ -1777,10 +1682,10 @@ vector<int> v(10);(*\index{Vectors!initialized with all elements to 0}*)(*\index
 \end{enumerate}
 \begin{lstlisting}
 // unchecked access to the (*i*)th element
-cout << v[i];(*\index{Vectors!access to an element!unchecked}*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << v[i];(*\index{Vectors!access to an element!unchecked}*)
 
 // checked access to the (*i*)th element
-cout << v.at(i);(*\index{Vectors!access to an element!checked}*)(*\index{Input-output streams!\texttt{cout}}*)(*\index{Containers!\texttt{vector}!\texttt{at}}*)
+cout << v.at(i);(*\index{Vectors!access to an element!checked}*)(*\index{Containers!\texttt{vector}!\texttt{at}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Add:
@@ -1815,10 +1720,10 @@ for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*
 \end{enumerate}
 \begin{lstlisting}
 // size
-cout << v.size();(*\index{Vectors!\texttt{size}}*)(*\index{Input-output streams!\texttt{cout}}*)(*\index{Containers!\texttt{vector}!\texttt{size}}*)
+cout << v.size();(*\index{Vectors!\texttt{size}}*)(*\index{Containers!\texttt{vector}!\texttt{size}}*)
 
 // capacity: number of elements currently allocated
-cout << v.capacity();(*\index{Vectors!\texttt{capacity}}*)(*\index{Input-output streams!\texttt{cout}}*)(*\index{Containers!\texttt{vector}!\texttt{capacity}}*)
+cout << v.capacity();(*\index{Vectors!\texttt{capacity}}*)(*\index{Containers!\texttt{vector}!\texttt{capacity}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Reserve more capacity:
@@ -1836,7 +1741,7 @@ vector<int> v = {2, 4, 6, 8};(*\index{Containers!\texttt{vector}}*)
 
 try(*\index{Exceptions!\textbf{try-catch}}*)
 {
-    cout << v.at(7);(*\index{Input-output streams!\texttt{cout}}*)
+    cout << v.at(7);
 } catch (out_of_range e)(*\index{Vectors!out of range exception}*)
 {
     // access error!
@@ -2898,15 +2803,15 @@ vector<int>::iterator e;(*\index{\texttt{iterator}|see{Iterators}}*)(*\index{Ite
 e = v.begin();(*\index{Iterators!bidirectional access}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
 ++e;
 // print (*v[1]*)
-cout << *e << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << *e << endl;
 --e;
 // print (*v[0]*)
-cout << *e << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << *e << endl;
 
 // random access(*\index{Iterators!random access}*)
 e = v.begin();(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
 // print (*v[3]*)
-cout << e[3] << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << e[3] << endl;
 
 // change an element
 e[3] = 9;
@@ -2921,7 +2826,7 @@ vector<int>::const_iterator c;(*\index{\texttt{const\_iterator}|see{Iterators}}*
 // print out the vector content (read only)
 // (*\texttt{end()}*) points one element beyond the last one!
 for (c = v.begin(); c != v.end(); c++)
-    cout << *c << endl;(*\index{range-for-loop}*)(*\index{Input-output streams!\texttt{cout}}*)
+    cout << *c << endl;(*\index{range-for-loop}*)
 
 // not allowed
 // (*c[2] = 2;*)
@@ -2935,7 +2840,7 @@ vector<int>::reverse_iterator r;(*\index{\texttt{reverse\_iterator}|see{Iterator
 
 // print out the vector content in reverse order
 for (r = v.rbegin(); r != v.rend(); r++)
-    cout << *r << endl;(*\index{range-for-loop}*)(*\index{Input-output streams!\texttt{cout}}*)
+    cout << *r << endl;(*\index{range-for-loop}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Example iterator class for a power range:\index{Iterators!custom implementation}
@@ -3100,9 +3005,9 @@ data_list.insert_at_head(-21);
 data_list.insert_at_end(127);
 
 // prints (*data\_list = (-21) -> (45) -> (127)*)
-cout << "data_list = " << data_list << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << "data_list = " << data_list << endl;
 // prints  (*data\_list.size() = 3*)
-cout << "data_list.size() = " << data_list.size() << "\n\n";(*\index{Input-output streams!\texttt{cout}}*)
+cout << "data_list.size() = " << data_list.size() << "\n\n";
 
 // applies standard algorithms on the custom linked list
 LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);(*\index{\texttt{find}|see{Algorithms}}*)(*\index{Algorithms!\texttt{find}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}*)
@@ -3111,15 +3016,15 @@ LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);(*\index{\te
 // standard algorithms return the end of a sequence, 
 // i.e. the (*end*) iterator, to indicate failure
 if ( p != second_list.end() )
-        cout << "found element " << *p << "\n\n";(*\index{Input-output streams!\texttt{cout}}*)
+        cout << "found element " << *p << "\n\n";
 else
-        cout << "cannot find element " << 45 << "\n\n";(*\index{Input-output streams!\texttt{cout}}*)
+        cout << "cannot find element " << 45 << "\n\n";
 
 // write access
 *p = 180;
 
 // prints (*data\_list = (-21) -> (180) -> (127)*)
-cout << "data_list = " << data_list << endl;(*\index{Input-output streams!\texttt{cout}}*)
+cout << "data_list = " << data_list << endl;
 \end{lstlisting}
 %
 % Containers
@@ -3150,11 +3055,11 @@ data.erase(e);(*\index{Containers!\texttt{list}!\texttt{erase}}*)
 
 // print out the content    
 for (e = data.begin(); e != data.end(); e++)
-    cout << *e << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout << *e << endl;
     
 // range-for-loop
 for (auto x : data)(*\index{range-for-loop}*)
-    cout << x << endl;(*\index{\textbf{auto}}*)(*\index{Input-output streams!\texttt{cout}}*)
+    cout << x << endl;(*\index{\textbf{auto}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Adapter containers: \texttt{stack}\index{Containers!adapter|see{\texttt{stack}}}
@@ -3199,7 +3104,7 @@ letters.erase('a');(*\index{Containers!\texttt{set}!\texttt{erase}}*)
 // const iterator 
 set<char>::const_iterator c;(*\index{Constants!\textbf{const}}*)(*\index{Iterators!\texttt{set}!\texttt{const\_iterator}}*)
 for (c = letters.begin(); c != letters.end(); c++)
-    cout << *c << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout << *c << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Associative containers: \texttt{map}, ordered according to its key in pairs (key,value)\index{Containers!associative|see{\texttt{map}}}
@@ -3236,7 +3141,7 @@ dict.erase(two);(*\index{Containers!\texttt{map}!\texttt{erase}}*)
 // inside the loop (*n*) is a (*pair*)
 // the key is (*n.first*) and the value is (*n.second*)
 for (auto n : dict)(*\index{\textbf{auto}}*)
-    cout << "(" <<  n.first << "," <<  n.second << ")" << endl;(*\index{Input-output streams!\texttt{cout}}*)
+    cout << "(" <<  n.first << "," <<  n.second << ")" << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Associative containers: \texttt{multimap}, ordered according to its key in pairs (key,value), keys can be repeated\index{Containers!associative|see{\texttt{multimap}}}
@@ -3391,6 +3296,100 @@ found = binary_search(v.begin(), v.end(), 3);(*\index{Algorithms!\texttt{binary\
 reverse(v.begin(),v.end());(*\index{Algorithms!\texttt{reverse}}*)(*\index{\texttt{reverse}|see{Algorithms}}*)
 \end{lstlisting}
 %
+% Utilities
+%
+\section{Utilities}
+\small
+\begin{enumerate}
+\item[$\Rightarrow$] Random numbers
+\end{enumerate}
+\begin{enumerate}
+\item[] C-style:
+\end{enumerate}
+\begin{lstlisting}
+#include <cstdlib>(*\index{\texttt{<cstdlib>}}*)
+#include <ctime>(*\index{\texttt{<ctime>}}*)
+
+// seed the generator(*\index{Utilities!Random numbers!seed the generator}*)
+srand( time(0) );(*\index{\texttt{srand}}*)(*\index{\texttt{time}}*)
+
+// integer random number between (*0*) and (*RAND\_MAX*)(*\index{Utilities!Random numbers!integer random number}*)
+int n = rand();(*\index{\texttt{rand}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] C++ style:
+\end{enumerate}
+\begin{lstlisting}
+#include <random>(*\index{\texttt{<random>}}*)
+#include <functional>(*\index{\texttt{<functional>}}*)
+
+// (*bind*) constructs a function object that calls its first argument
+// with its second argument
+
+// normal distribution by using the default random engine
+auto gen_def = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)(*\index{Utilities!Random numbers!normal distribution}*)
+                    default_random_engine{});(*\index{Utilities!Random numbers!default random engine}*)(*\index{\texttt{default\_random\_engine}}*)
+                    
+// normal distribution by using the Mersenne Twister engine
+// with seed (*91586*)                  
+auto gen_mt = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)(*\index{Utilities!Random numbers!normal distribution}*)(*\index{\texttt{normal\_distribution}}*)
+                    mt19937_64{91586});(*\index{Utilities!Random numbers!Mersenne Twister engine}*)(*\index{\texttt{mt19937\_64}}*)
+
+// call the function objects to get random numbers
+cout << gen_def() << gen_mt() << endl;(*\index{Input-output streams!\texttt{cout}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Bitsets
+\index{range-for-loop}
+\end{enumerate}
+\begin{enumerate}
+\item[] Bits and bit operations:\index{Utilities!Bitsets!bits and bit operations}
+\index{range-for-loop}
+\end{enumerate}
+\begin{lstlisting}
+#include <bitset>(*\index{\texttt{<bitset>}}*)
+
+bitset<8> a{87};   // (*01010111*)(*\index{\texttt{bitset<N>}}*)
+bitset<8> b{0x87}; // (*10000111*)
+    
+cout << a << endl << b << endl;
+    
+// boolean and
+bitset<8> c = a & b;
+    
+cout << c << endl; // (*00000111*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Access to single bits:\index{Utilities!Bitsets!access to single bits}
+\index{range-for-loop}
+\end{enumerate}
+\begin{lstlisting}
+// prints out single bits reverting the order
+// (*11100000*)
+for (auto i=0; i<8; ++i)
+     cout << c[i];
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Chrono\index{Utilities!Chrono}
+\end{enumerate}
+\begin{enumerate}
+\item[] Run-time measurement in milliseconds\index{Run-time measurement|see{Utilities!Chrono}}
+\end{enumerate}
+\begin{lstlisting}
+#include <chrono>(*\index{\texttt{<chrono>}}*)
+
+using namespace std::chrono;
+
+auto t1 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
+
+// ...
+
+auto t2 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
+
+// run-time in milliseconds
+cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)(*\index{Input-output streams!\texttt{cout}}*)
+\end{lstlisting}
+%
 % Bibliography
 %
 \small
@@ -3402,5 +3401,5 @@ reverse(v.begin(),v.end());(*\index{Algorithms!\texttt{reverse}}*)(*\index{\text
 %
 % Index
 %
-\printindex
+\raggedcolumns\printindex
 \end{document}
