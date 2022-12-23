@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.88~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.89~-~GNU GPL v3.0}
 
 %\layout
 
@@ -604,6 +604,23 @@ function<void()> func2 { []() { cout << "Hello" << endl; } };
 // call
 func2();
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Structured binding:\index{Functions!structured binding}
+\end{enumerate}
+\begin{lstlisting}
+struct Data {(*\index{\textbf{struct}}*)
+    float a;
+    int b;
+};
+
+// this function returns a (*struct*)
+Data func(void) {
+    return Data{5.4,2};
+}
+
+// assigns (*85.4*) to (*a*) and (*2*) to (*b*)
+auto [a,b] = func();
+\end{lstlisting}
 %
 % Modifiers
 %
@@ -863,6 +880,15 @@ for (int& x : array)
 \begin{lstlisting}
 for (auto x : arr)(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
   cout << x;(*\index{Arrays!printing elements of an array}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Structured binding:\index{Arrays!structured binding}
+\end{enumerate}
+\begin{lstlisting}
+int v[3] = {1,2,3};
+
+// assigns (*1*) to (*a*), (*2*) to (*b*), (*3*) to (*c*), 
+auto [a,b,c] = v;
 \end{lstlisting}
 %
 % Pointers
@@ -3401,5 +3427,5 @@ cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_ca
 %
 % Index
 %
-\raggedcolumns\printindex
+\printindex
 \end{document}
