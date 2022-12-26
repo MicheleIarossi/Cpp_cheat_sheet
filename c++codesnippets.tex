@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.89~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.90~-~GNU GPL v3.0}
 
 %\layout
 
@@ -3365,11 +3365,11 @@ auto gen_mt = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)
 cout << gen_def() << gen_mt() << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Bitsets
+\item[$\Rightarrow$] \texttt{bitset}
 \index{range-for-loop}
 \end{enumerate}
 \begin{enumerate}
-\item[] Bits and bit operations:\index{Utilities!Bitsets!bits and bit operations}
+\item[] Bits and bit operations:\index{Utilities!\texttt{bitset}!bits and bit operations}
 \index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
@@ -3386,7 +3386,7 @@ bitset<8> c = a & b;
 cout << c << endl; // (*00000111*)
 \end{lstlisting}
 \begin{enumerate}
-\item[] Access to single bits:\index{Utilities!Bitsets!access to single bits}
+\item[] Access to single bits:\index{Utilities!\texttt{bitset}!access to single bits}
 \index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
@@ -3414,6 +3414,22 @@ auto t2 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
 
 // run-time in milliseconds
 cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)(*\index{Input-output streams!\texttt{cout}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \texttt{pair}\\ \\ Class template containing 2 objects of different types:\index{Utilities!\texttt{pair}}
+\end{enumerate}
+\begin{lstlisting}
+#include <utilities>
+
+// temperature pairs
+pair<float,string> temp1{ 23.4, " degrees C" }{(*\index{\texttt{pair}}*)
+
+pair<float,string> temp2; 
+temp2 = make_pair<float,string>( 21.7," degrees C" );(*\index{\texttt{pair}}*)(*\index{\texttt{make\_pair}}*)
+
+// prints temperatures
+cout << temp1.first << temp1.second << endl;
+cout << temp2.first << temp2.second << endl;
 \end{lstlisting}
 %
 % Bibliography

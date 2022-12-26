@@ -920,11 +920,11 @@
 \indexentry{\texttt{mt19937\_64}}{57}
 \indexentry{Input-output streams!\texttt{cout}}{57}
 \indexentry{range-for-loop}{57}
-\indexentry{Utilities!Bitsets!bits and bit operations}{57}
+\indexentry{Utilities!\texttt{bitset}!bits and bit operations}{57}
 \indexentry{range-for-loop}{57}
 \indexentry{\texttt{<bitset>}}{57}
 \indexentry{\texttt{bitset<N>}}{57}
-\indexentry{Utilities!Bitsets!access to single bits}{57}
+\indexentry{Utilities!\texttt{bitset}!access to single bits}{57}
 \indexentry{range-for-loop}{57}
 \indexentry{Utilities!Chrono}{57}
 \indexentry{Run-time measurement|see{Utilities!Chrono}}{57}
@@ -933,3 +933,7 @@
 \indexentry{\texttt{system\_clock::now()}}{57}
 \indexentry{\texttt{duration\_cast<milliseconds>}}{57}
 \indexentry{Input-output streams!\texttt{cout}}{57}
+\indexentry{Utilities!\texttt{pair}}{58}
+\indexentry{\texttt{pair}}{58}
+\indexentry{\texttt{pair}}{58}
+\indexentry{\texttt{make\_pair}}{58}

@@ -92,7 +92,7 @@
   \item \texttt{istringstream}, 27
   \item \texttt{iterator}, \see{Iterators}{47}
   \item \texttt{list}, \see{Containers}{52}
-  \item \texttt{make\_pair}, 53
+  \item \texttt{make\_pair}, 53, 58
   \item \texttt{make\_shared<T>}, 17
   \item \texttt{make\_unique<T>}, 15
   \item \texttt{map}, \see{Containers}{53}
@@ -116,7 +116,7 @@
   \item \texttt{ostream\_iterator}, 56
   \item \texttt{ostringstream}, 27
   \item \texttt{override}, 11
-  \item \texttt{pair}, 39, 53
+  \item \texttt{pair}, 39, 53, 58
   \item \texttt{rand}, 56
   \item \texttt{reverse\_iterator}, \see{Iterators}{48}
   \item \texttt{reverse}, \see{Algorithms}{56}
@@ -592,9 +592,10 @@
 
   \item Uniform initialization, 3
   \item Utilities
-    \subitem Bitsets
+    \subitem \texttt{bitset}
       \subsubitem access to single bits, 57
       \subsubitem bits and bit operations, 57
+    \subitem \texttt{pair}, 58
     \subitem Chrono, 57
     \subitem Random numbers
       \subsubitem default random engine, 57
