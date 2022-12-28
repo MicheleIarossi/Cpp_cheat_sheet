@@ -927,13 +927,27 @@
 \indexentry{Utilities!\texttt{bitset}!access to single bits}{57}
 \indexentry{range-for-loop}{57}
 \indexentry{Utilities!Chrono}{57}
-\indexentry{Run-time measurement|see{Utilities!Chrono}}{57}
+\indexentry{Run-time measurement|see{Utilities}}{57}
+\indexentry{Utilities!Chrono!run-time measurement}{57}
 \indexentry{\texttt{<chrono>}}{57}
+\indexentry{\texttt{time\_point<system\_clock>}}{57}
 \indexentry{\texttt{system\_clock::now()}}{57}
+\indexentry{\texttt{time\_point<system\_clock>}}{57}
 \indexentry{\texttt{system\_clock::now()}}{57}
 \indexentry{\texttt{duration\_cast<milliseconds>}}{57}
-\indexentry{Input-output streams!\texttt{cout}}{57}
+\indexentry{Sleep|see{Utilities}}{58}
+\indexentry{Utilities!Chrono!sleep}{58}
+\indexentry{\texttt{<thread>}}{58}
+\indexentry{\texttt{<chrono>}}{58}
+\indexentry{\texttt{time\_point<system\_clock>}}{58}
+\indexentry{\texttt{system\_clock::now()}}{58}
+\indexentry{\texttt{this\_thread::sleep\_for()}}{58}
+\indexentry{\texttt{time\_point<system\_clock>}}{58}
+\indexentry{\texttt{system\_clock::now()}}{58}
+\indexentry{\texttt{duration\_cast<milliseconds>}}{58}
+\indexentry{Utilities!Chrono!stopwatch}{58}
+\indexentry{\texttt{time\_point<high\_resolution\_clock>}}{58}
 \indexentry{Utilities!\texttt{pair}}{58}
-\indexentry{\texttt{pair}}{58}
-\indexentry{\texttt{pair}}{58}
-\indexentry{\texttt{make\_pair}}{58}
+\indexentry{\texttt{pair}}{59}
+\indexentry{\texttt{pair}}{59}
+\indexentry{\texttt{make\_pair}}{59}

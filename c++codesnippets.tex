@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.90~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.91~-~GNU GPL v3.0}
 
 %\layout
 
@@ -3399,21 +3399,74 @@ for (auto i=0; i<8; ++i)
 \item[$\Rightarrow$] Chrono\index{Utilities!Chrono}
 \end{enumerate}
 \begin{enumerate}
-\item[] Run-time measurement in milliseconds\index{Run-time measurement|see{Utilities!Chrono}}
+\item[] Run-time measurement in milliseconds:\index{Run-time measurement|see{Utilities}}\index{Utilities!Chrono!run-time measurement}
 \end{enumerate}
 \begin{lstlisting}
 #include <chrono>(*\index{\texttt{<chrono>}}*)
 
 using namespace std::chrono;
 
+// returns a value of type (*time\_point<system\_clock>*)(*\index{\texttt{time\_point<system\_clock>}}*)
 auto t1 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
 
 // ...
 
+// returns a value of type (*time\_point<system\_clock>*)(*\index{\texttt{time\_point<system\_clock>}}*)
 auto t2 = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
 
 // run-time in milliseconds
-cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)(*\index{Input-output streams!\texttt{cout}}*)
+cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Sleep for a certain amount of time:\index{Sleep|see{Utilities}}\index{Utilities!Chrono!sleep}
+\end{enumerate}
+\begin{lstlisting}
+#include <thread>(*\index{\texttt{<thread>}}*)
+#include <chrono>(*\index{\texttt{<chrono>}}*)
+
+using namespace std::chrono;
+using namespace std::literals::chrono_literals;
+
+// returns a value of type (*time\_point<system\_clock>*)(*\index{\texttt{time\_point<system\_clock>}}*)
+auto start = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
+
+// pause thread for (*100*) ms
+this_thread::sleep_for(100ms);(*\index{\texttt{this\_thread::sleep\_for()}}*)
+
+// returns a value of type (*time\_point<system\_clock>*)(*\index{\texttt{time\_point<system\_clock>}}*)
+auto end = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
+
+// sleep time in milliseconds
+cout << duration_cast<milliseconds>(end-start).count();(*\index{\texttt{duration\_cast<milliseconds>}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Example stopwatch implementation for timing code execution in a given scope:\index{Utilities!Chrono!stopwatch}
+\end{enumerate}
+\begin{lstlisting}
+#include <chrono>
+
+class Stopwatch {
+public:
+    Stopwatch(nanoseconds& total_time) : result { total_time },
+        start {high_resolution_clock::now()} {}
+    ~Stopwatch() {
+        result = duration_cast<nanoseconds>(
+                     high_resolution_clock::now() - start);
+     }
+private:
+    nanoseconds& result;
+    const time_point<high_resolution_clock> start;(*\index{\texttt{time\_point<high\_resolution\_clock>}}*)
+};
+
+// code portion to be measured
+nanoseconds total_time{0};
+{
+    Stopwatch elapsed{ total_time };
+    this_thread::sleep_for(100ms);
+}
+
+// number of nanosecond ticks
+cout << "total_time.count() = " << total_time.count() << endl;
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{pair}\\ \\ Class template containing 2 objects of different types:\index{Utilities!\texttt{pair}}

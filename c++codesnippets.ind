@@ -29,7 +29,7 @@
   \item \textbf{virtual}, 30, 35--41, 44, 46, 50
   \item \texttt{<algorithm>}, 29, 49, 54, 55
   \item \texttt{<bitset>}, 57
-  \item \texttt{<chrono>}, 57
+  \item \texttt{<chrono>}, 57, 58
   \item \texttt{<cstdint>}, 7, 48
   \item \texttt{<cstdlib>}, 19, 56
   \item \texttt{<cstring>}, 19
@@ -50,6 +50,7 @@
   \item \texttt{<sstream>}, 27
   \item \texttt{<stack>}, 52
   \item \texttt{<string>}, 25, 53, 54
+  \item \texttt{<thread>}, 58
   \item \texttt{<type\_traits>}, 4
   \item \texttt{<utility>}, 53, 54
   \item \texttt{<vector>}, 27, 47, 54, 55
@@ -74,7 +75,7 @@
   \item \texttt{copy}, \see{Algorithms}{30}
   \item \texttt{cout}, \see{Input-output streams}{13}
   \item \texttt{default\_random\_engine}, 57
-  \item \texttt{duration\_cast<milliseconds>}, 57
+  \item \texttt{duration\_cast<milliseconds>}, 57, 58
   \item \texttt{final}, 10, 11
   \item \texttt{find\_if}, \see{Algorithms}{54}
   \item \texttt{find}, \see{Algorithms}{51}
@@ -92,7 +93,7 @@
   \item \texttt{istringstream}, 27
   \item \texttt{iterator}, \see{Iterators}{47}
   \item \texttt{list}, \see{Containers}{52}
-  \item \texttt{make\_pair}, 53, 58
+  \item \texttt{make\_pair}, 53, 59
   \item \texttt{make\_shared<T>}, 17
   \item \texttt{make\_unique<T>}, 15
   \item \texttt{map}, \see{Containers}{53}
@@ -116,7 +117,7 @@
   \item \texttt{ostream\_iterator}, 56
   \item \texttt{ostringstream}, 27
   \item \texttt{override}, 11
-  \item \texttt{pair}, 39, 53, 58
+  \item \texttt{pair}, 39, 53, 59
   \item \texttt{rand}, 56
   \item \texttt{reverse\_iterator}, \see{Iterators}{48}
   \item \texttt{reverse}, \see{Algorithms}{56}
@@ -133,7 +134,10 @@
   \item \texttt{strncat}, 19
   \item \texttt{strncmp}, 19
   \item \texttt{strncpy}, 19
-  \item \texttt{system\_clock::now()}, 57
+  \item \texttt{system\_clock::now()}, 57, 58
+  \item \texttt{this\_thread::sleep\_for()}, 58
+  \item \texttt{time\_point<high\_resolution\_clock>}, 58
+  \item \texttt{time\_point<system\_clock>}, 57, 58
   \item \texttt{time}, 56
   \item \texttt{to\_string}, 27
   \item \texttt{uint16\_t}, 7
@@ -504,9 +508,11 @@
 
   \item range-for-loop, 14, 28, 48, 49, 52, 53, 57
   \item Reference, 18
+  \item Run-time measurement, \see{Utilities}{57}
 
   \indexspace
 
+  \item Sleep, \see{Utilities}{58}
   \item Slicing, 36
   \item Smart pointers
     \subitem \texttt{get}, 16
@@ -597,6 +603,9 @@
       \subsubitem bits and bit operations, 57
     \subitem \texttt{pair}, 58
     \subitem Chrono, 57
+      \subsubitem run-time measurement, 57
+      \subsubitem sleep, 58
+      \subsubitem stopwatch, 58
     \subitem Random numbers
       \subsubitem default random engine, 57
       \subsubitem integer random number, 56
