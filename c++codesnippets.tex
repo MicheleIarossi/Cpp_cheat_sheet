@@ -104,7 +104,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.91~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.92~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1702,6 +1702,9 @@ vector<int> v = {2, 4, 6, 8};(*\index{Vectors!initialized with initializer list}
 
 // vector with 10 elements all initialized to 0
 vector<int> v(10);(*\index{Vectors!initialized with all elements to 0}*)(*\index{Containers!\texttt{vector}}*)
+
+// vector with 10 elements all initialized to 2
+vector<int> v(10,2);(*\index{Vectors!fill constructor}*)(*\index{Containers!\texttt{vector}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Access:
@@ -1712,13 +1715,35 @@ cout << v[i];(*\index{Vectors!access to an element!unchecked}*)
 
 // checked access to the (*i*)th element
 cout << v.at(i);(*\index{Vectors!access to an element!checked}*)(*\index{Containers!\texttt{vector}!\texttt{at}}*)
+
+// access to the front element
+cout << v.front();(*\index{Vectors!access to the front element}*)(*\index{Containers!\texttt{vector}!\texttt{front}}*)
+
+// access to the last element
+cout << v.back();(*\index{Vectors!access to the last element}*)(*\index{Containers!\texttt{vector}!\texttt{back}}*)
+
+// pointer to the first element of the vector
+cout << *v.data << endl;(*\index{Vectors!pointer to the first element}*)(*\index{Containers!\texttt{vector}!\texttt{data}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Add:
 \end{enumerate}
 \begin{lstlisting}
 // add an element
-v.push_back(10);(*\index{Vectors!\texttt{push\_back}}*)(*\index{Containers!\texttt{vector}!\texttt{push\_back}}*)
+v.push_back(10);(*\index{Vectors!add to the back}*)(*\index{Containers!\texttt{vector}!\texttt{push\_back}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Insertion:
+\end{enumerate}
+\begin{lstlisting}
+// iterator pointing at the beginning of the vector
+auto iter = v.begin();
+
+// now pointing to the second element
+++iter;
+
+// inserting element (*10*) before the second element
+v.insert(iter,10);(*\index{Vectors!element insertion}*)(*\index{Containers!\texttt{vector}!\texttt{insert}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Resize:
@@ -1726,7 +1751,7 @@ v.push_back(10);(*\index{Vectors!\texttt{push\_back}}*)(*\index{Containers!\text
 \begin{lstlisting}
 // resize to 20 elements
 // new elements are initialized to 0
-v.resize(20);(*\index{Vectors!\texttt{resize}}*)(*\index{Containers!\texttt{vector}!\texttt{resize}}*)
+v.resize(20);(*\index{Vectors!resize}*)(*\index{Containers!\texttt{vector}!\texttt{resize}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Loop over:
@@ -1746,17 +1771,17 @@ for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*
 \end{enumerate}
 \begin{lstlisting}
 // size
-cout << v.size();(*\index{Vectors!\texttt{size}}*)(*\index{Containers!\texttt{vector}!\texttt{size}}*)
+cout << v.size();(*\index{Vectors!size}*)(*\index{Containers!\texttt{vector}!\texttt{size}}*)
 
 // capacity: number of elements currently allocated
-cout << v.capacity();(*\index{Vectors!\texttt{capacity}}*)(*\index{Containers!\texttt{vector}!\texttt{capacity}}*)
+cout << v.capacity();(*\index{Vectors!total capacity}*)(*\index{Containers!\texttt{vector}!\texttt{capacity}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Reserve more capacity:
 \end{enumerate}
 \begin{lstlisting}
 // reserve (reallocate) more capacity e.g. at least 64 (*int*)s
-v.reserve(64);(*\index{Vectors!\texttt{reserve}}*)(*\index{Containers!\texttt{vector}!\texttt{reserve}}*)
+v.reserve(64);(*\index{Vectors!reserve more capacity}*)(*\index{Containers!\texttt{vector}!\texttt{reserve}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Throws an \texttt{out\_of\_range} exception if accessed out of bounds:\index{Exceptions!\texttt{out\_of\_range}}
@@ -1772,6 +1797,19 @@ try(*\index{Exceptions!\textbf{try-catch}}*)
 {
     // access error!
 }
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Clearing the vector:
+\end{enumerate}
+\begin{lstlisting}
+// clear the vector
+v.clear();(*\index{Vectors!clear all the elements}*)(*\index{Containers!\texttt{vector}!\texttt{clear}}*)
+
+// the vector is now empty
+if ( v.empty() )(*\index{Vectors!test if empty}*)(*\index{Containers!\texttt{vector}!\texttt{empty}}*)
+    cout << "the vector is empty!" << endl;
+else
+    cout << "the vector is not empty" << endl;
 \end{lstlisting}
 %
 % Enumerations
