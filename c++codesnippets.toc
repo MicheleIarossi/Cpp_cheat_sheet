@@ -22,14 +22,14 @@
 \contentsline {section}{Strings}{25}{}%
 \contentsline {section}{String streams}{27}{}%
 \contentsline {section}{Vectors}{27}{}%
-\contentsline {section}{Enumerations}{30}{}%
+\contentsline {section}{Enumerations}{29}{}%
 \contentsline {section}{Classes}{30}{}%
-\contentsline {section}{Operator overloading}{35}{}%
+\contentsline {section}{Operator overloading}{34}{}%
 \contentsline {section}{Inheritance}{36}{}%
 \contentsline {section}{Polymorphism}{41}{}%
 \contentsline {section}{Exceptions}{42}{}%
-\contentsline {section}{Templates}{44}{}%
+\contentsline {section}{Templates}{43}{}%
 \contentsline {section}{Iterators}{48}{}%
 \contentsline {section}{Containers}{52}{}%
-\contentsline {section}{Algorithms}{55}{}%
+\contentsline {section}{Algorithms}{54}{}%
 \contentsline {section}{Utilities}{57}{}%

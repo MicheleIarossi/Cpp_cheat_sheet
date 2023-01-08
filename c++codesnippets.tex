@@ -14,12 +14,6 @@
 %    You should have received a copy of the GNU General Public License
 %    along with this program.  If not, see <https://www.gnu.org/licenses/>.
 %
-%
-% Example of document composed in LaTeX
-%
-%
-% Source file ending with .tex
-%
 
 % Preamble starts here: includes further global commands and specifications
 % In the following, the option 10pt is a global option passed to all
@@ -104,7 +98,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.92~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.93~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1046,8 +1040,6 @@ Has transferable non exclusive ownership (can be copied!) of a dynamic object ac
 automatically destroy the object if needed. Ownership can be transferred, i.e. move and copy are supported. 
 \end{enumerate}
 \begin{lstlisting}
-#include <memory>(*\index{\texttt{<memory>}}*)
-
 // shared pointer to an (*int*) having value (*5*)
 shared_ptr<int> p_int{ new int{5} };(*\index{Smart pointers!\texttt{shared\_ptr}}*)
 
@@ -1072,8 +1064,6 @@ q_int = p_int;(*\index{Smart pointers!\texttt{shared\_ptr}!assignment}*)
 Has no ownership of the object pointed to. Tracks an existing object, allows conversion to a shared pointer only if the tracked object still exists. They are movable and copyable. 
 \end{enumerate}
 \begin{lstlisting}
-#include <memory>(*\index{\texttt{<memory>}}*)
-
 // shared pointer to an (*int*) having value (*5*)
 shared_ptr<int> p_int{ new int{5} };(*\index{Smart pointers!\texttt{shared\_ptr}}*)
 
@@ -1106,7 +1096,6 @@ auto sh_ptr = wp_int.lock();(*\index{Smart pointers!\texttt{weak\_ptr}!\texttt{l
 // evaluates to (*true*)
 bool empty = ( sh_int == nullptr );
 \end{lstlisting}
-
 \begin{enumerate}
 \item[$\Rightarrow$] Optional deleter parameter:
 \end{enumerate}
@@ -1275,8 +1264,6 @@ cin >> val;(*\index{Input-output streams!\texttt{cin}}*)
 \index{Input-output streams!floating point format manipulators}
 \end{enumerate}
 \begin{lstlisting}
-#include <iomanip>(*\index{\texttt{<iomanip>}}*)
-
 // set default, fixed, or scientific notation
 cout << defaultfloat << 1023.984;(*\index{Input-output streams!floating point format manipulators!default float notation}*)(*\index{Input-output streams!\texttt{cout}!\texttt{defaultfloat}}*)
 cout << fixed << 1023.984;(*\index{Input-output streams!floating point format manipulators!fixed notation}*)(*\index{Input-output streams!\texttt{cout}!\texttt{fixed}}*)
@@ -1390,8 +1377,6 @@ ofstream out_stream {"outfile.dat"};(*\index{\texttt{ofstream}}*)
 \item[$\Rightarrow$] Accessed both in input and output mode by means of \texttt{fstream}\index{\texttt{fstream}} objects (not recommended):
 \end{enumerate}
 \begin{lstlisting}
-#include <fstream>(*\index{\texttt{<fstream>}}*)
-
 // open file in both input and output mode(*\index{Files!opening both as input and output}*)
 fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};(*\index{\texttt{fstream}}*)
 \end{lstlisting}
@@ -1399,8 +1384,6 @@ fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};(*\index{\texttt{fstre
 \item[$\Rightarrow$] Opened explicitly (not recommended):
 \end{enumerate}
 \begin{lstlisting}
-#include <fstream>(*\index{\texttt{<fstream>}}*)
-
 // input file 
 ifstream in_stream;(*\index{\texttt{ifstream}}*)
 // output file
@@ -1539,8 +1522,9 @@ out_stream.close()
 %
 \section{Strings}
 \small
+Strings as supported by the C++ standard library for ASCII character sets.
 \begin{enumerate}
-\item[$\Rightarrow$] Strings as supported by the C++ standard library:
+\item[$\Rightarrow$] Constructors:
 \end{enumerate}
 \begin{lstlisting}
 #include <string>(*\index{\texttt{<string>}}*)
@@ -1548,33 +1532,43 @@ out_stream.close()
 // initialization(*\index{Strings!initialization}*)
 string s1 = "Hello";(*\index{Strings!\texttt{string}}*)
 string s2("World");(*\index{Strings!\texttt{string}}*)
-string s3{"World"};(*\index{Strings!\texttt{string}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Fill constructor:
 \end{enumerate}
 \begin{lstlisting}
-string s4{string(5,'*')}; // fill constructor (*"*****"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!fill constructor}*)
+string s3(5,'*'); // fill constructor (*"*****"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!fill constructor}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Substring constructor from a certain position and a given optional length:
 \end{enumerate}
 \begin{lstlisting}
-string s5{string(string{"Hello, world!"},0,5)}; // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
-string s6{string(string{"Hello, world!"},7)}; // (*"world!"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
+string hello("Hello, world!");
+string s4(hello,0,5); // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
+string s5(hello,7); // (*"world!"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Buffer constructor from a character array:
+\item[$\Rightarrow$] Constructor from C-style literal string of a certain length given an optional position:
 \end{enumerate}
 \begin{lstlisting}
-string s7{string("Hello, world!",5)}; // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!buffer constructor}*)
+string s6("Hello, world!",5); // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!C-style constructor}*)
+string s7("Hello, world!",7,6); // (*"world!"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!C-style constructor}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Concatenation:
 \end{enumerate}
 \begin{lstlisting}
 // concatenation(*\index{Strings!concatenation}*)
-string s3 = s1 + ", " + s2;(*\index{Strings!\texttt{string}}*)(*\index{Strings!\texttt{+}}*)
+string hello = s1 + ", " + s2;(*\index{Strings!\texttt{string}}*)(*\index{Strings!\texttt{+}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Literal constructor:
+\end{enumerate}
+\begin{lstlisting}
+using namespace string_literals;(*\index{\texttt{string\_literals}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
+
+// incorporates zeros
+string s8 = "hellohello\0\0hello"s;(*\index{Strings!\texttt{string}}*)(*\index{Strings!literal constructor}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Read a line:
@@ -1673,8 +1667,6 @@ while ( is >> val )
 \item[$\Rightarrow$] Output string stream: \texttt{ostringstream}
 \end{enumerate}
 \begin{lstlisting}
-#include <sstream>(*\index{\texttt{<sstream>}}*)
-
 // output string stream(*\index{String streams!output string stream}*)
 ostringstream data_stream;(*\index{\texttt{ostringstream}}*)
 
@@ -1691,15 +1683,20 @@ cout << data_stream.str();
 %
 \section{Vectors}
 \small
+Vectors\index{Vectors} as supported by the C++ standard library. Vector elements are guaranteed to be stored sequentially in memory.
 \begin{enumerate}
-\item[$\Rightarrow$] Vectors\index{Vectors} as supported by the C++ standard library:
+\item[$\Rightarrow$] Constructor with initialization list:
 \end{enumerate}
 \begin{lstlisting}
 #include <vector>(*\index{\texttt{<vector>}}*)
 
 // vector with base type (*int*)
 vector<int> v = {2, 4, 6, 8};(*\index{Vectors!initialized with initializer list}*)(*\index{Containers!\texttt{vector}}*)
-
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Fill constructors\\ \\ Note that since \texttt{vector} has an initializer list constructor, you need to call the fill constructor with parentheses.
+\end{enumerate}
+\begin{lstlisting}
 // vector with 10 elements all initialized to 0
 vector<int> v(10);(*\index{Vectors!initialized with all elements to 0}*)(*\index{Containers!\texttt{vector}}*)
 
@@ -3126,7 +3123,7 @@ for (auto x : data)(*\index{range-for-loop}*)
     cout << x << endl;(*\index{\textbf{auto}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Adapter containers: \texttt{stack}\index{Containers!adapter|see{\texttt{stack}}}
+\item[$\Rightarrow$] Container adapters: \texttt{stack}\index{Containers!adapter|see{\texttt{stack}}}
 \end{enumerate}
 \begin{lstlisting}
 #include <stack>(*\index{\texttt{<stack>}}*)
@@ -3148,7 +3145,7 @@ double d = numbers.top();(*\index{Containers!\texttt{stack}!\texttt{top}}*)
 numbers.pop();(*\index{Containers!\texttt{stack}!\texttt{pop}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Associative containers: \texttt{set}, ordered according to its keys\index{Containers!associative|see{\texttt{set}}}
+\item[$\Rightarrow$] Associative containers: \texttt{set}, ordered according to its unique keys\index{Containers!associative|see{\texttt{set}}}
 \end{enumerate}
 \begin{lstlisting}
 #include <set>(*\index{\texttt{<set>}}*)
@@ -3462,8 +3459,8 @@ cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_ca
 #include <thread>(*\index{\texttt{<thread>}}*)
 #include <chrono>(*\index{\texttt{<chrono>}}*)
 
-using namespace std::chrono;
-using namespace std::literals::chrono_literals;
+using namespace std::chrono;(*\index{\texttt{chrono}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
+using namespace std::literals::chrono_literals;(*\index{\texttt{chrono\_literals}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
 
 // returns a value of type (*time\_point<system\_clock>*)(*\index{\texttt{time\_point<system\_clock>}}*)
 auto start = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
