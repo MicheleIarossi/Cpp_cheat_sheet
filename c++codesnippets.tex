@@ -98,7 +98,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.93~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.94~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1522,7 +1522,7 @@ out_stream.close()
 %
 \section{Strings}
 \small
-Strings as supported by the C++ standard library for ASCII character sets.
+Strings as supported by the C++ standard library for ASCII character sets. Note that it allows almost the same methods as \texttt{vector}.
 \begin{enumerate}
 \item[$\Rightarrow$] Constructors:
 \end{enumerate}
@@ -1531,7 +1531,7 @@ Strings as supported by the C++ standard library for ASCII character sets.
 
 // initialization(*\index{Strings!initialization}*)
 string s1 = "Hello";(*\index{Strings!\texttt{string}}*)
-string s2("World");(*\index{Strings!\texttt{string}}*)
+string s2(", world!");(*\index{Strings!\texttt{string}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Fill constructor:
@@ -1562,13 +1562,14 @@ string s7("Hello, world!",7,6); // (*"world!"*)(*\index{Strings!\texttt{string}}
 string hello = s1 + ", " + s2;(*\index{Strings!\texttt{string}}*)(*\index{Strings!\texttt{+}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Literal constructor:
+\item[$\Rightarrow$] Literal string constructor \texttt{operator""s}:
 \end{enumerate}
 \begin{lstlisting}
 using namespace string_literals;(*\index{\texttt{string\_literals}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
 
-// incorporates zeros
-string s8 = "hellohello\0\0hello"s;(*\index{Strings!\texttt{string}}*)(*\index{Strings!literal constructor}*)
+// the literal string has type (*string*) (it is not a 
+// C-style literal string!) and it can have zeros
+string s8 = "hellohello\0\0hello"s;(*\index{Strings!\texttt{string}}*)(*\index{Strings!literal constructor}*)(*\index{Strings!\texttt{operator""""s}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Read a line:
@@ -1589,11 +1590,65 @@ s1[i];
 s1.at(i);(*\index{Strings!\texttt{at}}*)
 \end{lstlisting}
 \begin{enumerate}
+\item[$\Rightarrow$] Add:
+\end{enumerate}
+\begin{lstlisting}
+// add a single character at the end
+s1.push_back('!'); // (*"Hello!"*)(*\index{Strings!\texttt{push\_back}}*)
+\end{lstlisting}
+\begin{enumerate}
 \item[$\Rightarrow$] Append:
 \end{enumerate}
 \begin{lstlisting}
 // append
-s1.append(s2);(*\index{Strings!\texttt{append}}*)
+s1.append(s2); // (*"Hello, world!"*)(*\index{Strings!\texttt{append}}*)
+
+// append with an open range
+string s10("Hello");
+string s11(", world!");
+s10.append(s11.begin()+7,s11.end()); // (*"Hello!"*)(*\index{Strings!\texttt{begin}}*)(*\index{Strings!\texttt{end}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Remove:
+\end{enumerate}
+\begin{lstlisting}
+// remove a single character from the end
+s1.pop_back('c'); // (*"Hello"*)(*\index{Strings!\texttt{pop\_back}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Clear:
+\end{enumerate}
+\begin{lstlisting}
+// clear the string
+s1.clear();(*\index{Strings!\texttt{clear}}*)
+
+// print (*string cleared*)
+if ( s1.empty() )(*\index{Strings!\texttt{empty}}*)
+    cout << "string cleared" << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Erase:
+\end{enumerate}
+\begin{lstlisting}
+string s1("Hello, world!")(*\index{Strings!\texttt{string}}*)
+
+// erase from position 5 until the end
+s1.erase(s1.begin()+5,s1.end()); // (*"Hello*)(*\index{Strings!\texttt{erase}}*)
+
+// erase from position (*2*) a length of (*3*) characters
+s1.erase(2,3); // (*"He"*)(*\index{Strings!\texttt{erase}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Replace:
+\end{enumerate}
+\begin{lstlisting}
+string s1("Hello!")(*\index{Strings!\texttt{string}}*)
+
+// replace with range
+s1.replace(s1.begin()+5,s1.end(),", world!"); // (*"Hello, world!*)(*\index{Strings!\texttt{replace}}*)
+
+// replace with position and length
+s1.replace(5,8," world!");// (*"Hello world!*)(*\index{Strings!\texttt{replace}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Size and length:
@@ -1607,25 +1662,25 @@ s1.length();(*\index{Strings!\texttt{length}}*)
 \item[$\Rightarrow$] Substring:
 \end{enumerate}
 \begin{lstlisting}
-// substring from position 5 and length 4 characters
+// substring from position (*6*) and length (*5*) characters
 string substring;
-substring = s4.substr(5,4);(*\index{Strings!\texttt{substr}}*)
+substring = s1.substr(6,5); // (*"world"*)(*\index{Strings!\texttt{substr}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Find:
 \end{enumerate}
 \begin{lstlisting}
-// find (returns string::npos if not found)
+// find (returns (*string::npos*) if not found)
 size_t pos;(*\index{\texttt{size\_t}}*)
-pos = s3.find("World");(*\index{Strings!\texttt{find}}*)
+pos = s1.find("world");(*\index{Strings!\texttt{find}}*)
 if (pos == string::npos)
     cerr << "Error: String not found!\n";(*\index{Input-output streams!\texttt{cerr}}*)
 
-// find starting from position 5
-s3.find("l",5);(*\index{Strings!\texttt{find}}*)
+// find starting from position (*5*)
+pos = s1.find("l",5); // (*pos*) equals (*9*) (*\index{Strings!\texttt{find}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] C-string:
+\item[$\Rightarrow$] C-style null-terminated string of type \texttt{const char *}:
 \end{enumerate}
 \begin{lstlisting}
 // C-string(*\index{Strings!\texttt{c\_str}}*)
