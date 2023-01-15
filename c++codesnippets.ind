@@ -10,8 +10,7 @@
   \item \textbf{enum class}, 30
   \item \textbf{explicit}, 31, 45, 47
   \item \textbf{friend}, 36, 43, 48, 51, 52
-  \item \textbf{namespace}, \see{Namespaces}{2}, \see{Namespaces}{25}, 
-		\see{Namespaces}{59}
+  \item \textbf{namespace}, \see{Namespaces}{2}
   \item \textbf{new}, 6, 14, 15, 32, 33, 46
   \item \textbf{noexcept}, \see{Modifiers}{11}
   \item \textbf{nullptr}, 8, 32, 33, 46, 48, 51, 52
@@ -47,12 +46,14 @@
   \item \texttt{<numeric>}, 56
   \item \texttt{<ostream>}, 51
   \item \texttt{<random>}, 58
+  \item \texttt{<regex>}, 60, 61
   \item \texttt{<set>}, 54, 56
   \item \texttt{<sstream>}, 28
   \item \texttt{<stack>}, 53
   \item \texttt{<string>}, 25, 54, 55
   \item \texttt{<thread>}, 59
   \item \texttt{<type\_traits>}, 4
+  \item \texttt{<utilities>}, 60
   \item \texttt{<utility>}, 54, 55
   \item \texttt{<vector>}, 28, 49, 55, 56
   \item \texttt{= 0}, 37, 39
@@ -122,6 +123,9 @@
   \item \texttt{override}, 11
   \item \texttt{pair}, 40, 41, 54, 60
   \item \texttt{rand}, 58
+  \item \texttt{regex\_replace}, 61
+  \item \texttt{regex\_search}, 60, 61
+  \item \texttt{regex}, 60, 61
   \item \texttt{reverse\_iterator}, \see{Iterators}{49}
   \item \texttt{reverse}, \see{Algorithms}{57}
   \item \texttt{set}, \see{Containers}{54}
@@ -440,6 +444,8 @@
       \subsubitem \texttt{iterator}, 55
     \subitem \texttt{set}
       \subsubitem \texttt{const\_iterator}, 54
+    \subitem \texttt{string}
+      \subsubitem \texttt{const\_iterator}, 61
     \subitem \texttt{vector}
       \subsubitem \texttt{const\_iterator}, 49
       \subsubitem \texttt{iterator}, 29, 49, 56
@@ -585,6 +591,7 @@
       \subsubitem long integer, 27
     \subitem initialization, 25
     \subitem literal constructor, 25
+    \subitem raw format, 60, 61
     \subitem reading a line, 26
     \subitem substring constructor, 25
 
@@ -632,6 +639,10 @@
       \subsubitem Mersenne Twister engine, 58
       \subsubitem normal distribution, 58
       \subsubitem seed the generator, 58
+    \subitem Regular expressions, 60
+      \subsubitem first match, 60
+      \subsubitem iterative search, 61
+      \subsubitem replace, 61
 
   \indexspace
 

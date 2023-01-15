@@ -350,7 +350,6 @@
 \indexentry{Strings!\texttt{+}}{25}
 \indexentry{\texttt{string\_literals}}{25}
 \indexentry{Namespaces!\textbf{using namespace} directives}{25}
-\indexentry{\textbf{namespace}|see{Namespaces}}{25}
 \indexentry{Strings!\texttt{string}}{25}
 \indexentry{Strings!literal constructor}{25}
 \indexentry{Strings!\texttt{operator""""s}}{25}
@@ -968,10 +967,8 @@
 \indexentry{\texttt{<chrono>}}{59}
 \indexentry{\texttt{chrono}}{59}
 \indexentry{Namespaces!\textbf{using namespace} directives}{59}
-\indexentry{\textbf{namespace}|see{Namespaces}}{59}
 \indexentry{\texttt{chrono\_literals}}{59}
 \indexentry{Namespaces!\textbf{using namespace} directives}{59}
-\indexentry{\textbf{namespace}|see{Namespaces}}{59}
 \indexentry{\texttt{time\_point<system\_clock>}}{59}
 \indexentry{\texttt{system\_clock::now()}}{59}
 \indexentry{\texttt{this\_thread::sleep\_for()}}{59}
@@ -981,6 +978,23 @@
 \indexentry{Utilities!Chrono!stopwatch}{59}
 \indexentry{\texttt{time\_point<high\_resolution\_clock>}}{60}
 \indexentry{Utilities!\texttt{pair}}{60}
+\indexentry{\texttt{<utilities>}}{60}
 \indexentry{\texttt{pair}}{60}
 \indexentry{\texttt{pair}}{60}
 \indexentry{\texttt{make\_pair}}{60}
+\indexentry{Utilities!Regular expressions}{60}
+\indexentry{Utilities!Regular expressions!first match}{60}
+\indexentry{\texttt{<regex>}}{60}
+\indexentry{\texttt{regex}}{60}
+\indexentry{Strings!raw format}{60}
+\indexentry{\texttt{regex\_search}}{60}
+\indexentry{Utilities!Regular expressions!iterative search}{61}
+\indexentry{\texttt{regex}}{61}
+\indexentry{Strings!raw format}{61}
+\indexentry{Iterators!\texttt{string}!\texttt{const\_iterator}}{61}
+\indexentry{\texttt{regex\_search}}{61}
+\indexentry{Utilities!Regular expressions!replace}{61}
+\indexentry{\texttt{<regex>}}{61}
+\indexentry{\texttt{regex}}{61}
+\indexentry{Strings!raw format}{61}
+\indexentry{\texttt{regex\_replace}}{61}

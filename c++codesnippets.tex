@@ -98,7 +98,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.94~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.95~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1565,7 +1565,7 @@ string hello = s1 + ", " + s2;(*\index{Strings!\texttt{string}}*)(*\index{String
 \item[$\Rightarrow$] Literal string constructor \texttt{operator""s}:
 \end{enumerate}
 \begin{lstlisting}
-using namespace string_literals;(*\index{\texttt{string\_literals}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
+using namespace string_literals;(*\index{\texttt{string\_literals}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)
 
 // the literal string has type (*string*) (it is not a 
 // C-style literal string!) and it can have zeros
@@ -3514,8 +3514,8 @@ cout << duration_cast<milliseconds>(t2-t1).count();(*\index{\texttt{duration\_ca
 #include <thread>(*\index{\texttt{<thread>}}*)
 #include <chrono>(*\index{\texttt{<chrono>}}*)
 
-using namespace std::chrono;(*\index{\texttt{chrono}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
-using namespace std::literals::chrono_literals;(*\index{\texttt{chrono\_literals}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
+using namespace std::chrono;(*\index{\texttt{chrono}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)
+using namespace std::literals::chrono_literals;(*\index{\texttt{chrono\_literals}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)
 
 // returns a value of type (*time\_point<system\_clock>*)(*\index{\texttt{time\_point<system\_clock>}}*)
 auto start = system_clock::now();(*\index{\texttt{system\_clock::now()}}*)
@@ -3562,7 +3562,7 @@ cout << "total_time.count() = " << total_time.count() << endl;
 \item[$\Rightarrow$] \texttt{pair}\\ \\ Class template containing 2 objects of different types:\index{Utilities!\texttt{pair}}
 \end{enumerate}
 \begin{lstlisting}
-#include <utilities>
+#include <utilities>(*\index{\texttt{<utilities>}}*)
 
 // temperature pairs
 pair<float,string> temp1{ 23.4, " degrees C" }{(*\index{\texttt{pair}}*)
@@ -3574,6 +3574,70 @@ temp2 = make_pair<float,string>( 21.7," degrees C" );(*\index{\texttt{pair}}*)(*
 cout << temp1.first << temp1.second << endl;
 cout << temp2.first << temp2.second << endl;
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Regular expressions\index{Utilities!Regular expressions}
+\end{enumerate}
+\begin{enumerate}
+\item[] First match:\index{Utilities!Regular expressions!first match}
+\end{enumerate}
+\begin{lstlisting}
+#include <regex>(*\index{\texttt{<regex>}}*)
+#include <string>
+
+// regular expression to look for
+// in raw string format 
+regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
+smatch results;
+string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
+
+// first match
+bool found = regex_search(zip,results,regex);(*\index{\texttt{regex\_search}}*)
+
+// this prints position (*11*)
+if (found)
+    cout << "First match at position: " << results.position(0) << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[] Iterative search:\index{Utilities!Regular expressions!iterative search}
+\end{enumerate}
+\begin{lstlisting}
+// regular expression to look for
+// in raw string format 
+regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
+smatch results;
+string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
+
+// start from the beginning
+string::const_iterator start( zip.cbegin() );(*\index{Iterators!\texttt{string}!\texttt{const\_iterator}}*)
+
+while ( regex_search( start, zip.cend(), results, regex ) )(*\index{\texttt{regex\_search}}*)
+ {
+     // match has been found
+     cout << ( start == zip.cbegin() ? "" : " " ) << results[0];
+     
+     // continue searching from the suffix sequence
+     // after the match
+     start = results.suffix().first;
+ }
+ cout << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[] Replace:\index{Utilities!Regular expressions!replace}
+\end{enumerate}
+\begin{lstlisting}
+#include <regex>(*\index{\texttt{<regex>}}*)
+#include <string>
+
+// regular expression to look for
+// in raw string format 
+regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
+string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
+
+// replaces the ZIP codes with (*XXX*)
+string zip_hidden = regex_replace(zip,regex,"XXX");(*\index{\texttt{regex\_replace}}*)
+cout << zip_hidden << endl;
+\end{lstlisting}
+
 %
 % Bibliography
 %
@@ -3582,6 +3646,8 @@ cout << temp2.first << temp2.second << endl;
 \bibitem{savitch} Walter Savitch. \textsl{Problem Solving with C++}, 10th edition. Pearson Education, 2018
 \bibitem{stroustrup} Bjarne Stroustrup. \textsl{Programming: Principles and Practice Using C++}, 2nd edition. Addison Wesley, 2015
 \bibitem{lospinoso} Josh Lospinoso. \textsl{C++ Crash Course: A Fast-Paced Introduction}, 1st edition. No Starch Press, 2019
+\bibitem{cppreference} \textsl{C++ reference} [https://en.cppreference.com]
+\bibitem{cplusplus} \textsl{cplusplus} [https://cplusplus.com/]
 \end{thebibliography}
 %
 % Index
