@@ -98,7 +98,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.95~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.96~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1214,7 +1214,7 @@ double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\t
 \index{Input-output streams}
 \small
 \begin{enumerate}
-\item[$\Rightarrow$] Input stream \texttt{cin}, output stream \texttt{cout}, error stream \texttt{cerr}:
+\item[$\Rightarrow$] Global  input stream object \texttt{cin}, global output stream object \texttt{cout}, global error stream object \texttt{cerr}:
 \index{Input-output streams!input stream|see{\texttt{cin}}}
 \index{Input-output streams!output stream|see{\texttt{cout}}}
 \index{Input-output streams!error stream|see{\texttt{cerr}}}
@@ -1235,7 +1235,20 @@ cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to th
 cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)(*\index{Input-output streams!\texttt{cerr}}*)(*\index{\texttt{cerr}|see{Input-output streams}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Integer format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}:
+\item[$\Rightarrow$] Boolean format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are sticky:
+\index{Input-output streams!boolean format manipulators}
+\end{enumerate}
+\begin{lstlisting}
+#include <iomanip>(*\index{\texttt{<iomanip>}}*)
+
+// prints (*\texttt{true}*) as (*true*)
+cout << boolalpha << "True: " << true << endl; (*\index{Input-output streams!\texttt{cout}!\texttt{boolalpha}}*)
+
+// prints (*\texttt{true}*) as (*1*)
+cout << noboolalpha << "True: " << true << endl;(*\index{Input-output streams!\texttt{cout}!\texttt{noboolalpha}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Integer format manipulators:
 \index{Input-output streams!integer format manipulators}
 \end{enumerate}
 \begin{lstlisting}
