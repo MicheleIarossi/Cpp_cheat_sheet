@@ -34,6 +34,7 @@
   \item \texttt{<cstdlib>}, 19, 58
   \item \texttt{<cstring>}, 19
   \item \texttt{<ctime>}, 58
+  \item \texttt{<filesystem>}, 62
   \item \texttt{<fstream>}, 22
   \item \texttt{<function>}, 9
   \item \texttt{<functional>}, 57, 58
@@ -71,6 +72,7 @@
   \item \texttt{binary\_search}, \see{Algorithms}{58}
   \item \texttt{bind}, 58
   \item \texttt{bitset<N>}, 59
+  \item \texttt{cdirectory\_iterator}, 62
   \item \texttt{cerr}, \see{Input-output streams}{20}
   \item \texttt{chrono\_literals}, 59
   \item \texttt{chrono}, 59
@@ -78,6 +80,7 @@
   \item \texttt{const\_iterator}, \see{Iterators}{49}
   \item \texttt{copy}, \see{Algorithms}{32}
   \item \texttt{cout}, \see{Input-output streams}{13}
+  \item \texttt{current\_path}, 62
   \item \texttt{default\_random\_engine}, 58
   \item \texttt{duration\_cast<milliseconds>}, 59, 60
   \item \texttt{final}, 10, 11
@@ -122,6 +125,7 @@
   \item \texttt{ostringstream}, 28
   \item \texttt{override}, 11
   \item \texttt{pair}, 40, 41, 55, 60
+  \item \texttt{path}, 62
   \item \texttt{rand}, 58
   \item \texttt{regex\_replace}, 61
   \item \texttt{regex\_search}, 61
@@ -636,6 +640,10 @@
       \subsubitem run-time measurement, 59
       \subsubitem sleep, 59
       \subsubitem stopwatch, 60
+    \subitem Filesystem, 62
+      \subsubitem current folder, 62
+      \subsubitem directory iterator, 62
+      \subsubitem paths, 62
     \subitem Random numbers
       \subsubitem default random engine, 58
       \subsubitem integer random number, 58

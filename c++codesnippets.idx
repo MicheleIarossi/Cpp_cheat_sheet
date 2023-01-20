@@ -1002,3 +1002,11 @@
 \indexentry{\texttt{regex}}{61}
 \indexentry{Strings!raw format}{61}
 \indexentry{\texttt{regex\_replace}}{61}
+\indexentry{Utilities!Filesystem}{62}
+\indexentry{\texttt{<filesystem>}}{62}
+\indexentry{\texttt{path}}{62}
+\indexentry{Utilities!Filesystem!paths}{62}
+\indexentry{\texttt{current\_path}}{62}
+\indexentry{Utilities!Filesystem!current folder}{62}
+\indexentry{\texttt{cdirectory\_iterator}}{62}
+\indexentry{Utilities!Filesystem!directory iterator}{62}

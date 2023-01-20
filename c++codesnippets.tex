@@ -98,7 +98,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.96~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.97~-~GNU GPL v3.0}
 
 %\layout
 
@@ -3650,7 +3650,47 @@ string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
 string zip_hidden = regex_replace(zip,regex,"XXX");(*\index{\texttt{regex\_replace}}*)
 cout << zip_hidden << endl;
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Filesystem\index{Utilities!Filesystem}\\ \\ Declaring a \texttt{path} object:
+\end{enumerate}
+\begin{lstlisting}
+#include <iostream>
+#include <filesystem>(*\index{\texttt{<filesystem>}}*)
 
+using namespace std;
+using namespace std::filesystem;
+
+// path object
+path current_dir;(*\index{\texttt{path}}*)(*\index{Utilities!Filesystem!paths}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Accessing the current folder:
+\end{enumerate}
+\begin{lstlisting}    
+// stores the program current directory
+current_dir = current_path();(*\index{\texttt{current\_path}}*)(*\index{Utilities!Filesystem!current folder}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Directory iterator:
+\end{enumerate}
+\begin{lstlisting}    
+// directory iterator
+directory_iterator dir{current_dir};(*\index{\texttt{cdirectory\_iterator}}*)(*\index{Utilities!Filesystem!directory iterator}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Loop over directory elements:
+\end{enumerate}
+\begin{lstlisting}    
+// loop over the current directory entries
+for (auto& dir_entry : dir) {
+    if ( dir_entry.is_directory() )
+        cout << "Found directory: " << dir_entry.path().filename() << endl;
+    else if ( dir_entry.is_regular_file() ) {
+        cout << "Found a file: " << dir_entry.path().filename() << ", ";
+        cout << dir_entry.file_size() << " bytes big " << endl;
+    }
+}
+\end{lstlisting}
 %
 % Bibliography
 %
