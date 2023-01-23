@@ -98,7 +98,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.97~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.98~-~GNU GPL v3.0}
 
 %\layout
 
@@ -3664,18 +3664,18 @@ using namespace std::filesystem;
 path current_dir;(*\index{\texttt{path}}*)(*\index{Utilities!Filesystem!paths}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[] Accessing the current folder:
+\item[] Retrieving the current folder:
 \end{enumerate}
 \begin{lstlisting}    
 // stores the program current directory
 current_dir = current_path();(*\index{\texttt{current\_path}}*)(*\index{Utilities!Filesystem!current folder}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[] Directory iterator:
+\item[] Declaring a directory iterator:
 \end{enumerate}
 \begin{lstlisting}    
 // directory iterator
-directory_iterator dir{current_dir};(*\index{\texttt{cdirectory\_iterator}}*)(*\index{Utilities!Filesystem!directory iterator}*)
+directory_iterator dir{current_dir};(*\index{\texttt{directory\_iterator}}*)(*\index{Utilities!Filesystem!directory iterator}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[] Loop over directory elements:
@@ -3683,13 +3683,50 @@ directory_iterator dir{current_dir};(*\index{\texttt{cdirectory\_iterator}}*)(*\
 \begin{lstlisting}    
 // loop over the current directory entries
 for (auto& dir_entry : dir) {
-    if ( dir_entry.is_directory() )
-        cout << "Found directory: " << dir_entry.path().filename() << endl;
+    if ( dir_entry.is_directory() ) {
+        cout << "Found directory: ";
+        cout << dir_entry.path().filename() << endl;(*\index{Utilities!Filesystem!directory entry file name}*)
+    }
     else if ( dir_entry.is_regular_file() ) {
-        cout << "Found a file: " << dir_entry.path().filename() << ", ";
-        cout << dir_entry.file_size() << " bytes big " << endl;
+        cout << "Found a file: ";
+        cout << dir_entry.path().filename() << ", ";
+        cout << dir_entry.file_size() << " bytes big " << endl;(*\index{Utilities!Filesystem!directory entry file size}*)
     }
 }
+\end{lstlisting}
+\begin{enumerate}
+\item[] Copy a file:
+\end{enumerate}
+\begin{lstlisting}
+// path target object
+path target_file{source_file};
+target_file.replace_filename("Mycopy");
+    
+// copy file
+copy_file(source_file,target_file);(*\index{\texttt{copy\_file}}*)(*\index{Utilities!Filesystem!copy file}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Read a file and print out its content:
+\end{enumerate}
+\begin{lstlisting}
+// open the file
+ifstream input_file{target_file};(*\index{Utilities!Filesystem!read file}*)
+    
+// read the file and print it out
+char c; 
+while (input_file >> c)
+    cout << c;
+cout << endl;
+    
+// close file
+input_file.close();
+\end{lstlisting}
+\begin{enumerate}
+\item[] Delete a file:
+\end{enumerate}
+\begin{lstlisting}
+// delete the file
+remove(target_file);(*\index{\texttt{remove}}*)(*\index{Utilities!Filesystem!delete file}*)
 \end{lstlisting}
 %
 % Bibliography
