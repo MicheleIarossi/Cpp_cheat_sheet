@@ -98,7 +98,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.98~-~GNU GPL v3.0}
+\date{\small \today~-~Version 1.99~-~GNU GPL v3.0}
 
 %\layout
 
@@ -354,6 +354,14 @@ int main()
         Object d{"d"};(*\index{Storage class!automatic}*)
     }   
 }
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Thread-local storage\\ \\ Each thread is given a separate copy of the variable which is not shared with other threads:
+\end{enumerate}
+\begin{lstlisting}
+// if not specified implies also (*static*)
+// any thread accessing (*counter*) gets its own copy of the variable
+thread_local int counter;(*\index{Storage class!thread-local}*)(*\index{\texttt{thread\_local}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Dynamic storage\\ \\ Storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}:
