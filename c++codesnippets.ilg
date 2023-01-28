@@ -27,8 +27,8 @@ Scanning input file c++codesnippets.idx....
    -- Extra `!' at position 46 of first argument.
 !! Input index error (file = c++codesnippets.idx, line = 837):
    -- Extra `!' at position 46 of first argument.
-.done (1010 entries accepted, 11 rejected).
-Sorting entries...........done (10928 comparisons).
+.done (1030 entries accepted, 11 rejected).
+Sorting entries...........done (11483 comparisons).
 Generating output file c++codesnippets.ind....
 ## Warning (input = c++codesnippets.idx, line = 97; output = c++codesnippets.ind, line = 21):
    -- Conflicting entries: multiple encaps for the same page under same key.
@@ -36,11 +36,11 @@ Generating output file c++codesnippets.ind....
 ## Warning (input = c++codesnippets.idx, line = 130; output = c++codesnippets.ind, line = 28):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 861; output = c++codesnippets.ind, line = 291):
+## Warning (input = c++codesnippets.idx, line = 861; output = c++codesnippets.ind, line = 297):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 840; output = c++codesnippets.ind, line = 293):
+## Warning (input = c++codesnippets.idx, line = 840; output = c++codesnippets.ind, line = 299):
    -- Conflicting entries: multiple encaps for the same page under same key.
-done (690 lines written, 4 warnings).
+done (705 lines written, 4 warnings).
 Output written in c++codesnippets.ind.
 Transcript written in c++codesnippets.ilg.

@@ -1019,3 +1019,23 @@
 \indexentry{Utilities!Filesystem!read file}{63}
 \indexentry{\texttt{remove}}{63}
 \indexentry{Utilities!Filesystem!delete file}{63}
+\indexentry{Utilities!Threads}{63}
+\indexentry{\texttt{<future>}}{64}
+\indexentry{\texttt{<thread>}}{64}
+\indexentry{\texttt{<chrono>}}{64}
+\indexentry{Utilities!Threads!asynchronous task}{64}
+\indexentry{\texttt{async}}{64}
+\indexentry{Utilities!Threads!\texttt{get}}{64}
+\indexentry{Utilities!Threads!asynchronous task}{64}
+\indexentry{Utilities!Threads!\texttt{wait\_for}}{64}
+\indexentry{\texttt{future\_status::ready}}{64}
+\indexentry{Utilities!Threads!mutex}{64}
+\indexentry{\texttt{<mutex>}}{64}
+\indexentry{Utilities!Threads!lock mutex}{65}
+\indexentry{Utilities!Threads!unlock mutex}{65}
+\indexentry{\texttt{this\_thread::yield}}{65}
+\indexentry{Utilities!Threads!yield execution}{65}
+\indexentry{Utilities!Threads!atomic}{65}
+\indexentry{\texttt{<atomic>}}{65}
+\indexentry{\texttt{this\_thread::yield}}{66}
+\indexentry{Utilities!Threads!yield execution}{66}

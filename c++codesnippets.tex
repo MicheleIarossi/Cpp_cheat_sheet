@@ -98,7 +98,7 @@
 % Set title and author
 \title{\emph{C++ code snippets}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 1.99~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.00~-~GNU GPL v3.0}
 
 %\layout
 
@@ -3735,6 +3735,151 @@ input_file.close();
 \begin{lstlisting}
 // delete the file
 remove(target_file);(*\index{\texttt{remove}}*)(*\index{Utilities!Filesystem!delete file}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Threads\index{Utilities!Threads}\\ \\ Defining a function to be run in a separate thread:
+\end{enumerate}
+\begin{lstlisting}
+#include <iostream>
+#include <future>(*\index{\texttt{<future>}}*)
+#include <thread>(*\index{\texttt{<thread>}}*)
+#include <chrono>(*\index{\texttt{<chrono>}}*)
+#include <vector>
+
+using namespace std;
+using namespace std::chrono;
+using namespace std::literals::chrono_literals;
+
+// sleeps for (*5s*)
+int sleeping_thread(int n) {
+    cout << "Sleeping thread #" << n << " started..." << endl;
+    // pause thread for 5s
+    this_thread::sleep_for(5s);*\index{\texttt{this\_thread::sleep\_for()}}*)
+    cout << "Sleeping thread ended..." << endl;
+    
+    return 0;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[] Start an asynchronous thread and wait for its result:\index{Utilities!Threads!asynchronous task}
+\end{enumerate}
+\begin{lstlisting}
+// start the sleeping thread with parameter (*1*)
+auto sleeping_res = async(launch::async,sleeping_thread,1);(*\index{\texttt{async}}*)
+    
+// blocks until the thread finishes
+if (sleeping_res.get() == 0)(*\index{Utilities!Threads!\texttt{get}}*)
+    cout << "Sleeping thread #1 finished! " << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[] Start an asynchronous thread and check periodically until result is available:\index{Utilities!Threads!asynchronous task}
+\end{enumerate}
+\begin{lstlisting}
+// start the sleeping thread
+sleeping_res = async(launch::async,sleeping_thread,1);
+    
+cout << "Checking on sleeping thread..." << endl;
+auto sleeping_stat = sleeping_res.wait_for(1s);(*\index{Utilities!Threads!\texttt{wait\_for}}*)
+while (sleeping_stat != future_status::ready) {(*\index{\texttt{future\_status::ready}}*)
+    cout << "Checking on sleeping thread..." << endl;
+    sleeping_stat = sleeping_res.wait_for(1s);
+}
+
+if (sleeping_stat == future_status::ready)
+    cout << "Sleeping thread #1 finished! " << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[] Usage of a mutex for synchronizing threads:\index{Utilities!Threads!mutex}
+\end{enumerate}
+\begin{lstlisting}
+#include <mutex>(*\index{\texttt{<mutex>}}*)
+
+// global counter to be incremented
+int counter=0;
+
+// mutex for synchronizing the access
+mutex m_counter;
+
+// incrementing thread
+template<char c>
+int incrementing_thread(int n) {
+    // enter infinite loop
+    while (1) {
+        // blocking call for getting the mutex
+        m_counter.lock();(*\index{Utilities!Threads!lock mutex}*)
+        // got the mutex
+        // check current counter value and exit if necessary
+        if (counter >= n)
+            break;
+        cout << "incrementing_thread<" << c << ">(): ";
+        cout << counter << endl;
+        counter++;
+        
+        // release the mutex
+        m_counter.unlock();(*\index{Utilities!Threads!unlock mutex}*)
+        
+        // yield thread execution
+        this_thread::yield();(*\index{\texttt{this\_thread::yield}}*)(*\index{Utilities!Threads!yield execution}*)
+    }
+    cout << "incrementing_thread<" << c << ">(): done" << endl;
+    
+    // release the mutex
+    m_counter.unlock();
+    
+    return n;
+}
+
+// start the incrementing threads
+auto one_res = async(launch::async,incrementing_thread<'1'>,6);
+auto two_res = async(launch::async,incrementing_thread<'2'>,9);
+
+if (one_res.get() == 6)
+    cout << "Incrementing thread #1 finished! " << endl;
+    
+if (two_res.get() == 9)
+    cout << "Incrementing thread #2 finished! " << endl;
+    
+cout << "Counter value: " << counter << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[] Usage of atomic variables:\index{Utilities!Threads!atomic}
+\end{enumerate}
+\begin{lstlisting}
+#include <atomic>(*\index{\texttt{<atomic>}}*)
+
+// atomic counter
+atomic_int counter_atomic = 0;
+
+template<char c>
+int atomic_incrementing_thread(int n) {
+    while (1) {
+        cout << "atomic_incrementing_thread<" << c << ">(): " 
+        cout << counter_atomic << endl;
+        
+        // atomic read and increment
+        if (counter_atomic < n)
+            counter_atomic++;
+        else break;
+        
+         // yield thread execution
+        this_thread::yield();(*\index{\texttt{this\_thread::yield}}*)(*\index{Utilities!Threads!yield execution}*)
+    }
+    cout << "atomic_incrementing_thread<" << c << ">(): done" << endl;
+    
+    return n;
+}
+
+// start the incrementing threads
+auto one_res = async(launch::async,atomic_incrementing_thread<'1'>,6);
+auto two_res = async(launch::async,atomic_incrementing_thread<'2'>,9);
+
+if (one_res.get() == 6)
+    cout << "Incrementing thread #1 finished! " << endl;
+    
+if (two_res.get() == 9)
+    cout << "Incrementing thread #2 finished! " << endl;
+    
+cout << "Counter value: " << counter_atomic << endl;
 \end{lstlisting}
 %
 % Bibliography

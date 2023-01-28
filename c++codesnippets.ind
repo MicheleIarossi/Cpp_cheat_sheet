@@ -28,8 +28,9 @@
   \item \textbf{using}, \see{Alias}{13}, \see{Namespaces}{13}
   \item \textbf{virtual}, 32, 38--42, 44, 46, 48, 52
   \item \texttt{<algorithm>}, 32, 52, 56, 57
+  \item \texttt{<atomic>}, 65
   \item \texttt{<bitset>}, 59
-  \item \texttt{<chrono>}, 60
+  \item \texttt{<chrono>}, 60, 64
   \item \texttt{<cstdint>}, 7, 51
   \item \texttt{<cstdlib>}, 19, 59
   \item \texttt{<cstring>}, 19
@@ -38,12 +39,14 @@
   \item \texttt{<fstream>}, 23
   \item \texttt{<function>}, 9
   \item \texttt{<functional>}, 57, 59
+  \item \texttt{<future>}, 64
   \item \texttt{<iomanip>}, 20, 21
   \item \texttt{<iostream>}, 2, 52
   \item \texttt{<limits>}, 8
   \item \texttt{<list>}, 54, 57
   \item \texttt{<map>}, 55, 56
   \item \texttt{<memory>}, 16
+  \item \texttt{<mutex>}, 64
   \item \texttt{<numeric>}, 57
   \item \texttt{<ostream>}, 52
   \item \texttt{<random>}, 59
@@ -52,7 +55,7 @@
   \item \texttt{<sstream>}, 28
   \item \texttt{<stack>}, 54
   \item \texttt{<string>}, 26, 55, 56
-  \item \texttt{<thread>}, 60
+  \item \texttt{<thread>}, 60, 64
   \item \texttt{<type\_traits>}, 4
   \item \texttt{<utilities>}, 61
   \item \texttt{<utility>}, 55, 56
@@ -66,6 +69,7 @@
   \item \texttt{[\& ]}, 13
   \item \texttt{accumulate}, \see{Algorithms}{57}
   \item \texttt{allocator}, 48
+  \item \texttt{async}, 64
   \item \texttt{atof}, 20
   \item \texttt{atoi}, 20
   \item \texttt{atol}, 20
@@ -88,6 +92,7 @@
   \item \texttt{find\_if}, \see{Algorithms}{57}
   \item \texttt{find}, \see{Algorithms}{54}
   \item \texttt{fstream}, 23
+  \item \texttt{future\_status::ready}, 64
   \item \texttt{ifstream}, 23
   \item \texttt{initializer\_list}, 32, 33, 35, 46, 48
   \item \texttt{inner\_product}, \see{Algorithms}{58}
@@ -150,6 +155,7 @@
   \item \texttt{strncpy}, 20
   \item \texttt{system\_clock::now()}, 60
   \item \texttt{this\_thread::sleep\_for()}, 60
+  \item \texttt{this\_thread::yield}, 65, 66
   \item \texttt{thread\_local}, 6
   \item \texttt{time\_point<high\_resolution\_clock>}, 61
   \item \texttt{time\_point<system\_clock>}, 60
@@ -663,6 +669,15 @@
       \subsubitem first match, 61
       \subsubitem iterative search, 62
       \subsubitem replace, 62
+    \subitem Threads, 63
+      \subsubitem \texttt{get}, 64
+      \subsubitem \texttt{wait\_for}, 64
+      \subsubitem asynchronous task, 64
+      \subsubitem atomic, 65
+      \subsubitem lock mutex, 65
+      \subsubitem mutex, 64
+      \subsubitem unlock mutex, 65
+      \subsubitem yield execution, 65, 66
 
   \indexspace
 
