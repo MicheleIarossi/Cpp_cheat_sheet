@@ -16,9 +16,9 @@
 %
 
 % Preamble starts here: includes further global commands and specifications
-% In the following, the option 10pt is a global option passed to all
+% In the following, the option 12pt is a global option passed to all
 % the packages
-\documentclass[10pt]{article}
+\documentclass[12pt]{article}
 
 % Using Courier font
 \renewcommand{\ttdefault}{pcr}
@@ -95,14 +95,25 @@
 % \name[optional]{mandatory}
 \begin{document}
 
+\pagenumbering{roman}
+
 % Set title and author
-\title{\emph{C++ code snippets}}
+\title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.00~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.01~-~GNU GPL v3.0}
 
 %\layout
 
 \maketitle
+
+% We don't want page numbers on the following page
+\thispagestyle{empty}
+
+\newpage
+
+\
+
+\newpage
 
 \small
 
@@ -112,7 +123,14 @@
 \tableofcontents
 \end{multicols}
 \end{frame}
+
 \newpage
+
+\
+
+\newpage
+
+\pagenumbering{arabic}
 \noindent
 In the following code snippets, the standard I/O library and namespace are used:
 \begin{lstlisting}
@@ -272,7 +290,8 @@ private:
 MyType a{5};
 MyType b{7};
 
-// (*a*) and (*b*) are converted implicitely to (*int*) by (*operator int()*)
+// (*a*) and (*b*) are converted
+// implicitely to (*int*) by (*operator int()*)
 // (*c = 12*)
 int c = a + b;(*\index{Type casting!user defined type conversions!implicit}*)
 
@@ -312,7 +331,9 @@ public:
     Object(string obj_name) : name{obj_name} {
         cout << "Created object: " << obj_name << endl;
     }
-    ~Object() { cout << "Destroyed object: " << name << endl; }
+    ~Object() { 
+        cout << "Destroyed object: " << name << endl;
+    }
 private:
     string name{};
 };
@@ -360,7 +381,8 @@ int main()
 \end{enumerate}
 \begin{lstlisting}
 // if not specified implies also (*static*)
-// any thread accessing (*counter*) gets its own copy of the variable
+// any thread accessing (*counter*) gets its own copy
+// of the variable
 thread_local int counter;(*\index{Storage class!thread-local}*)(*\index{\texttt{thread\_local}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -476,15 +498,15 @@ uint64_t d;(*\index{\texttt{uint64\_t}}*)
 #include <limits>(*\index{\texttt{<limits>}}*)
 
 // (*int*) type
-cout << numeric_limits<int>::min() << endl; // (*-2147483648*)
-cout << numeric_limits<int>::max() << endl; // (*2147483647*)
+cout << numeric_limits<int>::min(); // (*-2147483648*)
+cout << numeric_limits<int>::max(); // (*2147483647*)
     
 // (*double*) type
-cout << numeric_limits<double>::min() << endl; // (*2.22507e-308*)
-cout << numeric_limits<double>::max() << endl; // (*1.79769e+308*)
-cout << numeric_limits<double>::lowest() << endl; // (*-1.79769e+308*)
-cout << numeric_limits<double>::epsilon() << endl; // (*2.22045e-16*)
-cout << numeric_limits<double>::round_error() << endl; // (*0.5*)
+cout << numeric_limits<double>::min(); // (*2.22507e-308*)
+cout << numeric_limits<double>::max(); // (*1.79769e+308*)
+cout << numeric_limits<double>::lowest(); // (*-1.79769e+308*)
+cout << numeric_limits<double>::epsilon(); // (*2.22045e-16*)
+cout << numeric_limits<double>::round_error(); // (*0.5*)
 \end{lstlisting}
 %
 % Functions
@@ -504,8 +526,8 @@ void set_birthday(int day, int month, int year=2000);
 \index{Functions!arguments!omitted}
 \end{enumerate}
 \begin{lstlisting}
-// argument (*year*) is not used anymore in the function definition
-// (doesn't break legacy code!)
+// argument (*year*) is not used anymore in the function
+// definition (doesn't break legacy code!)
 void set_birthday(int day, int month, int) { ...}
 \end{lstlisting}
 \begin{enumerate}
@@ -516,8 +538,10 @@ void set_birthday(int day, int month, int) { ...}
 \index{Functions!arguments!copy-by-reference}
 \end{enumerate}
 \begin{lstlisting}
-// (*day*) input parameter passed by const reference (read-only)
-// (*month*) output parameter to be changed by the function (read-write)
+// (*day*) input parameter passed by const
+// reference (read-only)
+// (*month*) output parameter to be changed by the
+// function (read-write)
 // (*year*) input parameter copied-by-value
 void set_birthday(const int& day, int& month, int year);(*\index{Constants!\textbf{const}}*)
 \end{lstlisting}
@@ -547,7 +571,8 @@ const Object& default_value()(*\index{Constants!\textbf{const}}*)
 \end{enumerate}
 \begin{lstlisting}
 // pointer to a function returning a (*void*) and
-// having parameters a pointer to a (*Fl\_Widget*) and a pointer to a (*void*)
+// having parameters a pointer to a (*Fl\_Widget*) and
+// a pointer to a (*void*)
 typedef void ( *Callback_type )( Fl_Widget*, void* ); (*\index{\textbf{typedef}}*)
 
 // (*cb*) is a callback defined as above
@@ -601,7 +626,9 @@ func = print_sthg;
 func();
 
 // works also with lambdas
-function<void()> func2 { []() { cout << "Hello" << endl; } };
+function<void()> func2 { 
+    []() { cout << "Hello" << endl; } 
+};
 
 // call
 func2();
@@ -661,8 +688,8 @@ public:
 class Apple : public Fruit
 {
 public:
-    // (*override*)  explicitly tells the compiler you are overriding
-    // a virtual function
+    // (*override*) explicitly tells the compiler you are
+    // overriding a virtual function
     int price(void) override {} // compiler error!{(*\index{\texttt{override}}*)(*\index{Modifiers!suffix!\texttt{override}}*)
 };
 
@@ -734,32 +761,33 @@ It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.
 \item[$\Rightarrow$] Without access to local variables:\index{Lambda expressions!without access to local variables}
 \end{enumerate}
 \begin{lstlisting}
-// Instantiates a (*Function*) object where the first argument is
-// an unnamed function having one (*double*) parameter (*x*)
+// Instantiates a (*Function*) object where the first argument
+// is an unnamed function having one (*double*) parameter (*x*)
 // and returning a (*double*). The return type is inferred
-Function e_gr{[](double x){return exp(x);},{-8.0,8.0},0.001,(*\index{\texttt{[ ]}}*)
-        {-8.0,8.0},{320,240},400};
+Function e_gr{[](double x){return exp(x);}, {-8.0,8.0},(*\index{\texttt{[ ]}}*)
+        0.001, {-8.0,8.0}, {320,240}, 400};
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] With access to local variables (copy by value):\index{Lambda expressions!with access to local variables!copy by value}
 \end{enumerate}
 \begin{lstlisting}
-// Same as above, but the variable (*n*) inside the lambda introducer
-// is available for the function to be used
+// Same as above, but the variable (*n*) inside the lambda
+// introducer is available for the function to be used
 int n = 5;
-Function ee_gr{[n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
-        {-8.0,8.0},{320,240},400};
+Function ee_gr{[n](double x) { n++; return expe(x,n);},
+    {-8.0,8.0}, 0.001, {-8.0,8.0}, {320,240}, 400};
 // now (*n*) is still 5
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] With access to local variables (copy by reference):\index{Lambda expressions!with access to local variables!copy by reference}
 \end{enumerate}
 \begin{lstlisting}
-// Same as above, but the variable (*n*) inside the lambda introducer
-// is available for the function to be used and modified
+// Same as above, but the variable (*n*) inside the lambda
+// introducer is available for the function to be used 
+// and modified
 int n = 5;
-Function ee_gr{[&n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
-        {-8.0,8.0},{320,240},400};
+Function ee_gr{[&n](double x){n++; return expe(x,n);},
+    {-8.0,8.0}, 0.001, {-8.0,8.0}, {320,240}, 400};
 // now (*n*) is 6!
 \end{lstlisting}
 \begin{enumerate}
@@ -770,8 +798,9 @@ Function ee_gr{[&n](double x){n++; return expe(x,n);},{-8.0,8.0},0.001,
 // are available for the function to be used
 int n = 5;
 int m = 6;
-Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},
-                          {-8.0,8.0}, 0.001, {-8.0,8.0},{320,240},400};(*\index{\texttt{[= ]}}*)
+Function ee_gr{[= ](double x){n++; m++; 
+    return expe(x,n+m);}, {-8.0,8.0}, 0.001,
+    {-8.0,8.0}, {320,240}, 400};(*\index{\texttt{[= ]}}*)
 // (*n*) stays 5 and (*m*) stays 6 
  \end{lstlisting}
 \begin{enumerate}
@@ -782,8 +811,9 @@ Function ee_gr{[= ](double x){n++; m++; return expe(x,n+m);},
 // are available for the function to be used and modified
 int n = 5;
 int m = 6;
-Function ee_gr{[& ](double x){n++; m++; return expe(x,n+m);},
-                          {-8.0,8.0},0.001, {-8.0,8.0},{320,240},400};(*\index{\texttt{[\& ]}}*)
+Function ee_gr{[& ](double x){n++; m++;
+    return expe(x,n+m);}, {-8.0,8.0},0.001,
+    {-8.0,8.0}, {320,240}, 400};(*\index{\texttt{[\& ]}}*)
 // now (*n*) is 6 and (*m*) is 7!
  \end{lstlisting}
 %
@@ -1112,7 +1142,8 @@ bool empty = ( sh_int == nullptr );
 auto int_deleter = [](int *n) { delete n; };
 
 // unique pointer with deleter
-unique_ptr<int, decltype(int_deleter)> p_int{ new int{5}, int_deleter };(*\index{Smart pointers!deleter}*)(*\index{\textbf{decltype}}*)
+unique_ptr<int, decltype(int_deleter)> p_int{ new int{5},
+    int_deleter };(*\index{Smart pointers!deleter}*)(*\index{\textbf{decltype}}*)
 \end{lstlisting}
 %
 % References
@@ -1203,7 +1234,8 @@ strncpy(msg, srcStr, 10);(*\index{\texttt{strncpy}}*)
 // safe string compare, at most (*10*) characters are compared(*\index{C-Strings!safe compare}*)
 strncmp(msg, srcStr, 10);(*\index{\texttt{strncmp}}*)
 
-// safe string concatenation, at most (*10*) characters are concatenated(*\index{C-Strings!safe concatenation}*)
+// safe string concatenation, at most (*10*) characters
+// are concatenated(*\index{C-Strings!safe concatenation}*)
 strncat(msg, srcStr, 10);(*\index{\texttt{strncat}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -1263,7 +1295,8 @@ cout << noboolalpha << "True: " << true << endl;(*\index{Input-output streams!\t
 #include <iomanip>(*\index{\texttt{<iomanip>}}*)
 
 // set decimal, octal, or hexadecimal notation,
-// and show the base, i.e. (*0*) for octal and (*0x*) for hexadecimal
+// and show the base, i.e. (*0*) for octal and (*0x*) for
+// hexadecimal
 cout << showbase;(*\index{Input-output streams!integer format manipulators!show the base}*)(*\index{Input-output streams!\texttt{cout}}*)(*\index{Input-output streams!\texttt{cout}!\texttt{showbase}}*)
 cout << dec << 1974 << endl;(*\index{Input-output streams!integer format manipulators!decimal}*)(*\index{Input-output streams!\texttt{cout}!\texttt{dec}}*)
 cout << oct << 1974 << endl;(*\index{Input-output streams!integer format manipulators!otctal}*)(*\index{Input-output streams!\texttt{cout}!\texttt{oct}}*)
@@ -1311,7 +1344,8 @@ cout << showpos << 3.64;(*\index{Input-output streams!floating point format mani
 \index{Input-output streams!reading and writing characters}
 \end{enumerate}
 \begin{lstlisting}
-// read any character from (*cin*) (doesn't skip spaces, newlines, etc.)(*\index{Input-output streams!reading and writing characters!read any character}*)
+// read any character from (*cin*) (doesn't skip spaces,
+// newlines, etc.)(*\index{Input-output streams!reading and writing characters!read any character}*)
 char nextChar;
 cin.get(nextChar);(*\index{Input-output streams!\texttt{cin}!\texttt{get}}*)
 
@@ -1519,7 +1553,8 @@ out_stream.seekp(8);
 \item[$\Rightarrow$] Checking for end of file:
 \end{enumerate}
 \begin{lstlisting}
-// the failing read sets the EOF flag but avoids further processing
+// the failing read sets the EOF flag but avoids
+// further processing
 while ( in_stream >> next )(*\index{Files!loop for reading all the input}*)
 {
     // process next
@@ -1607,7 +1642,8 @@ getline(cin,line);(*\index{Input-output streams!\texttt{cin}}*)
 // access to the ith character (no illegal index checking)(*\index{Strings!access to character!no illegal index checking}*)
 s1[i];
 
-// access to the ith character (with illegal index checking)(*\index{Strings!access to character!with illegal index checking}*)
+// access to the ith character (with illegal index
+// checking)(*\index{Strings!access to character!with illegal index checking}*)
 s1.at(i);(*\index{Strings!\texttt{at}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -1666,10 +1702,11 @@ s1.erase(2,3); // (*"He"*)(*\index{Strings!\texttt{erase}}*)
 string s1("Hello!")(*\index{Strings!\texttt{string}}*)
 
 // replace with range
-s1.replace(s1.begin()+5,s1.end(),", world!"); // (*"Hello, world!*)(*\index{Strings!\texttt{replace}}*)
+// (*"Hello, world!*)
+s1.replace(s1.begin()+5,s1.end(),", world!");(*\index{Strings!\texttt{replace}}*)
 
 // replace with position and length
-s1.replace(5,8," world!");// (*"Hello world!*)(*\index{Strings!\texttt{replace}}*)
+s1.replace(5,8," world!"); // (*"Hello world!*)(*\index{Strings!\texttt{replace}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Size and length:
@@ -1834,8 +1871,9 @@ v.resize(20);(*\index{Vectors!resize}*)(*\index{Containers!\texttt{vector}!\text
 for (auto x : v)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)
   cout << x << endl;(*\index{Input-output streams!\texttt{cout}}*)
 
-// (*auto*) gives to (*x*) the same type of the element on the right
-// hand side of the assignment, in this case a (*vector::iterator*)
+// (*auto*) gives to (*x*) the same type of the element on the
+// right hand side of the assignment, in this case
+// a (*vector::iterator*)
 for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
   cout << *x << endl;(*\index{Input-output streams!\texttt{cout}}*)
 \end{lstlisting}
@@ -1853,7 +1891,8 @@ cout << v.capacity();(*\index{Vectors!total capacity}*)(*\index{Containers!\text
 \item[$\Rightarrow$] Reserve more capacity:
 \end{enumerate}
 \begin{lstlisting}
-// reserve (reallocate) more capacity e.g. at least 64 (*int*)s
+// reserve (reallocate) more capacity, e.g. at least
+// 64 (*int*)s
 v.reserve(64);(*\index{Vectors!reserve more capacity}*)(*\index{Containers!\texttt{vector}!\texttt{reserve}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -1951,9 +1990,13 @@ public:
     virtual ~MyVector() { if (e) delete[] e; }(*\index{Classes!virtual destructor}*)(*\index{\textbf{delete}}*)(*\index{\textbf{virtual}}*)
     // subscript operators(*\index{Classes!subscript operator}*)
     // write
-    double& operator[](size_t i) { return e[i]; }(*\index{Classes!subscript operator!write}*)(*\index{\texttt{size\_t}}*)
+    double& operator[](size_t i) {
+        return e[i];
+    }(*\index{Classes!subscript operator!write}*)(*\index{\texttt{size\_t}}*)
     // read
-    const double& operator[](size_t i) const { return e[i]; };(*\index{Classes!subscript operator!read}*)(*\index{Constants!\textbf{const}}*)(*\index{\texttt{size\_t}}*)
+    const double& operator[](size_t i) const {
+        return e[i];
+    };(*\index{Classes!subscript operator!read}*)(*\index{Constants!\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // size
     size_t size() const { return n; }(*\index{Classes!constant member function}*)(*\index{Constants!\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // capacity
@@ -1977,7 +2020,8 @@ when initializing the vector:\index{Default value!\texttt{double()}}
 \end{enumerate}
 \begin{lstlisting}
 // constructor with member initialization list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialization list}*)
-MyVector::MyVector(size_t s) : n{s}, m{s}, e{new double[n]}(*\index{\textbf{new}}*)(*\index{\texttt{size\_t}}*)
+MyVector::MyVector(size_t s) : n{s},
+    m{s}, e{new double[n]}(*\index{\textbf{new}}*)(*\index{\texttt{size\_t}}*)
 {
      for (int i=0; i<n; i++) e[i] = double();
 }
@@ -2225,10 +2269,13 @@ public:
     Euro(int euro);
     // constructor for (*euro*) and (*cents*)
     Euro(int euro, int cents);
-    friend Euro operator+(const Euro& amount1, const Euro& amount2);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator+}}*)
+    friend Euro operator+(const Euro& amount1,
+        const Euro& amount2);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator+}}*)
     // insertion and extraction operators
-    friend ostream& operator<<(ostream& outs, const Euro& amount);(*\index{\texttt{operator<<}}*)(*\index{\textbf{friend}}*)(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)
-    friend istream& operator>>(istream& ins, Euro& amount);(*\index{\texttt{operator>>}}*)(*\index{\textbf{friend}}*)
+    friend ostream& operator<<(ostream& outs,
+        const Euro& amount);(*\index{\texttt{operator<<}}*)(*\index{\textbf{friend}}*)(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)
+    friend istream& operator>>(istream& ins,
+        Euro& amount);(*\index{\texttt{operator>>}}*)(*\index{\textbf{friend}}*)
 private:
     int euro;
     int cents;
@@ -2275,9 +2322,13 @@ public:
     // (call of redraw() might be needed)
     void set_color(Color_type c);
     void set_color(int c);
-    Color_type get_color() const { return to_color_type(new_color); }(*\index{Constants!\textbf{const}}*)
+    Color_type get_color() const {
+        return to_color_type(new_color);
+    }(*\index{Constants!\textbf{const}}*)
     void set_style(Style_type s, int w);
-    Style_type get_style() const { return to_style_type(line_style); }(*\index{Constants!\textbf{const}}*)
+    Style_type get_style() const {
+        return to_style_type(line_style);
+    }(*\index{Constants!\textbf{const}}*)
     void set_font(Font_type f, int s);
 protected:
     // Shape is an abstract class,
@@ -2300,7 +2351,9 @@ protected:
     void set_fl_style();
     void restore_fl_style();
     void set_fl_font();
-    void restore_fl_font() { fl_font(old_font,old_fontsize); }
+    void restore_fl_font() {
+        fl_font(old_font,old_fontsize);
+    }
     // test method for checking resize calls
     void draw_outline();
 private:
@@ -2386,7 +2439,9 @@ protected:
     void set_fl_style();
     void restore_fl_style();
     void set_fl_font();
-    void restore_fl_font() { fl_font(old_font,old_fontsize); }
+    void restore_fl_font() {
+        fl_font(old_font,old_fontsize);
+    }
     ...
 };
 \end{lstlisting}
@@ -2443,7 +2498,8 @@ public:
     void set_line(pair<Point,Point> line) { l = line; }(*\index{\texttt{pair}}*)
 protected:
     void draw_shape() {
-        fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
+        fl_line(l.first.x, l.first.y, l.second.x,
+            l.second.y);
     }
     void move_shape(int dx, int dy) {
         l.first.x  += dx;  l.first.y += dy;
@@ -2491,7 +2547,8 @@ public:
     ...
 protected:
     void draw_shape() {
-        fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
+        fl_line(l.first.x, l.first.y, l.second.x,
+            l.second.y);
     }
     void move_shape(int dx, int dy) {
         l.first.x  += dx;  l.first.y += dy;
@@ -2510,18 +2567,21 @@ class Circle : public Shape(*\index{Classes!\textbf{class}!\texttt{Circle}}*)
 {
 public:
     Circle(Point a, int rr) : c{a}, r{rr} {
-        resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
+        resize_shape(Point{c.x-r,c.y-r},
+            Point{c.x+r,c.y+r});
     }
     virtual ~Circle() {}(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     Point get_center() const { return c; }(*\index{Constants!\textbf{const}}*)
     void set_center(Point p) {
         c = p;
-        resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
+        resize_shape(Point{c.x-r,c.y-r},
+            Point{c.x+r,c.y+r});
     }
     int get_radius() const { return r; }(*\index{Constants!\textbf{const}}*)
     void set_radius(int rr) {
         r = rr;
-        resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
+        resize_shape(Point{c.x-r,c.y-r},
+            Point{c.x+r,c.y+r});
     }
 protected:
     void draw_shape() {
@@ -2531,7 +2591,8 @@ protected:
     }
     void move_shape(int dx,int dy) {
         c.x += dx; c.y += dy;
-        resize_shape(Point{c.x-r,c.y-r},Point{c.x+r,c.y+r});
+        resize_shape(Point{c.x-r,c.y-r},
+            Point{c.x+r,c.y+r});
     }
 private:
     Point c{}; // center
@@ -2553,7 +2614,8 @@ void Window::draw(Fl_Widget& w) {
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Since \texttt{Fl\_Widget::draw()} is a pure virtual function, it is overridden by \texttt{Shape::draw()}, which in turn calls the pure virtual function \texttt{Shape::draw\_shape()}, which gets specialised in every derived class, e.g. as in \texttt{Line} or \texttt{Circle}:
+\item[$\Rightarrow$] Since \texttt{Fl\_Widget::draw()} is a pure virtual function, it is overridden by\\ 
+\texttt{Shape::draw()}, which in turn calls the pure virtual function\\ \texttt{Shape::draw\_shape()}, which gets specialised in every derived class, e.g. as in \texttt{Line} or \texttt{Circle}:
 \end{enumerate}
 \begin{lstlisting}
 void Shape::draw() {
@@ -2599,7 +2661,8 @@ class MyException(*\index{Classes!\textbf{class}!\texttt{MyException}}*)
 public:
     MyException(string s);(*\index{Strings!\texttt{string}}*)
     virtual ~MyException();(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
-    friend ostream& operator<<(ostream& os, const MyException& e);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& os,
+        const MyException& e);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 protected:
     string msg;(*\index{Strings!\texttt{string}}*)
 };
@@ -2620,7 +2683,7 @@ catch (...)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions.  For example \texttt{runtime\_error} can be thrown when runtime errors occur:
+\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions.  For example\\ \texttt{runtime\_error} can be thrown when runtime errors occur:
 \end{enumerate}
 \begin{lstlisting}
 try(*\index{Exceptions!\textbf{try-catch}}*)
@@ -2664,8 +2727,8 @@ void my_function(void)
     
     try(*\index{Exceptions!\textbf{try-catch}}*)
     {
-        /* code that acquires some resource (memory, socket, etc.) */
-        /* and might throw an exception */
+        /* code that acquires some resource (memory, 
+           socket, etc.) and might throw an exception */
     }
     catch (...)
     { 
@@ -2830,8 +2893,8 @@ Wrapper<char,3> array;
 \end{enumerate}
 \begin{lstlisting}
 // Usage of an allocator as a class template parameter
-// Generalises (*\texttt{MyVector}*) for data types without a default constructor
-// and with customised memory management
+// Generalises (*\texttt{MyVector}*) for data types without a default
+// constructor and with customised memory management
 template<class T, class A=allocator<T>>(*\index{\texttt{allocator}}*)(*\index{Templates!\textbf{template}}*)
 class MyVector(*\index{Classes!\textbf{class}!\texttt{MyVector<T,A>}}*)
 {
@@ -2886,9 +2949,11 @@ void MyVector<T,A>::reserve(size_t new_m)(*\index{\texttt{size\_t}}*)
     if (e)
     {
         // copy
-        for (size_t i=0; i<n; ++i) alloc.construct(&p[i],e[i]);(*\index{\texttt{size\_t}}*)
+        for (size_t i=0; i<n; ++i)
+            alloc.construct(&p[i],e[i]);(*\index{\texttt{size\_t}}*)
         // destroy
-        for (size_t i=0; i<n; ++i) alloc.destroy(&e[i]);(*\index{\texttt{size\_t}}*)
+        for (size_t i=0; i<n; ++i)
+            alloc.destroy(&e[i]);(*\index{\texttt{size\_t}}*)
         // deallocate
         alloc.deallocate(e,m);
     }
@@ -2914,7 +2979,8 @@ class SimpleNode(*\index{Classes!\textbf{class}!\texttt{SimpleNode<T>}}*)
     SimpleNode<T>& operator=(const SimpleNode<T>& b);(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator=}}*)
     // friend insertion operator
     template <class TT>(*\index{Templates!\textbf{template}}*)
-    friend ostream& operator<<(ostream& outs, const SimpleNode<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& outs,
+        const SimpleNode<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 private:
     T *p;
     int size;
@@ -3007,12 +3073,22 @@ class PowerRange::iterator
 public:
     iterator(uint32_t *p) : curr{p} { }
     // postfix
-    iterator operator++(int) { ++curr; return iterator{curr-1}; }(*\index{Operator overloading!postfix increment ++}*)(*\index{\texttt{operator++(int)}}*)
+    iterator operator++(int) {
+        ++curr;
+        return iterator{curr-1};
+    }(*\index{Operator overloading!postfix increment ++}*)(*\index{\texttt{operator++(int)}}*)
     // prefix
-    iterator& operator++() { ++curr; return *this; }(*\index{Operator overloading!prefix increment ++}*)(*\index{\texttt{operator++}}*)
+    iterator& operator++() {
+        ++curr;
+        return *this;
+    }(*\index{Operator overloading!prefix increment ++}*)(*\index{\texttt{operator++}}*)
     uint32_t operator*() { return *curr; }(*\index{\texttt{operator$\ast$}}*)
-    bool operator!=(const iterator& e) {return curr != e.curr; }(*\index{\texttt{operator"!=}}*)
-    bool operator==(const iterator& e) {return curr == e.curr; }(*\index{\texttt{operator==}}*)
+    bool operator!=(const iterator& e) {
+        return curr != e.curr;
+    }(*\index{\texttt{operator"!=}}*)
+    bool operator==(const iterator& e) {
+        return curr == e.curr;
+    }(*\index{\texttt{operator==}}*)
 private:
     uint32_t *curr{nullptr};
 };
@@ -3054,12 +3130,14 @@ class LListNode(*\index{Classes!\textbf{class}!\texttt{LListNode<T>}}*)
 {
 public:
     // constructor for a new node
-    LListNode(T new_data = T(), LListNode<T>* new_next = nullptr) :(*\index{\textbf{nullptr}}*)
+    LListNode(T new_data = T(),
+        LListNode<T>* new_next = nullptr) :(*\index{\textbf{nullptr}}*)
     data(new_data), next(new_next) {};
     // friends
     friend class LList<T>;(*\index{\textbf{friend}}*)
     template <class TT>(*\index{Templates!\textbf{template}}*)
-    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& outs,
+        const LList<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 private:
     // data element
     T data{T()};
@@ -3100,7 +3178,8 @@ public:
     int size() const;
     // insertion operator
     template <class TT>(*\index{Templates!\textbf{template}}*)
-    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& outs,
+        const LList<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
     // iterator type
     class iterator;(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)
     // iterator to first element
@@ -3125,10 +3204,19 @@ class LList<T>::iterator(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*
 public:
     iterator(LListNode<T>* p) : curr{p} {}
     // prefix increment, returns a reference!(*\index{Operator overloading!prefix increment ++}*)
-    iterator& operator++() { curr = curr->next; return *this; }(*\index{\textbf{this}}*)(*\index{\texttt{operator++}}*)
-    T& operator*() const { return curr->data; }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator$\ast$}}*)
-    bool operator==(const iterator& b) const { return curr == b.curr; }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator==}}*)
-    bool operator!=(const iterator& b) const { return curr != b.curr; }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator"!=}}*)
+    iterator& operator++() {
+        curr = curr->next;
+        return *this;
+    }(*\index{\textbf{this}}*)(*\index{\texttt{operator++}}*)
+    T& operator*() const {
+        return curr->data;
+    }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator$\ast$}}*)
+    bool operator==(const iterator& b) const {
+        return curr == b.curr;
+    }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator==}}*)
+    bool operator!=(const iterator& b) const {
+        return curr != b.curr;
+    }(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator"!=}}*)
 private:
     LListNode<T>* curr{nullptr};(*\index{\textbf{nullptr}}*)
 };
@@ -3144,10 +3232,11 @@ data_list.insert_at_end(127);
 // prints (*data\_list = (-21) -> (45) -> (127)*)
 cout << "data_list = " << data_list << endl;
 // prints  (*data\_list.size() = 3*)
-cout << "data_list.size() = " << data_list.size() << "\n\n";
+cout << "data_list.size() = " << data_list.size();
 
 // applies standard algorithms on the custom linked list
-LList<int>::iterator p = find(data_list.begin(),data_list.end(),45);(*\index{\texttt{find}|see{Algorithms}}*)(*\index{Algorithms!\texttt{find}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}*)
+LList<int>::iterator p = find(data_list.begin(),
+    data_list.end(),45);(*\index{\texttt{find}|see{Algorithms}}*)(*\index{Algorithms!\texttt{find}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}*)
 
 // checks if the element has been found(*\index{Iterators!end of sequence convention}*)
 // standard algorithms return the end of a sequence, 
@@ -3277,8 +3366,10 @@ dict.erase(two);(*\index{Containers!\texttt{map}!\texttt{erase}}*)
 // range-for-loop(*\index{range-for-loop}*)
 // inside the loop (*n*) is a (*pair*)
 // the key is (*n.first*) and the value is (*n.second*)
-for (auto n : dict)(*\index{\textbf{auto}}*)
-    cout << "(" <<  n.first << "," <<  n.second << ")" << endl;
+for (auto n : dict) {(*\index{\textbf{auto}}*)
+    cout << "(" <<  n.first << "," <<  n.second << ")";
+    cout << endl;
+}
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Associative containers: \texttt{multimap}, ordered according to its key in pairs (key,value), keys can be repeated\index{Containers!associative|see{\texttt{multimap}}}
@@ -3330,8 +3421,9 @@ p = find(v.begin(),v.end(),13);(*\index{Algorithms!\texttt{find}}*)
 \begin{lstlisting}
 bool test_greater_than_5(int x) { return x>5; }
 // (*find\_if*)(*\index{Algorithms!\texttt{find\_if}}*)(*\index{\texttt{find\_if}|see{Algorithms}}*)
-// general search, stops as soon as the predicate is satisfied
-// points to the first occurrence of an element greater than 5 in (*v*)
+// general search, stops as soon as the predicate is
+// satisfied points to the first occurrence of an
+// element greater than 5 in (*v*)
 p = find_if(v.begin(),v.end(),test_greater_than_5);(*\index{Algorithms!\texttt{find\_if}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -3349,8 +3441,9 @@ private:
 };
 
 // (*find\_if*)(*\index{Algorithms!\texttt{find\_if}}*)
-// general search, stops as soon as the predicate is satisfied
-// points to the first occurrence of an element greater than 7 in (*v*)
+// general search, stops as soon as the predicate is
+// satisfied points to the first occurrence of an
+// element greater than 7 in (*v*)
 p = find_if(v.begin(),v.end(),TestGreater(7));(*\index{Algorithms!\texttt{find\_if}}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -3370,9 +3463,11 @@ p = find_if(v.begin(),v.end(),TestGreater(7));(*\index{Algorithms!\texttt{find\_
 // the return type is the type of the initial value!
 long res = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{accumulate}}*)(*\index{\texttt{accumulate}|see{Algorithms}}*)
 
-// generic accumulate performing multiplication instead of sum(*\index{Algorithms!generic \texttt{accumulate}}*)
-// passes a function object (*multiplies<int>()*) defined in (*<functional>*)(*\index{\texttt{multiplies<int>()}}*)
-double res = accumulate(v.begin(),v.end(),1.0,multiplies<int>());
+// generic accumulate performing multiplication instead(*\index{Algorithms!generic \texttt{accumulate}}*)
+// of sum passes a function object
+// (*multiplies<int>()*) defined in (*<functional>*)(*\index{\texttt{multiplies<int>()}}*)
+double res = accumulate(v.begin(),v.end(),
+    1.0,multiplies<int>());
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$]  Inner product
@@ -3382,7 +3477,8 @@ double res = accumulate(v.begin(),v.end(),1.0,multiplies<int>());
 vector<int> v1 = {-2,2,4,11,-4,3,1};(*\index{Containers!\texttt{vector}}*)
 vector<int> v2 = {4,2,4,18,5,3,1,7,9,};(*\index{Containers!\texttt{vector}}*)
 
-long res = inner_product(v1.begin(), v1.end(), v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\texttt{inner\_product}|see{Algorithms}}*)
+long res = inner_product(v1.begin(), v1.end(),
+    v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\texttt{inner\_product}|see{Algorithms}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$]  \texttt{copy} between different containers
@@ -3391,7 +3487,8 @@ long res = inner_product(v1.begin(), v1.end(), v2.begin(),long(0));(*\index{Algo
 list<double> data = {1.32,-2.45,5.65};
 vector<int> int_data(5);
 
-// copy data from the (*list*) of doubles to the (*vector*) of integers
+// copy data from the (*list*) of doubles to the (*vector*)
+// of integers
 copy(data.begin(),data.end(),int_data.begin());(*\index{Algorithms!\texttt{copy}!between different containers}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -3408,7 +3505,8 @@ set<string> words{ istream_iterator<string>{cin},
                              
 // copy the words from the set to the output stream (*cout*)
 // and add a new line after each word
-copy(words.begin(),words.end(),ostream_iterator<string>{cout,"\n"});(*\index{Algorithms!\texttt{copy}!between container and stream}*)(*\index{\texttt{ostream\_iterator}}*)
+copy(words.begin(),words.end(),
+    ostream_iterator<string>{cout,"\n"});(*\index{Algorithms!\texttt{copy}!between container and stream}*)(*\index{\texttt{ostream\_iterator}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Merge sort
@@ -3460,15 +3558,15 @@ int n = rand();(*\index{\texttt{rand}}*)
 #include <random>(*\index{\texttt{<random>}}*)
 #include <functional>(*\index{\texttt{<functional>}}*)
 
-// (*bind*) constructs a function object that calls its first argument
-// with its second argument
+// (*bind*) constructs a function object that calls its
+// first argument with its second argument
 
 // normal distribution by using the default random engine
 auto gen_def = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)(*\index{Utilities!Random numbers!normal distribution}*)
                     default_random_engine{});(*\index{Utilities!Random numbers!default random engine}*)(*\index{\texttt{default\_random\_engine}}*)
                     
-// normal distribution by using the Mersenne Twister engine
-// with seed (*91586*)                  
+// normal distribution by using the Mersenne Twister
+// engine with seed (*91586*)                  
 auto gen_mt = bind(normal_distribution<double>{15,4.0},(*\index{\texttt{bind}}*)(*\index{Utilities!Random numbers!normal distribution}*)(*\index{\texttt{normal\_distribution}}*)
                     mt19937_64{91586});(*\index{Utilities!Random numbers!Mersenne Twister engine}*)(*\index{\texttt{mt19937\_64}}*)
 
@@ -3558,11 +3656,13 @@ cout << duration_cast<milliseconds>(end-start).count();(*\index{\texttt{duration
 
 class Stopwatch {
 public:
-    Stopwatch(nanoseconds& total_time) : result { total_time },
+    Stopwatch(nanoseconds& total_time) : 
+        result { total_time },
         start {high_resolution_clock::now()} {}
     ~Stopwatch() {
         result = duration_cast<nanoseconds>(
-                     high_resolution_clock::now() - start);
+                     high_resolution_clock::now()
+                     - start);
      }
 private:
     nanoseconds& result;
@@ -3577,7 +3677,7 @@ nanoseconds total_time{0};
 }
 
 // number of nanosecond ticks
-cout << "total_time.count() = " << total_time.count() << endl;
+cout << "total_time.count() = " << total_time.count();
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{pair}\\ \\ Class template containing 2 objects of different types:\index{Utilities!\texttt{pair}}
@@ -3609,14 +3709,17 @@ cout << temp2.first << temp2.second << endl;
 // in raw string format 
 regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
 smatch results;
-string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
+string zip("The string NJ07936-3173"
+    " and NJ07936-3175 are ZIP codes");
 
 // first match
 bool found = regex_search(zip,results,regex);(*\index{\texttt{regex\_search}}*)
 
 // this prints position (*11*)
-if (found)
-    cout << "First match at position: " << results.position(0) << endl;
+if (found) {
+    cout << "First match at position: ";
+    cout << results.position(0) << endl;
+}
 \end{lstlisting}
 \begin{enumerate}
 \item[] Iterative search:\index{Utilities!Regular expressions!iterative search}
@@ -3626,7 +3729,8 @@ if (found)
 // in raw string format 
 regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
 smatch results;
-string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
+string zip("The string NJ07936-3173 and"
+    " NJ07936-3175 are ZIP codes");
 
 // start from the beginning
 string::const_iterator start( zip.cbegin() );(*\index{Iterators!\texttt{string}!\texttt{const\_iterator}}*)
@@ -3634,7 +3738,8 @@ string::const_iterator start( zip.cbegin() );(*\index{Iterators!\texttt{string}!
 while ( regex_search( start, zip.cend(), results, regex ) )(*\index{\texttt{regex\_search}}*)
  {
      // match has been found
-     cout << ( start == zip.cbegin() ? "" : " " ) << results[0];
+     cout << ( start == zip.cbegin() ? "" : " " );
+     cout << results[0];
      
      // continue searching from the suffix sequence
      // after the match
@@ -3652,7 +3757,8 @@ while ( regex_search( start, zip.cend(), results, regex ) )(*\index{\texttt{rege
 // regular expression to look for
 // in raw string format 
 regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
-string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
+string zip("The string NJ07936-3173 "
+    "and NJ07936-3175 are ZIP codes");
 
 // replaces the ZIP codes with (*XXX*)
 string zip_hidden = regex_replace(zip,regex,"XXX");(*\index{\texttt{regex\_replace}}*)
@@ -3698,7 +3804,8 @@ for (auto& dir_entry : dir) {
     else if ( dir_entry.is_regular_file() ) {
         cout << "Found a file: ";
         cout << dir_entry.path().filename() << ", ";
-        cout << dir_entry.file_size() << " bytes big " << endl;(*\index{Utilities!Filesystem!directory entry file size}*)
+        cout << dir_entry.file_size() << " bytes big ";
+        cout << endl;(*\index{Utilities!Filesystem!directory entry file size}*)
     }
 }
 \end{lstlisting}
@@ -3752,9 +3859,10 @@ using namespace std::literals::chrono_literals;
 
 // sleeps for (*5s*)
 int sleeping_thread(int n) {
-    cout << "Sleeping thread #" << n << " started..." << endl;
+    cout << "Sleeping thread #" << n << " started...";
+    cout << endl;
     // pause thread for 5s
-    this_thread::sleep_for(5s);*\index{\texttt{this\_thread::sleep\_for()}}*)
+    this_thread::sleep_for(5s);(*\index{\texttt{this\_thread::sleep\_for()}}*)
     cout << "Sleeping thread ended..." << endl;
     
     return 0;
@@ -3765,7 +3873,8 @@ int sleeping_thread(int n) {
 \end{enumerate}
 \begin{lstlisting}
 // start the sleeping thread with parameter (*1*)
-auto sleeping_res = async(launch::async,sleeping_thread,1);(*\index{\texttt{async}}*)
+auto sleeping_res =
+    async(launch::async,sleeping_thread,1);(*\index{\texttt{async}}*)
     
 // blocks until the thread finishes
 if (sleeping_res.get() == 0)(*\index{Utilities!Threads!\texttt{get}}*)
@@ -3808,7 +3917,7 @@ int incrementing_thread(int n) {
         // blocking call for getting the mutex
         m_counter.lock();(*\index{Utilities!Threads!lock mutex}*)
         // got the mutex
-        // check current counter value and exit if necessary
+        // check current counter value and exit if needed
         if (counter >= n)
             break;
         cout << "incrementing_thread<" << c << ">(): ";
@@ -3821,7 +3930,8 @@ int incrementing_thread(int n) {
         // yield thread execution
         this_thread::yield();(*\index{\texttt{this\_thread::yield}}*)(*\index{Utilities!Threads!yield execution}*)
     }
-    cout << "incrementing_thread<" << c << ">(): done" << endl;
+    cout << "incrementing_thread<" << c;
+    cout << ">(): done" << endl;
     
     // release the mutex
     m_counter.unlock();
@@ -3830,8 +3940,10 @@ int incrementing_thread(int n) {
 }
 
 // start the incrementing threads
-auto one_res = async(launch::async,incrementing_thread<'1'>,6);
-auto two_res = async(launch::async,incrementing_thread<'2'>,9);
+auto one_res =
+    async(launch::async,incrementing_thread<'1'>,6);
+auto two_res =
+    async(launch::async,incrementing_thread<'2'>,9);
 
 if (one_res.get() == 6)
     cout << "Incrementing thread #1 finished! " << endl;
@@ -3853,7 +3965,8 @@ atomic_int counter_atomic = 0;
 template<char c>
 int atomic_incrementing_thread(int n) {
     while (1) {
-        cout << "atomic_incrementing_thread<" << c << ">(): " 
+        cout << "atomic_incrementing_thread<";
+        cout << c << ">(): " 
         cout << counter_atomic << endl;
         
         // atomic read and increment
@@ -3864,14 +3977,19 @@ int atomic_incrementing_thread(int n) {
          // yield thread execution
         this_thread::yield();(*\index{\texttt{this\_thread::yield}}*)(*\index{Utilities!Threads!yield execution}*)
     }
-    cout << "atomic_incrementing_thread<" << c << ">(): done" << endl;
+    cout << "atomic_incrementing_thread<";
+    cout << c << ">(): done" << endl;
     
     return n;
 }
 
 // start the incrementing threads
-auto one_res = async(launch::async,atomic_incrementing_thread<'1'>,6);
-auto two_res = async(launch::async,atomic_incrementing_thread<'2'>,9);
+auto one_res =
+    async(launch::async,
+        atomic_incrementing_thread<'1'>,6);
+auto two_res =
+    async(launch::async,
+        atomic_incrementing_thread<'2'>,9);
 
 if (one_res.get() == 6)
     cout << "Incrementing thread #1 finished! " << endl;
@@ -3884,16 +4002,22 @@ cout << "Counter value: " << counter_atomic << endl;
 %
 % Bibliography
 %
+\newpage
+
 \small
+\renewcommand\refname{Bibliography}
 \begin{thebibliography}{99}
 \bibitem{savitch} Walter Savitch. \textsl{Problem Solving with C++}, 10th edition. Pearson Education, 2018
 \bibitem{stroustrup} Bjarne Stroustrup. \textsl{Programming: Principles and Practice Using C++}, 2nd edition. Addison Wesley, 2015
 \bibitem{lospinoso} Josh Lospinoso. \textsl{C++ Crash Course: A Fast-Paced Introduction}, 1st edition. No Starch Press, 2019
-\bibitem{cppreference} \textsl{C++ reference} [https://en.cppreference.com]
-\bibitem{cplusplus} \textsl{cplusplus} [https://cplusplus.com/]
 \end{thebibliography}
 %
 % Index
 %
+\newpage
+
+\
+
+\newpage
 \printindex
 \end{document}
