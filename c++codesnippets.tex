@@ -18,13 +18,13 @@
 % Preamble starts here: includes further global commands and specifications
 % In the following, the option 12pt is a global option passed to all
 % the packages
-\documentclass[12pt]{article}
+\documentclass[12pt]{book}
 
 % Using Courier font
 \renewcommand{\ttdefault}{pcr}
 
 % A4 paper size
-\usepackage[a4paper]{geometry}
+\usepackage[a4paper, total={7in,9in}]{geometry}
 
 % Change the color of the text
 \usepackage{xcolor}
@@ -100,7 +100,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.01~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.02~-~GNU GPL v3.0}
 
 %\layout
 
@@ -117,12 +117,14 @@
 
 \small
 
-\begin{frame}{}
-\setlength\columnsep{1cm}
-\begin{multicols}{2}
+%\begin{frame}{}
+%\setlength\columnsep{1cm}
+%\begin{multicols}{2}
+%t\ableofcontents
+%\end{multicols}
+%\end{frame}
+
 \tableofcontents
-\end{multicols}
-\end{frame}
 
 \newpage
 
@@ -3120,7 +3122,6 @@ for (auto x:r)(*\index{range-for-loop}*)
 \item[$\Rightarrow$] A linked list class:
 \end{enumerate}
 \begin{lstlisting}
-#include <iostream>(*\index{\texttt{<iostream>}}*)
 #include <ostream>(*\index{\texttt{<ostream>}}*)
 #include <algorithm>(*\index{\texttt{<algorithm>}}*)
 
@@ -3709,8 +3710,7 @@ cout << temp2.first << temp2.second << endl;
 // in raw string format 
 regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
 smatch results;
-string zip("The string NJ07936-3173"
-    " and NJ07936-3175 are ZIP codes");
+string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
 
 // first match
 bool found = regex_search(zip,results,regex);(*\index{\texttt{regex\_search}}*)
@@ -3729,8 +3729,7 @@ if (found) {
 // in raw string format 
 regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
 smatch results;
-string zip("The string NJ07936-3173 and"
-    " NJ07936-3175 are ZIP codes");
+string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
 
 // start from the beginning
 string::const_iterator start( zip.cbegin() );(*\index{Iterators!\texttt{string}!\texttt{const\_iterator}}*)
@@ -3757,8 +3756,7 @@ while ( regex_search( start, zip.cend(), results, regex ) )(*\index{\texttt{rege
 // regular expression to look for
 // in raw string format 
 regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
-string zip("The string NJ07936-3173 "
-    "and NJ07936-3175 are ZIP codes");
+string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
 
 // replaces the ZIP codes with (*XXX*)
 string zip_hidden = regex_replace(zip,regex,"XXX");(*\index{\texttt{regex\_replace}}*)
@@ -3768,10 +3766,8 @@ cout << zip_hidden << endl;
 \item[$\Rightarrow$] Filesystem\index{Utilities!Filesystem}\\ \\ Declaring a \texttt{path} object:
 \end{enumerate}
 \begin{lstlisting}
-#include <iostream>
 #include <filesystem>(*\index{\texttt{<filesystem>}}*)
 
-using namespace std;
 using namespace std::filesystem;
 
 // path object
@@ -3804,8 +3800,7 @@ for (auto& dir_entry : dir) {
     else if ( dir_entry.is_regular_file() ) {
         cout << "Found a file: ";
         cout << dir_entry.path().filename() << ", ";
-        cout << dir_entry.file_size() << " bytes big ";
-        cout << endl;(*\index{Utilities!Filesystem!directory entry file size}*)
+        cout << dir_entry.file_size() << " bytes big " << endl;(*\index{Utilities!Filesystem!directory entry file size}*)
     }
 }
 \end{lstlisting}
@@ -3847,13 +3842,11 @@ remove(target_file);(*\index{\texttt{remove}}*)(*\index{Utilities!Filesystem!del
 \item[$\Rightarrow$] Threads\index{Utilities!Threads}\\ \\ Defining a function to be run in a separate thread:
 \end{enumerate}
 \begin{lstlisting}
-#include <iostream>
 #include <future>(*\index{\texttt{<future>}}*)
 #include <thread>(*\index{\texttt{<thread>}}*)
 #include <chrono>(*\index{\texttt{<chrono>}}*)
 #include <vector>
 
-using namespace std;
 using namespace std::chrono;
 using namespace std::literals::chrono_literals;
 
@@ -3940,10 +3933,8 @@ int incrementing_thread(int n) {
 }
 
 // start the incrementing threads
-auto one_res =
-    async(launch::async,incrementing_thread<'1'>,6);
-auto two_res =
-    async(launch::async,incrementing_thread<'2'>,9);
+auto one_res = async(launch::async,incrementing_thread<'1'>,6);
+auto two_res = async(launch::async,incrementing_thread<'2'>,9);
 
 if (one_res.get() == 6)
     cout << "Incrementing thread #1 finished! " << endl;
@@ -3984,12 +3975,8 @@ int atomic_incrementing_thread(int n) {
 }
 
 // start the incrementing threads
-auto one_res =
-    async(launch::async,
-        atomic_incrementing_thread<'1'>,6);
-auto two_res =
-    async(launch::async,
-        atomic_incrementing_thread<'2'>,9);
+auto one_res = async(launch::async, atomic_incrementing_thread<'1'>,6);
+auto two_res = async(launch::async, atomic_incrementing_thread<'2'>,9);
 
 if (one_res.get() == 6)
     cout << "Incrementing thread #1 finished! " << endl;

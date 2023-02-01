@@ -4,32 +4,32 @@
 \contentsline {section}{Type safety}{2}{}%
 \contentsline {section}{Type casting}{2}{}%
 \contentsline {section}{Type traits}{4}{}%
-\contentsline {section}{Storage classes}{5}{}%
-\contentsline {section}{Integer types}{8}{}%
+\contentsline {section}{Storage classes}{4}{}%
+\contentsline {section}{Integer types}{7}{}%
 \contentsline {section}{Limits}{8}{}%
-\contentsline {section}{Functions}{9}{}%
-\contentsline {section}{Modifiers}{12}{}%
-\contentsline {section}{Operators}{13}{}%
-\contentsline {section}{Lambda expressions}{14}{}%
-\contentsline {section}{Namespaces and aliases}{15}{}%
-\contentsline {section}{Arrays}{16}{}%
-\contentsline {section}{Pointers}{18}{}%
-\contentsline {section}{Smart pointers}{19}{}%
-\contentsline {section}{References}{22}{}%
-\contentsline {section}{C-Strings}{23}{}%
-\contentsline {section}{Input-output streams}{24}{}%
-\contentsline {section}{Files}{28}{}%
-\contentsline {section}{Strings}{31}{}%
-\contentsline {section}{String streams}{35}{}%
-\contentsline {section}{Vectors}{36}{}%
-\contentsline {section}{Enumerations}{39}{}%
-\contentsline {section}{Classes}{39}{}%
-\contentsline {section}{Operator overloading}{45}{}%
-\contentsline {section}{Inheritance}{47}{}%
-\contentsline {section}{Polymorphism}{54}{}%
-\contentsline {section}{Exceptions}{55}{}%
-\contentsline {section}{Templates}{57}{}%
-\contentsline {section}{Iterators}{63}{}%
-\contentsline {section}{Containers}{68}{}%
-\contentsline {section}{Algorithms}{72}{}%
-\contentsline {section}{Utilities}{74}{}%
+\contentsline {section}{Functions}{8}{}%
+\contentsline {section}{Modifiers}{11}{}%
+\contentsline {section}{Operators}{12}{}%
+\contentsline {section}{Lambda expressions}{13}{}%
+\contentsline {section}{Namespaces and aliases}{14}{}%
+\contentsline {section}{Arrays}{15}{}%
+\contentsline {section}{Pointers}{16}{}%
+\contentsline {section}{Smart pointers}{17}{}%
+\contentsline {section}{References}{20}{}%
+\contentsline {section}{C-Strings}{21}{}%
+\contentsline {section}{Input-output streams}{22}{}%
+\contentsline {section}{Files}{25}{}%
+\contentsline {section}{Strings}{28}{}%
+\contentsline {section}{String streams}{31}{}%
+\contentsline {section}{Vectors}{32}{}%
+\contentsline {section}{Enumerations}{35}{}%
+\contentsline {section}{Classes}{35}{}%
+\contentsline {section}{Operator overloading}{41}{}%
+\contentsline {section}{Inheritance}{42}{}%
+\contentsline {section}{Polymorphism}{48}{}%
+\contentsline {section}{Exceptions}{49}{}%
+\contentsline {section}{Templates}{51}{}%
+\contentsline {section}{Iterators}{56}{}%
+\contentsline {section}{Containers}{62}{}%
+\contentsline {section}{Algorithms}{64}{}%
+\contentsline {section}{Utilities}{67}{}%
