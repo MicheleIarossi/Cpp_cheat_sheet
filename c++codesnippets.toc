@@ -1,35 +1,44 @@
 \babel@toc {british}{}\relax 
-\contentsline {section}{Assertions}{1}{}%
-\contentsline {section}{Constants}{1}{}%
-\contentsline {section}{Type safety}{2}{}%
-\contentsline {section}{Type casting}{2}{}%
-\contentsline {section}{Type traits}{4}{}%
-\contentsline {section}{Storage classes}{4}{}%
-\contentsline {section}{Integer types}{7}{}%
-\contentsline {section}{Limits}{8}{}%
-\contentsline {section}{Functions}{8}{}%
-\contentsline {section}{Modifiers}{11}{}%
-\contentsline {section}{Operators}{12}{}%
-\contentsline {section}{Lambda expressions}{13}{}%
-\contentsline {section}{Namespaces and aliases}{14}{}%
-\contentsline {section}{Arrays}{15}{}%
-\contentsline {section}{Pointers}{16}{}%
-\contentsline {section}{Smart pointers}{17}{}%
-\contentsline {section}{References}{20}{}%
-\contentsline {section}{C-Strings}{21}{}%
-\contentsline {section}{Input-output streams}{22}{}%
-\contentsline {section}{Files}{25}{}%
-\contentsline {section}{Strings}{28}{}%
-\contentsline {section}{String streams}{31}{}%
-\contentsline {section}{Vectors}{32}{}%
-\contentsline {section}{Enumerations}{35}{}%
-\contentsline {section}{Classes}{35}{}%
-\contentsline {section}{Operator overloading}{41}{}%
-\contentsline {section}{Inheritance}{42}{}%
-\contentsline {section}{Polymorphism}{48}{}%
-\contentsline {section}{Exceptions}{49}{}%
-\contentsline {section}{Templates}{51}{}%
-\contentsline {section}{Iterators}{56}{}%
-\contentsline {section}{Containers}{62}{}%
-\contentsline {section}{Algorithms}{64}{}%
-\contentsline {section}{Utilities}{67}{}%
+\contentsline {chapter}{Preface}{v}{}%
+\contentsline {chapter}{About the Author}{vii}{}%
+\contentsline {chapter}{\numberline {1}Basics}{1}{}%
+\contentsline {section}{\numberline {1.1}Assertions}{1}{}%
+\contentsline {section}{\numberline {1.2}Constants}{1}{}%
+\contentsline {section}{\numberline {1.3}Type Safety}{2}{}%
+\contentsline {section}{\numberline {1.4}Type Casting}{2}{}%
+\contentsline {section}{\numberline {1.5}Type Traits}{4}{}%
+\contentsline {section}{\numberline {1.6}Storage Classes}{4}{}%
+\contentsline {section}{\numberline {1.7}Integer Types}{7}{}%
+\contentsline {section}{\numberline {1.8}Limits}{7}{}%
+\contentsline {section}{\numberline {1.9}Operators}{7}{}%
+\contentsline {section}{\numberline {1.10}Namespaces and Aliases}{8}{}%
+\contentsline {section}{\numberline {1.11}Enumerations}{9}{}%
+\contentsline {chapter}{\numberline {2}Functions and Lambdas}{11}{}%
+\contentsline {section}{\numberline {2.1}Functions}{11}{}%
+\contentsline {section}{\numberline {2.2}Modifiers}{13}{}%
+\contentsline {section}{\numberline {2.3}Lambda Expressions}{14}{}%
+\contentsline {chapter}{\numberline {3}Pointers and References}{17}{}%
+\contentsline {section}{\numberline {3.1}Pointers}{17}{}%
+\contentsline {section}{\numberline {3.2}Smart Pointers}{18}{}%
+\contentsline {section}{\numberline {3.3}References}{20}{}%
+\contentsline {chapter}{\numberline {4}Elementary Data Structures}{23}{}%
+\contentsline {section}{\numberline {4.1}Arrays}{23}{}%
+\contentsline {section}{\numberline {4.2}Vectors}{24}{}%
+\contentsline {section}{\numberline {4.3}Strings}{26}{}%
+\contentsline {section}{\numberline {4.4}C-Strings}{28}{}%
+\contentsline {chapter}{\numberline {5}Input-Output}{31}{}%
+\contentsline {section}{\numberline {5.1}Input-Output Streams}{31}{}%
+\contentsline {section}{\numberline {5.2}Files}{33}{}%
+\contentsline {section}{\numberline {5.3}String Streams}{36}{}%
+\contentsline {chapter}{\numberline {6}Object-Oriented Programming}{37}{}%
+\contentsline {section}{\numberline {6.1}Classes}{37}{}%
+\contentsline {section}{\numberline {6.2}Operator Overloading}{41}{}%
+\contentsline {section}{\numberline {6.3}Inheritance}{42}{}%
+\contentsline {section}{\numberline {6.4}Polymorphism}{47}{}%
+\contentsline {chapter}{\numberline {7}Advanced Topics}{49}{}%
+\contentsline {section}{\numberline {7.1}Exceptions}{49}{}%
+\contentsline {section}{\numberline {7.2}Templates}{50}{}%
+\contentsline {section}{\numberline {7.3}Iterators}{54}{}%
+\contentsline {section}{\numberline {7.4}Containers}{59}{}%
+\contentsline {section}{\numberline {7.5}Algorithms}{61}{}%
+\contentsline {section}{\numberline {7.6}Utilities}{63}{}%

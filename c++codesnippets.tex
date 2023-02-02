@@ -18,20 +18,17 @@
 % Preamble starts here: includes further global commands and specifications
 % In the following, the option 12pt is a global option passed to all
 % the packages
-\documentclass[12pt]{book}
+\documentclass[10pt]{book}
 
 % Using Courier font
 \renewcommand{\ttdefault}{pcr}
 
 % A4 paper size
-\usepackage[a4paper, total={7in,9in}]{geometry}
+\usepackage[a4paper, total={6in,9in}]{geometry}
 
 % Change the color of the text
 \usepackage{xcolor}
 \definecolor{codegray}{gray}{0.80}
-
-% multiple columns in the toc
-\usepackage{multicol}
 
 % Add filling dots for sections in the toc
 \usepackage{tocloft}
@@ -78,7 +75,7 @@
 \fancyfoot[C]{\small \thepage}
 \fancyfoot[R]{\small GNU GPL v3.0}
 
-\setcounter{secnumdepth}{0} % sections are level 1
+%\setcounter{secnumdepth}{0} % sections are level 1
 
 % for british hyphenation
 \usepackage[british]{babel}
@@ -100,7 +97,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.02~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.03~-~GNU GPL v3.0}
 
 %\layout
 
@@ -115,23 +112,24 @@
 
 \newpage
 
-\small
-
-%\begin{frame}{}
-%\setlength\columnsep{1cm}
-%\begin{multicols}{2}
-%t\ableofcontents
-%\end{multicols}
-%\end{frame}
-
 \tableofcontents
 
 \newpage
+%
+% Preface
+%
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+%
+% About the author
+%
+\chapter*{About the Author}
+\addcontentsline{toc}{chapter}{About the Author}
 
-\
-
-\newpage
-
+%
+% Basics
+%
+\chapter{Basics}
 \pagenumbering{arabic}
 \noindent
 In the following code snippets, the standard I/O library and namespace are used:
@@ -143,7 +141,6 @@ using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using na
 % Assert
 %
 \section{Assertions}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] The first argument of a \textbf{static\_assert} is a constant expression that must be true:
 \end{enumerate}
@@ -154,7 +151,6 @@ static_assert(8<=sizeof(long),"longs are too small");(*\index{Assertions!\textbf
 % Constants
 %
 \section{Constants}
-\small
 There are two options:
 \begin{enumerate}
 \item[$\Rightarrow$] \textbf{constexpr} must be known at compile time:
@@ -202,8 +198,7 @@ private:
 %
 % Type safety
 %
-\section{Type safety}
-\small
+\section{Type Safety}
 \begin{enumerate}
 \item[$\Rightarrow$] Universal and uniform initialization, also known as \emph{braced initialization},\index{Uniform initialization}\index{Braced initialization|see{Uniform initialization}} prevents narrowing conversions from happening:
 \end{enumerate}
@@ -219,8 +214,7 @@ char b {a};
 %
 % Type casting
 %
-\section{Type casting}
-\small
+\section{Type Casting}
 These are called \emph{named conversions}.\index{Type casting!named conversions}
 \begin{enumerate}
 \item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Type casting!\textbf{static\_cast}}, i.e. types that can be converted into each other:
@@ -304,8 +298,7 @@ double =   static_cast<double>(b);(*\index{\textbf{static\_cast}|see{Type castin
 %
 % Type traits
 %
-\section{Type traits}
-\small
+\section{Type Traits}
 \begin{enumerate}
 \item[$\Rightarrow$] Utilities for inspecting type properties \\ \\A type trait\index{Type traits} is a template class having a single parameter. The boolean \texttt{value} member is \texttt{true} if the type verifies the property, else it is \texttt{false}:
 \end{enumerate}
@@ -320,8 +313,7 @@ cout << is_floating_point<double>::value; // (*true*)(*\index{\texttt{is\_floati
 %
 % Storage classes
 %
-\section{Storage classes}
-\small
+\section{Storage Classes}
 The storage class\index{Storage class} defines the memory type where an object is stored. The lifetime\index{Lifetime} of an object is from the time it is first initialized until it is destroyed.
 \begin{enumerate}
 \item[$\Rightarrow$] A simple class for objects:
@@ -468,8 +460,7 @@ Program ended with exit code: 0
 %
 % Integer types
 %
-\section{Integer types}
-\small
+\section{Integer Types}
 \begin{enumerate}
 \item[$\Rightarrow$] Integer types having specified widths:
 \end{enumerate}
@@ -511,10 +502,144 @@ cout << numeric_limits<double>::epsilon(); // (*2.22045e-16*)
 cout << numeric_limits<double>::round_error(); // (*0.5*)
 \end{lstlisting}
 %
+% Operators
+%
+\section{Operators}
+\begin{enumerate}
+\item[$\Rightarrow$] Unary arithmetic operators promote their operands to \textbf{int}:\index{Operators!unary arithmetic}
+\end{enumerate}
+\begin{lstlisting}
+// a variable
+short x = 10;
+
+// expression promotes to (*int*)!
++x;
+
+// expression promotes to (*int*)!
+-x;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Increment and decrement operators\\ \\ The value of the resulting expression depends whether prefix or postfix is used\index{Operators!increment}:\index{Operators!decrement}
+\end{enumerate}
+\begin{lstlisting}
+int x = 5;
+
+// prefix increment:
+// expression evaluates to 6
+// (*x*) evaluates to 6
+++x; (*\index{Operators!increment!prefix}*)
+
+// postfix increment:
+// expression evaluates to 6
+// (*x*) evaluates to 7
+x++; (*\index{Operators!increment!postfix}*)
+
+// postfix decrement:
+// expression evaluates to 7
+// (*x*) evaluates to 6
+x--; (*\index{Operators!decrement!postfix}*)
+
+// prefix decrement:
+// expression evaluates to 5
+// (*x*) evaluates to 5
+--x; (*\index{Operators!decrement!prefix}*)
+\end{lstlisting}
+%
+% Namespaces
+%
+\section{Namespaces and Aliases}
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{using} declarations for avoiding fully qualified names:
+\index{Namespaces!\textbf{using} declarations}
+\end{enumerate}
+\begin{lstlisting}
+// use (*string*) instead of (*std::string*)
+using std::string;(*\index{\texttt{std}}*)(*\index{Strings!\texttt{string}}*)(*\index{\texttt{string}|see{Strings}}*)(*\index{\textbf{using}|see{Namespaces}}*)
+
+// use (*cin*), (*cout*) instead of (*std::cin*), (*std::cout*)
+using std::cin;(*\index{Input-output streams!\texttt{cin}}*)(*\index{\texttt{std}}*)(*\index{\texttt{cin}|see{Input-output streams}}*)
+using std::cout;(*\index{Input-output streams!\texttt{cout}}*)(*\index{\texttt{std}}*)(*\index{\texttt{cout}|see{Input-output streams}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{using namespace} directives for including the whole namespace:
+\end{enumerate}
+\begin{lstlisting}
+using namespace std;(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\texttt{std}}*)(*\index{\textbf{using}|see{Namespaces}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] An \emph{alias} is a symbolic name that means exactly the same as what it refers to:
+\end{enumerate}
+\begin{lstlisting}
+using value_type = int; // (*value\_type*) means (*int*)(*\index{Alias!{\textbf{using}}}*)(*\index{\textbf{using}|see{Alias}}*)
+using pchar = char*; // (*pchar*) means (*char$\ast$*)(*\index{Alias!{\textbf{using}}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \emph{Partial application}\\ \\ Sets some number of arguments to a template:
+\end{enumerate}
+\begin{lstlisting}
+// template with (*2*) template parameters
+template<class T, class U>
+class TwoObjects
+{
+public:
+    TwoObjects() : a{}, b{} {}
+    TwoObjects(T x, U y) : a{x}, b{y} {}
+    T get_a() const { return a; }
+    U get_b() const { return b; }
+private:
+    T a;
+    U b;
+};
+
+// partial application which sets the first
+// template parameter to (*char*)
+template <class T>
+using OneObject = TwoObjects<char,T>;(*\index{Alias!{\emph{partial application}}}*)
+
+// usage
+OneObject<float> one('b',6.7);
+\end{lstlisting}
+%
+% Enumerations
+%
+\section{Enumerations}
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{enum class} defines symbolic constants in the scope of the class:\index{Enumerations!in \textbf{class} scope}
+\end{enumerate}
+\begin{lstlisting}
+// enum definition(*\index{Enumerations!definition}*)
+enum class Weekdays(*\index{\textbf{enum class}}*)
+{
+    mon=1, tue, wed, thu, fri
+};
+
+// usage(*\index{Enumerations!usage}*)
+Weekdays day = Weekdays::tue;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{int}s cannot be assigned to \textbf{enum class} and vice versa:
+\end{enumerate}
+\begin{lstlisting}
+// errors!(*\index{Enumerations!prohibited conversions}*)
+Weekdays day = 3;
+int d = Weekdays::wed;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] A conversion function should be written which uses unchecked conversions:
+\end{enumerate}
+\begin{lstlisting}
+// valid(*\index{Enumerations!conversion function}*)
+Weekdays day = Weekdays(2);
+int d = int(Weekdays::fri);
+\end{lstlisting}
+%
+% Functions and Lambdas
+%
+\chapter{Functions and Lambdas}
+%
 % Functions
 %
 \section{Functions}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] With default trailing arguments only in the function declaration:
 \index{Functions!arguments!default}
@@ -656,7 +781,6 @@ auto [a,b] = func();
 % Modifiers
 %
 \section{Modifiers}
-\small
 Modifiers declare specific aspects of functions. This information can be used by compilers to optimize the code. There are prefix and suffix modifiers.
 \begin{enumerate}
 \item[$\Rightarrow$]  Prefix: \textbf{static}, \textbf{inline}, \textbf{constexpr}\index{Modifiers!prefix}
@@ -708,54 +832,9 @@ public:
 int sum(int a, int b) noexcept { return a+b; }(*\index{\textbf{noexcept}|see{Modifiers}}*)(*\index{Modifiers!suffix!\textbf{noexcept}}*)
 \end{lstlisting}
 %
-% Operators
-%
-\section{Operators}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] Unary arithmetic operators promote their operands to \textbf{int}:\index{Operators!unary arithmetic}
-\end{enumerate}
-\begin{lstlisting}
-// a variable
-short x = 10;
-
-// expression promotes to (*int*)!
-+x;
-
-// expression promotes to (*int*)!
--x;
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Increment and decrement operators\\ \\ The value of the resulting expression depends whether prefix or postfix is used\index{Operators!increment}:\index{Operators!decrement}
-\end{enumerate}
-\begin{lstlisting}
-int x = 5;
-
-// prefix increment:
-// expression evaluates to 6
-// (*x*) evaluates to 6
-++x; (*\index{Operators!increment!prefix}*)
-
-// postfix increment:
-// expression evaluates to 6
-// (*x*) evaluates to 7
-x++; (*\index{Operators!increment!postfix}*)
-
-// postfix decrement:
-// expression evaluates to 7
-// (*x*) evaluates to 6
-x--; (*\index{Operators!decrement!postfix}*)
-
-// prefix decrement:
-// expression evaluates to 5
-// (*x*) evaluates to 5
---x; (*\index{Operators!decrement!prefix}*)
-\end{lstlisting}
-%
 % Lambda expressions
 %
-\section{Lambda expressions}
-\small
+\section{Lambda Expressions}
 An unnamed function that can be used where a function is needed as an argument or object.
 It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.
 \index{Lambda expressions!lambda introducers} 
@@ -819,116 +898,13 @@ Function ee_gr{[& ](double x){n++; m++;
 // now (*n*) is 6 and (*m*) is 7!
  \end{lstlisting}
 %
-% Namespaces
+% Pointers and references
 %
-\section{Namespaces and aliases}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] \textbf{using} declarations for avoiding fully qualified names:
-\index{Namespaces!\textbf{using} declarations}
-\end{enumerate}
-\begin{lstlisting}
-// use (*string*) instead of (*std::string*)
-using std::string;(*\index{\texttt{std}}*)(*\index{Strings!\texttt{string}}*)(*\index{\texttt{string}|see{Strings}}*)(*\index{\textbf{using}|see{Namespaces}}*)
-
-// use (*cin*), (*cout*) instead of (*std::cin*), (*std::cout*)
-using std::cin;(*\index{Input-output streams!\texttt{cin}}*)(*\index{\texttt{std}}*)(*\index{\texttt{cin}|see{Input-output streams}}*)
-using std::cout;(*\index{Input-output streams!\texttt{cout}}*)(*\index{\texttt{std}}*)(*\index{\texttt{cout}|see{Input-output streams}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] \textbf{using namespace} directives for including the whole namespace:
-\end{enumerate}
-\begin{lstlisting}
-using namespace std;(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\texttt{std}}*)(*\index{\textbf{using}|see{Namespaces}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] An \emph{alias} is a symbolic name that means exactly the same as what it refers to:
-\end{enumerate}
-\begin{lstlisting}
-using value_type = int; // (*value\_type*) means (*int*)(*\index{Alias!{\textbf{using}}}*)(*\index{\textbf{using}|see{Alias}}*)
-using pchar = char*; // (*pchar*) means (*char$\ast$*)(*\index{Alias!{\textbf{using}}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] \emph{Partial application}\\ \\ Sets some number of arguments to a template:
-\end{enumerate}
-\begin{lstlisting}
-// template with (*2*) template parameters
-template<class T, class U>
-class TwoObjects
-{
-public:
-    TwoObjects() : a{}, b{} {}
-    TwoObjects(T x, U y) : a{x}, b{y} {}
-    T get_a() const { return a; }
-    U get_b() const { return b; }
-private:
-    T a;
-    U b;
-};
-
-// partial application which sets the first
-// template parameter to (*char*)
-template <class T>
-using OneObject = TwoObjects<char,T>;(*\index{Alias!{\emph{partial application}}}*)
-
-// usage
-OneObject<float> one('b',6.7);
-\end{lstlisting}
-%
-% Arrays
-%
-\section{Arrays}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] Declaration and initialization:
-\end{enumerate}
-\begin{lstlisting}
-// array of length (*4*) initialized to all zeros
-int array[4]{};(*\index{Arrays!declaration and initialization}*)
-
-// array of length (*4*) initialized to (*2,4,6,8*)
-int array[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Length of an array using \textbf{sizeof}:
-\end{enumerate}
-\begin{lstlisting}
-// array of length (*4*) initialized to (*2,4,6,8*)
-int array[]{2, 4, 6, 8};
-size_t array_size = sizeof(array) / sizeof(int);(*\index{\textbf{sizeof}}*)(*\index{\texttt{size\_t}}*)(*\index{Arrays!length calculation using \textbf{sizeof}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Range-based \textbf{for} statement:
-\index{range-for-loop}
-\end{enumerate}
-\begin{lstlisting}
-// changes the values and outputs (*3579*)
-int array[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
-
-for (int& x : array)
-  x++;(*\index{Arrays!modifying elements of an array}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] \textbf{auto} lets the compiler use the type of the elements in the container because it knows the type already:\index{range-for-loop}
-\end{enumerate}
-\begin{lstlisting}
-for (auto x : arr)(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
-  cout << x;(*\index{Arrays!printing elements of an array}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Structured binding:\index{Arrays!structured binding}
-\end{enumerate}
-\begin{lstlisting}
-int v[3] = {1,2,3};
-
-// assigns (*1*) to (*a*), (*2*) to (*b*), (*3*) to (*c*), 
-auto [a,b,c] = v;
-\end{lstlisting}
+\chapter{Pointers and References}
 %
 % Pointers
 %
 \section{Pointers}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] Simple object:
 \end{enumerate}
@@ -980,8 +956,7 @@ delete[] m;(*\index{\textbf{delete}}*)
 %
 % Smart pointers
 %
-\section{Smart pointers}
-\small
+\section{Smart Pointers}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{unique\_ptr}\\ \\
 Holds exclusive ownership (cannot be copied!) of a dynamic object according to RAII, i.e. resource acquisition is initialization\index{Smart pointers!RAII}. It will 
@@ -1151,7 +1126,6 @@ unique_ptr<int, decltype(int_deleter)> p_int{ new int{5},
 % References
 %
 \section{References}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] A variable reference must be initialized with a variable being referred to:
 \end{enumerate}
@@ -1198,388 +1172,193 @@ do_something(a_variable);
 cout << "a_variable = " << a_variable << endl;
 \end{lstlisting}
 %
-% C-Strings
+% Elementary data structures
 %
-\section{C-Strings}
-\index{C-Strings}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] Legacy strings from C:
-\end{enumerate}
-\begin{lstlisting}
-#include <cstring>(*\index{\texttt{<cstring>}}*)
-#include <cstdlib>(*\index{\texttt{<cstdlib>}}*)
-
-// (*C-string*) for max (*10*) characters(*\index{C-Strings!definition}*)
-// long string + null char '\0'
-const int SIZE = 10 + 1;(*\index{Constants!\textbf{const}}*)
-char msg[SIZE] = "Hello!";
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Checking for end of string when looping:\index{C-Strings!end of string}
-\end{enumerate}
-\begin{lstlisting}
-// correct looping over (*C-string*)s(*\index{C-Strings!correct looping}*)
-int i = 0;
-while ( msg[i] != '\0' && i < SIZE)
-{
-   // process msg[i]
-}
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Safe C-string operations:
-\end{enumerate}
-\begin{lstlisting}
-// safe string copy, at most (*10*) characters are copied(*\index{C-Strings!safe looping}*)
-strncpy(msg, srcStr, 10);(*\index{\texttt{strncpy}}*)
-
-// safe string compare, at most (*10*) characters are compared(*\index{C-Strings!safe compare}*)
-strncmp(msg, srcStr, 10);(*\index{\texttt{strncmp}}*)
-
-// safe string concatenation, at most (*10*) characters
-// are concatenated(*\index{C-Strings!safe concatenation}*)
-strncat(msg, srcStr, 10);(*\index{\texttt{strncat}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Conversions:
-\end{enumerate}
-\begin{lstlisting}
-// from (*C-string*) to (*int*), (*long*), (*float*)
-int    n = atoi("567");(*\index{C-Strings!conversions!to integer}*)(*\index{\texttt{atoi}}*)
-long   n = atol("1234567");(*\index{C-Strings!conversions!to long integer}*)(*\index{\texttt{atol}}*)
-double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\texttt{atof}}*)
-\end{lstlisting}
+\chapter{Elementary Data Structures}
 %
-% Input-output streams
+% Arrays
 %
-\section{Input-output streams}
-\index{Input-output streams}
-\small
+\section{Arrays}
 \begin{enumerate}
-\item[$\Rightarrow$] Global  input stream object \texttt{cin}, global output stream object \texttt{cout}, global error stream object \texttt{cerr}:
-\index{Input-output streams!input stream|see{\texttt{cin}}}
-\index{Input-output streams!output stream|see{\texttt{cout}}}
-\index{Input-output streams!error stream|see{\texttt{cerr}}}
+\item[$\Rightarrow$] Declaration and initialization:
 \end{enumerate}
 \begin{lstlisting}
-int number;
-char ch;
+// array of length (*4*) initialized to all zeros
+int array[4]{};(*\index{Arrays!declaration and initialization}*)
 
-// read a number followed by a character
-// from standard input (keyboard)
-// (ignores whitespaces, newlines, etc.)
-cin >> number >> ch;(*\index{Input-output streams!reading from the keyboard}*)(*\index{Input-output streams!\texttt{cin}}*)
-
-// write on standard output (display)
-cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to the screen}*)(*\index{Input-output streams!\texttt{cout}}*)
-
-// write error message on standard error (display)
-cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)(*\index{Input-output streams!\texttt{cerr}}*)(*\index{\texttt{cerr}|see{Input-output streams}}*)
+// array of length (*4*) initialized to (*2,4,6,8*)
+int array[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Boolean format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are sticky:
-\index{Input-output streams!boolean format manipulators}
+\item[$\Rightarrow$] Length of an array using \textbf{sizeof}:
 \end{enumerate}
 \begin{lstlisting}
-#include <iomanip>(*\index{\texttt{<iomanip>}}*)
-
-// prints (*\texttt{true}*) as (*true*)
-cout << boolalpha << "True: " << true << endl; (*\index{Input-output streams!\texttt{cout}!\texttt{boolalpha}}*)
-
-// prints (*\texttt{true}*) as (*1*)
-cout << noboolalpha << "True: " << true << endl;(*\index{Input-output streams!\texttt{cout}!\texttt{noboolalpha}}*)
+// array of length (*4*) initialized to (*2,4,6,8*)
+int array[]{2, 4, 6, 8};
+size_t array_size = sizeof(array) / sizeof(int);(*\index{\textbf{sizeof}}*)(*\index{\texttt{size\_t}}*)(*\index{Arrays!length calculation using \textbf{sizeof}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Integer format manipulators:
-\index{Input-output streams!integer format manipulators}
+\item[$\Rightarrow$] Range-based \textbf{for} statement:
+\index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
-#include <iomanip>(*\index{\texttt{<iomanip>}}*)
+// changes the values and outputs (*3579*)
+int array[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
 
-// set decimal, octal, or hexadecimal notation,
-// and show the base, i.e. (*0*) for octal and (*0x*) for
-// hexadecimal
-cout << showbase;(*\index{Input-output streams!integer format manipulators!show the base}*)(*\index{Input-output streams!\texttt{cout}}*)(*\index{Input-output streams!\texttt{cout}!\texttt{showbase}}*)
-cout << dec << 1974 << endl;(*\index{Input-output streams!integer format manipulators!decimal}*)(*\index{Input-output streams!\texttt{cout}!\texttt{dec}}*)
-cout << oct << 1974 << endl;(*\index{Input-output streams!integer format manipulators!otctal}*)(*\index{Input-output streams!\texttt{cout}!\texttt{oct}}*)
-cout << hex << 1974 << endl;(*\index{Input-output streams!integer format manipulators!hexadecimal}*)(*\index{Input-output streams!\texttt{cout}!\texttt{hex}}*)
-cout << noshowbase;(*\index{Input-output streams!integer format manipulators!don't show the base}*)(*\index{Input-output streams!\texttt{cout}!\texttt{noshowbase}}*)
-
-// values can be read from input in decimal, octal(*\index{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}*)
-// or hexadecimal format previous unsetting
-// of all the flags
-cin.unsetf(ios::dec);(*\index{Input-output streams!\texttt{cin}!\texttt{unset}}*)(*\index{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::dec}}*)
-cin.unsetf(ios::oct);(*\index{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::oct}}*)
-cin.unsetf(ios::hex);(*\index{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::hex}}*)
-
-//  now (*val*) can be inserted in any format
-cin >> val;(*\index{Input-output streams!\texttt{cin}}*)
+for (int& x : array)
+  x++;(*\index{Arrays!modifying elements of an array}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Floating point format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}:
-\index{Input-output streams!floating point format manipulators}
+\item[$\Rightarrow$] \textbf{auto} lets the compiler use the type of the elements in the container because it knows the type already:\index{range-for-loop}
 \end{enumerate}
 \begin{lstlisting}
-// set default, fixed, or scientific notation
-cout << defaultfloat << 1023.984;(*\index{Input-output streams!floating point format manipulators!default float notation}*)(*\index{Input-output streams!\texttt{cout}!\texttt{defaultfloat}}*)
-cout << fixed << 1023.984;(*\index{Input-output streams!floating point format manipulators!fixed notation}*)(*\index{Input-output streams!\texttt{cout}!\texttt{fixed}}*)
-cout << scientific << 1023.984;(*\index{Input-output streams!floating point format manipulators!scientific notation}*)(*\index{Input-output streams!\texttt{cout}!\texttt{scientific}}*)
-
-// set precision
-cout << setprecision(2) << 1023.984;(*\index{Input-output streams!floating point format manipulators!precision}*)(*\index{Input-output streams!\texttt{cout}!\texttt{setprecision}}*)
-
-// set character text width
-cout << setw(10);(*\index{Input-output streams!floating point format manipulators! text width}*)(*\index{Input-output streams!\texttt{cout}!\texttt{setw}}*)
-
-// set left or right alignment
-cout << left  << 1023.984;(*\index{Input-output streams!floating point format manipulators!left aligned }*)(*\index{Input-output streams!\texttt{cout}!\texttt{left}}*)
-cout << right << 1023.984;(*\index{Input-output streams!floating point format manipulators!right aligned}*)(*\index{Input-output streams!\texttt{cout}!\texttt{right}}*)
-
-// always show decimal point and zeros
-cout << showpoint << 0.532;(*\index{Input-output streams!floating point format manipulators!always show decimal point}*)(*\index{Input-output streams!\texttt{cout}!\texttt{showpoint}}*)
-
-// always show plus sign
-cout << showpos << 3.64;(*\index{Input-output streams!floating point format manipulators!always show plus sign}*)(*\index{Input-output streams!\texttt{cout}!\texttt{showpos}}*)
+for (auto x : arr)(*\index{\textbf{auto}}*)(*\index{range-for-loop}*)
+  cout << x;(*\index{Arrays!printing elements of an array}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Single characters read and write:
-\index{Input-output streams!reading and writing characters}
+\item[$\Rightarrow$] Structured binding:\index{Arrays!structured binding}
 \end{enumerate}
 \begin{lstlisting}
-// read any character from (*cin*) (doesn't skip spaces,
-// newlines, etc.)(*\index{Input-output streams!reading and writing characters!read any character}*)
-char nextChar;
-cin.get(nextChar);(*\index{Input-output streams!\texttt{cin}!\texttt{get}}*)
+int v[3] = {1,2,3};
 
-// loop for keeping reading
-// stops when end of line control character (control-d)(*\index{end of line control character}*)
-// is inserted
-while ( cin.get(nextChar) )(*\index{Input-output streams!\texttt{cin}!\texttt{get}}*)
-{
-    // process character
-}
-
-// write a character to (*cout*)(*\index{Input-output streams!reading and writing characters!write a single character}*)
-cout.put(nextChar)(*\index{Input-output streams!\texttt{cout}!\texttt{put}}*)
-
-// read a whole line of 80 chars(*\index{Input-output streams!reading and writing characters!read a whole line}*)
-char line[80+1];
-cin.getline(line,81);(*\index{Input-output streams!\texttt{cin}!\texttt{getline}}*)
-
-// put back (*nextChar*) to (*cin*), (*nextChar*) will be the next(*\index{Input-output streams!reading and writing characters!putting a character back into the input stream}*)
-// char read by (*cin.get()*)
-cin.putback(nextChar);(*\index{Input-output streams!\texttt{cin}!\texttt{putback}}*)
-
-// put back the last char got from (*cin.get()*) to (*cin*)(*\index{Input-output streams!reading and writing characters!putting the last character back into the input stream}*)
-cin.unget();(*\index{Input-output streams!\texttt{cin}!\texttt{unget}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] If the input pattern is unexpected, it is possible to set the state of \texttt{cin} to failed:
-\index{Input-output streams!handling of unexpected input}
-\end{enumerate}
-\begin{lstlisting}
-try(*\index{\textbf{try-catch}|see{Exceptions}}*)(*\index{Exceptions!\textbf{try-catch}}*)
-{
-    // check for unexpected input
-    char ch;
-    if ( cin >> ch && ch != expected_char )(*\index{Input-output streams!\texttt{cin}}*)
-    {
-        // put back last character read
-        cin.unget();(*\index{Input-output streams!\texttt{cin}!\texttt{unget}}*)
-        
-        // set failed bit(*\index{Input-output streams!handling of unexpected input!setting explicitly the failure bit}*)
-        cin.clear(ios_base::failbit);(*\index{Input-output streams!\texttt{cin}!\texttt{clear}}*)
-    
-        // throw an exception or deal with failed stream
-        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)(*\index{Exceptions!\texttt{runtime\_error}}*)
-    }
-}
-catch (runtime_error e)
-{
-    cerr << "Error! " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)(*\index{Exceptions!\texttt{runtime\_error}!\texttt{what}}*)
-            
-    // check for failure
-    if (cin.fail())(*\index{Input-output streams!\texttt{cin}!\texttt{fail}}*)
-    {
-        // clear failed bit(*\index{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}*)
-        cin.clear();(*\index{Input-output streams!\texttt{cin}!\texttt{clear}}*)
-                
-        // read wrong input
-        string wrong_input;(*\index{Strings!\texttt{string}}*)
-        cin >> wrong_input;(*\index{Input-output streams!\texttt{cin}}*)
-                    
-        cerr << "Got '" << wrong_input[0] << "'\n";(*\index{Input-output streams!\texttt{cerr}}*)
-    }
-     // End of file (eof) or corrupted state (bad)
-    else return 1;
-}
+// assigns (*1*) to (*a*), (*2*) to (*b*), (*3*) to (*c*), 
+auto [a,b,c] = v;
 \end{lstlisting}
 %
-% Files
+% Vectors
 %
-\section{Files}
-\small
+\section{Vectors}
+Vectors\index{Vectors} as supported by the C++ standard library. Vector elements are guaranteed to be stored sequentially in memory.
 \begin{enumerate}
-\item[$\Rightarrow$] Accessed by means of \texttt{ifstream} (input) or \texttt{ofstream} (output) objects:
+\item[$\Rightarrow$] Constructor with initialization list:
 \end{enumerate}
 \begin{lstlisting}
-#include <fstream>(*\index{\texttt{<fstream>}}*)
+#include <vector>(*\index{\texttt{<vector>}}*)
 
-// open input file(*\index{Files!opening as input}*)
-ifstream in_stream {"infile.dat"};(*\index{\texttt{ifstream}}*)
-// open output file(*\index{Files!opening as output}*)
-ofstream out_stream {"outfile.dat"};(*\index{\texttt{ofstream}}*)
+// vector with base type (*int*)
+vector<int> v = {2, 4, 6, 8};(*\index{Vectors!initialized with initializer list}*)(*\index{Containers!\texttt{vector}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Accessed both in input and output mode by means of \texttt{fstream}\index{\texttt{fstream}} objects (not recommended):
+\item[$\Rightarrow$] Fill constructors\\ \\ Note that since \texttt{vector} has an initializer list constructor, you need to call the fill constructor with parentheses.
 \end{enumerate}
 \begin{lstlisting}
-// open file in both input and output mode(*\index{Files!opening both as input and output}*)
-fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};(*\index{\texttt{fstream}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Opened explicitly (not recommended):
-\end{enumerate}
-\begin{lstlisting}
-// input file 
-ifstream in_stream;(*\index{\texttt{ifstream}}*)
-// output file
-ofstream out_stream;(*\index{\texttt{ofstream}}*)
+// vector with 10 elements all initialized to 0
+vector<int> v(10);(*\index{Vectors!initialized with all elements to 0}*)(*\index{Containers!\texttt{vector}}*)
 
-// open files(*\index{Files!opening explicitly}*)
-in_stream.open("infile.dat");
-out_stream.open("outfile.dat");
+// vector with 10 elements all initialized to 2
+vector<int> v(10,2);(*\index{Vectors!fill constructor}*)(*\index{Containers!\texttt{vector}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] When checking for failure, the status flag needs to be cleared in order to continue working with the file:\index{Files!checking for failure}
+\item[$\Rightarrow$] Access:
 \end{enumerate}
 \begin{lstlisting}
-// check for failure on input file
-if ( !in_stream )
-{
-    if ( in_stream.bad() ) error("stream corrupted!");(*\index{Files!checking for failure!corrupted stream}*)
-    
-    if ( in_stream.eof() )(*\index{Files!checking for failure!end of file}*)
-    { 
-        // no more data available
-    }
-    
-    if ( in_stream.fail() )(*\index{Files!checking for failure!format data error}*)
-    {
-        // some format data error, e.g. expected
-        // an integer but a string was read
-        // recovery is still possible
-        
-        // set back the state to good 
-        // before attempting to read again
-        in_stream.clear();(*\index{Files!checking for failure!setting back to good state}*)
-        
-        // read again
-        string wrong_input;(*\index{Strings!\texttt{string}}*)
-        in_stream >> wrong_input;
-    }
-}
+// unchecked access to the (*i*)th element
+cout << v[i];(*\index{Vectors!access to an element!unchecked}*)
+
+// checked access to the (*i*)th element
+cout << v.at(i);(*\index{Vectors!access to an element!checked}*)(*\index{Containers!\texttt{vector}!\texttt{at}}*)
+
+// access to the front element
+cout << v.front();(*\index{Vectors!access to the front element}*)(*\index{Containers!\texttt{vector}!\texttt{front}}*)
+
+// access to the last element
+cout << v.back();(*\index{Vectors!access to the last element}*)(*\index{Containers!\texttt{vector}!\texttt{back}}*)
+
+// pointer to the first element of the vector
+cout << *v.data << endl;(*\index{Vectors!pointer to the first element}*)(*\index{Containers!\texttt{vector}!\texttt{data}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] As for the standard input, if the input pattern is unexpected, it is possible to set the state of the file to failed and try to recover somewhere else, e.g. by throwing an exception:
+\item[$\Rightarrow$] Add:
 \end{enumerate}
 \begin{lstlisting}
+// add an element
+v.push_back(10);(*\index{Vectors!add to the back}*)(*\index{Containers!\texttt{vector}!\texttt{push\_back}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Insertion:
+\end{enumerate}
+\begin{lstlisting}
+// iterator pointing at the beginning of the vector
+auto iter = v.begin();
+
+// now pointing to the second element
+++iter;
+
+// inserting element (*10*) before the second element
+v.insert(iter,10);(*\index{Vectors!element insertion}*)(*\index{Containers!\texttt{vector}!\texttt{insert}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Resize:
+\end{enumerate}
+\begin{lstlisting}
+// resize to 20 elements
+// new elements are initialized to 0
+v.resize(20);(*\index{Vectors!resize}*)(*\index{Containers!\texttt{vector}!\texttt{resize}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Loop over:
+\end{enumerate}
+\begin{lstlisting}
+// range-for-loop(*\index{range-for-loop}*)
+for (auto x : v)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)
+  cout << x << endl;(*\index{Input-output streams!\texttt{cout}}*)
+
+// (*auto*) gives to (*x*) the same type of the element on the
+// right hand side of the assignment, in this case
+// a (*vector::iterator*)
+for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
+  cout << *x << endl;(*\index{Input-output streams!\texttt{cout}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Size and capacity:
+\end{enumerate}
+\begin{lstlisting}
+// size
+cout << v.size();(*\index{Vectors!size}*)(*\index{Containers!\texttt{vector}!\texttt{size}}*)
+
+// capacity: number of elements currently allocated
+cout << v.capacity();(*\index{Vectors!total capacity}*)(*\index{Containers!\texttt{vector}!\texttt{capacity}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Reserve more capacity:
+\end{enumerate}
+\begin{lstlisting}
+// reserve (reallocate) more capacity, e.g. at least
+// 64 (*int*)s
+v.reserve(64);(*\index{Vectors!reserve more capacity}*)(*\index{Containers!\texttt{vector}!\texttt{reserve}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Throws an \texttt{out\_of\_range} exception if accessed out of bounds:\index{Exceptions!\texttt{out\_of\_range}}
+\end{enumerate}
+\begin{lstlisting}
+// out of bounds access
+vector<int> v = {2, 4, 6, 8};(*\index{Containers!\texttt{vector}}*)
+
 try(*\index{Exceptions!\textbf{try-catch}}*)
 {
-    // check for unexpected input(*\index{Files!checking for unexpected input}*)
-    char ch;
-    if ( in_stream >> ch && ch != expected_char )
-    {
-        // put back last character read
-        in_stream.unget();
-        
-        // set failed bit
-        in_stream.clear(ios_base::failbit);
-    
-        // throw an exception or deal with failed stream
-        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)(*\index{Exceptions!\texttt{runtime\_error}}*)
-    }
-}
-catch (runtime_error e)
+    cout << v.at(7);
+} catch (out_of_range e)(*\index{Vectors!out of range exception}*)
 {
-    cerr << "Error! " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)(*\index{Exceptions!\texttt{runtime\_error}!\texttt{what}}*)
-            
-    // check for failure
-    if (in_stream.fail())
-    {
-        // clear failed bit
-        in_stream.clear();
-                
-        // read wrong input
-        string wrong_input;(*\index{Strings!\texttt{string}}*)
-        in_stream >> wrong_input;
-                    
-        cerr << "Got '" << wrong_input[0] << "'\n";(*\index{Input-output streams!\texttt{cerr}}*)
-    }
-    // end-of-file or bad state
-    else return 1;
+    // access error!
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Read and write:
+\item[$\Rightarrow$] Clearing the vector:
 \end{enumerate}
 \begin{lstlisting}
-// read/write data(*\index{Files!reading and writing}*)
-in_stream >> data1 >> data2;
-out_stream << data1 << data2;
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Read a line:
-\end{enumerate}
-\begin{lstlisting}
-string line;(*\index{Strings!\texttt{string}}*)
-getline(in_stream, line);(*\index{Files!reading a line}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Ignore input (extract and discard):
-\end{enumerate}
-\begin{lstlisting}
-// ignore up to a newline or 9999 characters(*\index{Files!ignoring input}*)
-in_stream.ignore(9999,'\n');
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Move the file pointer:
-\end{enumerate}
-\begin{lstlisting}
-// skip 5 characters when reading (seek get)
-in_stream.seekg(5);(*\index{Files!moving the file pointer!reading with \texttt{seekg} (seek get)}*)
-// skip 8 characters when writing (seek put)(*\index{Files!moving the file pointer!writing with \texttt{seekp} (seek put)}*)
-out_stream.seekp(8);
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Checking for end of file:
-\end{enumerate}
-\begin{lstlisting}
-// the failing read sets the EOF flag but avoids
-// further processing
-while ( in_stream >> next )(*\index{Files!loop for reading all the input}*)
-{
-    // process next
-}
+// clear the vector
+v.clear();(*\index{Vectors!clear all the elements}*)(*\index{Containers!\texttt{vector}!\texttt{clear}}*)
 
-// check the EOF flag
-if ( in_stream.eof() )
-    cout << "EOF reached!" << endl;
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] When a file object gets out of scope, the file is closed automatically, but explicit
-close is also possible (not recommended):\index{Files!closing by going out of scope}
-\end{enumerate}
-\begin{lstlisting}
-// explicitily close files(*\index{Files!closing explicitly}*)
-in_stream.close();
-out_stream.close()
+// the vector is now empty
+if ( v.empty() )(*\index{Vectors!test if empty}*)(*\index{Containers!\texttt{vector}!\texttt{empty}}*)
+    cout << "the vector is empty!" << endl;
+else
+    cout << "the vector is not empty" << endl;
 \end{lstlisting}
 %
 % Strings
 %
 \section{Strings}
-\small
 Strings as supported by the C++ standard library for ASCII character sets. Note that it allows almost the same methods as \texttt{vector}.
 \begin{enumerate}
 \item[$\Rightarrow$] Constructors:
@@ -1759,10 +1538,388 @@ double n = stod("12.345");(*\index{Strings!from string to!double}*)(*\index{\tex
 string s = to_string(123.456);(*\index{\texttt{to\_string}}*)(*\index{Strings!\texttt{string}}*)
 \end{lstlisting}
 %
+% C-Strings
+%
+\section{C-Strings}
+\index{C-Strings}
+\begin{enumerate}
+\item[$\Rightarrow$] Legacy strings from C:
+\end{enumerate}
+\begin{lstlisting}
+#include <cstring>(*\index{\texttt{<cstring>}}*)
+#include <cstdlib>(*\index{\texttt{<cstdlib>}}*)
+
+// (*C-string*) for max (*10*) characters(*\index{C-Strings!definition}*)
+// long string + null char '\0'
+const int SIZE = 10 + 1;(*\index{Constants!\textbf{const}}*)
+char msg[SIZE] = "Hello!";
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Checking for end of string when looping:\index{C-Strings!end of string}
+\end{enumerate}
+\begin{lstlisting}
+// correct looping over (*C-string*)s(*\index{C-Strings!correct looping}*)
+int i = 0;
+while ( msg[i] != '\0' && i < SIZE)
+{
+   // process msg[i]
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Safe C-string operations:
+\end{enumerate}
+\begin{lstlisting}
+// safe string copy, at most (*10*) characters are copied(*\index{C-Strings!safe looping}*)
+strncpy(msg, srcStr, 10);(*\index{\texttt{strncpy}}*)
+
+// safe string compare, at most (*10*) characters are compared(*\index{C-Strings!safe compare}*)
+strncmp(msg, srcStr, 10);(*\index{\texttt{strncmp}}*)
+
+// safe string concatenation, at most (*10*) characters
+// are concatenated(*\index{C-Strings!safe concatenation}*)
+strncat(msg, srcStr, 10);(*\index{\texttt{strncat}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Conversions:
+\end{enumerate}
+\begin{lstlisting}
+// from (*C-string*) to (*int*), (*long*), (*float*)
+int    n = atoi("567");(*\index{C-Strings!conversions!to integer}*)(*\index{\texttt{atoi}}*)
+long   n = atol("1234567");(*\index{C-Strings!conversions!to long integer}*)(*\index{\texttt{atol}}*)
+double n = atof("12.345");(*\index{C-Strings!conversions!to double}*)(*\index{\texttt{atof}}*)
+\end{lstlisting}
+%
+% Input-output
+%
+\chapter{Input-Output}
+%
+% Input-output streams
+%
+\section{Input-Output Streams}
+\index{Input-output streams}
+\begin{enumerate}
+\item[$\Rightarrow$] Global  input stream object \texttt{cin}, global output stream object \texttt{cout}, global error stream object \texttt{cerr}:
+\index{Input-output streams!input stream|see{\texttt{cin}}}
+\index{Input-output streams!output stream|see{\texttt{cout}}}
+\index{Input-output streams!error stream|see{\texttt{cerr}}}
+\end{enumerate}
+\begin{lstlisting}
+int number;
+char ch;
+
+// read a number followed by a character
+// from standard input (keyboard)
+// (ignores whitespaces, newlines, etc.)
+cin >> number >> ch;(*\index{Input-output streams!reading from the keyboard}*)(*\index{Input-output streams!\texttt{cin}}*)
+
+// write on standard output (display)
+cout << number << " " <<  ch << endl;(*\index{Input-output streams!writing to the screen}*)(*\index{Input-output streams!\texttt{cout}}*)
+
+// write error message on standard error (display)
+cerr << "Wrong input!\n";(*\index{Input-output streams!writing error message to the screen}*)(*\index{Input-output streams!\texttt{cerr}}*)(*\index{\texttt{cerr}|see{Input-output streams}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Boolean format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are sticky:
+\index{Input-output streams!boolean format manipulators}
+\end{enumerate}
+\begin{lstlisting}
+#include <iomanip>(*\index{\texttt{<iomanip>}}*)
+
+// prints (*\texttt{true}*) as (*true*)
+cout << boolalpha << "True: " << true << endl; (*\index{Input-output streams!\texttt{cout}!\texttt{boolalpha}}*)
+
+// prints (*\texttt{true}*) as (*1*)
+cout << noboolalpha << "True: " << true << endl;(*\index{Input-output streams!\texttt{cout}!\texttt{noboolalpha}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Integer format manipulators:
+\index{Input-output streams!integer format manipulators}
+\end{enumerate}
+\begin{lstlisting}
+#include <iomanip>(*\index{\texttt{<iomanip>}}*)
+
+// set decimal, octal, or hexadecimal notation,
+// and show the base, i.e. (*0*) for octal and (*0x*) for
+// hexadecimal
+cout << showbase;(*\index{Input-output streams!integer format manipulators!show the base}*)(*\index{Input-output streams!\texttt{cout}}*)(*\index{Input-output streams!\texttt{cout}!\texttt{showbase}}*)
+cout << dec << 1974 << endl;(*\index{Input-output streams!integer format manipulators!decimal}*)(*\index{Input-output streams!\texttt{cout}!\texttt{dec}}*)
+cout << oct << 1974 << endl;(*\index{Input-output streams!integer format manipulators!otctal}*)(*\index{Input-output streams!\texttt{cout}!\texttt{oct}}*)
+cout << hex << 1974 << endl;(*\index{Input-output streams!integer format manipulators!hexadecimal}*)(*\index{Input-output streams!\texttt{cout}!\texttt{hex}}*)
+cout << noshowbase;(*\index{Input-output streams!integer format manipulators!don't show the base}*)(*\index{Input-output streams!\texttt{cout}!\texttt{noshowbase}}*)
+
+// values can be read from input in decimal, octal(*\index{Input-output streams!integer format manipulators!reading a value from the keyboard in any notation}*)
+// or hexadecimal format previous unsetting
+// of all the flags
+cin.unsetf(ios::dec);(*\index{Input-output streams!\texttt{cin}!\texttt{unset}}*)(*\index{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::dec}}*)
+cin.unsetf(ios::oct);(*\index{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::oct}}*)
+cin.unsetf(ios::hex);(*\index{Input-output streams!\texttt{cin}!\texttt{unset}!\texttt{ios::hex}}*)
+
+//  now (*val*) can be inserted in any format
+cin >> val;(*\index{Input-output streams!\texttt{cin}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Floating point format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}:
+\index{Input-output streams!floating point format manipulators}
+\end{enumerate}
+\begin{lstlisting}
+// set default, fixed, or scientific notation
+cout << defaultfloat << 1023.984;(*\index{Input-output streams!floating point format manipulators!default float notation}*)(*\index{Input-output streams!\texttt{cout}!\texttt{defaultfloat}}*)
+cout << fixed << 1023.984;(*\index{Input-output streams!floating point format manipulators!fixed notation}*)(*\index{Input-output streams!\texttt{cout}!\texttt{fixed}}*)
+cout << scientific << 1023.984;(*\index{Input-output streams!floating point format manipulators!scientific notation}*)(*\index{Input-output streams!\texttt{cout}!\texttt{scientific}}*)
+
+// set precision
+cout << setprecision(2) << 1023.984;(*\index{Input-output streams!floating point format manipulators!precision}*)(*\index{Input-output streams!\texttt{cout}!\texttt{setprecision}}*)
+
+// set character text width
+cout << setw(10);(*\index{Input-output streams!floating point format manipulators! text width}*)(*\index{Input-output streams!\texttt{cout}!\texttt{setw}}*)
+
+// set left or right alignment
+cout << left  << 1023.984;(*\index{Input-output streams!floating point format manipulators!left aligned }*)(*\index{Input-output streams!\texttt{cout}!\texttt{left}}*)
+cout << right << 1023.984;(*\index{Input-output streams!floating point format manipulators!right aligned}*)(*\index{Input-output streams!\texttt{cout}!\texttt{right}}*)
+
+// always show decimal point and zeros
+cout << showpoint << 0.532;(*\index{Input-output streams!floating point format manipulators!always show decimal point}*)(*\index{Input-output streams!\texttt{cout}!\texttt{showpoint}}*)
+
+// always show plus sign
+cout << showpos << 3.64;(*\index{Input-output streams!floating point format manipulators!always show plus sign}*)(*\index{Input-output streams!\texttt{cout}!\texttt{showpos}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Single characters read and write:
+\index{Input-output streams!reading and writing characters}
+\end{enumerate}
+\begin{lstlisting}
+// read any character from (*cin*) (doesn't skip spaces,
+// newlines, etc.)(*\index{Input-output streams!reading and writing characters!read any character}*)
+char nextChar;
+cin.get(nextChar);(*\index{Input-output streams!\texttt{cin}!\texttt{get}}*)
+
+// loop for keeping reading
+// stops when end of line control character (control-d)(*\index{end of line control character}*)
+// is inserted
+while ( cin.get(nextChar) )(*\index{Input-output streams!\texttt{cin}!\texttt{get}}*)
+{
+    // process character
+}
+
+// write a character to (*cout*)(*\index{Input-output streams!reading and writing characters!write a single character}*)
+cout.put(nextChar)(*\index{Input-output streams!\texttt{cout}!\texttt{put}}*)
+
+// read a whole line of 80 chars(*\index{Input-output streams!reading and writing characters!read a whole line}*)
+char line[80+1];
+cin.getline(line,81);(*\index{Input-output streams!\texttt{cin}!\texttt{getline}}*)
+
+// put back (*nextChar*) to (*cin*), (*nextChar*) will be the next(*\index{Input-output streams!reading and writing characters!putting a character back into the input stream}*)
+// char read by (*cin.get()*)
+cin.putback(nextChar);(*\index{Input-output streams!\texttt{cin}!\texttt{putback}}*)
+
+// put back the last char got from (*cin.get()*) to (*cin*)(*\index{Input-output streams!reading and writing characters!putting the last character back into the input stream}*)
+cin.unget();(*\index{Input-output streams!\texttt{cin}!\texttt{unget}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] If the input pattern is unexpected, it is possible to set the state of \texttt{cin} to failed:
+\index{Input-output streams!handling of unexpected input}
+\end{enumerate}
+\begin{lstlisting}
+try(*\index{\textbf{try-catch}|see{Exceptions}}*)(*\index{Exceptions!\textbf{try-catch}}*)
+{
+    // check for unexpected input
+    char ch;
+    if ( cin >> ch && ch != expected_char )(*\index{Input-output streams!\texttt{cin}}*)
+    {
+        // put back last character read
+        cin.unget();(*\index{Input-output streams!\texttt{cin}!\texttt{unget}}*)
+        
+        // set failed bit(*\index{Input-output streams!handling of unexpected input!setting explicitly the failure bit}*)
+        cin.clear(ios_base::failbit);(*\index{Input-output streams!\texttt{cin}!\texttt{clear}}*)
+    
+        // throw an exception or deal with failed stream
+        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)(*\index{Exceptions!\texttt{runtime\_error}}*)
+    }
+}
+catch (runtime_error e)
+{
+    cerr << "Error! " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)(*\index{Exceptions!\texttt{runtime\_error}!\texttt{what}}*)
+            
+    // check for failure
+    if (cin.fail())(*\index{Input-output streams!\texttt{cin}!\texttt{fail}}*)
+    {
+        // clear failed bit(*\index{Input-output streams!handling of unexpected input!clearing the failed state of the input stream}*)
+        cin.clear();(*\index{Input-output streams!\texttt{cin}!\texttt{clear}}*)
+                
+        // read wrong input
+        string wrong_input;(*\index{Strings!\texttt{string}}*)
+        cin >> wrong_input;(*\index{Input-output streams!\texttt{cin}}*)
+                    
+        cerr << "Got '" << wrong_input[0] << "'\n";(*\index{Input-output streams!\texttt{cerr}}*)
+    }
+     // End of file (eof) or corrupted state (bad)
+    else return 1;
+}
+\end{lstlisting}
+%
+% Files
+%
+\section{Files}
+\begin{enumerate}
+\item[$\Rightarrow$] Accessed by means of \texttt{ifstream} (input) or \texttt{ofstream} (output) objects:
+\end{enumerate}
+\begin{lstlisting}
+#include <fstream>(*\index{\texttt{<fstream>}}*)
+
+// open input file(*\index{Files!opening as input}*)
+ifstream in_stream {"infile.dat"};(*\index{\texttt{ifstream}}*)
+// open output file(*\index{Files!opening as output}*)
+ofstream out_stream {"outfile.dat"};(*\index{\texttt{ofstream}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Accessed both in input and output mode by means of \texttt{fstream}\index{\texttt{fstream}} objects (not recommended):
+\end{enumerate}
+\begin{lstlisting}
+// open file in both input and output mode(*\index{Files!opening both as input and output}*)
+fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};(*\index{\texttt{fstream}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Opened explicitly (not recommended):
+\end{enumerate}
+\begin{lstlisting}
+// input file 
+ifstream in_stream;(*\index{\texttt{ifstream}}*)
+// output file
+ofstream out_stream;(*\index{\texttt{ofstream}}*)
+
+// open files(*\index{Files!opening explicitly}*)
+in_stream.open("infile.dat");
+out_stream.open("outfile.dat");
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] When checking for failure, the status flag needs to be cleared in order to continue working with the file:\index{Files!checking for failure}
+\end{enumerate}
+\begin{lstlisting}
+// check for failure on input file
+if ( !in_stream )
+{
+    if ( in_stream.bad() ) error("stream corrupted!");(*\index{Files!checking for failure!corrupted stream}*)
+    
+    if ( in_stream.eof() )(*\index{Files!checking for failure!end of file}*)
+    { 
+        // no more data available
+    }
+    
+    if ( in_stream.fail() )(*\index{Files!checking for failure!format data error}*)
+    {
+        // some format data error, e.g. expected
+        // an integer but a string was read
+        // recovery is still possible
+        
+        // set back the state to good 
+        // before attempting to read again
+        in_stream.clear();(*\index{Files!checking for failure!setting back to good state}*)
+        
+        // read again
+        string wrong_input;(*\index{Strings!\texttt{string}}*)
+        in_stream >> wrong_input;
+    }
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] As for the standard input, if the input pattern is unexpected, it is possible to set the state of the file to failed and try to recover somewhere else, e.g. by throwing an exception:
+\end{enumerate}
+\begin{lstlisting}
+try(*\index{Exceptions!\textbf{try-catch}}*)
+{
+    // check for unexpected input(*\index{Files!checking for unexpected input}*)
+    char ch;
+    if ( in_stream >> ch && ch != expected_char )
+    {
+        // put back last character read
+        in_stream.unget();
+        
+        // set failed bit
+        in_stream.clear(ios_base::failbit);
+    
+        // throw an exception or deal with failed stream
+        throw runtime_error("Unexpected input");(*\index{\textbf{throw}}*)(*\index{Exceptions!\texttt{runtime\_error}}*)
+    }
+}
+catch (runtime_error e)
+{
+    cerr << "Error! " << e.what() << "\n";(*\index{Input-output streams!\texttt{cerr}}*)(*\index{Exceptions!\texttt{runtime\_error}!\texttt{what}}*)
+            
+    // check for failure
+    if (in_stream.fail())
+    {
+        // clear failed bit
+        in_stream.clear();
+                
+        // read wrong input
+        string wrong_input;(*\index{Strings!\texttt{string}}*)
+        in_stream >> wrong_input;
+                    
+        cerr << "Got '" << wrong_input[0] << "'\n";(*\index{Input-output streams!\texttt{cerr}}*)
+    }
+    // end-of-file or bad state
+    else return 1;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Read and write:
+\end{enumerate}
+\begin{lstlisting}
+// read/write data(*\index{Files!reading and writing}*)
+in_stream >> data1 >> data2;
+out_stream << data1 << data2;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Read a line:
+\end{enumerate}
+\begin{lstlisting}
+string line;(*\index{Strings!\texttt{string}}*)
+getline(in_stream, line);(*\index{Files!reading a line}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Ignore input (extract and discard):
+\end{enumerate}
+\begin{lstlisting}
+// ignore up to a newline or 9999 characters(*\index{Files!ignoring input}*)
+in_stream.ignore(9999,'\n');
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Move the file pointer:
+\end{enumerate}
+\begin{lstlisting}
+// skip 5 characters when reading (seek get)
+in_stream.seekg(5);(*\index{Files!moving the file pointer!reading with \texttt{seekg} (seek get)}*)
+// skip 8 characters when writing (seek put)(*\index{Files!moving the file pointer!writing with \texttt{seekp} (seek put)}*)
+out_stream.seekp(8);
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Checking for end of file:
+\end{enumerate}
+\begin{lstlisting}
+// the failing read sets the EOF flag but avoids
+// further processing
+while ( in_stream >> next )(*\index{Files!loop for reading all the input}*)
+{
+    // process next
+}
+
+// check the EOF flag
+if ( in_stream.eof() )
+    cout << "EOF reached!" << endl;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] When a file object gets out of scope, the file is closed automatically, but explicit
+close is also possible (not recommended):\index{Files!closing by going out of scope}
+\end{enumerate}
+\begin{lstlisting}
+// explicitily close files(*\index{Files!closing explicitly}*)
+in_stream.close();
+out_stream.close()
+\end{lstlisting}
+%
 % String streams
 %
-\section{String streams}
-\small
+\section{String Streams}
 A string is used as a source for an input stream or as a target for an output stream. \\
 \begin{enumerate}
 \item[$\Rightarrow$] Input string stream: \texttt{istringstream}
@@ -1794,176 +1951,13 @@ data_stream << 6.432 << " " << -313.2134 << "\n";
 cout << data_stream.str();
 \end{lstlisting}
 %
-% Vectors
+% Advanced topics
 %
-\section{Vectors}
-\small
-Vectors\index{Vectors} as supported by the C++ standard library. Vector elements are guaranteed to be stored sequentially in memory.
-\begin{enumerate}
-\item[$\Rightarrow$] Constructor with initialization list:
-\end{enumerate}
-\begin{lstlisting}
-#include <vector>(*\index{\texttt{<vector>}}*)
-
-// vector with base type (*int*)
-vector<int> v = {2, 4, 6, 8};(*\index{Vectors!initialized with initializer list}*)(*\index{Containers!\texttt{vector}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Fill constructors\\ \\ Note that since \texttt{vector} has an initializer list constructor, you need to call the fill constructor with parentheses.
-\end{enumerate}
-\begin{lstlisting}
-// vector with 10 elements all initialized to 0
-vector<int> v(10);(*\index{Vectors!initialized with all elements to 0}*)(*\index{Containers!\texttt{vector}}*)
-
-// vector with 10 elements all initialized to 2
-vector<int> v(10,2);(*\index{Vectors!fill constructor}*)(*\index{Containers!\texttt{vector}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Access:
-\end{enumerate}
-\begin{lstlisting}
-// unchecked access to the (*i*)th element
-cout << v[i];(*\index{Vectors!access to an element!unchecked}*)
-
-// checked access to the (*i*)th element
-cout << v.at(i);(*\index{Vectors!access to an element!checked}*)(*\index{Containers!\texttt{vector}!\texttt{at}}*)
-
-// access to the front element
-cout << v.front();(*\index{Vectors!access to the front element}*)(*\index{Containers!\texttt{vector}!\texttt{front}}*)
-
-// access to the last element
-cout << v.back();(*\index{Vectors!access to the last element}*)(*\index{Containers!\texttt{vector}!\texttt{back}}*)
-
-// pointer to the first element of the vector
-cout << *v.data << endl;(*\index{Vectors!pointer to the first element}*)(*\index{Containers!\texttt{vector}!\texttt{data}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Add:
-\end{enumerate}
-\begin{lstlisting}
-// add an element
-v.push_back(10);(*\index{Vectors!add to the back}*)(*\index{Containers!\texttt{vector}!\texttt{push\_back}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Insertion:
-\end{enumerate}
-\begin{lstlisting}
-// iterator pointing at the beginning of the vector
-auto iter = v.begin();
-
-// now pointing to the second element
-++iter;
-
-// inserting element (*10*) before the second element
-v.insert(iter,10);(*\index{Vectors!element insertion}*)(*\index{Containers!\texttt{vector}!\texttt{insert}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Resize:
-\end{enumerate}
-\begin{lstlisting}
-// resize to 20 elements
-// new elements are initialized to 0
-v.resize(20);(*\index{Vectors!resize}*)(*\index{Containers!\texttt{vector}!\texttt{resize}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Loop over:
-\end{enumerate}
-\begin{lstlisting}
-// range-for-loop(*\index{range-for-loop}*)
-for (auto x : v)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)
-  cout << x << endl;(*\index{Input-output streams!\texttt{cout}}*)
-
-// (*auto*) gives to (*x*) the same type of the element on the
-// right hand side of the assignment, in this case
-// a (*vector::iterator*)
-for (auto x = v.begin(); x<v.end(); x++)(*\index{Vectors!loop over elements}*)(*\index{\textbf{auto}}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
-  cout << *x << endl;(*\index{Input-output streams!\texttt{cout}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Size and capacity:
-\end{enumerate}
-\begin{lstlisting}
-// size
-cout << v.size();(*\index{Vectors!size}*)(*\index{Containers!\texttt{vector}!\texttt{size}}*)
-
-// capacity: number of elements currently allocated
-cout << v.capacity();(*\index{Vectors!total capacity}*)(*\index{Containers!\texttt{vector}!\texttt{capacity}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Reserve more capacity:
-\end{enumerate}
-\begin{lstlisting}
-// reserve (reallocate) more capacity, e.g. at least
-// 64 (*int*)s
-v.reserve(64);(*\index{Vectors!reserve more capacity}*)(*\index{Containers!\texttt{vector}!\texttt{reserve}}*)
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Throws an \texttt{out\_of\_range} exception if accessed out of bounds:\index{Exceptions!\texttt{out\_of\_range}}
-\end{enumerate}
-\begin{lstlisting}
-// out of bounds access
-vector<int> v = {2, 4, 6, 8};(*\index{Containers!\texttt{vector}}*)
-
-try(*\index{Exceptions!\textbf{try-catch}}*)
-{
-    cout << v.at(7);
-} catch (out_of_range e)(*\index{Vectors!out of range exception}*)
-{
-    // access error!
-}
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] Clearing the vector:
-\end{enumerate}
-\begin{lstlisting}
-// clear the vector
-v.clear();(*\index{Vectors!clear all the elements}*)(*\index{Containers!\texttt{vector}!\texttt{clear}}*)
-
-// the vector is now empty
-if ( v.empty() )(*\index{Vectors!test if empty}*)(*\index{Containers!\texttt{vector}!\texttt{empty}}*)
-    cout << "the vector is empty!" << endl;
-else
-    cout << "the vector is not empty" << endl;
-\end{lstlisting}
-%
-% Enumerations
-%
-\section{Enumerations}
-\small
-\begin{enumerate}
-\item[$\Rightarrow$] \textbf{enum class} defines symbolic constants in the scope of the class:\index{Enumerations!in \textbf{class} scope}
-\end{enumerate}
-\begin{lstlisting}
-// enum definition(*\index{Enumerations!definition}*)
-enum class Weekdays(*\index{\textbf{enum class}}*)
-{
-    mon=1, tue, wed, thu, fri
-};
-
-// usage(*\index{Enumerations!usage}*)
-Weekdays day = Weekdays::tue;
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] \textbf{int}s cannot be assigned to \textbf{enum class} and vice versa:
-\end{enumerate}
-\begin{lstlisting}
-// errors!(*\index{Enumerations!prohibited conversions}*)
-Weekdays day = 3;
-int d = Weekdays::wed;
-\end{lstlisting}
-\begin{enumerate}
-\item[$\Rightarrow$] A conversion function should be written which uses unchecked conversions:
-\end{enumerate}
-\begin{lstlisting}
-// valid(*\index{Enumerations!conversion function}*)
-Weekdays day = Weekdays(2);
-int d = int(Weekdays::fri);
-\end{lstlisting}
+\chapter{Object-Oriented Programming}
 %
 % Classes
 %
 \section{Classes}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] Class using dynamic arrays:\index{Classes!example of a vector class}
 \end{enumerate}
@@ -2227,8 +2221,7 @@ public:
 %
 % Operator overloading
 %
-\section{Operator overloading}
-\small
+\section{Operator Overloading}
 The behaviour is different if an operator is overloaded as  a class member or friend function.
 \begin{enumerate}
 \item[$\Rightarrow$] As class members\index{Operator overloading!as class member}
@@ -2298,7 +2291,6 @@ Euro result = 2 + Euro{5};
 % Inheritance
 %
 \section{Inheritance}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] Abstract base class (excerpt):
 \index{Inheritance!abstract base class}
@@ -2605,7 +2597,6 @@ private:
 % Polymorphism
 %
 \section{Polymorphism}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] From a window perspective, it is possible to attach and draw any type of widget, and the window just needs to call the \texttt{Fl\_Widget::draw()} method:
 \index{Polymorphism}
@@ -2649,10 +2640,13 @@ win.draw(diagonal); // calls (*Line::draw\_shape()*)
 win.draw(c1); // calls (*Circle::draw\_shape()*)
 \end{lstlisting}
 %
+% Advanced topics
+%
+\chapter{Advanced Topics}
+%
 % Exceptions
 %
 \section{Exceptions}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] The value thrown by \textbf{throw} can be of any type:
 \end{enumerate}
@@ -2746,7 +2740,6 @@ void my_function(void)
 % Templates
 %
 \section{Templates}
-\small
 Types are used as parameters for a function or a class.  C++ does not need the template declaration. Always put the 
 template definition in the header file directly!
 \begin{enumerate}
@@ -2992,7 +2985,6 @@ private:
 % Iterators
 %
 \section{Iterators}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] An iterator is a generalisation of a pointer. It is an object that identifies an element of a sequence. Different containers have
 different iterators.\index{Iterators}
@@ -3257,7 +3249,6 @@ cout << "data_list = " << data_list << endl;
 % Containers
 %
 \section{Containers}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] Sequential containers: \texttt{list}\index{Containers!sequential|see{\texttt{list}}}\index{Containers!sequential|see{\texttt{vector}}}
 \end{enumerate}
@@ -3535,7 +3526,6 @@ reverse(v.begin(),v.end());(*\index{Algorithms!\texttt{reverse}}*)(*\index{\text
 % Utilities
 %
 \section{Utilities}
-\small
 \begin{enumerate}
 \item[$\Rightarrow$] Random numbers
 \end{enumerate}
@@ -3991,7 +3981,6 @@ cout << "Counter value: " << counter_atomic << endl;
 %
 \newpage
 
-\small
 \renewcommand\refname{Bibliography}
 \begin{thebibliography}{99}
 \bibitem{savitch} Walter Savitch. \textsl{Problem Solving with C++}, 10th edition. Pearson Education, 2018

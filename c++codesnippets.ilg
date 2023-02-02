@@ -1,15 +1,15 @@
 This is makeindex, version 2.16 [TeX Live 2022] (kpathsea + Thai support).
 Scanning input file c++codesnippets.idx....
-!! Input index error (file = c++codesnippets.idx, line = 253):
+!! Input index error (file = c++codesnippets.idx, line = 362):
    -- Extra `!' at position 49 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 254):
+!! Input index error (file = c++codesnippets.idx, line = 363):
    -- Extra `!' at position 49 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 255):
+!! Input index error (file = c++codesnippets.idx, line = 364):
    -- Extra `!' at position 49 of first argument.
 
-!! Input index error (file = c++codesnippets.idx, line = 404):
+!! Input index error (file = c++codesnippets.idx, line = 455):
    -- Extra `!' at position 53 of first argument.
-!! Input index error (file = c++codesnippets.idx, line = 405):
+!! Input index error (file = c++codesnippets.idx, line = 456):
    -- Extra `!' at position 53 of first argument.
 
 !! Input index error (file = c++codesnippets.idx, line = 504):
@@ -28,15 +28,15 @@ Scanning input file c++codesnippets.idx....
 !! Input index error (file = c++codesnippets.idx, line = 836):
    -- Extra `!' at position 46 of first argument.
 .done (1030 entries accepted, 11 rejected).
-Sorting entries...........done (11389 comparisons).
+Sorting entries...........done (11849 comparisons).
 Generating output file c++codesnippets.ind....
-## Warning (input = c++codesnippets.idx, line = 97; output = c++codesnippets.ind, line = 22):
+## Warning (input = c++codesnippets.idx, line = 128; output = c++codesnippets.ind, line = 22):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 130; output = c++codesnippets.ind, line = 29):
+## Warning (input = c++codesnippets.idx, line = 91; output = c++codesnippets.ind, line = 29):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
-## Warning (input = c++codesnippets.idx, line = 860; output = c++codesnippets.ind, line = 298):
+## Warning (input = c++codesnippets.idx, line = 885; output = c++codesnippets.ind, line = 299):
    -- Conflicting entries: multiple encaps for the same page under same key.
 
 ## Warning (input = c++codesnippets.idx, line = 839; output = c++codesnippets.ind, line = 300):
