@@ -28,7 +28,7 @@
 
 % Change the color of the text
 \usepackage{xcolor}
-\definecolor{codegray}{gray}{0.80}
+\definecolor{codegray}{gray}{0.95}
 
 % Add filling dots for sections in the toc
 \usepackage{tocloft}
@@ -97,7 +97,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.03~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.04~-~GNU GPL v3.0}
 
 %\layout
 
@@ -119,20 +119,19 @@
 % Preface
 %
 \chapter*{Preface}
+\noindent
+This bookl provides a collection of code snippets showing the usage of common C++ language features.
+It is meant to be used  as a quick reference or as a language refresher.
+In addition, I wanted also to collect and show particular features or constructs that are now available, like the apostrophe as a digit separator.
+Chances are that you are not aware of them. Explanations are kept to a minimum and are provided in the comments where necessary.
 \addcontentsline{toc}{chapter}{Preface}
-%
-% About the author
-%
-\chapter*{About the Author}
-\addcontentsline{toc}{chapter}{About the Author}
-
 %
 % Basics
 %
 \chapter{Basics}
 \pagenumbering{arabic}
 \noindent
-In the following code snippets, the standard I/O library and namespace are used:
+In the following code snippets, the standard I/O library and namespace are always used:
 \begin{lstlisting}
 #include <iostream>(*\index{\texttt{<iostream>}}*)
 using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\textbf{namespace}|see{Namespaces}}*)
