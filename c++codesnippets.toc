@@ -41,3 +41,5 @@
 \contentsline {section}{\numberline {7.4}Containers}{59}{}%
 \contentsline {section}{\numberline {7.5}Algorithms}{61}{}%
 \contentsline {section}{\numberline {7.6}Utilities}{63}{}%
+\contentsline {chapter}{Bibliography}{71}{}%
+\contentsline {chapter}{Index}{73}{}%

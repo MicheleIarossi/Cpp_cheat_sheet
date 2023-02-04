@@ -91,25 +91,23 @@
 % Commands have the following general syntax:
 % \name[optional]{mandatory}
 \begin{document}
-
+% Add 2 empty pages at the beginning
+\mbox{} \thispagestyle{empty} \newpage
+\mbox{} \thispagestyle{empty} \newpage
 \pagenumbering{roman}
 
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.04~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.05~-~GNU GPL v3.0}
 
 %\layout
 
 \maketitle
 
-% We don't want page numbers on the following page
-\thispagestyle{empty}
+\newpage \mbox{}
 
-\newpage
-
-\
-
+% empty page
 \newpage
 
 \tableofcontents
@@ -120,8 +118,8 @@
 %
 \chapter*{Preface}
 \noindent
-This bookl provides a collection of code snippets showing the usage of common C++ language features.
-It is meant to be used  as a quick reference or as a language refresher.
+This book provides a collection of code snippets showing the usage of common C++ language features.
+It is meant to be used as a quick reference or as a language refresher.
 In addition, I wanted also to collect and show particular features or constructs that are now available, like the apostrophe as a digit separator.
 Chances are that you are not aware of them. Explanations are kept to a minimum and are provided in the comments where necessary.
 \addcontentsline{toc}{chapter}{Preface}
@@ -3981,6 +3979,7 @@ cout << "Counter value: " << counter_atomic << endl;
 \newpage
 
 \renewcommand\refname{Bibliography}
+\addcontentsline{toc}{chapter}{Bibliography}
 \begin{thebibliography}{99}
 \bibitem{savitch} Walter Savitch. \textsl{Problem Solving with C++}, 10th edition. Pearson Education, 2018
 \bibitem{stroustrup} Bjarne Stroustrup. \textsl{Programming: Principles and Practice Using C++}, 2nd edition. Addison Wesley, 2015
@@ -3994,5 +3993,9 @@ cout << "Counter value: " << counter_atomic << endl;
 \
 
 \newpage
+
+\addcontentsline{toc}{chapter}{Index}
 \printindex
+% add empty page at the end
+\newpage \mbox{} \thispagestyle{empty}
 \end{document}
