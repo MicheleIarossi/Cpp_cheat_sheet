@@ -1,0 +1,76 @@
+%
+%    C++ Code Snippets cover
+%    Copyright (C) 2021 Michele Iarossi - michele@mathsophy.com
+%
+%    This program is free software: you can redistribute it and/or modify
+%    it under the terms of the GNU General Public License as published by
+%    the Free Software Foundation version 3 of the License.
+%
+%    This program is distributed in the hope that it will be useful,
+%    but WITHOUT ANY WARRANTY; without even the implied warranty of
+%    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+%    GNU General Public License for more details.
+%
+%    You should have received a copy of the GNU General Public License
+%    along with this program.  If not, see <https://www.gnu.org/licenses/>.
+%
+
+% Preamble starts here: includes further global commands and specifications
+% In the following, the option 12pt is a global option passed to all
+% the packages
+
+\documentclass[12pt]{article}
+% a4 paper 8.27 x 11.69 inches
+% paperheight = bleed + a4heigth + bleed = 0.375 + 11.69 + 0.375 = 12.44in
+% paperwidth = bleed + a4width + spine + a4width + bleed = 0.375 + 8.27 + 0.189 + 8.27 + 0.375 = 17.48in
+\usepackage[paperheight = 12.44in, paperwidth = 17.48in]{geometry}
+\usepackage[dvipsnames,prologue,table]{pstricks}
+\usepackage{pst-barcode}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\geometry{textwidth=\paperwidth, textheight=\paperheight, noheadfoot, nomarginpar}
+\setlength{\topskip}{0mm}
+\setlength{\parindent}{0mm}
+\begin{document}
+\thispagestyle{empty}
+\psset{unit=1in}
+\begin{pspicture}(17.48in,12.44in)
+% image over the whole cover
+\newsavebox\IBox\sbox\IBox{\includegraphics[height=12.44in,width=17.48in]{P1000684.jpeg}}
+\rput[lb](0,0){\usebox\IBox}
+% spine
+\psframe[fillstyle=solid,fillcolor=NavyBlue](8.645,0)(8.834,12.44in)
+% front
+\newsavebox\Titlebox
+\sbox\Titlebox{
+\fcolorbox{black}{white}{
+\begin{minipage}{4.5in}
+\begin{center}
+\vspace{0.75in}
+{\Huge \textbf{\emph{C++ Code Snippets}}}
+
+\vspace{0.5in}
+{\LARGE Michele Iarossi}
+\vspace{0.75in}
+\end{center}
+\end{minipage}}
+}
+\rput[lb](10.9065in,8in){\usebox\Titlebox}
+
+% QR code
+\newsavebox\QRbox
+\sbox\QRbox{
+\fcolorbox{black}{white}{
+\begin{minipage}{1.5in}
+\begin{center}
+\vspace{0.15in}
+\begin{pspicture}(25mm,25mm)
+\psbarcode{http://www.mathsophy.com}{eclevel=H width=1.0 height=1.0}{qrcode}
+\end{pspicture}
+\texttt{{\small www.mathsophy.com}}
+\end{center}
+\end{minipage}}
+}
+\rput[lb](6in,1in){\usebox\QRbox}
+\end{pspicture}
+\end{document}
