@@ -37,10 +37,10 @@
 \contentsline {chapter}{\numberline {7}Advanced Topics}{49}{}%
 \contentsline {section}{\numberline {7.1}Exceptions}{49}{}%
 \contentsline {section}{\numberline {7.2}Templates}{50}{}%
-\contentsline {section}{\numberline {7.3}Iterators}{54}{}%
+\contentsline {section}{\numberline {7.3}Iterators}{55}{}%
 \contentsline {section}{\numberline {7.4}Containers}{59}{}%
 \contentsline {section}{\numberline {7.5}Algorithms}{61}{}%
 \contentsline {section}{\numberline {7.6}Utilities}{63}{}%
 \contentsline {chapter}{Bibliography}{71}{}%
-\contentsline {chapter}{Index}{73}{}%
-\contentsline {chapter}{\numberline {A}GNU GENERAL PUBLIC LICENSE}{79}{}%
+\contentsline {chapter}{\numberline {A}GNU GENERAL PUBLIC LICENSE}{73}{}%
+\contentsline {chapter}{Index}{82}{}%

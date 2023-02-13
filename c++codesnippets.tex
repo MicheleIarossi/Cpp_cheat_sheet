@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.06~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.07~-~GNU GPL v3.0}
 
 %\layout
 
@@ -142,8 +142,8 @@ along with this book.  If not, see <https://www.gnu.org/licenses/>.
 \chapter*{Preface}
 \noindent
 This book provides a collection of code snippets showing the usage of common C++ language features.
-It is meant to be used as a quick reference or as a language refresher.
-In addition, I wanted also to collect and show particular features or constructs that are now available, like the apostrophe as a digit separator.
+It is meant to be used as a quick reference or language refresher.
+In addition, I wanted to collect and document some  particular features or constructs, like the apostrophe as a digit separator.
 Chances are that you are not aware of them. Explanations are kept to a minimum and are provided in the comments where necessary. 
 The \LaTeX{} source files and artifacts are publicly available at the following URL:
 \begin{center}
@@ -2176,6 +2176,9 @@ MyVector v2{1,2,3,4};(*\index{\texttt{initializer\_list}}*)
 // copy constructor
 MyVector v3{v2}; 
 
+// copy constructor
+MyVector v3 = v2; 
+
 // pass by value with copy constructor
 // (prefer const reference!)
 void func(MyVector v4)
@@ -2798,6 +2801,26 @@ double e, f;
 // swaps two (*double*)s
 // compiler infers the template parameter from usage
 generic_swap(a, b);
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Constrain template types with assertions and type traits:
+\index{Templates!assertions}\index{Templates!type traits}
+\end{enumerate}
+\begin{lstlisting}
+#include <type_traits>(*\index{\texttt{<type\_traits>}}*)
+
+template<class T>
+void generic_swap(T& a, T& b)
+{
+    static_assert(std::is_copy_constructable<T>(),
+        "Type must be copy constructable");(*\index{\texttt{is\_copy\_constructable<T>()}}*)(*\index{\textbf{static\_assert}}*)(*\index{Assertions!\textbf{static\_assert}}*)
+    static_assert(std::is_assignable<T&,T>(),"Type must allow T& = T");(*\index{\texttt{is\_assignable<T\&,T>()}}*)(*\index{Assertions!\textbf{static\_assert}}*)
+    
+    T temp = a;
+    
+    a = b;
+    b = temp;
+}
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Class templates\\ \\ Extending \texttt{MyVector} with templates. Class templates are also called \emph{type generators}:
@@ -4011,18 +4034,9 @@ cout << "Counter value: " << counter_atomic << endl;
 \bibitem{savitch} Walter Savitch. \textsl{Problem Solving with C++}, 10th edition. Pearson Education, 2018
 \bibitem{stroustrup} Bjarne Stroustrup. \textsl{Programming: Principles and Practice Using C++}, 2nd edition. Addison Wesley, 2015
 \bibitem{lospinoso} Josh Lospinoso. \textsl{C++ Crash Course: A Fast-Paced Introduction}, 1st edition. No Starch Press, 2019
+\bibitem{Seacord} Robert C. Seacord. \textsl{Secure Coding in C and C++}, 2nd edition. Addison Wesley, 2013
+\bibitem{isoiec} ISO/IEC. \textsl{Programming languages -- C++}, Sixth edition, ISO/IEC 14882:2020(E)
 \end{thebibliography}
-%
-% Index
-%
-\newpage
-
-\
-
-\newpage
-
-\addcontentsline{toc}{chapter}{Index}
-\printindex
 %
 % Appendix
 %
@@ -4740,6 +4754,17 @@ the GNU Lesser General Public License instead of this License.  But
 first, please read \\ \texttt{https://www.gnu.org/licenses/why-not-lgpl.html}.
 
 \end{enumerate}
-% add empty page at the end
+%
+% Index
+%
+\newpage
+
+\
+
+\newpage
+\addcontentsline{toc}{chapter}{Index}
+\printindex
+% add empty pages at the end
+\newpage \mbox{} \thispagestyle{empty}
 \newpage \mbox{} \thispagestyle{empty}
 \end{document}
