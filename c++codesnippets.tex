@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.07~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.08~-~GNU GPL v3.0}
 
 %\layout
 
@@ -108,7 +108,7 @@
 \newpage \mbox{}
 
 \noindent
-{\tiny The cover image shows an amazing landscape of Mongolia\\ Copyright \copyright~2009 Michele Iarossi}
+{\scriptsize The cover image shows an amazing landscape of Mongolia\\ Copyright \copyright~2009 Michele Iarossi}
 
 \vspace*{\fill}
 \noindent
@@ -508,6 +508,116 @@ uint8_t a;(*\index{\texttt{uint8\_t}}*)
 uint16_t b;(*\index{\texttt{uint16\_t}}*)
 uint32_t c;(*\index{\texttt{uint32\_t}}*)
 uint64_t d;(*\index{\texttt{uint64\_t}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Secure unsigned addition:\index{Integer types!secure unsigned addition}
+\end{enumerate}
+\begin{lstlisting}
+uint32_t a, b, c;
+
+if ( (UINT32_MAX - a) < b )(*\index{\texttt{UINT32\_MAX}}*)
+    // Error! Unsigned integer wrapping
+    cout << "Error! a+b causes wrapping!\n";
+else c = a + b;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Secure signed addition:\index{Integer types!secure signed addition}
+\end{enumerate}
+\begin{lstlisting}
+int16_t a, b, c;
+
+if ( ( a>0 && a>(INT16_MAX-b) ) ||
+     ( a<0 && a<(INT16_MIN-b) ) )(*\index{\texttt{INT16\_MAX}}*)(*\index{\texttt{INT16\_MIN}}*)
+    // Error! Signed integer overflow
+    cout << "Error! a+b causes overflow!\n";
+else c = a + b;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Secure unsigned subtraction:\index{Integer types!secure unsigned subtraction}
+\end{enumerate}
+\begin{lstlisting}
+uint32_t a, b, c;
+
+if ( a < b )
+    // Error! Unsigned integer wrapping
+    cout << "Error! a-b causes wrapping!\n";
+else c = a - b;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Secure signed subtraction:\index{Integer types!secure signed subtraction}
+\end{enumerate}
+\begin{lstlisting}
+int8_t a, b, c;
+
+if ( ( a>0 && a>(INT8_MAX+b) ) ||
+     ( a<0 && a<(INT8_MIN+b) ) )(*\index{\texttt{INT8\_MAX}}*)(*\index{\texttt{INT8\_MIN}}*)
+    // Error! Signed integer overflow
+    cout << "Error! a-b causes overflow!\n";
+else c = a - b;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Secure unsigned multiplication:\index{Integer types!secure unsigned multiplication}
+\end{enumerate}
+\begin{lstlisting}
+uint32_t a, b, c;
+
+if ( a >  UINT32_MAX/b )
+    // Error! Unsigned integer wrapping
+    cout << "Error! a*b causes wrapping!\n";
+else c = a*b;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Secure signed multiplication:\index{Integer types!secure signed multiplication}
+\end{enumerate}
+\begin{lstlisting}
+int16_t a, b;
+
+int16_t c = 0;
+
+if ( a>0 && b>0) {
+    if ( a > INT16_MAX/b )
+        // Error! Signed integer overflow
+        cout << "Error! a*b causes overflow!\n";
+    else c = a * b;
+} else if (a>0 && b<0) {
+     if ( b < INT16_MIN/a )
+        // Error! Signed integer overflow
+        cout << "Error! a*b causes overflow!\n";
+    else c = a * b;
+} else if (a<0 && b>0) {
+     if ( a < INT16_MIN/b )
+        // Error! Signed integer overflow
+        cout << "Error! a*b causes overflow!\n";
+    else c = a * b;
+} else if (a<0 && b<0) {
+     if ( b < INT16_MAX/a )
+        // Error! Signed integer overflow
+        cout << "Error! a*b causes overflow!\n";
+    else c = a * b;
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Secure unsigned division:\index{Integer types!secure unsigned division}
+\end{enumerate}
+\begin{lstlisting}
+uint64_t a, b, c;
+
+if ( b==0  )
+    // Error! Division by zero
+    cout << "Error! a/b causes division by zero!\n";
+else c = a/b;
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Secure signed division:\index{Integer types!secure signed division}
+\end{enumerate}
+\begin{lstlisting}
+uint64_t a, b, c;
+
+if ( b==0  || 
+   ( (a == INT64_MIN) && (b == -1) ) )(*\index{\texttt{INT64\_MIN}}*)
+    // Error! Division by zero or signed integer overflow
+    cout << "Error! a/b causes division by zero or overflow!\n";
+else c = a/b;
 \end{lstlisting}
 %
 % Limits
