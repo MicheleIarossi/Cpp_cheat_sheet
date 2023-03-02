@@ -25,7 +25,7 @@
   \item \textbf{this}, 41, 54, 59, 60
   \item \textbf{throw}, 35, 37, 51, 52
   \item \textbf{try-catch}, \see{Exceptions}{35}
-  \item \textbf{typedef}, 14
+  \item \textbf{typedef}, 14, 16
   \item \textbf{using}, \see{Alias}{10}, \see{Namespaces}{10}
   \item \textbf{virtual}, 39, 45--49, 51, 54, 55, 59
   \item \texttt{<algorithm>}, 39, 59, 63, 64
@@ -72,7 +72,7 @@
   \item \texttt{INT8\_MIN}, 8
   \item \texttt{UINT32\_MAX}, 7
   \item \texttt{[ ]}, 16
-  \item \texttt{[= ]}, 16
+  \item \texttt{[= ]}, 17
   \item \texttt{[\& ]}, 17
   \item \texttt{accumulate}, \see{Algorithms}{64}
   \item \texttt{allocator}, 55
@@ -139,7 +139,7 @@
   \item \texttt{ostream\_iterator}, 65
   \item \texttt{ostringstream}, 38
   \item \texttt{override}, 15
-  \item \texttt{pair}, 48, 62, 67, 68
+  \item \texttt{pair}, 16, 48, 62, 67, 68
   \item \texttt{path}, 69
   \item \texttt{rand}, 65
   \item \texttt{regex\_replace}, 69
@@ -206,7 +206,7 @@
 
   \indexspace
 
-  \item Braced initialization, \see{Uniform initialization}{2}
+  \item Braced initialization, 2
 
   \indexspace
 
@@ -229,6 +229,7 @@
       \subsubitem \texttt{ConstInt}, 2
       \subsubitem \texttt{Euro}, 43, 44
       \subsubitem \texttt{Fancy}, 43
+      \subsubitem \texttt{Function}, 16
       \subsubitem \texttt{LList<T>}, 59
       \subsubitem \texttt{LListNode<T>}, 59
       \subsubitem \texttt{Line}, 46, 48
@@ -380,6 +381,7 @@
 
   \indexspace
 
+  \item Immutable class, 2
   \item Inheritance
     \subitem abstract base class, 44
     \subitem base class, 45
@@ -496,8 +498,8 @@
     \subitem with access to local variables
       \subsubitem copy by reference, 16
       \subsubitem copy by value, 16
-      \subsubitem default copy by reference, 16
-      \subsubitem default copy by value, 16
+      \subsubitem default copy by reference, 17
+      \subsubitem default copy by value, 17
     \subitem without access to local variables, 16
   \item Lifetime, 4
 
@@ -515,6 +517,7 @@
 
   \indexspace
 
+  \item Named conversions, 2
   \item Namespaces
     \subitem \textbf{using namespace} directives, 1, 10, 28, 67
     \subitem \textbf{using} declarations, 10

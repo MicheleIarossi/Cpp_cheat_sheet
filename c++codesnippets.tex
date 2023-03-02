@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.08~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.09~-~GNU GPL v3.0}
 
 %\layout
 
@@ -212,7 +212,7 @@ constexpr int k = 1'000'000;(*\index{Constants!\textbf{constexpr}}*)
 const int m = n + 1;(*\index{\textbf{const}|see{Constants}}*)(*\index{Constants!\textbf{const}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Immutable class\\ \\ A \textbf{const} attribute is set during construction and cannot be changed afterwards!
+\item[$\Rightarrow$] Immutable class\index{Immutable class}\\ \\ A \textbf{const} attribute is set during construction and cannot be changed afterwards!
 \end{enumerate}
 \begin{lstlisting}
 class ConstInt(*\index{Classes!\textbf{class}!\texttt{ConstInt}}*)(*\index{Classes!immutable}*)
@@ -230,7 +230,7 @@ private:
 %
 \section{Type Safety}
 \begin{enumerate}
-\item[$\Rightarrow$] Universal and uniform initialization, also known as \emph{braced initialization},\index{Uniform initialization}\index{Braced initialization|see{Uniform initialization}} prevents narrowing conversions from happening:
+\item[$\Rightarrow$] Universal and uniform initialization, also known as \emph{braced initialization},\index{Uniform initialization}\index{Braced initialization} prevents narrowing conversions from happening:
 \end{enumerate}
 \begin{lstlisting}
 // safe conversions (*\index{Conversions!safe}*)
@@ -245,7 +245,7 @@ char b {a};
 % Type casting
 %
 \section{Type Casting}
-These are called \emph{named conversions}.\index{Type casting!named conversions}
+The following casts are called \emph{named conversions}:\index{Type casting!named conversions}\index{Named conversions}
 \begin{enumerate}
 \item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Type casting!\textbf{static\_cast}}, i.e. types that can be converted into each other:
 \end{enumerate}
@@ -840,7 +840,7 @@ const Object& default_value()(*\index{Constants!\textbf{const}}*)
 // pointer to a function returning a (*void*) and
 // having parameters a pointer to a (*Fl\_Widget*) and
 // a pointer to a (*void*)
-typedef void ( *Callback_type )( Fl_Widget*, void* ); (*\index{\textbf{typedef}}*)
+typedef void ( *Callback_type )( Fl_Widget*, void* );(*\index{\textbf{typedef}}*)
 
 // (*cb*) is a callback defined as above
 Callback_type cb;
@@ -975,9 +975,31 @@ int sum(int a, int b) noexcept { return a+b; }(*\index{\textbf{noexcept}|see{Mod
 % Lambda expressions
 %
 \section{Lambda Expressions}
-An unnamed function that can be used where a function is needed as an argument or object.
-It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.
-\index{Lambda expressions!lambda introducers} 
+A lambda expression is an unnamed function that can be used where a function is needed as an argument or object.
+It is introduced by \texttt{[ ]} which are called \emph{lambda introducers}.\index{Lambda expressions!lambda introducers} 
+In the following code snippets we consider a \texttt{Function} class whose constructor requires a function as an argument:
+\begin{lstlisting}
+// callable object returning a (*double*)
+// and requiring a (*double*) parameter
+typedef function<double(double)> Function_type;(*\index{\textbf{typedef}}*)
+
+// the function class
+class Function : public Shape(*\index{Classes!\textbf{class}!\texttt{Function}}*)
+{
+public:
+    // constructor
+    Function (Function_type f,pair<double,double> rx,
+        double d, pair<double,double> ry,(*\index{\texttt{pair}}*)
+        Point p, int lx, double ar=1);
+    // virtual destructor
+    virtual ~Function();
+    // ...
+private:
+    Function_type func;                // function
+    // ...
+}
+\end{lstlisting}
+Given the class above, the following lambda expressions are possible:
 \begin{enumerate}
 \item[$\Rightarrow$] Without access to local variables:\index{Lambda expressions!without access to local variables}
 \end{enumerate}

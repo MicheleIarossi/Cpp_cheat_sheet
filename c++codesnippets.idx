@@ -14,13 +14,15 @@
 \indexentry{Constants!\textbf{constexpr}}{1}
 \indexentry{\textbf{const}|see{Constants}}{2}
 \indexentry{Constants!\textbf{const}}{2}
+\indexentry{Immutable class}{2}
 \indexentry{Classes!\textbf{class}!\texttt{ConstInt}}{2}
 \indexentry{Classes!immutable}{2}
 \indexentry{Uniform initialization}{2}
-\indexentry{Braced initialization|see{Uniform initialization}}{2}
+\indexentry{Braced initialization}{2}
 \indexentry{Conversions!safe}{2}
 \indexentry{Conversions!unsafe}{2}
 \indexentry{Type casting!named conversions}{2}
+\indexentry{Named conversions}{2}
 \indexentry{Type casting!\textbf{static\_cast}}{2}
 \indexentry{\textbf{static\_cast}|see{Type casting}}{2}
 \indexentry{\texttt{void $\ast$}|see{Pointers}}{2}
@@ -153,13 +155,16 @@
 \indexentry{\textbf{noexcept}|see{Modifiers}}{16}
 \indexentry{Modifiers!suffix!\textbf{noexcept}}{16}
 \indexentry{Lambda expressions!lambda introducers}{16}
+\indexentry{\textbf{typedef}}{16}
+\indexentry{Classes!\textbf{class}!\texttt{Function}}{16}
+\indexentry{\texttt{pair}}{16}
 \indexentry{Lambda expressions!without access to local variables}{16}
 \indexentry{\texttt{[ ]}}{16}
 \indexentry{Lambda expressions!with access to local variables!copy by value}{16}
 \indexentry{Lambda expressions!with access to local variables!copy by reference}{16}
-\indexentry{Lambda expressions!with access to local variables!default copy by value}{16}
-\indexentry{\texttt{[= ]}}{16}
-\indexentry{Lambda expressions!with access to local variables!default copy by reference}{16}
+\indexentry{Lambda expressions!with access to local variables!default copy by value}{17}
+\indexentry{\texttt{[= ]}}{17}
+\indexentry{Lambda expressions!with access to local variables!default copy by reference}{17}
 \indexentry{\texttt{[\& ]}}{17}
 \indexentry{Pointers!simple pointer}{19}
 \indexentry{\textbf{new}}{19}
