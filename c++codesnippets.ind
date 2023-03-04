@@ -215,7 +215,8 @@
       \subsubitem to double, 31
       \subsubitem to integer, 31
       \subsubitem to long integer, 31
-    \subitem correct looping, 30
+    \subitem correct looping, 31
+    \subitem correct reading from \texttt{cin}, 31
     \subitem definition, 30
     \subitem end of string, 30
     \subitem safe compare, 31
@@ -294,11 +295,11 @@
       \subsubitem \texttt{at}, 26
       \subsubitem \texttt{back}, 26
       \subsubitem \texttt{capacity}, 27
-      \subsubitem \texttt{clear}, 27
+      \subsubitem \texttt{clear}, 28
       \subsubitem \texttt{data}, 26
-      \subsubitem \texttt{empty}, 27
+      \subsubitem \texttt{empty}, 28
       \subsubitem \texttt{front}, 26
-      \subsubitem \texttt{insert}, 26
+      \subsubitem \texttt{insert}, 27
       \subsubitem \texttt{push\_back}, 26
       \subsubitem \texttt{reserve}, 27
       \subsubitem \texttt{resize}, 27
@@ -599,7 +600,7 @@
   \item Strings
     \subitem \texttt{+}, 28
     \subitem \texttt{append}, 29
-    \subitem \texttt{at}, 28
+    \subitem \texttt{at}, 29
     \subitem \texttt{begin}, 29
     \subitem \texttt{c\_str}, 30
     \subitem \texttt{clear}, 29
@@ -607,17 +608,17 @@
     \subitem \texttt{end}, 29
     \subitem \texttt{erase}, 29
     \subitem \texttt{find}, 30
-    \subitem \texttt{length}, 29
+    \subitem \texttt{length}, 30
     \subitem \texttt{operator""s}, 28
     \subitem \texttt{pop\_back}, 29
     \subitem \texttt{push\_back}, 29
     \subitem \texttt{replace}, 29
-    \subitem \texttt{size}, 29
+    \subitem \texttt{size}, 30
     \subitem \texttt{string}, 10, 28--30, 35--37, 51, 62
     \subitem \texttt{substr}, 30
     \subitem access to character
-      \subsubitem no illegal index checking, 28
-      \subsubitem with illegal index checking, 28
+      \subsubitem no illegal index checking, 29
+      \subsubitem with illegal index checking, 29
     \subitem C-style constructor, 28
     \subitem concatenation, 28
     \subitem fill constructor, 28
@@ -710,8 +711,8 @@
     \subitem access to the front element, 26
     \subitem access to the last element, 26
     \subitem add to the back, 26
-    \subitem clear all the elements, 27
-    \subitem element insertion, 26
+    \subitem clear all the elements, 28
+    \subitem element insertion, 27
     \subitem fill constructor, 26
     \subitem initialized with all elements to 0, 26
     \subitem initialized with initializer list, 26
@@ -721,7 +722,7 @@
     \subitem reserve more capacity, 27
     \subitem resize, 27
     \subitem size, 27
-    \subitem test if empty, 27
+    \subitem test if empty, 28
     \subitem total capacity, 27
 
 \end{theindex}

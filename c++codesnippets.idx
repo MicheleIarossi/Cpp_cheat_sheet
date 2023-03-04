@@ -245,8 +245,8 @@
 \indexentry{Containers!\texttt{vector}!\texttt{data}}{26}
 \indexentry{Vectors!add to the back}{26}
 \indexentry{Containers!\texttt{vector}!\texttt{push\_back}}{26}
-\indexentry{Vectors!element insertion}{26}
-\indexentry{Containers!\texttt{vector}!\texttt{insert}}{26}
+\indexentry{Vectors!element insertion}{27}
+\indexentry{Containers!\texttt{vector}!\texttt{insert}}{27}
 \indexentry{Vectors!resize}{27}
 \indexentry{Containers!\texttt{vector}!\texttt{resize}}{27}
 \indexentry{range-for-loop}{27}
@@ -267,10 +267,10 @@
 \indexentry{Containers!\texttt{vector}}{27}
 \indexentry{Exceptions!\textbf{try-catch}}{27}
 \indexentry{Vectors!out of range exception}{27}
-\indexentry{Vectors!clear all the elements}{27}
-\indexentry{Containers!\texttt{vector}!\texttt{clear}}{27}
-\indexentry{Vectors!test if empty}{27}
-\indexentry{Containers!\texttt{vector}!\texttt{empty}}{27}
+\indexentry{Vectors!clear all the elements}{28}
+\indexentry{Containers!\texttt{vector}!\texttt{clear}}{28}
+\indexentry{Vectors!test if empty}{28}
+\indexentry{Containers!\texttt{vector}!\texttt{empty}}{28}
 \indexentry{\texttt{<string>}}{28}
 \indexentry{Strings!initialization}{28}
 \indexentry{Strings!\texttt{string}}{28}
@@ -296,9 +296,9 @@
 \indexentry{Strings!reading a line}{28}
 \indexentry{Strings!\texttt{string}}{28}
 \indexentry{Input-output streams!\texttt{cin}}{28}
-\indexentry{Strings!access to character!no illegal index checking}{28}
-\indexentry{Strings!access to character!with illegal index checking}{28}
-\indexentry{Strings!\texttt{at}}{28}
+\indexentry{Strings!access to character!no illegal index checking}{29}
+\indexentry{Strings!access to character!with illegal index checking}{29}
+\indexentry{Strings!\texttt{at}}{29}
 \indexentry{Strings!\texttt{push\_back}}{29}
 \indexentry{Strings!\texttt{append}}{29}
 \indexentry{Strings!\texttt{begin}}{29}
@@ -312,8 +312,8 @@
 \indexentry{Strings!\texttt{string}}{29}
 \indexentry{Strings!\texttt{replace}}{29}
 \indexentry{Strings!\texttt{replace}}{29}
-\indexentry{Strings!\texttt{size}}{29}
-\indexentry{Strings!\texttt{length}}{29}
+\indexentry{Strings!\texttt{size}}{30}
+\indexentry{Strings!\texttt{length}}{30}
 \indexentry{Strings!\texttt{substr}}{30}
 \indexentry{\texttt{size\_t}}{30}
 \indexentry{Strings!\texttt{find}}{30}
@@ -335,13 +335,14 @@
 \indexentry{C-Strings!definition}{30}
 \indexentry{Constants!\textbf{const}}{30}
 \indexentry{C-Strings!end of string}{30}
-\indexentry{C-Strings!correct looping}{30}
+\indexentry{C-Strings!correct looping}{31}
 \indexentry{C-Strings!safe looping}{31}
 \indexentry{\texttt{strncpy}}{31}
 \indexentry{C-Strings!safe compare}{31}
 \indexentry{\texttt{strncmp}}{31}
 \indexentry{C-Strings!safe concatenation}{31}
 \indexentry{\texttt{strncat}}{31}
+\indexentry{C-Strings!correct reading from \texttt{cin}}{31}
 \indexentry{C-Strings!conversions!to integer}{31}
 \indexentry{\texttt{atoi}}{31}
 \indexentry{C-Strings!conversions!to long integer}{31}

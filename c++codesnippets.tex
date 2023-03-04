@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.09~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.10~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1357,7 +1357,16 @@ int array[]{2, 4, 6, 8};(*\index{Arrays!declaration and initialization}*)
 \begin{lstlisting}
 // array of length (*4*) initialized to (*2,4,6,8*)
 int array[]{2, 4, 6, 8};
+
+// works because (*array*) is not a pointer
+// returns (*4*)
 size_t array_size = sizeof(array) / sizeof(int);(*\index{\textbf{sizeof}}*)(*\index{\texttt{size\_t}}*)(*\index{Arrays!length calculation using \textbf{sizeof}}*)
+
+// doesn't work because an array as a parameter is a pointer!
+void func(int array[]) {
+    // evaluates to (*1*)!
+    size_t array_size = sizeof(array) / sizeof(int);
+}
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Range-based \textbf{for} statement:
@@ -1741,6 +1750,20 @@ strncmp(msg, srcStr, 10);(*\index{\texttt{strncmp}}*)
 // are concatenated(*\index{C-Strings!safe concatenation}*)
 strncat(msg, srcStr, 10);(*\index{\texttt{strncat}}*)
 \end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Safe C-string reading from \texttt{cin}:\index{C-Strings!correct reading from \texttt{cin}}
+\end{enumerate}
+\begin{lstlisting}
+char buffer[10];
+
+// limits the reading to 9 characters
+// leaving space for the null terminator
+cin.width(10);
+
+// no overflow can happen here
+cin >> buffer;
+\end{lstlisting}
+
 \begin{enumerate}
 \item[$\Rightarrow$] Conversions:
 \end{enumerate}
