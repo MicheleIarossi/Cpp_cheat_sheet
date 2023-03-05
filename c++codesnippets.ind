@@ -77,9 +77,9 @@
   \item \texttt{accumulate}, \see{Algorithms}{64}
   \item \texttt{allocator}, 55
   \item \texttt{async}, 70
-  \item \texttt{atof}, 31
-  \item \texttt{atoi}, 31
-  \item \texttt{atol}, 31
+  \item \texttt{atof}, 32
+  \item \texttt{atoi}, 32
+  \item \texttt{atol}, 32
   \item \texttt{binary\_search}, \see{Algorithms}{65}
   \item \texttt{bind}, 66
   \item \texttt{bitset<N>}, 66
@@ -159,9 +159,9 @@
   \item \texttt{stol}, 30
   \item \texttt{string\_literals}, 28
   \item \texttt{string}, \see{Strings}{10}
-  \item \texttt{strncat}, 31
+  \item \texttt{strncat\_s}, 31
   \item \texttt{strncmp}, 31
-  \item \texttt{strncpy}, 31
+  \item \texttt{strncpy\_s}, 31
   \item \texttt{system\_clock::now()}, 66, 67
   \item \texttt{this\_thread::sleep\_for()}, 67, 70
   \item \texttt{this\_thread::yield}, 71, 72
@@ -212,16 +212,16 @@
 
   \item C-Strings, 30
     \subitem conversions
-      \subsubitem to double, 31
-      \subsubitem to integer, 31
-      \subsubitem to long integer, 31
+      \subsubitem to double, 32
+      \subsubitem to integer, 32
+      \subsubitem to long integer, 32
     \subitem correct looping, 31
     \subitem correct reading from \texttt{cin}, 31
     \subitem definition, 30
     \subitem end of string, 30
     \subitem safe compare, 31
     \subitem safe concatenation, 31
-    \subitem safe looping, 31
+    \subitem safe copying, 31
   \item Classes
     \subitem \emph{rule of five}, 43
     \subitem \textbf{class}

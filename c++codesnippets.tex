@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.10~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.11~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1737,18 +1737,53 @@ while ( msg[i] != '\0' && i < SIZE)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Safe C-string operations:
+\item[$\Rightarrow$] Safe C-string operations: \texttt{strncpy\_s}\index{C-Strings!safe copying}
 \end{enumerate}
 \begin{lstlisting}
-// safe string copy, at most (*10*) characters are copied(*\index{C-Strings!safe looping}*)
-strncpy(msg, srcStr, 10);(*\index{\texttt{strncpy}}*)
+// null terminated string
+char src1[100] = "hello";
+char dst1[6];
+int r1;
 
-// safe string compare, at most (*10*) characters are compared(*\index{C-Strings!safe compare}*)
-strncmp(msg, srcStr, 10);(*\index{\texttt{strncmp}}*)
+// copy a string without the danger that the result will not be
+// null terminated or that characters will be written past
+// the end of the destination array
+r1 = strncpy_s(dst1, sizeof(dst1), src1, sizeof(src1));(*\index{\texttt{strncpy\_s}}*)
 
-// safe string concatenation, at most (*10*) characters
-// are concatenated(*\index{C-Strings!safe concatenation}*)
-strncat(msg, srcStr, 10);(*\index{\texttt{strncat}}*)
+if ( r1 != 0 ) 
+   // error!
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Safe C-string operations: \texttt{strncmp}\index{C-Strings!safe compare}
+\end{enumerate}
+\begin{lstlisting}
+// null terminated strings
+char src1[100] = "hello"; 
+char src2[100] = "hello, world";
+
+// make sure strings are null terminated!
+src1[sizeof(src1)-1] = '\0';
+src2[sizeof(src2)-1] = '\0';
+
+// safe string compare, at most (*12*) characters are compared
+strncmp(src1, src2, strlen(src2));(*\index{\texttt{strncmp}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Safe C-string operations: \texttt{strncat\_s}\index{C-Strings!safe concatenation}
+\end{enumerate}
+\begin{lstlisting}
+// null terminated strings
+char s1[100] = "good";
+char s5[1000] = "bye";
+int r1;
+
+// copy a string without the danger that the result will not be null
+// terminated or that characters will be written past the
+// end of the destination array.
+r1 = strncat_s(s1, sizeof(s1), s5, sizeof(s5));(*\index{\texttt{strncat\_s}}*)
+
+if ( r1 != 0 ) 
+   // error!
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Safe C-string reading from \texttt{cin}:\index{C-Strings!correct reading from \texttt{cin}}

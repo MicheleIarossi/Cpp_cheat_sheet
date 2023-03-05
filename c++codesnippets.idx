@@ -336,19 +336,19 @@
 \indexentry{Constants!\textbf{const}}{30}
 \indexentry{C-Strings!end of string}{30}
 \indexentry{C-Strings!correct looping}{31}
-\indexentry{C-Strings!safe looping}{31}
-\indexentry{\texttt{strncpy}}{31}
+\indexentry{C-Strings!safe copying}{31}
+\indexentry{\texttt{strncpy\_s}}{31}
 \indexentry{C-Strings!safe compare}{31}
 \indexentry{\texttt{strncmp}}{31}
 \indexentry{C-Strings!safe concatenation}{31}
-\indexentry{\texttt{strncat}}{31}
+\indexentry{\texttt{strncat\_s}}{31}
 \indexentry{C-Strings!correct reading from \texttt{cin}}{31}
-\indexentry{C-Strings!conversions!to integer}{31}
-\indexentry{\texttt{atoi}}{31}
-\indexentry{C-Strings!conversions!to long integer}{31}
-\indexentry{\texttt{atol}}{31}
-\indexentry{C-Strings!conversions!to double}{31}
-\indexentry{\texttt{atof}}{31}
+\indexentry{C-Strings!conversions!to integer}{32}
+\indexentry{\texttt{atoi}}{32}
+\indexentry{C-Strings!conversions!to long integer}{32}
+\indexentry{\texttt{atol}}{32}
+\indexentry{C-Strings!conversions!to double}{32}
+\indexentry{\texttt{atof}}{32}
 \indexentry{Input-output streams}{33}
 \indexentry{Input-output streams!input stream|see{\texttt{cin}}}{33}
 \indexentry{Input-output streams!output stream|see{\texttt{cout}}}{33}
