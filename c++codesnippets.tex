@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.11~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.12~-~GNU GPL v3.0}
 
 %\layout
 
@@ -1087,6 +1087,32 @@ delete d;(*\index{\textbf{delete}}*)
 d = &dd;(*\index{Pointers!address of operator \texttt{\&}}*)
 \end{lstlisting}
 \begin{enumerate}
+\item[$\Rightarrow$] Exception handling for \texttt{new}: bad allocation\index{Pointers!exception handling for \texttt{new}!bad allocation}\\ \\Allocation failure throwing an exception:
+\end{enumerate}
+\begin{lstlisting}
+// throws (*bad\_alloc*) if allocation fails
+double *d;
+
+try {
+    d = new double{5.123}; 
+} catch (const bad_alloc& e) {(*\index{\texttt{bad\_alloc}}*)
+    cout << e.what() << '\n';
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[] Allocation failure with \texttt{nothrow}:
+\end{enumerate}
+\begin{lstlisting}
+// returns 0 if allocation fails(*\index{\texttt{nothrow}}*)
+double *d = new(nothrow) double{5.123}; 
+
+if (d) {
+    // allocation successful
+} else {
+    // allocation failed
+}
+\end{lstlisting}
+\begin{enumerate}
 \item[$\Rightarrow$] Dynamic array:\index{Dynamic array|see{Pointers}}
 \end{enumerate}
 \begin{lstlisting}
@@ -1114,6 +1140,21 @@ for (int i=0; i<5; i++)
 for (int i=0; i<5; i++)
     delete[] m[i];(*\index{\textbf{delete}}*)
 delete[] m;(*\index{\textbf{delete}}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[$\Rightarrow$] Exception handling for \texttt{new}: invalid array length\index{Pointers!exception handling for \texttt{new}!invalid array length}
+\end{enumerate}
+\begin{lstlisting}
+// throws (*bad\_array\_new\_length*) if allocation fails
+double *d;
+
+try {
+    d = new double[-1]; // negative size 
+    d = new double[1] {0,1,2,3}; // too many initializers 
+    d = new double[INT_MAX]; // too large
+} catch (const bad_array_new_length& e) {(*\index{\texttt{bad\_array\_new\_length}}*)
+    cout << e.what() << '\n';
+}
 \end{lstlisting}
 %
 % Smart pointers
@@ -1235,6 +1276,55 @@ shared_ptr<int> q_int{ p_int };(*\index{Smart pointers!\texttt{shared\_ptr}!copy
 
 // assignment
 q_int = p_int;(*\index{Smart pointers!\texttt{shared\_ptr}!assignment}*)
+\end{lstlisting}
+\begin{enumerate}
+\item[] Safe deallocation even when pointers are shared:
+\end{enumerate}
+\begin{lstlisting}
+#include <memory>
+#include <map>
+#include <list>
+
+// a simple class
+class Fruit {
+public:
+    Fruit(string s) : name{s} {
+        cout << "Fruit: " << name << " created\n";
+    }
+    ~Fruit() {
+        cout << "Fruit: " << name << " destroyed\n";
+    }
+    string get_name() const { return name; }
+private:
+    string name;
+};
+
+// allocate objects in a map
+map<string,shared_ptr<Fruit>> fruits;
+try {(*\index{Exceptions!\textbf{try-catch}}*)
+    fruits["banana"] = make_shared<Fruit>("banana");(*\index{\texttt{make\_shared<T>}}*)
+    fruits["apple"]  = make_shared<Fruit>("apple");(*\index{\texttt{make\_shared<T>}}*)
+    fruits["kiwi"]   = make_shared<Fruit>("kiwi");(*\index{\texttt{make\_shared<T>}}*)
+    fruits["mango"]  = make_shared<Fruit>("mango");(*\index{\texttt{make\_shared<T>}}*)
+    fruits["ananas"] = make_shared<Fruit>("ananas");(*\index{\texttt{make\_shared<T>}}*)
+} catch (bad_alloc& e) {
+    cout << "Allocation failure: " << e.what() << '\n';
+}
+    
+// share the object pointers in a new list
+list< shared_ptr<Fruit> > fruit_list;
+    
+fruit_list.push_back( fruits["kiwi"] );(*\index{Smart pointers!\texttt{shared\_ptr}!copying}*)
+fruit_list.push_back( fruits["banana"] );(*\index{Smart pointers!\texttt{shared\_ptr}!copying}*)
+    
+// print out items
+cout << "\n\nItems on the fruit list:\n";
+for (auto item : fruit_list)
+    cout << " ->" << item->get_name() << '\n';
+cout << "\n\n";
+
+// allocated objects are destroyed safely even though some
+// of them are shared
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{weak\_ptr}\\ \\

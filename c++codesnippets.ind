@@ -5,13 +5,13 @@
   \item \textbf{const\_cast}, \see{Type casting}{3}
   \item \textbf{constexpr}, \see{Constants}{1}, \see{Modifiers}{15}
   \item \textbf{const}, \see{Constants}{2}
-  \item \textbf{decltype}, 22
+  \item \textbf{decltype}, 24
   \item \textbf{delete}, 5, 19, 20, 39, 41, 52, 54
   \item \textbf{enum class}, 11
   \item \textbf{explicit}, 39, 53, 55
   \item \textbf{friend}, 44, 51, 56, 59, 60
   \item \textbf{namespace}, \see{Namespaces}{1}
-  \item \textbf{new}, 5, 19, 40, 41, 54
+  \item \textbf{new}, 5, 19, 20, 40, 41, 54
   \item \textbf{noexcept}, \see{Modifiers}{16}
   \item \textbf{nullptr}, 13, 40, 41, 54, 56, 59, 60
   \item \textbf{reinterpret\_cast}, \see{Type casting}{3}
@@ -64,7 +64,7 @@
   \item \texttt{= 0}, 45, 47
   \item \texttt{= default}, 43
   \item \texttt{= delete}, 43, 44, 46
-  \item \texttt{?}, 20
+  \item \texttt{?}, 20, 21
   \item \texttt{INT16\_MAX}, 7
   \item \texttt{INT16\_MIN}, 7
   \item \texttt{INT64\_MIN}, 9
@@ -80,6 +80,8 @@
   \item \texttt{atof}, 32
   \item \texttt{atoi}, 32
   \item \texttt{atol}, 32
+  \item \texttt{bad\_alloc}, 19
+  \item \texttt{bad\_array\_new\_length}, 20
   \item \texttt{binary\_search}, \see{Algorithms}{65}
   \item \texttt{bind}, 66
   \item \texttt{bitset<N>}, 66
@@ -116,13 +118,14 @@
   \item \texttt{iterator}, \see{Iterators}{57}
   \item \texttt{list}, \see{Containers}{61}
   \item \texttt{make\_pair}, 62, 68
-  \item \texttt{make\_shared<T>}, 21
+  \item \texttt{make\_shared<T>}, 22, 23
   \item \texttt{make\_unique<T>}, 20
   \item \texttt{map}, \see{Containers}{62}
   \item \texttt{mt19937\_64}, 66
   \item \texttt{multimap}, \see{Containers}{63}
   \item \texttt{multiplies<int>()}, 64
   \item \texttt{normal\_distribution}, 66
+  \item \texttt{nothrow}, 19
   \item \texttt{numeric\_limits<T>}, 9
   \item \texttt{ofstream}, 35, 36
   \item \texttt{operator double()}, 3
@@ -317,8 +320,8 @@
 
   \item Default value
     \subitem \texttt{double()}, 40
-  \item Dynamic array, \see{Pointers}{19}
-  \item Dynamic bidimensional array, \see{Pointers}{19}
+  \item Dynamic array, \see{Pointers}{20}
+  \item Dynamic bidimensional array, \see{Pointers}{20}
 
   \indexspace
 
@@ -330,7 +333,7 @@
     \subitem prohibited conversions, 11
     \subitem usage, 11
   \item Exceptions
-    \subitem \textbf{try-catch}, 14, 27, 35, 36, 51, 52
+    \subitem \textbf{try-catch}, 14, 22, 27, 35, 36, 51, 52
     \subitem \texttt{DivideByZero}, 52
     \subitem \texttt{OtherException}, 52
     \subitem \texttt{bad\_function\_call}, 14
@@ -546,21 +549,24 @@
     \subitem address of operator \texttt{\&}, 19
     \subitem dereference operator \textbf{$\ast$}, 19
     \subitem dynamic array
-      \subsubitem allocation, 19
-      \subsubitem deallocation, 19
+      \subsubitem allocation, 20
+      \subsubitem deallocation, 20
     \subitem dynamic matrix
-      \subsubitem allocation, 19
-      \subsubitem deallocation, 19
+      \subsubitem allocation, 20
+      \subsubitem deallocation, 20
+    \subitem exception handling for \texttt{new}
+      \subsubitem bad allocation, 19
+      \subsubitem invalid array length, 20
     \subitem free store, 19
     \subitem simple pointer, 19
-    \subitem subscript operator\texttt{[]}, 19
+    \subitem subscript operator\texttt{[]}, 20
   \item Polymorphism, 49
     \subitem late binding, 50
 
   \indexspace
 
   \item range-for-loop, 25, 27, 57, 59, 61, 63, 66
-  \item Reference, 22
+  \item Reference, 24
   \item Run-time measurement, \see{Utilities}{66}
 
   \indexspace
@@ -568,20 +574,20 @@
   \item Sleep, \see{Utilities}{67}
   \item Slicing, 46
   \item Smart pointers
-    \subitem \texttt{get}, 20
-    \subitem \texttt{reset}, 20
-    \subitem \texttt{shared\_ptr}, 21, 22
-      \subsubitem \texttt{make\_shared}, 21
-      \subsubitem assignment, 21
-      \subsubitem copying, 21
-    \subitem \texttt{swap}, 20
+    \subitem \texttt{get}, 21
+    \subitem \texttt{reset}, 21
+    \subitem \texttt{shared\_ptr}, 22, 23
+      \subsubitem \texttt{make\_shared}, 22
+      \subsubitem assignment, 22
+      \subsubitem copying, 22, 23
+    \subitem \texttt{swap}, 21
     \subitem \texttt{unique\_ptr}, 20
       \subsubitem \texttt{make\_unique}, 20
     \subitem \texttt{weak\_ptr}
-      \subsubitem \texttt{lock}, 22
-    \subitem deleter, 22
-    \subitem move, 21
-    \subitem RAII, 20, 21
+      \subsubitem \texttt{lock}, 23
+    \subitem deleter, 24
+    \subitem move, 22
+    \subitem RAII, 20, 22
     \subitem replacement, 21
   \item STL, 63
   \item Storage class, 4

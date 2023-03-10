@@ -172,47 +172,60 @@
 \indexentry{Pointers!free store}{19}
 \indexentry{\textbf{delete}}{19}
 \indexentry{Pointers!address of operator \texttt{\&}}{19}
-\indexentry{Dynamic array|see{Pointers}}{19}
-\indexentry{Pointers!dynamic array!allocation}{19}
-\indexentry{\textbf{new}}{19}
-\indexentry{\textbf{new}}{19}
-\indexentry{Pointers!dynamic array!deallocation}{19}
-\indexentry{\textbf{delete}}{19}
-\indexentry{Dynamic bidimensional array|see{Pointers}}{19}
-\indexentry{Pointers!dynamic matrix!allocation}{19}
-\indexentry{\textbf{new}}{19}
-\indexentry{\textbf{new}}{19}
-\indexentry{\textbf{new}}{19}
-\indexentry{Pointers!subscript operator\texttt{[]}}{19}
-\indexentry{Pointers!dynamic matrix!deallocation}{19}
+\indexentry{Pointers!exception handling for \texttt{new}!bad allocation}{19}
+\indexentry{\texttt{bad\_alloc}}{19}
+\indexentry{\texttt{nothrow}}{19}
+\indexentry{Dynamic array|see{Pointers}}{20}
+\indexentry{Pointers!dynamic array!allocation}{20}
+\indexentry{\textbf{new}}{20}
+\indexentry{\textbf{new}}{20}
+\indexentry{Pointers!dynamic array!deallocation}{20}
+\indexentry{\textbf{delete}}{20}
+\indexentry{Dynamic bidimensional array|see{Pointers}}{20}
+\indexentry{Pointers!dynamic matrix!allocation}{20}
+\indexentry{\textbf{new}}{20}
+\indexentry{\textbf{new}}{20}
+\indexentry{\textbf{new}}{20}
+\indexentry{Pointers!subscript operator\texttt{[]}}{20}
+\indexentry{Pointers!dynamic matrix!deallocation}{20}
 \indexentry{\textbf{delete}}{20}
 \indexentry{\textbf{delete}}{20}
+\indexentry{Pointers!exception handling for \texttt{new}!invalid array length}{20}
+\indexentry{\texttt{bad\_array\_new\_length}}{20}
 \indexentry{Smart pointers!RAII}{20}
 \indexentry{\texttt{<memory>}}{20}
 \indexentry{Smart pointers!\texttt{unique\_ptr}}{20}
 \indexentry{Smart pointers!\texttt{unique\_ptr}!\texttt{make\_unique}}{20}
 \indexentry{\texttt{make\_unique<T>}}{20}
 \indexentry{\texttt{?}}{20}
-\indexentry{\texttt{?}}{20}
-\indexentry{Smart pointers!\texttt{get}}{20}
-\indexentry{Smart pointers!\texttt{swap}}{20}
-\indexentry{Smart pointers!\texttt{reset}}{20}
+\indexentry{\texttt{?}}{21}
+\indexentry{Smart pointers!\texttt{get}}{21}
+\indexentry{Smart pointers!\texttt{swap}}{21}
+\indexentry{Smart pointers!\texttt{reset}}{21}
 \indexentry{Smart pointers!replacement}{21}
-\indexentry{Smart pointers!move}{21}
-\indexentry{Smart pointers!RAII}{21}
-\indexentry{Smart pointers!\texttt{shared\_ptr}}{21}
-\indexentry{Smart pointers!\texttt{shared\_ptr}!\texttt{make\_shared}}{21}
-\indexentry{\texttt{make\_shared<T>}}{21}
-\indexentry{Smart pointers!\texttt{shared\_ptr}}{21}
-\indexentry{Smart pointers!\texttt{shared\_ptr}!copying}{21}
-\indexentry{Smart pointers!\texttt{shared\_ptr}!assignment}{21}
+\indexentry{Smart pointers!move}{22}
+\indexentry{Smart pointers!RAII}{22}
 \indexentry{Smart pointers!\texttt{shared\_ptr}}{22}
-\indexentry{Smart pointers!\texttt{weak\_ptr}!\texttt{lock}}{22}
+\indexentry{Smart pointers!\texttt{shared\_ptr}!\texttt{make\_shared}}{22}
+\indexentry{\texttt{make\_shared<T>}}{22}
 \indexentry{Smart pointers!\texttt{shared\_ptr}}{22}
-\indexentry{Smart pointers!\texttt{weak\_ptr}!\texttt{lock}}{22}
-\indexentry{Smart pointers!deleter}{22}
-\indexentry{\textbf{decltype}}{22}
-\indexentry{Reference}{22}
+\indexentry{Smart pointers!\texttt{shared\_ptr}!copying}{22}
+\indexentry{Smart pointers!\texttt{shared\_ptr}!assignment}{22}
+\indexentry{Exceptions!\textbf{try-catch}}{22}
+\indexentry{\texttt{make\_shared<T>}}{23}
+\indexentry{\texttt{make\_shared<T>}}{23}
+\indexentry{\texttt{make\_shared<T>}}{23}
+\indexentry{\texttt{make\_shared<T>}}{23}
+\indexentry{\texttt{make\_shared<T>}}{23}
+\indexentry{Smart pointers!\texttt{shared\_ptr}!copying}{23}
+\indexentry{Smart pointers!\texttt{shared\_ptr}!copying}{23}
+\indexentry{Smart pointers!\texttt{shared\_ptr}}{23}
+\indexentry{Smart pointers!\texttt{weak\_ptr}!\texttt{lock}}{23}
+\indexentry{Smart pointers!\texttt{shared\_ptr}}{23}
+\indexentry{Smart pointers!\texttt{weak\_ptr}!\texttt{lock}}{23}
+\indexentry{Smart pointers!deleter}{24}
+\indexentry{\textbf{decltype}}{24}
+\indexentry{Reference}{24}
 \indexentry{Arrays!declaration and initialization}{25}
 \indexentry{Arrays!declaration and initialization}{25}
 \indexentry{\textbf{sizeof}}{25}
