@@ -28,10 +28,12 @@
   \item \textbf{typedef}, 14, 16
   \item \textbf{using}, \see{Alias}{10}, \see{Namespaces}{10}
   \item \textbf{virtual}, 39, 45--49, 51, 54, 55, 59
+  \item \textbf{volatile}, 11, 12
   \item \texttt{<algorithm>}, 39, 59, 63, 64
   \item \texttt{<atomic>}, 72
   \item \texttt{<bitset>}, 66
   \item \texttt{<chrono>}, 66, 67, 70
+  \item \texttt{<csignal>}, 11
   \item \texttt{<cstdint>}, 7, 58
   \item \texttt{<cstdlib>}, 30, 65
   \item \texttt{<cstring>}, 30
@@ -55,7 +57,7 @@
   \item \texttt{<set>}, 62, 64
   \item \texttt{<sstream>}, 38
   \item \texttt{<stack>}, 61
-  \item \texttt{<string>}, 28, 62, 63
+  \item \texttt{<string>}, 28, 62, 63, 68
   \item \texttt{<thread>}, 67, 70
   \item \texttt{<type\_traits>}, 4, 53
   \item \texttt{<utilities>}, 67
@@ -80,6 +82,7 @@
   \item \texttt{atof}, 32
   \item \texttt{atoi}, 32
   \item \texttt{atol}, 32
+  \item \texttt{atomic\_int}, 72
   \item \texttt{bad\_alloc}, 19
   \item \texttt{bad\_array\_new\_length}, 20
   \item \texttt{binary\_search}, \see{Algorithms}{65}
@@ -124,6 +127,7 @@
   \item \texttt{mt19937\_64}, 66
   \item \texttt{multimap}, \see{Containers}{63}
   \item \texttt{multiplies<int>()}, 64
+  \item \texttt{mutex}, 71
   \item \texttt{normal\_distribution}, 66
   \item \texttt{nothrow}, 19
   \item \texttt{numeric\_limits<T>}, 9
@@ -152,6 +156,7 @@
   \item \texttt{reverse\_iterator}, \see{Iterators}{57}
   \item \texttt{reverse}, \see{Algorithms}{65}
   \item \texttt{set}, \see{Containers}{62}
+  \item \texttt{signal}, 12
   \item \texttt{size\_t}, 25, 30, 39--42, 53--56
   \item \texttt{sort}, \see{Algorithms}{65}
   \item \texttt{srand}, 65
@@ -206,6 +211,7 @@
     \subitem structured binding, 25
   \item Assertions
     \subitem \textbf{static\_assert}, 1, 53
+  \item Atomic variables, 72
 
   \indexspace
 
@@ -518,6 +524,7 @@
       \subsubitem \textbf{noexcept}, 16
       \subsubitem \texttt{final}, 15
       \subsubitem \texttt{override}, 15
+  \item Mutex, 71
 
   \indexspace
 

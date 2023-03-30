@@ -115,6 +115,10 @@
 \indexentry{Enumerations!usage}{11}
 \indexentry{Enumerations!prohibited conversions}{11}
 \indexentry{Enumerations!conversion function}{11}
+\indexentry{\texttt{<csignal>}}{11}
+\indexentry{\textbf{volatile}}{11}
+\indexentry{\texttt{signal}}{12}
+\indexentry{\textbf{volatile}}{12}
 \indexentry{Functions!arguments!default}{13}
 \indexentry{Functions!arguments!omitted}{13}
 \indexentry{Functions!arguments!read-only}{13}
@@ -1022,6 +1026,7 @@
 \indexentry{\texttt{system\_clock::now()}}{67}
 \indexentry{\texttt{duration\_cast<milliseconds>}}{67}
 \indexentry{Utilities!Chrono!stopwatch}{67}
+\indexentry{\texttt{<chrono>}}{67}
 \indexentry{\texttt{time\_point<high\_resolution\_clock>}}{67}
 \indexentry{Utilities!\texttt{pair}}{67}
 \indexentry{\texttt{<utilities>}}{67}
@@ -1031,6 +1036,7 @@
 \indexentry{Utilities!Regular expressions}{68}
 \indexentry{Utilities!Regular expressions!first match}{68}
 \indexentry{\texttt{<regex>}}{68}
+\indexentry{\texttt{<string>}}{68}
 \indexentry{\texttt{regex}}{68}
 \indexentry{Strings!raw format}{68}
 \indexentry{\texttt{regex\_search}}{68}
@@ -1041,6 +1047,7 @@
 \indexentry{\texttt{regex\_search}}{68}
 \indexentry{Utilities!Regular expressions!replace}{68}
 \indexentry{\texttt{<regex>}}{68}
+\indexentry{\texttt{<string>}}{68}
 \indexentry{\texttt{regex}}{69}
 \indexentry{Strings!raw format}{69}
 \indexentry{\texttt{regex\_replace}}{69}
@@ -1071,12 +1078,16 @@
 \indexentry{Utilities!Threads!\texttt{wait\_for}}{70}
 \indexentry{\texttt{future\_status::ready}}{71}
 \indexentry{Utilities!Threads!mutex}{71}
+\indexentry{Mutex}{71}
 \indexentry{\texttt{<mutex>}}{71}
+\indexentry{\texttt{mutex}}{71}
 \indexentry{Utilities!Threads!lock mutex}{71}
 \indexentry{Utilities!Threads!unlock mutex}{71}
 \indexentry{\texttt{this\_thread::yield}}{71}
 \indexentry{Utilities!Threads!yield execution}{71}
 \indexentry{Utilities!Threads!atomic}{72}
+\indexentry{Atomic variables}{72}
 \indexentry{\texttt{<atomic>}}{72}
+\indexentry{\texttt{atomic\_int}}{72}
 \indexentry{\texttt{this\_thread::yield}}{72}
 \indexentry{Utilities!Threads!yield execution}{72}

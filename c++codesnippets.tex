@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.12~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.13~-~GNU GPL v3.0}
 
 %\layout
 
@@ -771,6 +771,58 @@ int d = Weekdays::wed;
 // valid(*\index{Enumerations!conversion function}*)
 Weekdays day = Weekdays(2);
 int d = int(Weekdays::fri);
+\end{lstlisting}
+%
+% Volatile
+%
+\section{Volatile}
+\begin{enumerate}
+\item[$\Rightarrow$] \textbf{volatile} imposes restrictions on access and caching:
+\end{enumerate}
+\begin{lstlisting}
+#include <csignal>(*\index{\texttt{<csignal>}}*)
+
+// requires (*volatile*) here
+volatile int interrupted;(*\index{\textbf{volatile}}*)
+
+void sigint_handler(int signum) 
+{
+    interrupted = 1;
+}
+
+int main(void)
+{
+    // install signal handler for interruption signal
+    signal( SIGINT, sigint_handler);(*\index{\texttt{signal}}*)
+    
+    cout << "Waiting for interruption...\n";
+    
+    // without (*volatile*) the compiler would
+    // optimize the while loop as always true
+    while(!interrupted)
+    {
+        // wait
+    }
+    cout <<  "Interrupted!\n";
+}
+\end{lstlisting}
+\begin{enumerate}
+\item[] Even though reordering of accesses to the volatile variable is forbidden, the compiler might still reorder it with reference to other accesses:
+\end{enumerate}
+\begin{lstlisting}
+volatile int done;(*\index{\textbf{volatile}}*)
+char arrray[100];
+
+void init_array()
+{
+    for (size_t i=0; i<100; i++)
+        array[i] = 1;
+        
+    // the compiler might move this
+    // assignment before the initialization
+    // loop!
+    done = 1;
+}
 \end{lstlisting}
 %
 % Functions and Lambdas
@@ -3809,8 +3861,8 @@ long res = inner_product(v1.begin(), v1.end(),
 \item[$\Rightarrow$]  \texttt{copy} between different containers
 \end{enumerate}
 \begin{lstlisting}
-list<double> data = {1.32,-2.45,5.65};
-vector<int> int_data(5);
+list<double> data = {1.32,-2.45,5.65};\index{Containers!\texttt{list}}
+vector<int> int_data(5);\index{Containers!\texttt{vector}}
 
 // copy data from the (*list*) of doubles to the (*vector*)
 // of integers
@@ -3976,7 +4028,7 @@ cout << duration_cast<milliseconds>(end-start).count();(*\index{\texttt{duration
 \item[] Example stopwatch implementation for timing code execution in a given scope:\index{Utilities!Chrono!stopwatch}
 \end{enumerate}
 \begin{lstlisting}
-#include <chrono>
+#include <chrono>(*\index{\texttt{<chrono>}}*)
 
 class Stopwatch {
 public:
@@ -4027,7 +4079,7 @@ cout << temp2.first << temp2.second << endl;
 \end{enumerate}
 \begin{lstlisting}
 #include <regex>(*\index{\texttt{<regex>}}*)
-#include <string>
+#include <string>(*\index{\texttt{<string>}}*)
 
 // regular expression to look for
 // in raw string format 
@@ -4074,7 +4126,7 @@ while ( regex_search( start, zip.cend(), results, regex ) )(*\index{\texttt{rege
 \end{enumerate}
 \begin{lstlisting}
 #include <regex>(*\index{\texttt{<regex>}}*)
-#include <string>
+#include <string>(*\index{\texttt{<string>}}*)
 
 // regular expression to look for
 // in raw string format 
@@ -4214,7 +4266,7 @@ if (sleeping_stat == future_status::ready)
     cout << "Sleeping thread #1 finished! " << endl;
 \end{lstlisting}
 \begin{enumerate}
-\item[] Usage of a mutex for synchronizing threads:\index{Utilities!Threads!mutex}
+\item[] Usage of a mutex for synchronizing threads:\index{Utilities!Threads!mutex}\index{Mutex}
 \end{enumerate}
 \begin{lstlisting}
 #include <mutex>(*\index{\texttt{<mutex>}}*)
@@ -4223,7 +4275,7 @@ if (sleeping_stat == future_status::ready)
 int counter=0;
 
 // mutex for synchronizing the access
-mutex m_counter;
+mutex m_counter;(*\index{\texttt{mutex}}*)
 
 // incrementing thread
 template<char c>
@@ -4268,13 +4320,13 @@ if (two_res.get() == 9)
 cout << "Counter value: " << counter << endl;
 \end{lstlisting}
 \begin{enumerate}
-\item[] Usage of atomic variables:\index{Utilities!Threads!atomic}
+\item[] Usage of atomic variables:\index{Utilities!Threads!atomic}\index{Atomic variables}
 \end{enumerate}
 \begin{lstlisting}
 #include <atomic>(*\index{\texttt{<atomic>}}*)
 
 // atomic counter
-atomic_int counter_atomic = 0;
+atomic_int counter_atomic = 0;(*\index{\texttt{atomic\_int}}*)
 
 template<char c>
 int atomic_incrementing_thread(int n) {
