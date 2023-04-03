@@ -1064,6 +1064,7 @@
 \indexentry{\texttt{copy\_file}}{69}
 \indexentry{Utilities!Filesystem!copy file}{69}
 \indexentry{Utilities!Filesystem!read file}{70}
+\indexentry{Utilities!Filesystem!change permissions}{70}
 \indexentry{\texttt{remove}}{70}
 \indexentry{Utilities!Filesystem!delete file}{70}
 \indexentry{Utilities!Threads}{70}
@@ -1075,7 +1076,7 @@
 \indexentry{\texttt{async}}{70}
 \indexentry{Utilities!Threads!\texttt{get}}{70}
 \indexentry{Utilities!Threads!asynchronous task}{70}
-\indexentry{Utilities!Threads!\texttt{wait\_for}}{70}
+\indexentry{Utilities!Threads!\texttt{wait\_for}}{71}
 \indexentry{\texttt{future\_status::ready}}{71}
 \indexentry{Utilities!Threads!mutex}{71}
 \indexentry{Mutex}{71}

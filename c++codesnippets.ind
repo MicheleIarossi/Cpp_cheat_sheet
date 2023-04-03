@@ -687,6 +687,7 @@
       \subsubitem sleep, 67
       \subsubitem stopwatch, 67
     \subitem Filesystem, 69
+      \subsubitem change permissions, 70
       \subsubitem copy file, 69
       \subsubitem current folder, 69
       \subsubitem delete file, 70
@@ -707,7 +708,7 @@
       \subsubitem replace, 68
     \subitem Threads, 70
       \subsubitem \texttt{get}, 70
-      \subsubitem \texttt{wait\_for}, 70
+      \subsubitem \texttt{wait\_for}, 71
       \subsubitem asynchronous task, 70
       \subsubitem atomic, 72
       \subsubitem lock mutex, 71

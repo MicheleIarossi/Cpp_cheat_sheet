@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.13~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.14~-~GNU GPL v3.0}
 
 %\layout
 
@@ -4205,6 +4205,14 @@ cout << endl;
     
 // close file
 input_file.close();
+\end{lstlisting}
+\begin{enumerate}
+\item[] Change permission of a file:
+\end{enumerate}
+\begin{lstlisting}
+// removes permissions for group and others
+permissions( "Mycopy", perms::group_all | perms::others_all,
+    perm_options::remove);(*\index{Utilities!Filesystem!change permissions}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[] Delete a file:
