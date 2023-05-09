@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.14~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.15~-~GNU GPL v3.0}
 
 %\layout
 
@@ -2020,7 +2020,7 @@ cin.unsetf(ios::hex);(*\index{Input-output streams!\texttt{cin}!\texttt{unset}!\
 cin >> val;(*\index{Input-output streams!\texttt{cin}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Floating point format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are \emph{sticky}:
+\item[$\Rightarrow$] Floating point format manipulators\\ \\ Once a  manipulator is set, it stays until another one is set, i.e. manipulators are sticky:
 \index{Input-output streams!floating point format manipulators}
 \end{enumerate}
 \begin{lstlisting}
@@ -2335,8 +2335,7 @@ public:
     explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
     // explicit constructor with initializer list
     explicit MyVector(initializer_list<double>);(*\index{\texttt{initializer\_list}}*)(*\index{\textbf{explicit}}*)
-    // copy constructor (pass by
-    // reference, no copying!)
+    // copy constructor (pass by reference, no copying!)
     MyVector(const MyVector&);(*\index{Constants!\textbf{const}}*)
     // move constructor
     MyVector(MyVector&&);
@@ -2348,13 +2347,9 @@ public:
     virtual ~MyVector() { if (e) delete[] e; }(*\index{Classes!virtual destructor}*)(*\index{\textbf{delete}}*)(*\index{\textbf{virtual}}*)
     // subscript operators(*\index{Classes!subscript operator}*)
     // write
-    double& operator[](size_t i) {
-        return e[i];
-    }(*\index{Classes!subscript operator!write}*)(*\index{\texttt{size\_t}}*)
+    double& operator[](size_t i) { return e[i]; }(*\index{Classes!subscript operator!write}*)(*\index{\texttt{size\_t}}*)
     // read
-    const double& operator[](size_t i) const {
-        return e[i];
-    };(*\index{Classes!subscript operator!read}*)(*\index{Constants!\textbf{const}}*)(*\index{\texttt{size\_t}}*)
+    const double& operator[](size_t i) const { return e[i]; };(*\index{Classes!subscript operator!read}*)(*\index{Constants!\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // size
     size_t size() const { return n; }(*\index{Classes!constant member function}*)(*\index{Constants!\textbf{const}}*)(*\index{\texttt{size\_t}}*)
     // capacity
@@ -2378,8 +2373,7 @@ when initializing the vector:\index{Default value!\texttt{double()}}
 \end{enumerate}
 \begin{lstlisting}
 // constructor with member initialization list(*\index{Classes!constructors!vector size}*)(*\index{Classes!constructors!member initialization list}*)
-MyVector::MyVector(size_t s) : n{s},
-    m{s}, e{new double[n]}(*\index{\textbf{new}}*)(*\index{\texttt{size\_t}}*)
+MyVector::MyVector(size_t s) : n{s}, m{s}, e{new double[n]}(*\index{\textbf{new}}*)(*\index{\texttt{size\_t}}*)
 {
      for (int i=0; i<n; i++) e[i] = double();
 }
@@ -2517,8 +2511,7 @@ MyVector v3{v2};
 // copy constructor
 MyVector v3 = v2; 
 
-// pass by value with copy constructor
-// (prefer const reference!)
+// pass by value with copy constructor (prefer const reference!)
 void func(MyVector v4)
 {
     // do something
@@ -2629,13 +2622,10 @@ public:
     Euro(int euro);
     // constructor for (*euro*) and (*cents*)
     Euro(int euro, int cents);
-    friend Euro operator+(const Euro& amount1,
-        const Euro& amount2);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator+}}*)
+    friend Euro operator+(const Euro& amount1, const Euro& amount2);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator+}}*)
     // insertion and extraction operators
-    friend ostream& operator<<(ostream& outs,
-        const Euro& amount);(*\index{\texttt{operator<<}}*)(*\index{\textbf{friend}}*)(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)
-    friend istream& operator>>(istream& ins,
-        Euro& amount);(*\index{\texttt{operator>>}}*)(*\index{\textbf{friend}}*)
+    friend ostream& operator<<(ostream& outs, const Euro& amount);(*\index{\texttt{operator<<}}*)(*\index{\textbf{friend}}*)(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)
+    friend istream& operator>>(istream& ins, Euro& amount);(*\index{\texttt{operator>>}}*)(*\index{\textbf{friend}}*)
 private:
     int euro;
     int cents;
@@ -2673,28 +2663,20 @@ public:
     // overrides Fl_Widget::draw()
     void draw();
     // moves a shape relative to the current
-    // top-left corner (call of redraw()
-    // might be needed)
+    // top-left corner (call of redraw() might be needed)
     void move(int dx, int dy);
-    // setter and getter methods for
-    // color, style, font, transparency
+    // setter and getter methods for color, style, font, transparency
     // (call of redraw() might be needed)
     void set_color(Color_type c);
     void set_color(int c);
-    Color_type get_color() const {
-        return to_color_type(new_color);
-    }(*\index{Constants!\textbf{const}}*)
+    Color_type get_color() const { return to_color_type(new_color); }(*\index{Constants!\textbf{const}}*)
     void set_style(Style_type s, int w);
-    Style_type get_style() const {
-        return to_style_type(line_style);
-    }(*\index{Constants!\textbf{const}}*)
+    Style_type get_style() const { return to_style_type(line_style); }(*\index{Constants!\textbf{const}}*)
     void set_font(Font_type f, int s);
 protected:
-    // Shape is an abstract class,
-    // no instances of Shape can be created!
+    // Shape is an abstract class, no instances of Shape can be created!
     Shape() : Widget() {}
-    // protected virtual methods to be overridden
-    // by derived classes
+    // protected virtual methods to be overridden by derived classes
     virtual void draw_shape() = 0;(*\index{\textbf{virtual}}*)(*\index{\texttt{= 0}}*)
     virtual void move_shape(int dx, int dy) = 0;(*\index{\textbf{virtual}}*)(*\index{\texttt{= 0}}*)
     // protected setter methods
@@ -2710,9 +2692,7 @@ protected:
     void set_fl_style();
     void restore_fl_style();
     void set_fl_font();
-    void restore_fl_font() {
-        fl_font(old_font,old_fontsize);
-    }
+    void restore_fl_font() { fl_font(old_font,old_fontsize); }
     // test method for checking resize calls
     void draw_outline();
 private:
@@ -2731,8 +2711,7 @@ private:
 \index{Inheritance!base class}
 \end{enumerate}
 \begin{lstlisting}
-// (*Shape*) is a base class for (*Line*)
-// but (*Shape*) is derived from (*Widget*)
+// (*Shape*) is a base class for (*Line*) but (*Shape*) is derived from (*Widget*)
 class Line : public Shape(*\index{Classes!\textbf{class}!\texttt{Line}}*)
 {
     ...
@@ -2857,8 +2836,7 @@ public:
     void set_line(pair<Point,Point> line) { l = line; }(*\index{\texttt{pair}}*)
 protected:
     void draw_shape() {
-        fl_line(l.first.x, l.first.y, l.second.x,
-            l.second.y);
+        fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
     }
     void move_shape(int dx, int dy) {
         l.first.x  += dx;  l.first.y += dy;
@@ -2906,8 +2884,7 @@ public:
     ...
 protected:
     void draw_shape() {
-        fl_line(l.first.x, l.first.y, l.second.x,
-            l.second.y);
+        fl_line(l.first.x, l.first.y, l.second.x, l.second.y);
     }
     void move_shape(int dx, int dy) {
         l.first.x  += dx;  l.first.y += dy;
@@ -2926,21 +2903,18 @@ class Circle : public Shape(*\index{Classes!\textbf{class}!\texttt{Circle}}*)
 {
 public:
     Circle(Point a, int rr) : c{a}, r{rr} {
-        resize_shape(Point{c.x-r,c.y-r},
-            Point{c.x+r,c.y+r});
+        resize_shape(Point{c.x-r,c.y-r}, Point{c.x+r,c.y+r});
     }
     virtual ~Circle() {}(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
     Point get_center() const { return c; }(*\index{Constants!\textbf{const}}*)
     void set_center(Point p) {
         c = p;
-        resize_shape(Point{c.x-r,c.y-r},
-            Point{c.x+r,c.y+r});
+        resize_shape(Point{c.x-r,c.y-r}, Point{c.x+r,c.y+r});
     }
     int get_radius() const { return r; }(*\index{Constants!\textbf{const}}*)
     void set_radius(int rr) {
         r = rr;
-        resize_shape(Point{c.x-r,c.y-r},
-            Point{c.x+r,c.y+r});
+        resize_shape(Point{c.x-r,c.y-r}, Point{c.x+r,c.y+r});
     }
 protected:
     void draw_shape() {
@@ -2950,8 +2924,7 @@ protected:
     }
     void move_shape(int dx,int dy) {
         c.x += dx; c.y += dy;
-        resize_shape(Point{c.x-r,c.y-r},
-            Point{c.x+r,c.y+r});
+        resize_shape(Point{c.x-r,c.y-r}, Point{c.x+r,c.y+r});
     }
 private:
     Point c{}; // center
@@ -3022,8 +2995,7 @@ class MyException(*\index{Classes!\textbf{class}!\texttt{MyException}}*)
 public:
     MyException(string s);(*\index{Strings!\texttt{string}}*)
     virtual ~MyException();(*\index{\textbf{virtual}}*)(*\index{Classes!virtual destructor}*)
-    friend ostream& operator<<(ostream& os,
-        const MyException& e);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& os, const MyException& e);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 protected:
     string msg;(*\index{Strings!\texttt{string}}*)
 };
@@ -3093,10 +3065,10 @@ void my_function(void)
     }
     catch (...)
     { 
-        /* local cleanup here */
-        delete p;      /* free memory */(*\index{\textbf{delete}}*)
-        s.release();  /* release socket */  
-        /* re-throw because function didn't succeed */
+        // local cleanup here
+        delete p;      // free memory (*\index{\textbf{delete}}*)
+        s.release();  // release socket
+        // re-throw because function didn't succeed
         throw()(*\index{\textbf{throw}}*)
     }    
 }
@@ -3175,8 +3147,7 @@ public:
     explicit MyVector(size_t);(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
     // constructor with initializer list
     explicit MyVector(initializer_list<T>);(*\index{\textbf{explicit}}*)(*\index{\texttt{initializer\_list}}*)
-    // copy constructor (pass by
-    // reference, no copying!)
+    // copy constructor (pass by reference, no copying!)
     MyVector(const MyVector&);(*\index{Constants!\textbf{const}}*)
     // move constructor
     MyVector(MyVector&&);
@@ -3285,8 +3256,7 @@ public:
     explicit MyVector(size_t,T def = T());(*\index{\textbf{explicit}}*)(*\index{\texttt{size\_t}}*)
     // constructor with initializer list
     explicit MyVector(initializer_list<T>);(*\index{\textbf{explicit}}*)(*\index{\texttt{initializer\_list}}*)
-    // copy constructor (pass by
-    // reference, no copying!)
+    // copy constructor (pass by reference, no copying!)
     MyVector(const MyVector&);(*\index{Constants!\textbf{const}}*)
     // move constructor
     MyVector(MyVector&&);
@@ -3359,8 +3329,7 @@ class SimpleNode(*\index{Classes!\textbf{class}!\texttt{SimpleNode<T>}}*)
     SimpleNode<T>& operator=(const SimpleNode<T>& b);(*\index{Constants!\textbf{const}}*)(*\index{\texttt{operator=}}*)
     // friend insertion operator
     template <class TT>(*\index{Templates!\textbf{template}}*)
-    friend ostream& operator<<(ostream& outs,
-        const SimpleNode<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& outs, const SimpleNode<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 private:
     T *p;
     int size;
@@ -3514,8 +3483,7 @@ public:
     // friends
     friend class LList<T>;(*\index{\textbf{friend}}*)
     template <class TT>(*\index{Templates!\textbf{template}}*)
-    friend ostream& operator<<(ostream& outs,
-        const LList<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
 private:
     // data element
     T data{T()};
@@ -3556,8 +3524,7 @@ public:
     int size() const;
     // insertion operator
     template <class TT>(*\index{Templates!\textbf{template}}*)
-    friend ostream& operator<<(ostream& outs,
-        const LList<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
+    friend ostream& operator<<(ostream& outs, const LList<TT>& rhs);(*\index{Constants!\textbf{const}}*)(*\index{\textbf{friend}}*)(*\index{\texttt{operator<<}}*)
     // iterator type
     class iterator;(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)
     // iterator to first element
@@ -3613,8 +3580,7 @@ cout << "data_list = " << data_list << endl;
 cout << "data_list.size() = " << data_list.size();
 
 // applies standard algorithms on the custom linked list
-LList<int>::iterator p = find(data_list.begin(),
-    data_list.end(),45);(*\index{\texttt{find}|see{Algorithms}}*)(*\index{Algorithms!\texttt{find}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}*)
+LList<int>::iterator p = find(data_list.begin(), data_list.end(),45);(*\index{\texttt{find}|see{Algorithms}}*)(*\index{Algorithms!\texttt{find}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{begin}}*)(*\index{Iterators!\texttt{LList<T>}!\texttt{iterator}!\texttt{end}}*)
 
 // checks if the element has been found(*\index{Iterators!end of sequence convention}*)
 // standard algorithms return the end of a sequence, 
@@ -3843,8 +3809,7 @@ long res = accumulate(v.begin(),v.end(),long(0));(*\index{Algorithms!\texttt{acc
 // generic accumulate performing multiplication instead(*\index{Algorithms!generic \texttt{accumulate}}*)
 // of sum passes a function object
 // (*multiplies<int>()*) defined in (*<functional>*)(*\index{\texttt{multiplies<int>()}}*)
-double res = accumulate(v.begin(),v.end(),
-    1.0,multiplies<int>());
+double res = accumulate(v.begin(),v.end(), 1.0,multiplies<int>());
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$]  Inner product
@@ -3854,8 +3819,7 @@ double res = accumulate(v.begin(),v.end(),
 vector<int> v1 = {-2,2,4,11,-4,3,1};(*\index{Containers!\texttt{vector}}*)
 vector<int> v2 = {4,2,4,18,5,3,1,7,9,};(*\index{Containers!\texttt{vector}}*)
 
-long res = inner_product(v1.begin(), v1.end(),
-    v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\texttt{inner\_product}|see{Algorithms}}*)
+long res = inner_product(v1.begin(), v1.end(), v2.begin(),long(0));(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\texttt{inner\_product}|see{Algorithms}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$]  \texttt{copy} between different containers
@@ -3864,8 +3828,7 @@ long res = inner_product(v1.begin(), v1.end(),
 list<double> data = {1.32,-2.45,5.65};\index{Containers!\texttt{list}}
 vector<int> int_data(5);\index{Containers!\texttt{vector}}
 
-// copy data from the (*list*) of doubles to the (*vector*)
-// of integers
+// copy data from the (*list*) of doubles to the (*vector*) of integers
 copy(data.begin(),data.end(),int_data.begin());(*\index{Algorithms!\texttt{copy}!between different containers}*)
 \end{lstlisting}
 \begin{enumerate}
@@ -3882,8 +3845,7 @@ set<string> words{ istream_iterator<string>{cin},
                              
 // copy the words from the set to the output stream (*cout*)
 // and add a new line after each word
-copy(words.begin(),words.end(),
-    ostream_iterator<string>{cout,"\n"});(*\index{Algorithms!\texttt{copy}!between container and stream}*)(*\index{\texttt{ostream\_iterator}}*)
+copy(words.begin(),words.end(), ostream_iterator<string>{cout,"\n"});(*\index{Algorithms!\texttt{copy}!between container and stream}*)(*\index{\texttt{ostream\_iterator}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Merge sort
@@ -4037,8 +3999,7 @@ public:
         start {high_resolution_clock::now()} {}
     ~Stopwatch() {
         result = duration_cast<nanoseconds>(
-                     high_resolution_clock::now()
-                     - start);
+                     high_resolution_clock::now() - start);
      }
 private:
     nanoseconds& result;
