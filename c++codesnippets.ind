@@ -27,7 +27,7 @@
   \item \textbf{try-catch}, \see{Exceptions}{35}
   \item \textbf{typedef}, 14, 16
   \item \textbf{using}, \see{Alias}{10}, \see{Namespaces}{10}
-  \item \textbf{virtual}, 39, 44--48, 51, 54, 55, 59
+  \item \textbf{virtual}, 39, 45--49, 51, 54, 55, 59
   \item \textbf{volatile}, 11, 12
   \item \texttt{<algorithm>}, 39, 59, 63, 64
   \item \texttt{<atomic>}, 71
@@ -65,7 +65,7 @@
   \item \texttt{<vector>}, 26, 57, 63, 64
   \item \texttt{= 0}, 45, 47
   \item \texttt{= default}, 43
-  \item \texttt{= delete}, 43, 44, 46
+  \item \texttt{= delete}, 43, 45, 46
   \item \texttt{?}, 20, 21
   \item \texttt{INT16\_MAX}, 7
   \item \texttt{INT16\_MIN}, 7
@@ -141,7 +141,7 @@
   \item \texttt{operator+}, 43, 44
   \item \texttt{operator<<}, 44, 51, 56, 59, 60
   \item \texttt{operator==}, 58, 60
-  \item \texttt{operator=}, 39, 41, 43, 44, 46, 54--56, 59
+  \item \texttt{operator=}, 39, 41, 43, 45, 46, 54--56, 59
   \item \texttt{operator>>}, 44
   \item \texttt{ostream\_iterator}, 65
   \item \texttt{ostringstream}, 38
@@ -235,7 +235,7 @@
     \subitem \emph{rule of five}, 42
     \subitem \textbf{class}
       \subsubitem \texttt{Basic}, 43
-      \subsubitem \texttt{Circle}, 48
+      \subsubitem \texttt{Circle}, 49
       \subsubitem \texttt{ConstInt}, 2
       \subsubitem \texttt{Euro}, 43, 44
       \subsubitem \texttt{Fancy}, 43
@@ -250,7 +250,7 @@
       \subsubitem \texttt{MyVector}, 39, 53
       \subsubitem \texttt{Object}, 4
       \subsubitem \texttt{PowerRange}, 57
-      \subsubitem \texttt{Shape}, 44--47
+      \subsubitem \texttt{Shape}, 44, 46, 47
       \subsubitem \texttt{SimpleNode<T>}, 56
       \subsubitem \texttt{TestGreater}, 64
       \subsubitem \texttt{Wrapper}, 55
@@ -274,14 +274,14 @@
     \subitem subscript operator, 39
       \subsubitem read, 39
       \subsubitem write, 39
-    \subitem virtual destructor, 39, 44, 46--48, 51, 54, 55, 59
+    \subitem virtual destructor, 39, 45, 46, 48, 49, 51, 54, 55, 59
   \item Constants
     \subitem \textbf{constexpr}, 1
-    \subitem \textbf{const}, 2, 13, 30, 39--41, 43--49, 51, 53--56, 
-		59, 60, 62, 64
+    \subitem \textbf{const}, 2, 13, 30, 39--41, 43--46, 48, 49, 51, 
+		53--56, 59, 60, 62, 64
     \subitem constant functions, 1
   \item Containers
-    \subitem \texttt{list}, 61
+    \subitem \texttt{list}, 61, 64
       \subsubitem \texttt{erase}, 61
       \subsubitem \texttt{push\_back}, 61
       \subsubitem \texttt{push\_front}, 61
@@ -396,8 +396,8 @@
     \subitem abstract base class, 44
     \subitem base class, 45
     \subitem derived class, 47, 48
-    \subitem disabling copy constructors and assignment, 45
-    \subitem function specialisation, 48
+    \subitem disabling copy constructors and assignment, 46
+    \subitem function specialisation, 48, 49
     \subitem protected constructor, 46
     \subitem protected member functions, 46
     \subitem pure virtual functions, 47
@@ -524,7 +524,7 @@
       \subsubitem \textbf{noexcept}, 16
       \subsubitem \texttt{final}, 15
       \subsubitem \texttt{override}, 15
-  \item Mutex, 71
+  \item Mutex, 70
 
   \indexspace
 
@@ -568,18 +568,18 @@
     \subitem simple pointer, 19
     \subitem subscript operator\texttt{[]}, 20
   \item Polymorphism, 49
-    \subitem late binding, 49
+    \subitem late binding, 50
 
   \indexspace
 
-  \item range-for-loop, 25, 27, 57, 58, 61, 62, 66
+  \item range-for-loop, 25, 27, 57, 59, 61, 62, 66
   \item Reference, 24
   \item Run-time measurement, \see{Utilities}{66}
 
   \indexspace
 
   \item Sleep, \see{Utilities}{66}
-  \item Slicing, 45
+  \item Slicing, 46
   \item Smart pointers
     \subitem \texttt{get}, 21
     \subitem \texttt{reset}, 21
@@ -686,7 +686,7 @@
       \subsubitem run-time measurement, 66
       \subsubitem sleep, 66
       \subsubitem stopwatch, 67
-    \subitem Filesystem, 69
+    \subitem Filesystem, 68
       \subsubitem change permissions, 70
       \subsubitem copy file, 69
       \subsubitem current folder, 69
@@ -712,7 +712,7 @@
       \subsubitem asynchronous task, 70
       \subsubitem atomic, 71
       \subsubitem lock mutex, 71
-      \subsubitem mutex, 71
+      \subsubitem mutex, 70
       \subsubitem unlock mutex, 71
       \subsubitem yield execution, 71, 72
 
