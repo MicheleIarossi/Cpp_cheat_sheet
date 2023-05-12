@@ -20,10 +20,10 @@
 % the packages
 
 \documentclass[12pt]{article}
-% a4 paper 8.27 x 11.69 inches
-% paperheigth = bleed + a4heigth + bleed = 0.375 + 11.69 + 0.375 = 12.44in
-% paperwidth = bleed + a4width + spine + a4width + bleed = 0.375 + 8.27 + 0.189 + 8.27 + 0.375 = 17.48in
-\usepackage[paperheight = 12.44in, paperwidth = 17.48in]{geometry}
+% a4 paper 8.27 x 11.69 inches = 210.00 x 297.00 mm
+% paperheigth = bleed + a4heigth + bleed = 3.00 + 297.00 + 3.00 = 303.00mm
+% paperwidth = bleed + a4width + spine + a4width + bleed = 3.00 + 210.00 + 5.22 + 210.00 + 3.00 = 431.22mm
+\usepackage[paperheight = 303.00mm, paperwidth = 431.22mm]{geometry}
 \usepackage[dvipsnames,prologue,table]{pstricks}
 \usepackage{pst-barcode}
 \usepackage{graphicx}
@@ -33,37 +33,37 @@
 \setlength{\parindent}{0mm}
 \begin{document}
 \thispagestyle{empty}
-\psset{unit=1in}
-\begin{pspicture}(17.48in,12.44in)
+%\psset{unit=1in}
+\begin{pspicture}(431.22mm,303.00mm)
 % image over the whole cover
-\newsavebox\IBox\sbox\IBox{\includegraphics[height=12.44in,width=17.48in]{P1000684.jpeg}}
+\newsavebox\IBox\sbox\IBox{\includegraphics[height=303.00mm,width=431.22mm]{P1000684.jpeg}}
 \rput[lb](0,0){\usebox\IBox}
 % spine
-\psframe[fillstyle=solid,fillcolor=NavyBlue](8.645,0)(8.834,12.44in)
+%\psframe[fillstyle=solid,fillcolor=NavyBlue](213.00mm,0)(218.22mm,303.00mm)
 % front
 \newsavebox\Titlebox
 \sbox\Titlebox{
 \fcolorbox{black}{white}{
-\begin{minipage}{4.5in}
+\begin{minipage}{110.00mm}
 \begin{center}
-\vspace{0.75in}
+\vspace{19.05mm}
 {\Huge \textbf{\emph{C++ Code Snippets}}}
 
-\vspace{0.5in}
+\vspace{12.7mm}
 {\LARGE Michele Iarossi}
-\vspace{0.75in}
+\vspace{19.05mm}
 \end{center}
 \end{minipage}}
 }
-\rput[lb](10.9065in,8in){\usebox\Titlebox}
+\rput[lb](266.22mm,190.5mm){\usebox\Titlebox}
 
 % QR code
 \newsavebox\QRbox
 \sbox\QRbox{
 \fcolorbox{black}{white}{
-\begin{minipage}{1.5in}
+\begin{minipage}{38.1mm}
 \begin{center}
-\vspace{0.15in}
+\vspace{3.81mm}
 \begin{pspicture}(25mm,25mm)
 \psbarcode{http://www.mathsophy.com}{eclevel=H width=1.0 height=1.0}{qrcode}
 \end{pspicture}
@@ -71,6 +71,6 @@
 \end{center}
 \end{minipage}}
 }
-\rput[lb](6in,1in){\usebox\QRbox}
+\rput[lb](152.4mm,25.4mm){\usebox\QRbox}
 \end{pspicture}
 \end{document}
