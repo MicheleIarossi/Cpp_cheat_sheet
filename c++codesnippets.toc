@@ -25,7 +25,7 @@
 \contentsline {section}{\numberline {4.1}Arrays}{25}{}%
 \contentsline {section}{\numberline {4.2}Vectors}{26}{}%
 \contentsline {section}{\numberline {4.3}Strings}{28}{}%
-\contentsline {section}{\numberline {4.4}C-Strings}{30}{}%
+\contentsline {section}{\numberline {4.4}C-Strings}{31}{}%
 \contentsline {chapter}{\numberline {5}Input-Output}{33}{}%
 \contentsline {section}{\numberline {5.1}Input-Output Streams}{33}{}%
 \contentsline {section}{\numberline {5.2}Files}{35}{}%
@@ -33,7 +33,7 @@
 \contentsline {chapter}{\numberline {6}Object-Oriented Programming}{39}{}%
 \contentsline {section}{\numberline {6.1}Classes}{39}{}%
 \contentsline {section}{\numberline {6.2}Operator Overloading}{43}{}%
-\contentsline {section}{\numberline {6.3}Inheritance}{44}{}%
+\contentsline {section}{\numberline {6.3}Inheritance}{45}{}%
 \contentsline {section}{\numberline {6.4}Polymorphism}{49}{}%
 \contentsline {chapter}{\numberline {7}Advanced Topics}{51}{}%
 \contentsline {section}{\numberline {7.1}Exceptions}{51}{}%
