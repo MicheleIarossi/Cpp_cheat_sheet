@@ -99,7 +99,7 @@
 % Set title and author
 \title{\emph{\textbf{C++ Code Snippets}}}
 \author{Michele Iarossi\thanks{\texttt{michele@mathsophy.com}}}
-\date{\small \today~-~Version 2.17~-~GNU GPL v3.0}
+\date{\small \today~-~Version 2.18~-~GNU GPL v3.0}
 
 %\layout
 
@@ -172,7 +172,7 @@ using namespace std;(*\index{\texttt{std}}*)(*\index{Namespaces!\textbf{using na
 %
 \section{Assertions}
 \begin{enumerate}
-\item[$\Rightarrow$] The first argument of a \textbf{static\_assert} is a constant expression that must be true:
+\item[$\Rightarrow$] The first argument of a \textbf{static\_assert} is a constant expression that must be true
 \end{enumerate}
 \begin{lstlisting}
 static_assert( 8<=sizeof( long ), "longs are too small" );(*\index{Assertions!\textbf{static\_assert}}*)(*\index{\textbf{static\_assert}}*)
@@ -183,21 +183,21 @@ static_assert( 8<=sizeof( long ), "longs are too small" );(*\index{Assertions!\t
 \section{Constants}
 There are two options:
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{constexpr} must be known at compile time:
+\item[$\Rightarrow$] \textbf{constexpr} must be known at compile time
 \end{enumerate}
 \begin{lstlisting}
 constexpr int max = 200;(*\index{\textbf{constexpr}|see{Constants}} *)(*\index{Constants!\textbf{constexpr}}*)
 constexpr int c = max + 2;(*\index{Constants!\textbf{constexpr}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{constexpr} applied to functions instructs the compiler to try to evaluate the function at compile time:\index{Constants!constant functions}
+\item[$\Rightarrow$] \textbf{constexpr} applied to functions\\ \\ Instructs the compiler to try to evaluate the function at compile time:\index{Constants!constant functions}
 \end{enumerate}
 \begin{lstlisting}
 constexpr int func(int n) { return n*2+5; }(*\index{Constants!\textbf{constexpr}}*)
 constexpr int c = func( 122 );  // (*149*)(*\index{Constants!\textbf{constexpr}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Integer literal with single quotes for readability:\index{Integer literal!single quotes}
+\item[$\Rightarrow$] Integer literal with single quotes for readability\index{Integer literal!single quotes}
 \end{enumerate}
 \begin{lstlisting}
 // (*1000000*)
@@ -205,7 +205,7 @@ constexpr int k = 1'000'000;(*\index{Constants!\textbf{constexpr}}*)
 \end{lstlisting}
 \newpage
 \begin{enumerate}
-\item[$\Rightarrow$] \textbf{const} variables don't change at runtime. They cannot be declared as
+\item[$\Rightarrow$] \textbf{const} variables don't change at runtime\\ \\ They cannot be declared as
 \textbf{constexpr} because their value is not known at compile time:
 \end{enumerate}
 \begin{lstlisting}
@@ -231,7 +231,7 @@ private:
 %
 \section{Type Safety}
 \begin{enumerate}
-\item[$\Rightarrow$] Universal and uniform initialization, also known as braced initialization,\index{Uniform initialization}\index{Braced initialization} prevents narrowing conversions from happening:
+\item[$\Rightarrow$] Universal and uniform initialization\index{Uniform initialization} \\ \\ It is also known as braced initialization\index{Braced initialization} and it prevents narrowing conversions from happening:
 \end{enumerate}
 \begin{lstlisting}
 // safe conversions (*\index{Conversions!safe}*)
@@ -248,7 +248,7 @@ char b{a};
 \section{Type Casting}
 The following casts are called named conversions:\index{Type casting!named conversions}\index{Named conversions}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Type casting!\textbf{static\_cast}}, i.e. types that can be converted into each other:
+\item[$\Rightarrow$] Use \textbf{static\_cast} for normal casting\index{Type casting!\textbf{static\_cast}}, i.e. types that can be converted into each other
 \end{enumerate}
 \begin{lstlisting}
 // (*int 15*) to (*double 15.0*)
@@ -256,7 +256,7 @@ double num;
 num = static_cast< double >( 15 );(*\index{\textbf{static\_cast}|see{Type casting}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{static\_cast} for casting a void pointer to the desired pointer type:
+\item[$\Rightarrow$] Use \textbf{static\_cast} for casting a void pointer to the desired pointer type
 \end{enumerate}
 \begin{lstlisting}
 // (*void **) pointer can point to anything
@@ -267,7 +267,7 @@ void *p = &num;(*\index{\texttt{void $\ast$}|see{Pointers}}*)(*\index{Pointers!\
 double *pd = static_cast< double* >( p );(*\index{\textbf{static\_cast}|see{Type casting}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Use \textbf{reinterpret\_cast} for casting between unrelated pointer types\index{Type casting!\textbf{reinterpret\_cast}}:
+\item[$\Rightarrow$] Use \textbf{reinterpret\_cast} for casting between unrelated pointer types\index{Type casting!\textbf{reinterpret\_cast}}
 \end{enumerate}
 \begin{lstlisting}
 // reinterprets a (*long*) value as a (*double*) one
@@ -363,6 +363,7 @@ private:
     string name{};
 };
 \end{lstlisting}
+\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Static storage with global scope, external or internal linkage\\ \\ Storage is allocated before the program starts and deallocated when the program ends:
 \end{enumerate}
@@ -395,7 +396,7 @@ int main()
 \begin{lstlisting}
 int main()
 {
-     // automatic storage object
+    // automatic storage object
     {
         Object d{"d"};(*\index{Storage class!automatic}*)
     }   
@@ -410,6 +411,7 @@ int main()
 // of the variable
 thread_local int counter;(*\index{Storage class!thread-local}*)(*\index{\texttt{thread\_local}}*)
 \end{lstlisting}
+\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Dynamic storage\\ \\ Storage is allocated dynamically on the heap with \textbf{new} and deallocated explicitly with \textbf{delete}:
 \end{enumerate}
@@ -421,7 +423,6 @@ int main()
     delete( e );(*\index{\textbf{delete}}*)
 }
 \end{lstlisting}
-\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Example of object declarations
 \end{enumerate}
@@ -522,6 +523,7 @@ if ( (UINT32_MAX - a) < b )(*\index{\texttt{UINT32\_MAX}}*)
     cout << "Error! a+b causes wrapping!\n";
 else c = a + b;
 \end{lstlisting}
+\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Secure signed addition\index{Integer types!secure signed addition}
 \end{enumerate}
@@ -534,7 +536,6 @@ if ( ( a>0 && a>(INT16_MAX-b) ) ||
     cout << "Error! a+b causes overflow!\n";
 else c = a + b;
 \end{lstlisting}
-\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Secure unsigned subtraction\index{Integer types!secure unsigned subtraction}
 \end{enumerate}
@@ -640,7 +641,7 @@ cout << numeric_limits< int >::max(); // (*2147483647*)
 // (*double*) type
 cout << numeric_limits< double >::min(); // (*2.22507e-308*)
 cout << numeric_limits< double >::max(); // (*1.79769e+308*)
-cout << numeric_limits< double >::lowest(); // (*-1.79769e+308*)
+cout << numeric_limits< double >::lowest();  // (*-1.79769e+308*)
 cout << numeric_limits< double >::epsilon(); // (*2.22045e-16*)
 cout << numeric_limits< double >::round_error(); // (*0.5*)
 \end{lstlisting}
@@ -709,6 +710,7 @@ using std::cout;(*\index{Input-output streams!\texttt{cout}}*)(*\index{\texttt{s
 \begin{lstlisting}
 using namespace std;(*\index{Namespaces!\textbf{using namespace} directives}*)(*\index{\texttt{std}}*)(*\index{\textbf{using}|see{Namespaces}}*)
 \end{lstlisting}
+\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] An alias is a symbolic name that means exactly the same as what it refers to
 \end{enumerate}
@@ -874,7 +876,7 @@ know exactly when the object gets initialized)\index{Functions!object initializa
 \begin{lstlisting}
 const Object& default_value()(*\index{Constants!\textbf{const}}*)
 {
-  static const Object default{1,2,3};(*\index{Constants!\textbf{const}}*)
+  static const Object default{1, 2, 3};(*\index{Constants!\textbf{const}}*)
   return default;
 }
 \end{lstlisting}
@@ -948,8 +950,7 @@ func = print_sthg;
 func();
 
 // works also with lambdas
-function< void() > func2 { []() { cout << "Hello" << endl; } 
-};
+function< void() > func2{ []() { cout << "Hello" << endl; } };
 
 // call
 func2();
@@ -975,7 +976,7 @@ auto [a,b] = func();
 % Modifiers
 %
 \section{Modifiers}
-Modifiers declare specific aspects of functions. This information can be used by compilers to optimize the code. There are prefix and suffix modifiers.
+Modifiers declare specific aspects of functions. This information can be used by compilers to optimize the code. There are prefix and suffix modifiers:
 \begin{enumerate}
 \item[$\Rightarrow$]  Prefix: \textbf{static}, \textbf{inline}, \textbf{constexpr}\index{Modifiers!prefix}
 \end{enumerate}
@@ -1169,7 +1170,7 @@ if ( d ) {
 \end{enumerate}
 \begin{lstlisting}
 // dynamic array of (*10 double*)s
-double *dd = new double[10] {0,1,2,3,4,5,6,7,8,9};(*\index{Pointers!dynamic array!allocation}*)(*\index{\textbf{new}}*)(*\index{\textbf{new}}*)
+double *dd = new double[10] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};(*\index{Pointers!dynamic array!allocation}*)(*\index{\textbf{new}}*)(*\index{\textbf{new}}*)
 
 // delete the storage on the free store
 delete [] dd;(*\index{Pointers!dynamic array!deallocation}*)(*\index{\textbf{delete}}*)
@@ -1202,7 +1203,7 @@ double *d;
 
 try {
     d = new double[-1]; // negative size 
-    d = new double[1] {0,1,2,3}; // too many initializers 
+    d = new double[1] {0, 1, 2, 3}; // too many initializers 
     d = new double[INT_MAX]; // too large
 } catch ( const bad_array_new_length& e ) {(*\index{\texttt{bad\_array\_new\_length}}*)
     cout << e.what() << '\n';
@@ -1215,7 +1216,7 @@ try {
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{unique\_ptr}\\ \\
 Holds exclusive ownership (cannot be copied!) of a dynamic object according to RAII, i.e. resource acquisition is initialization\index{Smart pointers!RAII}. It will 
-automatically destroy the object if needed. Ownership can be transferred, i.e. move is supported but copy not. 
+automatically destroy the object if needed. Ownership can be transferred, i.e. move is supported but copy not:
 \end{enumerate}
 \begin{lstlisting}
 #include <memory>(*\index{\texttt{<memory>}}*)
@@ -1308,7 +1309,7 @@ bool empty = ( q_int == nullptr );
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{shared\_ptr}\\ \\
 Has transferable non exclusive ownership (can be copied!) of a dynamic object according to RAII, i.e. resource acquisition is initialization\index{Smart pointers!RAII}. It will 
-automatically destroy the object if needed. Ownership can be transferred, i.e. move and copy are supported. 
+automatically destroy the object if needed. Ownership can be transferred, i.e. move and copy are supported:
 \end{enumerate}
 \begin{lstlisting}
 // shared pointer to an (*int*) having value (*5*)
@@ -1381,7 +1382,7 @@ cout << "\n\n";
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] \texttt{weak\_ptr}\\ \\
-Has no ownership of the object pointed to. Tracks an existing object, allows conversion to a shared pointer only if the tracked object still exists. They are movable and copyable. 
+Has no ownership of the object pointed to. Tracks an existing object, allows conversion to a shared pointer only if the tracked object still exists. They are movable and copyable: 
 \end{enumerate}
 \begin{lstlisting}
 // shared pointer to an (*int*) having value (*5*)
@@ -1560,7 +1561,7 @@ vector< int > v = {2, 4, 6, 8};(*\index{Vectors!initialized with initializer lis
 vector< int > v(10);(*\index{Vectors!initialized with all elements to 0}*)(*\index{Containers!\texttt{vector}}*)
 
 // vector with 10 elements all initialized to 2
-vector< int > v(10,2);(*\index{Vectors!fill constructor}*)(*\index{Containers!\texttt{vector}}*)
+vector< int > v(10, 2);(*\index{Vectors!fill constructor}*)(*\index{Containers!\texttt{vector}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Access
@@ -1689,22 +1690,22 @@ string s2(", world!");(*\index{Strings!\texttt{string}}*)
 \item[$\Rightarrow$] Fill constructor
 \end{enumerate}
 \begin{lstlisting}
-string s3(5,'*'); // fill constructor (*"*****"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!fill constructor}*)
+string s3(5, '*'); // fill constructor (*"*****"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!fill constructor}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Substring constructor from a certain position and a given optional length
 \end{enumerate}
 \begin{lstlisting}
 string hello("Hello, world!");
-string s4(hello,0,5); // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
-string s5(hello,7); // (*"world!"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
+string s4(hello, 0,5); // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
+string s5(hello, 7); // (*"world!"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!substring constructor}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Constructor from C-style literal string of a certain length given an optional position
 \end{enumerate}
 \begin{lstlisting}
-string s6("Hello, world!",5); // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!C-style constructor}*)
-string s7("Hello, world!",7,6); // (*"world!"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!C-style constructor}*)
+string s6("Hello, world!", 5); // (*"Hello"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!C-style constructor}*)
+string s7("Hello, world!", 7, 6); // (*"world!"*)(*\index{Strings!\texttt{string}}*)(*\index{Strings!C-style constructor}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Concatenation
@@ -1730,7 +1731,7 @@ string s8 = "hellohello\0\0hello"s;(*\index{Strings!\texttt{string}}*)(*\index{S
 \begin{lstlisting}
 // read a line(*\index{Strings!reading a line}*)
 string line;(*\index{Strings!\texttt{string}}*)
-getline( cin,line );(*\index{Input-output streams!\texttt{cin}}*)
+getline( cin, line );(*\index{Input-output streams!\texttt{cin}}*)
 \end{lstlisting}
 \begin{enumerate}
 \item[$\Rightarrow$] Access to a character
@@ -1908,8 +1909,8 @@ char src1[100] = "hello";
 char src2[100] = "hello, world";
 
 // make sure strings are null terminated!
-src1[sizeof(src1)-1] = '\0';
-src2[sizeof(src2)-1] = '\0';
+src1[sizeof( src1 )-1] = '\0';
+src2[sizeof( src2 )-1] = '\0';
 
 // safe string compare, at most (*12*) characters are compared
 strncmp( src1, src2, strlen( src2 ) );(*\index{\texttt{strncmp}}*)
@@ -2146,7 +2147,7 @@ ofstream out_stream{"outfile.dat"};(*\index{\texttt{ofstream}}*)
 fstream fs{"inoutfile.dat", ios_base::in | ios_base::out};(*\index{\texttt{fstream}}*)
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Opened explicitly (not recommended):
+\item[$\Rightarrow$] Opened explicitly (not recommended)
 \end{enumerate}
 \begin{lstlisting}
 // input file 
@@ -2159,7 +2160,7 @@ in_stream.open( "infile.dat" );
 out_stream.open( "outfile.dat" );
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] When checking for failure, the status flag needs to be cleared in order to continue working with the file\index{Files!checking for failure}
+\item[$\Rightarrow$] Checking for failure\\ \\When checking for failure, the status flag needs to be cleared in order to continue working with the file:\index{Files!checking for failure}
 \end{enumerate}
 \begin{lstlisting}
 // check for failure on input file
@@ -2189,7 +2190,7 @@ if ( !in_stream )
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] As for the standard input, if the input pattern is unexpected, it is possible to set the state of the file to failed and try to recover somewhere else, e.g. by throwing an exception
+\item[] As for the standard input, if the input pattern is unexpected, it is possible to set the state of the file to failed and try to recover somewhere else, e.g. by throwing an exception:
 \end{enumerate}
 \begin{lstlisting}
 try(*\index{Exceptions!\textbf{try-catch}}*)
@@ -2276,11 +2277,11 @@ if ( in_stream.eof() )
     cout << "EOF reached!" << endl;
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] When a file object gets out of scope, the file is closed automatically, but explicit
-close is also possible (not recommended)\index{Files!closing by going out of scope}
+\item[$\Rightarrow$] Close\\ \\When a file object gets out of scope, the file is closed automatically, but explicit
+close is also possible (not recommended):\index{Files!closing by going out of scope}
 \end{enumerate}
 \begin{lstlisting}
-// explicitily close files(*\index{Files!closing explicitly}*)
+// explicitly close files(*\index{Files!closing explicitly}*)
 in_stream.close();
 out_stream.close()
 \end{lstlisting}
@@ -2511,7 +2512,7 @@ void MyVector::push_back(double d)
 MyVector v1(4); 
 
 // constructor with initializer list
-MyVector v2{1,2,3,4};(*\index{\texttt{initializer\_list}}*)
+MyVector v2{1, 2, 3, 4};(*\index{\texttt{initializer\_list}}*)
 
 // copy constructor
 MyVector v3{v2}; 
@@ -2532,7 +2533,7 @@ void func(MyVector v4)
 // example of a function returning an object
 MyVector func()
 {
-    MyVector v4{11,12,13,14,15};
+    MyVector v4{11, 12, 13, 14, 15};
     for ( size_t i=0; i<v4.size(); i++ )
         v4[i] += i;(*\index{\texttt{size\_t}}*)
     return v4;
@@ -2610,7 +2611,7 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] The definition above requires a calling object
+\item[] The definition above requires a calling object:
 \end{enumerate}
 \begin{lstlisting}
 // works, equivalent to (*Euro\{5\}.operator+( Euro\{2\} )*)
@@ -2656,7 +2657,7 @@ ostream& operator<<(ostream& outs, const Euro& amount)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] The definition above works for every combination because \textbf{int} arguments are converted by the constructor to \texttt{Euro} objects
+\item[] The definition above works for every combination because \textbf{int} arguments are converted by the constructor to \texttt{Euro} objects:
 \index{Classes!constructors!type conversions}
 \end{enumerate}
 \begin{lstlisting}
@@ -2872,7 +2873,7 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{Line} is derived from \texttt{Shape}, it models the relationship that a \texttt{Line} is a \texttt{Shape}
+\item[] \texttt{Line} is derived from \texttt{Shape}, it models the relationship that a \texttt{Line} is a \texttt{Shape}:
 \index{Inheritance!derived class}
 \end{enumerate}
 \begin{lstlisting}
@@ -2882,7 +2883,7 @@ class Line : public Shape(*\index{Classes!\textbf{class}!\texttt{Line}}*)
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{Line} has its own getter and setter functions for accessing its own internal private representation
+\item[] \texttt{Line} has its own getter and setter functions for accessing its own internal private representation:
 \index{Classes!getter and setter functions}
 \end{enumerate}
 \begin{lstlisting}
@@ -2898,7 +2899,7 @@ private:
 };
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] \texttt{Line} specialises the virtual functions \texttt{draw\_shape()} and \texttt{move\_shape()} according to its representation
+\item[] \texttt{Line} specialises the virtual functions \texttt{draw\_shape()} and \texttt{move\_shape()} according to its representation:
 \index{Inheritance!function specialisation}
 \end{enumerate}
 \begin{lstlisting}
@@ -2960,7 +2961,7 @@ private:
 %
 \section{Polymorphism}
 \begin{enumerate}
-\item[$\Rightarrow$] From a window perspective, it is possible to attach and draw any type of widget, and the window just needs to call the \texttt{Fl\_Widget::draw()} method
+\item[$\Rightarrow$] Drawing shapes\\ \\From a window perspective, it is possible to attach and draw any type of widget, and the window just needs to call the \texttt{Fl\_Widget::draw()} method:
 \index{Polymorphism}
 \end{enumerate}
 \begin{lstlisting}
@@ -2969,8 +2970,8 @@ void Window::draw(Fl_Widget& w) {
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Since \texttt{Fl\_Widget::draw()} is a pure virtual function, it is overridden by
-\texttt{Shape::draw()}, which in turn calls the pure virtual function \texttt{Shape::draw\_shape()}, which gets specialised in every derived class, e.g. as in \texttt{Line} or \texttt{Circle}
+\item[] Since \texttt{Fl\_Widget::draw()} is a pure virtual function, it is overridden by
+\texttt{Shape::draw()}, which in turn calls the pure virtual function \texttt{Shape::draw\_shape()}, which gets specialised in every derived class, e.g. as in \texttt{Line} or \texttt{Circle}:
 \end{enumerate}
 \begin{lstlisting}
 void Shape::draw() {
@@ -2991,12 +2992,12 @@ void Line::draw_shape() {
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Polymorphism is allowed by the \textbf{virtual} keyword which guarantees late binding: the call \texttt{w.draw()} inside \texttt{Windows::draw()} binds to the \texttt{draw\_shape()} function of the actual object referenced, either to a \texttt{Line} or \texttt{Circle} instance
+\item[$\Rightarrow$] Late binding \\ \\Polymorphism is allowed by the \textbf{virtual} keyword which guarantees late binding: the call \texttt{w.draw()} inside \texttt{Windows::draw()} binds to the \texttt{draw\_shape()} function of the actual object referenced, either to a \texttt{Line} or \texttt{Circle} instance:
 \index{Polymorphism!late binding}
 \end{enumerate}
 \begin{lstlisting}
 Window win;
-Line diagonal { {Point{200,200},Point{250,250}} };
+Line diagonal{ {Point{200,200}, Point{250,250}} };
 Circle c1{Point{100,200},50};
 
 win.draw( diagonal ); // calls (*Line::draw\_shape()*)
@@ -3041,7 +3042,7 @@ catch (...)
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions.  For example \texttt{runtime\_error} can be thrown when runtime errors occur
+\item[$\Rightarrow$] The standard library defines a hierarchy of exceptions\\ \\ For example \texttt{runtime\_error} can be thrown when runtime errors occur:
 \end{enumerate}
 \begin{lstlisting}
 try(*\index{Exceptions!\textbf{try-catch}}*)
@@ -3056,7 +3057,7 @@ catch ( runtime_error& e )
 }
 \end{lstlisting}
 \begin{enumerate}
-\item[$\Rightarrow$] Functions throwing exceptions should list the exceptions thrown in
+\item[$\Rightarrow$] Functions throwing exceptions \\ \\ Functions should list the exceptions thrown in
 the exception specification list. These exceptions are not caught by the function itself!
 \end{enumerate}
 \begin{lstlisting}
@@ -3104,6 +3105,7 @@ void my_function(void)
 \section{Templates}
 Types are used as parameters for a function or a class.  C++ does not need the template declaration. Always put the 
 template definition in the header file directly!
+\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Function template\index{Templates!function}
 \end{enumerate}
@@ -3235,7 +3237,7 @@ MyVector< T >& MyVector< T >::operator=(const MyVector< T >& rv)(*\index{Classes
 \begin{lstlisting}
 // (*MyVector*) of (*double*)
 MyVector< double > v4{11,12,13,14,15};
-(*\newpage*)
+
 // function returning a (*MyVector*) of (*double*)
 MyVector< double > func()
 {
@@ -3369,13 +3371,13 @@ private:
 %
 \section{Iterators}
 \begin{enumerate}
-\item[$\Rightarrow$] An iterator is a generalisation of a pointer. It is an object that identifies an element of a sequence. Different containers have
-different iterators\index{Iterators}
+\item[$\Rightarrow$] An iterator is a generalisation of a pointer \\ \\It is an object that identifies an element of a sequence. Different containers have
+different iterators\index{Iterators}:
 \end{enumerate}
 \begin{lstlisting}
 #include <vector>(*\index{\texttt{<vector>}}*)
 
-vector< int > v = {1,2,3,4,5};(*\index{Containers!\texttt{vector}}*)
+vector< int > v = {1, 2, 3, 4, 5};(*\index{Containers!\texttt{vector}}*)
 // mutable iterator
 vector< int >::iterator e;(*\index{\texttt{iterator}|see{Iterators}}*)(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
 
@@ -3411,6 +3413,7 @@ for ( c = v.begin(); c != v.end(); c++ )
 // not allowed
 // (*c[2] = 2;*)
 \end{lstlisting}
+\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Reverse iterator
 \end{enumerate}
@@ -3422,7 +3425,6 @@ vector< int >::reverse_iterator r;(*\index{\texttt{reverse\_iterator}|see{Iterat
 for ( r = v.rbegin(); r != v.rend(); r++ )
     cout << *r << endl;(*\index{range-for-loop}*)
 \end{lstlisting}
-\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Example iterator class for a power range\index{Iterators!custom implementation}
 \end{enumerate}
@@ -3596,6 +3598,7 @@ private:
     LListNode< T >* curr{nullptr};(*\index{\textbf{nullptr}}*)
 };
 
+(*\newpage*)
 // example usage
 LList< int > data_list;
 
@@ -3636,7 +3639,7 @@ cout << "data_list = " << data_list << endl;
 \begin{lstlisting}
 #include <list>(*\index{\texttt{<list>}}*)
 
-list< double > data = {1.32,-2.45,5.65,-8.93,2.76};(*\index{\texttt{list}|see{Containers}}*)(*\index{Containers!\texttt{list}}*)
+list< double > data = {1.32, -2.45, 5.65, -8.93, 2.76};(*\index{\texttt{list}|see{Containers}}*)(*\index{Containers!\texttt{list}}*)
 
 // adds elements
 data.push_back( 9.23 );(*\index{Containers!\texttt{list}!\texttt{push\_back}}*)
@@ -3655,7 +3658,8 @@ data.erase( e );(*\index{Containers!\texttt{list}!\texttt{erase}}*)
 // print out the content    
 for ( e = data.begin(); e != data.end(); e++ )
     cout << *e << endl;
-    
+
+(*\newpage*)    
 // range-for-loop
 for ( auto x : data )(*\index{range-for-loop}*)
     cout << x << endl;(*\index{\textbf{auto}}*)
@@ -3667,7 +3671,7 @@ for ( auto x : data )(*\index{range-for-loop}*)
 #include <stack>(*\index{\texttt{<stack>}}*)
 
 stack< double > numbers;(*\index{\texttt{stack}|see{Containers}}*)(*\index{Containers!\texttt{stack}}*)
-(*\newpage*)
+
 // push on the stack
 numbers.push( 5.65 );(*\index{Containers!\texttt{stack}!\texttt{push}}*)
 numbers.push( -3.95 );
@@ -3782,14 +3786,13 @@ Provided by the C++ standard template library (STL)\index{STL}.
 #include <algorithm>(*\index{\texttt{<algorithm>}}*)
 #include <vector>(*\index{\texttt{<vector>}}*)
 
-vector< int > v = {6,2,7,13,4,3,1};(*\index{\texttt{vector}|see{Containers}}*)(*\index{Containers!\texttt{vector}}*)
+vector< int > v = {6, 2, 7, 13, 4, 3, 1};(*\index{\texttt{vector}|see{Containers}}*)(*\index{Containers!\texttt{vector}}*)
 vector< int >::iterator p;(*\index{Iterators!\texttt{vector}!\texttt{iterator}}*)
 
 // (*find*)(*\index{Algorithms!\texttt{find}}*)
 // points to the first occurrence of 13 in (*v*)
 p = find( v.begin(),v.end(),13 );(*\index{Algorithms!\texttt{find}}*)
 \end{lstlisting}
-\newpage
 \begin{enumerate}
 \item[$\Rightarrow$]  \texttt{find\_if}
 \end{enumerate}
@@ -3843,22 +3846,22 @@ long res = accumulate( v.begin(),v.end(),long(0) );(*\index{Algorithms!\texttt{a
 // (*multiplies< int >()*) defined in (*<functional>*)(*\index{\texttt{multiplies< int >()}}*)
 double res = accumulate( v.begin(),v.end(), 1.0, multiplies< int >() );
 \end{lstlisting}
+\newpage
 \begin{enumerate}
 \item[$\Rightarrow$]  Inner product
 \end{enumerate}
 \begin{lstlisting}
 // (*inner product*)
-vector< int > v1 = {-2,2,4,11,-4,3,1};(*\index{Containers!\texttt{vector}}*)
-vector< int > v2 = {4,2,4,18,5,3,1,7,9,};(*\index{Containers!\texttt{vector}}*)
+vector< int > v1 = {-2, 2, 4, 11, -4, 3, 1};(*\index{Containers!\texttt{vector}}*)
+vector< int > v2 = {4, 2, 4, 18, 5, 3, 1, 7, 9,};(*\index{Containers!\texttt{vector}}*)
 
 long res = inner_product( v1.begin(), v1.end(), v2.begin(), long(0) );(*\index{Algorithms!\texttt{inner\_product}}*)(*\index{\texttt{inner\_product}|see{Algorithms}}*)
 \end{lstlisting}
-\newpage
 \begin{enumerate}
 \item[$\Rightarrow$]  \texttt{copy} between different containers
 \end{enumerate}
 \begin{lstlisting}
-list< double > data = {1.32,-2.45,5.65};(*\index{Containers!\texttt{list}}*)
+list< double > data = {1.32, -2.45, 5.65};(*\index{Containers!\texttt{list}}*)
 vector< int > int_data(5);(*\index{Containers!\texttt{vector}}*)
 
 // copy data from the (*list*) of doubles to the (*vector*) of integers
@@ -3922,7 +3925,6 @@ srand( time(0) );(*\index{\texttt{srand}}*)(*\index{\texttt{time}}*)
 // integer random number between (*0*) and (*RAND\_MAX*)(*\index{Utilities!Random numbers!integer random number}*)
 int n = rand();(*\index{\texttt{rand}}*)
 \end{lstlisting}
-\newpage
 \begin{enumerate}
 \item[] C++ style:
 \end{enumerate}
@@ -3934,7 +3936,7 @@ int n = rand();(*\index{\texttt{rand}}*)
 // first argument with its second argument
 
 // normal distribution by using the default random engine
-auto gen_def = bind( normal_distribution< double >{15,4.0},(*\index{\texttt{bind}}*)(*\index{Utilities!Random numbers!normal distribution}*)
+auto gen_def = bind( normal_distribution< double >{15, 4.0},(*\index{\texttt{bind}}*)(*\index{Utilities!Random numbers!normal distribution}*)
                     default_random_engine{} );(*\index{Utilities!Random numbers!default random engine}*)(*\index{\texttt{default\_random\_engine}}*)
                     
 // normal distribution by using the Mersenne Twister
@@ -3976,6 +3978,7 @@ cout << c << endl; // (*00000111*)
 for ( auto i=0; i<8; ++i )
      cout << c[i];
 \end{lstlisting}
+\newpage
 \begin{enumerate}
 \item[$\Rightarrow$] Chrono\index{Utilities!Chrono}
 \end{enumerate}
@@ -4060,7 +4063,7 @@ cout << "total_time.count() = " << total_time.count();
 pair< float,string > temp1{ 23.4, " degrees C" }{(*\index{\texttt{pair}}*)
 
 pair< float,string > temp2; 
-temp2 = make_pair< float,string >( 21.7," degrees C" );(*\index{\texttt{pair}}*)(*\index{\texttt{make\_pair}}*)
+temp2 = make_pair< float,string >( 21.7, " degrees C" );(*\index{\texttt{pair}}*)(*\index{\texttt{make\_pair}}*)
 
 // prints temperatures
 cout << temp1.first << temp1.second << endl;
@@ -4115,7 +4118,6 @@ while ( regex_search( start, zip.cend(), results, regex ) )(*\index{\texttt{rege
 }
 cout << endl;
 \end{lstlisting}
-\newpage
 \begin{enumerate}
 \item[] Replace:\index{Utilities!Regular expressions!replace}
 \end{enumerate}
@@ -4123,8 +4125,7 @@ cout << endl;
 #include <regex>(*\index{\texttt{<regex>}}*)
 #include <string>(*\index{\texttt{<string>}}*)
 
-// regular expression to look for
-// in raw string format 
+// regular expression to look for in raw string format 
 regex regex{ R"((\w{2})(\d{5})(-\d{4})?)" };(*\index{\texttt{regex}}*)(*\index{Strings!raw format}*)
 string zip("The string NJ07936-3173 and NJ07936-3175 are ZIP codes");
 
@@ -4185,7 +4186,6 @@ target_file.replace_filename("Mycopy");
 // copy file
 copy_file( source_file,target_file );(*\index{\texttt{copy\_file}}*)(*\index{Utilities!Filesystem!copy file}*)
 \end{lstlisting}
-\newpage
 \begin{enumerate}
 \item[] Read a file and print out its content:
 \end{enumerate}
