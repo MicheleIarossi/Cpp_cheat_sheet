@@ -25,6 +25,7 @@
 % paperwidth = bleed + a4width + spine + a4width + bleed = 3.00 + 210.00 + 5.22 + 210.00 + 3.00 = 431.22mm
 \usepackage[paperheight = 303.00mm, paperwidth = 431.22mm]{geometry}
 \usepackage[dvipsnames,prologue,table]{pstricks}
+\usepackage[most]{tcolorbox}
 \usepackage{pst-barcode}
 \usepackage{graphicx}
 \usepackage{xcolor}
@@ -36,24 +37,45 @@
 %\psset{unit=1in}
 \begin{pspicture}(431.22mm,303.00mm)
 % image over the whole cover
-\newsavebox\IBox\sbox\IBox{\includegraphics[height=303.00mm,width=431.22mm]{P1000684.jpeg}}
+\newsavebox\IBox\sbox\IBox{\includegraphics[height=303.00mm,width=431.22mm]{P1000675.jpeg}}
 \rput[lb](0,0){\usebox\IBox}
 % spine
 %\psframe[fillstyle=solid,fillcolor=NavyBlue](213.00mm,0)(218.22mm,303.00mm)
 % front
+
+%\newsavebox\Titlebox
+%\sbox\Titlebox{
+%\fcolorbox{black}{white}{
+%\begin{minipage}{110.00mm}
+%\begin{center}
+%\vspace{19.05mm}
+%{\Huge \textbf{\emph{C++ Code Snippets}}}
+%
+%\vspace{12.7mm}
+%{\LARGE Michele Iarossi}
+%\vspace{19.05mm}
+%\end{center}
+%\end{minipage}}
+%}
+
 \newsavebox\Titlebox
 \sbox\Titlebox{
-\fcolorbox{black}{white}{
+\begin{tcolorbox}[colback=white,%white background
+                  colframe=black,% black frame colour
+                  width=12.2cm,% Use 11cm total width,
+                  arc=3mm, auto outer arc,
+                 ]
 \begin{minipage}{110.00mm}
 \begin{center}
-\vspace{19.05mm}
+\vspace{10.05mm}
 {\Huge \textbf{\emph{C++ Code Snippets}}}
 
 \vspace{12.7mm}
-{\LARGE Michele Iarossi}
-\vspace{19.05mm}
+{\LARGE \emph{Michele Iarossi}}
+\vspace{10.05mm}
 \end{center}
-\end{minipage}}
+\end{minipage}
+\end{tcolorbox}
 }
 \rput[lb](266.22mm,190.5mm){\usebox\Titlebox}
 
